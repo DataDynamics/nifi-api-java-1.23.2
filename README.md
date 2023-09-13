@@ -1,4 +1,4 @@
-# Apache NiFi 1.12.2 버전을 위한 Java API Client
+# Apache NiFi 1.23.2 버전을 위한 Java API Client
 
 ## 작성 개요
 
