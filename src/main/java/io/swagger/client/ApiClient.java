@@ -17,6 +17,7 @@ import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
+import io.datadynamics.nifi.util.OkHttpUtil;
 import io.swagger.client.auth.ApiKeyAuth;
 import io.swagger.client.auth.Authentication;
 import io.swagger.client.auth.HttpBasicAuth;
@@ -78,10 +79,9 @@ public class ApiClient {
      * Constructor for ApiClient
      */
     public ApiClient() {
-        httpClient = new OkHttpClient();
+        httpClient = OkHttpUtil.getUnsafeOkHttpClient();
 
-
-        verifyingSsl = true;
+        verifyingSsl = false;
 
         json = new JSON();
 
@@ -90,6 +90,7 @@ public class ApiClient {
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
+
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
