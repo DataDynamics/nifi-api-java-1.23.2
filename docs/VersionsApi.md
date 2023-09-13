@@ -31,8 +31,8 @@ Creates a request so that a Process Group can be placed under Version Control or
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -76,8 +76,8 @@ Deletes the Revert Request with the given ID. After a request is created via a P
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -123,8 +123,8 @@ Deletes the Update Request with the given ID. After a request is created via a P
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -170,8 +170,8 @@ Deletes the Version Control Request with the given ID. This will allow other thr
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -216,8 +216,8 @@ Gets the latest version of a Process Group for download
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -261,8 +261,8 @@ Returns the Revert Request with the given ID. Once a Revert Request has been cre
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -306,8 +306,8 @@ Returns the Update Request with the given ID. Once an Update Request has been cr
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -351,8 +351,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -396,8 +396,8 @@ For a Process Group that is already under Version Control, this will initiate th
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -443,8 +443,8 @@ For a Process Group that is already under Version Control, this will initiate th
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -490,8 +490,8 @@ Begins version controlling the Process Group with the given ID or commits change
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -537,8 +537,8 @@ Stops version controlling the Process Group with the given ID. The Process Group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -588,8 +588,8 @@ For a Process Group that is already under Version Control, this will update the 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();
@@ -635,8 +635,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.VersionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.VersionsApi;
 
 
 VersionsApi apiInstance = new VersionsApi();

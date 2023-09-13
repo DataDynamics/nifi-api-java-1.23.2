@@ -31,13 +31,8 @@ mvn install
 API 호출을 위해서 Basic Auth로 Access Token을 얻습니다.
 
 ```java
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AccessApi;
-
-import java.io.File;
-import java.util.*;
+import io.datadynamics.nifi.api.ApiClient;
+import io.datadynamics.nifi.api.api.AccessApi;
 
 public class AccessApiExample {
 
@@ -58,13 +53,8 @@ public class AccessApiExample {
 Access Token을 이용하여 API를 호출합니다.
 
 ```java
-import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.AccessApi;
-
-import java.io.File;
-import java.util.*;
+import io.datadynamics.nifi.api.ApiClient;
+import io.datadynamics.nifi.api.model.*;
 
 public class ResourcesApiExample {
 

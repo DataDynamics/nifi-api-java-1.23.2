@@ -30,8 +30,8 @@ Performs analysis of the component&#39;s configuration, providing information ab
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -77,8 +77,8 @@ Clears the state for a controller service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -122,8 +122,8 @@ Deletes the Verification Request with the given ID. After a request is created, 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -169,8 +169,8 @@ If the uiOnly query parameter is provided with a value of true, the returned ent
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -216,8 +216,8 @@ Gets a controller service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -261,8 +261,8 @@ Gets a controller service property descriptor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -310,8 +310,8 @@ Gets the state for a controller service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -355,8 +355,8 @@ Returns the Verification Request with the given ID. Once an Verification Request
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -402,8 +402,8 @@ Deletes a controller service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -453,8 +453,8 @@ This will initiate the process of verifying a given Controller Service configura
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -500,8 +500,8 @@ Updates a controller service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -547,8 +547,8 @@ Updates a controller services references
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();
@@ -594,8 +594,8 @@ Updates run status of a controller service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerServicesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerServicesApi;
 
 
 ControllerServicesApi apiInstance = new ControllerServicesApi();

@@ -20,8 +20,8 @@ Deletes a connection
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ConnectionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ConnectionsApi;
 
 
 ConnectionsApi apiInstance = new ConnectionsApi();
@@ -71,8 +71,8 @@ Gets a connection
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ConnectionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ConnectionsApi;
 
 
 ConnectionsApi apiInstance = new ConnectionsApi();
@@ -116,8 +116,8 @@ Updates a connection
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ConnectionsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ConnectionsApi;
 
 
 ConnectionsApi apiInstance = new ConnectionsApi();

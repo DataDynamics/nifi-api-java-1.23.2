@@ -20,8 +20,8 @@ Gets a label
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.LabelsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.LabelsApi;
 
 
 LabelsApi apiInstance = new LabelsApi();
@@ -65,8 +65,8 @@ Deletes a label
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.LabelsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.LabelsApi;
 
 
 LabelsApi apiInstance = new LabelsApi();
@@ -116,8 +116,8 @@ Updates a label
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.LabelsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.LabelsApi;
 
 
 LabelsApi apiInstance = new LabelsApi();

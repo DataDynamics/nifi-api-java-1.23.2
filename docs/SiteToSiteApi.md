@@ -19,8 +19,8 @@ Returns the available Peers and its status of this NiFi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SiteToSiteApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.SiteToSiteApi;
 
 
 SiteToSiteApi apiInstance = new SiteToSiteApi();
@@ -60,8 +60,8 @@ Returns the details about this NiFi necessary to communicate via site to site
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SiteToSiteApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.SiteToSiteApi;
 
 
 SiteToSiteApi apiInstance = new SiteToSiteApi();

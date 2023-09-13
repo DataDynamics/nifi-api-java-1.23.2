@@ -20,8 +20,8 @@ Creates a snippet. The snippet will be automatically discarded if not used in a 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SnippetsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.SnippetsApi;
 
 
 SnippetsApi apiInstance = new SnippetsApi();
@@ -65,8 +65,8 @@ Deletes the components in a snippet and discards the snippet
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SnippetsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.SnippetsApi;
 
 
 SnippetsApi apiInstance = new SnippetsApi();
@@ -112,8 +112,8 @@ Move&#39;s the components in this Snippet into a new Process Group and discards 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.SnippetsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.SnippetsApi;
 
 
 SnippetsApi apiInstance = new SnippetsApi();

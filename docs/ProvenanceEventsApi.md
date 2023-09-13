@@ -22,8 +22,8 @@ Gets the input content for a provenance event
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceEventsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceEventsApi;
 
 
 ProvenanceEventsApi apiInstance = new ProvenanceEventsApi();
@@ -69,8 +69,8 @@ Gets the output content for a provenance event
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceEventsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceEventsApi;
 
 
 ProvenanceEventsApi apiInstance = new ProvenanceEventsApi();
@@ -116,8 +116,8 @@ Gets a provenance event
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceEventsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceEventsApi;
 
 
 ProvenanceEventsApi apiInstance = new ProvenanceEventsApi();
@@ -163,8 +163,8 @@ Replays content from a provenance event
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceEventsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceEventsApi;
 
 
 ProvenanceEventsApi apiInstance = new ProvenanceEventsApi();
@@ -208,8 +208,8 @@ Replays content from a provenance event
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceEventsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceEventsApi;
 
 
 ProvenanceEventsApi apiInstance = new ProvenanceEventsApi();

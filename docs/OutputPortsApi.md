@@ -21,8 +21,8 @@ Gets an output port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.OutputPortsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.OutputPortsApi;
 
 
 OutputPortsApi apiInstance = new OutputPortsApi();
@@ -66,8 +66,8 @@ Deletes an output port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.OutputPortsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.OutputPortsApi;
 
 
 OutputPortsApi apiInstance = new OutputPortsApi();
@@ -117,8 +117,8 @@ Updates an output port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.OutputPortsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.OutputPortsApi;
 
 
 OutputPortsApi apiInstance = new OutputPortsApi();
@@ -164,8 +164,8 @@ Updates run status of an output-port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.OutputPortsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.OutputPortsApi;
 
 
 OutputPortsApi apiInstance = new OutputPortsApi();

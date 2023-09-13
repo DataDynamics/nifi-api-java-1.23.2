@@ -28,8 +28,8 @@ Performs analysis of the component&#39;s configuration, providing information ab
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -75,8 +75,8 @@ Clears the state for a reporting task
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -120,8 +120,8 @@ Deletes the Verification Request with the given ID. After a request is created, 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -167,8 +167,8 @@ Gets a reporting task property descriptor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -216,8 +216,8 @@ Gets a reporting task
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -261,8 +261,8 @@ Gets the state for a reporting task
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -306,8 +306,8 @@ Returns the Verification Request with the given ID. Once an Verification Request
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -353,8 +353,8 @@ Deletes a reporting task
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -404,8 +404,8 @@ This will initiate the process of verifying a given Reporting Task configuration
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -451,8 +451,8 @@ Updates a reporting task
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();
@@ -498,8 +498,8 @@ Updates run status of a reporting task
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ReportingTasksApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ReportingTasksApi;
 
 
 ReportingTasksApi apiInstance = new ReportingTasksApi();

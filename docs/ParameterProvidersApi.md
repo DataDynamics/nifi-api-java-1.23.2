@@ -32,8 +32,8 @@ Performs analysis of the component&#39;s configuration, providing information ab
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -79,8 +79,8 @@ Clears the state for a parameter provider
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -124,8 +124,8 @@ Deletes the Apply Parameters Request with the given ID. After a request is creat
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -173,8 +173,8 @@ Deletes the Verification Request with the given ID. After a request is created, 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -220,8 +220,8 @@ Fetches and temporarily caches the parameters for a provider
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -267,8 +267,8 @@ Gets a parameter provider
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -312,8 +312,8 @@ Returns the Apply Parameters Request with the given ID. Once an Apply Parameters
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -359,8 +359,8 @@ Gets all references to a parameter provider
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -404,8 +404,8 @@ Gets a parameter provider property descriptor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -451,8 +451,8 @@ Gets the state for a parameter provider
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -496,8 +496,8 @@ Returns the Verification Request with the given ID. Once an Verification Request
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -543,8 +543,8 @@ Deletes a parameter provider
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -594,8 +594,8 @@ This will initiate the process of applying fetched parameters to all referencing
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -641,8 +641,8 @@ This will initiate the process of verifying a given Parameter Provider configura
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();
@@ -688,8 +688,8 @@ Updates a parameter provider
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterProvidersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterProvidersApi;
 
 
 ParameterProvidersApi apiInstance = new ParameterProvidersApi();

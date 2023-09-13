@@ -63,8 +63,8 @@ Enable or disable Controller Services in the specified Process Group.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -110,8 +110,8 @@ Generates a client id.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -151,8 +151,8 @@ Retrieves details about this NiFi to put in the About dialog
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -192,8 +192,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -237,8 +237,8 @@ Retrieves the banners for this NiFi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -278,8 +278,8 @@ Gets the buckets from the specified registry for the current user
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -323,8 +323,8 @@ Gets current bulletins
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -378,8 +378,8 @@ Retrieves Controller level bulletins
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -419,8 +419,8 @@ The cluster summary for this NiFi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -460,8 +460,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -505,8 +505,8 @@ Gets statistics for a connection
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -554,8 +554,8 @@ Gets status for a connection
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -603,8 +603,8 @@ Gets the status history for a connection
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -648,8 +648,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -705,8 +705,8 @@ If the uiOnly query parameter is provided with a value of true, the returned ent
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -752,8 +752,8 @@ If the uiOnly query parameter is provided with a value of true, the returned ent
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -805,8 +805,8 @@ Gets the current status of this NiFi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -846,8 +846,8 @@ Retrieves the user identity of the user making the request
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -887,8 +887,8 @@ Gets the details of a flow from the specified registry and bucket for the specif
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -936,8 +936,8 @@ If the uiOnly query parameter is provided with a value of true, the returned ent
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -983,8 +983,8 @@ Retrieves the configuration for this NiFi flow
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1024,8 +1024,8 @@ Gets all metrics for the flow from a particular node
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1077,8 +1077,8 @@ Gets the flows from the specified registry and bucket for the current user
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1124,8 +1124,8 @@ Gets status for an input port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1173,8 +1173,8 @@ Gets status for an output port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1222,8 +1222,8 @@ Gets all Parameter Contexts
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1263,8 +1263,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1312,8 +1312,8 @@ Gets all parameter providers
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1353,8 +1353,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1394,8 +1394,8 @@ The status for a process group includes status for all descendent components. Wh
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1445,8 +1445,8 @@ Gets status history for a remote process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1490,8 +1490,8 @@ Gets status for a processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1539,8 +1539,8 @@ Gets status history for a processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1584,8 +1584,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1633,8 +1633,8 @@ Gets the listing of available flow registry clients
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1674,8 +1674,8 @@ Gets status for a remote process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1723,8 +1723,8 @@ Gets the status history
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1768,8 +1768,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1817,8 +1817,8 @@ Gets all reporting tasks
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1858,8 +1858,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1899,8 +1899,8 @@ Gets all templates
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1940,8 +1940,8 @@ Gets the flow versions from the specified registry and bucket for the specified 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -1989,8 +1989,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -2048,8 +2048,8 @@ Schedule or unschedule components in the specified Process Group.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -2095,8 +2095,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();
@@ -2140,8 +2140,8 @@ Only search results from authorized components will be returned.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowApi;
 
 
 FlowApi apiInstance = new FlowApi();

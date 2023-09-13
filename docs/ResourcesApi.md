@@ -18,8 +18,8 @@ Gets the available resources that support access/authorization policies
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ResourcesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ResourcesApi;
 
 
 ResourcesApi apiInstance = new ResourcesApi();

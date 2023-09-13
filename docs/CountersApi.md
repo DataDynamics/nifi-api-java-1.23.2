@@ -19,8 +19,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.CountersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.CountersApi;
 
 
 CountersApi apiInstance = new CountersApi();
@@ -66,8 +66,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.CountersApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.CountersApi;
 
 
 CountersApi apiInstance = new CountersApi();

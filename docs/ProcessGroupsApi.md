@@ -58,8 +58,8 @@ Copies a snippet and discards it.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -105,8 +105,8 @@ Creates a connection
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -152,8 +152,8 @@ Creates a new controller service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -199,8 +199,8 @@ Creates a request to drop all flowfiles of all connection queues in this process
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -244,8 +244,8 @@ Creates a funnel
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -291,8 +291,8 @@ Creates an input port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -338,8 +338,8 @@ Creates a label
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -385,8 +385,8 @@ Creates an output port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -432,8 +432,8 @@ Creates a process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -481,8 +481,8 @@ Creates a new processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -528,8 +528,8 @@ Creates a new process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -575,8 +575,8 @@ Creates a template and discards the specified snippet.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -622,8 +622,8 @@ Deletes the Replace Request with the given ID. After a request is created via a 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -669,8 +669,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -718,8 +718,8 @@ Gets a process group for download
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -765,8 +765,8 @@ Gets all connections
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -810,8 +810,8 @@ Gets the current status of a drop all flowfiles request.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -857,8 +857,8 @@ Gets all funnels
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -902,8 +902,8 @@ Gets all input ports
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -947,8 +947,8 @@ Gets all labels
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -992,8 +992,8 @@ Gets a list of local modifications to the Process Group since it was last synchr
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1037,8 +1037,8 @@ Gets all output ports
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1082,8 +1082,8 @@ Gets a process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1127,8 +1127,8 @@ Gets all process groups
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1172,8 +1172,8 @@ Gets all processors
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1219,8 +1219,8 @@ Gets all remote process groups
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1264,8 +1264,8 @@ Returns the Replace Request with the given ID. Once a Replace Request has been c
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1309,8 +1309,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1356,8 +1356,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1403,8 +1403,8 @@ Imports a specified process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1448,8 +1448,8 @@ Imports a template
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1493,8 +1493,8 @@ This will initiate the action of replacing a process group with the given proces
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1540,8 +1540,8 @@ Instantiates a template
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1587,8 +1587,8 @@ Cancels and/or removes a request to drop all flowfiles.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1634,8 +1634,8 @@ Deletes a process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1685,8 +1685,8 @@ This endpoint is used for replication within a cluster, when replacing a flow wi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1732,8 +1732,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1779,8 +1779,8 @@ Updates a process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1826,8 +1826,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1873,8 +1873,8 @@ Uploads a versioned flow definition and creates a process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();
@@ -1928,8 +1928,8 @@ Uploads a template
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessGroupsApi;
 
 
 ProcessGroupsApi apiInstance = new ProcessGroupsApi();

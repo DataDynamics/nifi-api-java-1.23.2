@@ -24,8 +24,8 @@ Deletes a lineage query
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceApi;
 
 
 ProvenanceApi apiInstance = new ProvenanceApi();
@@ -71,8 +71,8 @@ Deletes a provenance query
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceApi;
 
 
 ProvenanceApi apiInstance = new ProvenanceApi();
@@ -118,8 +118,8 @@ Gets a lineage query
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceApi;
 
 
 ProvenanceApi apiInstance = new ProvenanceApi();
@@ -165,8 +165,8 @@ Gets a provenance query
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceApi;
 
 
 ProvenanceApi apiInstance = new ProvenanceApi();
@@ -216,8 +216,8 @@ Gets the searchable attributes for provenance events
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceApi;
 
 
 ProvenanceApi apiInstance = new ProvenanceApi();
@@ -257,8 +257,8 @@ Lineage queries may be long running so this endpoint submits a request. The resp
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceApi;
 
 
 ProvenanceApi apiInstance = new ProvenanceApi();
@@ -302,8 +302,8 @@ Provenance queries may be long running so this endpoint submits a request. The r
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProvenanceApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProvenanceApi;
 
 
 ProvenanceApi apiInstance = new ProvenanceApi();

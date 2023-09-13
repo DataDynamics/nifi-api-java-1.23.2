@@ -31,8 +31,8 @@ Performs analysis of the component&#39;s configuration, providing information ab
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -78,8 +78,8 @@ Clears the state for a processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -123,8 +123,8 @@ Deletes a processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -174,8 +174,8 @@ Deletes the Verification Request with the given ID. After a request is created, 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -221,8 +221,8 @@ Gets a processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -266,8 +266,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -311,8 +311,8 @@ Submits a query to retrieve the run status details of all processors that are in
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -356,8 +356,8 @@ Gets the descriptor for a processor property
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -407,8 +407,8 @@ Gets the state for a processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -452,8 +452,8 @@ Returns the Verification Request with the given ID. Once an Verification Request
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -499,8 +499,8 @@ This will initiate the process of verifying a given Processor configuration. Thi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -546,8 +546,8 @@ Terminates a processor, essentially \&quot;deleting\&quot; its threads and any a
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -591,8 +591,8 @@ Updates a processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();
@@ -638,8 +638,8 @@ Updates run status of a processor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ProcessorsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ProcessorsApi;
 
 
 ProcessorsApi apiInstance = new ProcessorsApi();

@@ -22,8 +22,8 @@ Creates an access policy
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PoliciesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.PoliciesApi;
 
 
 PoliciesApi apiInstance = new PoliciesApi();
@@ -67,8 +67,8 @@ Gets an access policy
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PoliciesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.PoliciesApi;
 
 
 PoliciesApi apiInstance = new PoliciesApi();
@@ -112,8 +112,8 @@ Will return the effective policy if no component specific policy exists for the 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PoliciesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.PoliciesApi;
 
 
 PoliciesApi apiInstance = new PoliciesApi();
@@ -159,8 +159,8 @@ Deletes an access policy
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PoliciesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.PoliciesApi;
 
 
 PoliciesApi apiInstance = new PoliciesApi();
@@ -210,8 +210,8 @@ Updates a access policy
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.PoliciesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.PoliciesApi;
 
 
 PoliciesApi apiInstance = new PoliciesApi();

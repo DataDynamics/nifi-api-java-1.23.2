@@ -27,8 +27,8 @@ Gets a remote process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -72,8 +72,8 @@ Gets the state for a RemoteProcessGroup
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -117,8 +117,8 @@ Deletes a remote process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -168,8 +168,8 @@ Updates a remote process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -215,8 +215,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -264,8 +264,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -313,8 +313,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -362,8 +362,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -411,8 +411,8 @@ Updates run status of a remote process group
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();
@@ -458,8 +458,8 @@ Updates run status of all remote process groups in a process group (recursively)
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.RemoteProcessGroupsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.RemoteProcessGroupsApi;
 
 
 RemoteProcessGroupsApi apiInstance = new RemoteProcessGroupsApi();

@@ -36,8 +36,8 @@ Creates a new bulletin
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -81,8 +81,8 @@ Creates a new controller service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -126,8 +126,8 @@ Creates a new flow registry client
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -171,8 +171,8 @@ Creates a new parameter provider
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -216,8 +216,8 @@ Creates a new reporting task
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -261,8 +261,8 @@ Deletes a flow registry client
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -312,8 +312,8 @@ Purges history
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -357,8 +357,8 @@ Removes a node from the cluster
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -402,8 +402,8 @@ Returns the contents of the cluster including all nodes and their status.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -443,8 +443,8 @@ Retrieves the configuration for this NiFi Controller
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -484,8 +484,8 @@ Gets a flow registry client
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -529,8 +529,8 @@ Gets the listing of available flow registry clients
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -570,8 +570,8 @@ Gets a node in the cluster
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -615,8 +615,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -656,8 +656,8 @@ Gets a flow registry client property descriptor
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -705,8 +705,8 @@ Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -746,8 +746,8 @@ Retrieves the configuration for this NiFi
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -791,8 +791,8 @@ Updates a flow registry client
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();
@@ -838,8 +838,8 @@ Updates a node in the cluster
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ControllerApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ControllerApi;
 
 
 ControllerApi apiInstance = new ControllerApi();

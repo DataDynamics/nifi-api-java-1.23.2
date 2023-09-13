@@ -24,8 +24,8 @@ Commit or cancel the specified transaction
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DataTransferApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.DataTransferApi;
 
 
 DataTransferApi apiInstance = new DataTransferApi();
@@ -73,8 +73,8 @@ Commit or cancel the specified transaction
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DataTransferApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.DataTransferApi;
 
 
 DataTransferApi apiInstance = new DataTransferApi();
@@ -124,8 +124,8 @@ Create a transaction to the specified output port or input port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DataTransferApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.DataTransferApi;
 
 
 DataTransferApi apiInstance = new DataTransferApi();
@@ -171,8 +171,8 @@ Extend transaction TTL
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DataTransferApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.DataTransferApi;
 
 
 DataTransferApi apiInstance = new DataTransferApi();
@@ -218,8 +218,8 @@ Extend transaction TTL
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DataTransferApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.DataTransferApi;
 
 
 DataTransferApi apiInstance = new DataTransferApi();
@@ -265,8 +265,8 @@ Transfer flow files to the input port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DataTransferApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.DataTransferApi;
 
 
 DataTransferApi apiInstance = new DataTransferApi();
@@ -312,8 +312,8 @@ Transfer flow files from the output port
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.DataTransferApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.DataTransferApi;
 
 
 DataTransferApi apiInstance = new DataTransferApi();

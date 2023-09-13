@@ -25,8 +25,8 @@ Creates a request to drop the contents of the queue in this connection.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowfileQueuesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowfileQueuesApi;
 
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
@@ -70,8 +70,8 @@ Lists the contents of the queue in this connection.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowfileQueuesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowfileQueuesApi;
 
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
@@ -115,8 +115,8 @@ Cancels and/or removes a request to list the contents of this connection.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowfileQueuesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowfileQueuesApi;
 
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
@@ -162,8 +162,8 @@ Gets the content for a FlowFile in a Connection.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowfileQueuesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowfileQueuesApi;
 
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
@@ -213,8 +213,8 @@ Gets the current status of a drop request for the specified connection.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowfileQueuesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowfileQueuesApi;
 
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
@@ -260,8 +260,8 @@ Gets a FlowFile from a Connection.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowfileQueuesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowfileQueuesApi;
 
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
@@ -309,8 +309,8 @@ Gets the current status of a listing request for the specified connection.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowfileQueuesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowfileQueuesApi;
 
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();
@@ -356,8 +356,8 @@ Cancels and/or removes a request to drop the contents of this connection.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.FlowfileQueuesApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.FlowfileQueuesApi;
 
 
 FlowfileQueuesApi apiInstance = new FlowfileQueuesApi();

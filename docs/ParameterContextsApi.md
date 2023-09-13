@@ -27,8 +27,8 @@ Create a Parameter Context
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -72,8 +72,8 @@ Deletes the Parameter Context with the given ID.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -123,8 +123,8 @@ Deletes the Update Request with the given ID. After a request is created via a P
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -172,8 +172,8 @@ Deletes the Validation Request with the given ID. After a request is created via
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -221,8 +221,8 @@ Returns the Parameter Context with the given ID.
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -268,8 +268,8 @@ Returns the Update Request with the given ID. Once an Update Request has been cr
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -315,8 +315,8 @@ Returns the Validation Request with the given ID. Once a Validation Request has 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -362,8 +362,8 @@ This will initiate the process of updating a Parameter Context. Changing the val
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -409,8 +409,8 @@ This will initiate the process of validating all components whose Process Group 
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
@@ -456,8 +456,8 @@ This endpoint will update a Parameter Context to match the provided entity. Howe
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
-//import io.swagger.client.api.ParameterContextsApi;
+//import io.datadynamics.nifi.api.ApiException;
+//import io.datadynamics.nifi.api.api.ParameterContextsApi;
 
 
 ParameterContextsApi apiInstance = new ParameterContextsApi();
