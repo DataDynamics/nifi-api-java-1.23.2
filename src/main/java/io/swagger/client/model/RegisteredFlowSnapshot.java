@@ -13,300 +13,295 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ExternalControllerServiceReference;
-import io.swagger.client.model.FlowRegistryBucket;
-import io.swagger.client.model.ParameterProviderReference;
-import io.swagger.client.model.RegisteredFlow;
-import io.swagger.client.model.RegisteredFlowSnapshotMetadata;
-import io.swagger.client.model.VersionedParameterContext;
-import io.swagger.client.model.VersionedProcessGroup;
-import java.io.IOException;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * RegisteredFlowSnapshot
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class RegisteredFlowSnapshot {
-  @SerializedName("snapshotMetadata")
-  private RegisteredFlowSnapshotMetadata snapshotMetadata = null;
+    @SerializedName("snapshotMetadata")
+    private RegisteredFlowSnapshotMetadata snapshotMetadata = null;
 
-  @SerializedName("flow")
-  private RegisteredFlow flow = null;
+    @SerializedName("flow")
+    private RegisteredFlow flow = null;
 
-  @SerializedName("bucket")
-  private FlowRegistryBucket bucket = null;
+    @SerializedName("bucket")
+    private FlowRegistryBucket bucket = null;
 
-  @SerializedName("flowContents")
-  private VersionedProcessGroup flowContents = null;
+    @SerializedName("flowContents")
+    private VersionedProcessGroup flowContents = null;
 
-  @SerializedName("externalControllerServices")
-  private Map<String, ExternalControllerServiceReference> externalControllerServices = null;
+    @SerializedName("externalControllerServices")
+    private Map<String, ExternalControllerServiceReference> externalControllerServices = null;
 
-  @SerializedName("parameterContexts")
-  private Map<String, VersionedParameterContext> parameterContexts = null;
+    @SerializedName("parameterContexts")
+    private Map<String, VersionedParameterContext> parameterContexts = null;
 
-  @SerializedName("flowEncodingVersion")
-  private String flowEncodingVersion = null;
+    @SerializedName("flowEncodingVersion")
+    private String flowEncodingVersion = null;
 
-  @SerializedName("parameterProviders")
-  private Map<String, ParameterProviderReference> parameterProviders = null;
+    @SerializedName("parameterProviders")
+    private Map<String, ParameterProviderReference> parameterProviders = null;
 
-  @SerializedName("latest")
-  private Boolean latest = null;
+    @SerializedName("latest")
+    private Boolean latest = null;
 
-  public RegisteredFlowSnapshot snapshotMetadata(RegisteredFlowSnapshotMetadata snapshotMetadata) {
-    this.snapshotMetadata = snapshotMetadata;
-    return this;
-  }
-
-   /**
-   * Get snapshotMetadata
-   * @return snapshotMetadata
-  **/
-  @ApiModelProperty(value = "")
-  public RegisteredFlowSnapshotMetadata getSnapshotMetadata() {
-    return snapshotMetadata;
-  }
-
-  public void setSnapshotMetadata(RegisteredFlowSnapshotMetadata snapshotMetadata) {
-    this.snapshotMetadata = snapshotMetadata;
-  }
-
-  public RegisteredFlowSnapshot flow(RegisteredFlow flow) {
-    this.flow = flow;
-    return this;
-  }
-
-   /**
-   * Get flow
-   * @return flow
-  **/
-  @ApiModelProperty(value = "")
-  public RegisteredFlow getFlow() {
-    return flow;
-  }
-
-  public void setFlow(RegisteredFlow flow) {
-    this.flow = flow;
-  }
-
-  public RegisteredFlowSnapshot bucket(FlowRegistryBucket bucket) {
-    this.bucket = bucket;
-    return this;
-  }
-
-   /**
-   * Get bucket
-   * @return bucket
-  **/
-  @ApiModelProperty(value = "")
-  public FlowRegistryBucket getBucket() {
-    return bucket;
-  }
-
-  public void setBucket(FlowRegistryBucket bucket) {
-    this.bucket = bucket;
-  }
-
-  public RegisteredFlowSnapshot flowContents(VersionedProcessGroup flowContents) {
-    this.flowContents = flowContents;
-    return this;
-  }
-
-   /**
-   * Get flowContents
-   * @return flowContents
-  **/
-  @ApiModelProperty(value = "")
-  public VersionedProcessGroup getFlowContents() {
-    return flowContents;
-  }
-
-  public void setFlowContents(VersionedProcessGroup flowContents) {
-    this.flowContents = flowContents;
-  }
-
-  public RegisteredFlowSnapshot externalControllerServices(Map<String, ExternalControllerServiceReference> externalControllerServices) {
-    this.externalControllerServices = externalControllerServices;
-    return this;
-  }
-
-  public RegisteredFlowSnapshot putExternalControllerServicesItem(String key, ExternalControllerServiceReference externalControllerServicesItem) {
-    if (this.externalControllerServices == null) {
-      this.externalControllerServices = new HashMap<String, ExternalControllerServiceReference>();
+    public RegisteredFlowSnapshot snapshotMetadata(RegisteredFlowSnapshotMetadata snapshotMetadata) {
+        this.snapshotMetadata = snapshotMetadata;
+        return this;
     }
-    this.externalControllerServices.put(key, externalControllerServicesItem);
-    return this;
-  }
 
-   /**
-   * Get externalControllerServices
-   * @return externalControllerServices
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, ExternalControllerServiceReference> getExternalControllerServices() {
-    return externalControllerServices;
-  }
-
-  public void setExternalControllerServices(Map<String, ExternalControllerServiceReference> externalControllerServices) {
-    this.externalControllerServices = externalControllerServices;
-  }
-
-  public RegisteredFlowSnapshot parameterContexts(Map<String, VersionedParameterContext> parameterContexts) {
-    this.parameterContexts = parameterContexts;
-    return this;
-  }
-
-  public RegisteredFlowSnapshot putParameterContextsItem(String key, VersionedParameterContext parameterContextsItem) {
-    if (this.parameterContexts == null) {
-      this.parameterContexts = new HashMap<String, VersionedParameterContext>();
+    /**
+     * Get snapshotMetadata
+     *
+     * @return snapshotMetadata
+     **/
+    @ApiModelProperty(value = "")
+    public RegisteredFlowSnapshotMetadata getSnapshotMetadata() {
+        return snapshotMetadata;
     }
-    this.parameterContexts.put(key, parameterContextsItem);
-    return this;
-  }
 
-   /**
-   * Get parameterContexts
-   * @return parameterContexts
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, VersionedParameterContext> getParameterContexts() {
-    return parameterContexts;
-  }
-
-  public void setParameterContexts(Map<String, VersionedParameterContext> parameterContexts) {
-    this.parameterContexts = parameterContexts;
-  }
-
-  public RegisteredFlowSnapshot flowEncodingVersion(String flowEncodingVersion) {
-    this.flowEncodingVersion = flowEncodingVersion;
-    return this;
-  }
-
-   /**
-   * Get flowEncodingVersion
-   * @return flowEncodingVersion
-  **/
-  @ApiModelProperty(value = "")
-  public String getFlowEncodingVersion() {
-    return flowEncodingVersion;
-  }
-
-  public void setFlowEncodingVersion(String flowEncodingVersion) {
-    this.flowEncodingVersion = flowEncodingVersion;
-  }
-
-  public RegisteredFlowSnapshot parameterProviders(Map<String, ParameterProviderReference> parameterProviders) {
-    this.parameterProviders = parameterProviders;
-    return this;
-  }
-
-  public RegisteredFlowSnapshot putParameterProvidersItem(String key, ParameterProviderReference parameterProvidersItem) {
-    if (this.parameterProviders == null) {
-      this.parameterProviders = new HashMap<String, ParameterProviderReference>();
+    public void setSnapshotMetadata(RegisteredFlowSnapshotMetadata snapshotMetadata) {
+        this.snapshotMetadata = snapshotMetadata;
     }
-    this.parameterProviders.put(key, parameterProvidersItem);
-    return this;
-  }
 
-   /**
-   * Get parameterProviders
-   * @return parameterProviders
-  **/
-  @ApiModelProperty(value = "")
-  public Map<String, ParameterProviderReference> getParameterProviders() {
-    return parameterProviders;
-  }
-
-  public void setParameterProviders(Map<String, ParameterProviderReference> parameterProviders) {
-    this.parameterProviders = parameterProviders;
-  }
-
-  public RegisteredFlowSnapshot latest(Boolean latest) {
-    this.latest = latest;
-    return this;
-  }
-
-   /**
-   * Get latest
-   * @return latest
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isLatest() {
-    return latest;
-  }
-
-  public void setLatest(Boolean latest) {
-    this.latest = latest;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public RegisteredFlowSnapshot flow(RegisteredFlow flow) {
+        this.flow = flow;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get flow
+     *
+     * @return flow
+     **/
+    @ApiModelProperty(value = "")
+    public RegisteredFlow getFlow() {
+        return flow;
     }
-    RegisteredFlowSnapshot registeredFlowSnapshot = (RegisteredFlowSnapshot) o;
-    return Objects.equals(this.snapshotMetadata, registeredFlowSnapshot.snapshotMetadata) &&
-        Objects.equals(this.flow, registeredFlowSnapshot.flow) &&
-        Objects.equals(this.bucket, registeredFlowSnapshot.bucket) &&
-        Objects.equals(this.flowContents, registeredFlowSnapshot.flowContents) &&
-        Objects.equals(this.externalControllerServices, registeredFlowSnapshot.externalControllerServices) &&
-        Objects.equals(this.parameterContexts, registeredFlowSnapshot.parameterContexts) &&
-        Objects.equals(this.flowEncodingVersion, registeredFlowSnapshot.flowEncodingVersion) &&
-        Objects.equals(this.parameterProviders, registeredFlowSnapshot.parameterProviders) &&
-        Objects.equals(this.latest, registeredFlowSnapshot.latest);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(snapshotMetadata, flow, bucket, flowContents, externalControllerServices, parameterContexts, flowEncodingVersion, parameterProviders, latest);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RegisteredFlowSnapshot {\n");
-    
-    sb.append("    snapshotMetadata: ").append(toIndentedString(snapshotMetadata)).append("\n");
-    sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
-    sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
-    sb.append("    flowContents: ").append(toIndentedString(flowContents)).append("\n");
-    sb.append("    externalControllerServices: ").append(toIndentedString(externalControllerServices)).append("\n");
-    sb.append("    parameterContexts: ").append(toIndentedString(parameterContexts)).append("\n");
-    sb.append("    flowEncodingVersion: ").append(toIndentedString(flowEncodingVersion)).append("\n");
-    sb.append("    parameterProviders: ").append(toIndentedString(parameterProviders)).append("\n");
-    sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setFlow(RegisteredFlow flow) {
+        this.flow = flow;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public RegisteredFlowSnapshot bucket(FlowRegistryBucket bucket) {
+        this.bucket = bucket;
+        return this;
+    }
+
+    /**
+     * Get bucket
+     *
+     * @return bucket
+     **/
+    @ApiModelProperty(value = "")
+    public FlowRegistryBucket getBucket() {
+        return bucket;
+    }
+
+    public void setBucket(FlowRegistryBucket bucket) {
+        this.bucket = bucket;
+    }
+
+    public RegisteredFlowSnapshot flowContents(VersionedProcessGroup flowContents) {
+        this.flowContents = flowContents;
+        return this;
+    }
+
+    /**
+     * Get flowContents
+     *
+     * @return flowContents
+     **/
+    @ApiModelProperty(value = "")
+    public VersionedProcessGroup getFlowContents() {
+        return flowContents;
+    }
+
+    public void setFlowContents(VersionedProcessGroup flowContents) {
+        this.flowContents = flowContents;
+    }
+
+    public RegisteredFlowSnapshot externalControllerServices(Map<String, ExternalControllerServiceReference> externalControllerServices) {
+        this.externalControllerServices = externalControllerServices;
+        return this;
+    }
+
+    public RegisteredFlowSnapshot putExternalControllerServicesItem(String key, ExternalControllerServiceReference externalControllerServicesItem) {
+        if (this.externalControllerServices == null) {
+            this.externalControllerServices = new HashMap<String, ExternalControllerServiceReference>();
+        }
+        this.externalControllerServices.put(key, externalControllerServicesItem);
+        return this;
+    }
+
+    /**
+     * Get externalControllerServices
+     *
+     * @return externalControllerServices
+     **/
+    @ApiModelProperty(value = "")
+    public Map<String, ExternalControllerServiceReference> getExternalControllerServices() {
+        return externalControllerServices;
+    }
+
+    public void setExternalControllerServices(Map<String, ExternalControllerServiceReference> externalControllerServices) {
+        this.externalControllerServices = externalControllerServices;
+    }
+
+    public RegisteredFlowSnapshot parameterContexts(Map<String, VersionedParameterContext> parameterContexts) {
+        this.parameterContexts = parameterContexts;
+        return this;
+    }
+
+    public RegisteredFlowSnapshot putParameterContextsItem(String key, VersionedParameterContext parameterContextsItem) {
+        if (this.parameterContexts == null) {
+            this.parameterContexts = new HashMap<String, VersionedParameterContext>();
+        }
+        this.parameterContexts.put(key, parameterContextsItem);
+        return this;
+    }
+
+    /**
+     * Get parameterContexts
+     *
+     * @return parameterContexts
+     **/
+    @ApiModelProperty(value = "")
+    public Map<String, VersionedParameterContext> getParameterContexts() {
+        return parameterContexts;
+    }
+
+    public void setParameterContexts(Map<String, VersionedParameterContext> parameterContexts) {
+        this.parameterContexts = parameterContexts;
+    }
+
+    public RegisteredFlowSnapshot flowEncodingVersion(String flowEncodingVersion) {
+        this.flowEncodingVersion = flowEncodingVersion;
+        return this;
+    }
+
+    /**
+     * Get flowEncodingVersion
+     *
+     * @return flowEncodingVersion
+     **/
+    @ApiModelProperty(value = "")
+    public String getFlowEncodingVersion() {
+        return flowEncodingVersion;
+    }
+
+    public void setFlowEncodingVersion(String flowEncodingVersion) {
+        this.flowEncodingVersion = flowEncodingVersion;
+    }
+
+    public RegisteredFlowSnapshot parameterProviders(Map<String, ParameterProviderReference> parameterProviders) {
+        this.parameterProviders = parameterProviders;
+        return this;
+    }
+
+    public RegisteredFlowSnapshot putParameterProvidersItem(String key, ParameterProviderReference parameterProvidersItem) {
+        if (this.parameterProviders == null) {
+            this.parameterProviders = new HashMap<String, ParameterProviderReference>();
+        }
+        this.parameterProviders.put(key, parameterProvidersItem);
+        return this;
+    }
+
+    /**
+     * Get parameterProviders
+     *
+     * @return parameterProviders
+     **/
+    @ApiModelProperty(value = "")
+    public Map<String, ParameterProviderReference> getParameterProviders() {
+        return parameterProviders;
+    }
+
+    public void setParameterProviders(Map<String, ParameterProviderReference> parameterProviders) {
+        this.parameterProviders = parameterProviders;
+    }
+
+    public RegisteredFlowSnapshot latest(Boolean latest) {
+        this.latest = latest;
+        return this;
+    }
+
+    /**
+     * Get latest
+     *
+     * @return latest
+     **/
+    @ApiModelProperty(value = "")
+    public Boolean isLatest() {
+        return latest;
+    }
+
+    public void setLatest(Boolean latest) {
+        this.latest = latest;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RegisteredFlowSnapshot registeredFlowSnapshot = (RegisteredFlowSnapshot) o;
+        return Objects.equals(this.snapshotMetadata, registeredFlowSnapshot.snapshotMetadata) &&
+                Objects.equals(this.flow, registeredFlowSnapshot.flow) &&
+                Objects.equals(this.bucket, registeredFlowSnapshot.bucket) &&
+                Objects.equals(this.flowContents, registeredFlowSnapshot.flowContents) &&
+                Objects.equals(this.externalControllerServices, registeredFlowSnapshot.externalControllerServices) &&
+                Objects.equals(this.parameterContexts, registeredFlowSnapshot.parameterContexts) &&
+                Objects.equals(this.flowEncodingVersion, registeredFlowSnapshot.flowEncodingVersion) &&
+                Objects.equals(this.parameterProviders, registeredFlowSnapshot.parameterProviders) &&
+                Objects.equals(this.latest, registeredFlowSnapshot.latest);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(snapshotMetadata, flow, bucket, flowContents, externalControllerServices, parameterContexts, flowEncodingVersion, parameterProviders, latest);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class RegisteredFlowSnapshot {\n");
+
+        sb.append("    snapshotMetadata: ").append(toIndentedString(snapshotMetadata)).append("\n");
+        sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
+        sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+        sb.append("    flowContents: ").append(toIndentedString(flowContents)).append("\n");
+        sb.append("    externalControllerServices: ").append(toIndentedString(externalControllerServices)).append("\n");
+        sb.append("    parameterContexts: ").append(toIndentedString(parameterContexts)).append("\n");
+        sb.append("    flowEncodingVersion: ").append(toIndentedString(flowEncodingVersion)).append("\n");
+        sb.append("    parameterProviders: ").append(toIndentedString(parameterProviders)).append("\n");
+        sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,107 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ClassLoaderDiagnosticsDTO;
-import io.swagger.client.model.ControllerServiceEntity;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ControllerServiceDiagnosticsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerServiceDiagnosticsDTO {
-  @SerializedName("controllerService")
-  private ControllerServiceEntity controllerService = null;
+    @SerializedName("controllerService")
+    private ControllerServiceEntity controllerService = null;
 
-  @SerializedName("classLoaderDiagnostics")
-  private ClassLoaderDiagnosticsDTO classLoaderDiagnostics = null;
+    @SerializedName("classLoaderDiagnostics")
+    private ClassLoaderDiagnosticsDTO classLoaderDiagnostics = null;
 
-  public ControllerServiceDiagnosticsDTO controllerService(ControllerServiceEntity controllerService) {
-    this.controllerService = controllerService;
-    return this;
-  }
-
-   /**
-   * The Controller Service
-   * @return controllerService
-  **/
-  @ApiModelProperty(value = "The Controller Service")
-  public ControllerServiceEntity getControllerService() {
-    return controllerService;
-  }
-
-  public void setControllerService(ControllerServiceEntity controllerService) {
-    this.controllerService = controllerService;
-  }
-
-  public ControllerServiceDiagnosticsDTO classLoaderDiagnostics(ClassLoaderDiagnosticsDTO classLoaderDiagnostics) {
-    this.classLoaderDiagnostics = classLoaderDiagnostics;
-    return this;
-  }
-
-   /**
-   * Information about the Controller Service&#39;s Class Loader
-   * @return classLoaderDiagnostics
-  **/
-  @ApiModelProperty(value = "Information about the Controller Service's Class Loader")
-  public ClassLoaderDiagnosticsDTO getClassLoaderDiagnostics() {
-    return classLoaderDiagnostics;
-  }
-
-  public void setClassLoaderDiagnostics(ClassLoaderDiagnosticsDTO classLoaderDiagnostics) {
-    this.classLoaderDiagnostics = classLoaderDiagnostics;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ControllerServiceDiagnosticsDTO controllerService(ControllerServiceEntity controllerService) {
+        this.controllerService = controllerService;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The Controller Service
+     *
+     * @return controllerService
+     **/
+    @ApiModelProperty(value = "The Controller Service")
+    public ControllerServiceEntity getControllerService() {
+        return controllerService;
     }
-    ControllerServiceDiagnosticsDTO controllerServiceDiagnosticsDTO = (ControllerServiceDiagnosticsDTO) o;
-    return Objects.equals(this.controllerService, controllerServiceDiagnosticsDTO.controllerService) &&
-        Objects.equals(this.classLoaderDiagnostics, controllerServiceDiagnosticsDTO.classLoaderDiagnostics);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(controllerService, classLoaderDiagnostics);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerServiceDiagnosticsDTO {\n");
-    
-    sb.append("    controllerService: ").append(toIndentedString(controllerService)).append("\n");
-    sb.append("    classLoaderDiagnostics: ").append(toIndentedString(classLoaderDiagnostics)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setControllerService(ControllerServiceEntity controllerService) {
+        this.controllerService = controllerService;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ControllerServiceDiagnosticsDTO classLoaderDiagnostics(ClassLoaderDiagnosticsDTO classLoaderDiagnostics) {
+        this.classLoaderDiagnostics = classLoaderDiagnostics;
+        return this;
+    }
+
+    /**
+     * Information about the Controller Service&#39;s Class Loader
+     *
+     * @return classLoaderDiagnostics
+     **/
+    @ApiModelProperty(value = "Information about the Controller Service's Class Loader")
+    public ClassLoaderDiagnosticsDTO getClassLoaderDiagnostics() {
+        return classLoaderDiagnostics;
+    }
+
+    public void setClassLoaderDiagnostics(ClassLoaderDiagnosticsDTO classLoaderDiagnostics) {
+        this.classLoaderDiagnostics = classLoaderDiagnostics;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerServiceDiagnosticsDTO controllerServiceDiagnosticsDTO = (ControllerServiceDiagnosticsDTO) o;
+        return Objects.equals(this.controllerService, controllerServiceDiagnosticsDTO.controllerService) &&
+                Objects.equals(this.classLoaderDiagnostics, controllerServiceDiagnosticsDTO.classLoaderDiagnostics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(controllerService, classLoaderDiagnostics);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerServiceDiagnosticsDTO {\n");
+
+        sb.append("    controllerService: ").append(toIndentedString(controllerService)).append("\n");
+        sb.append("    classLoaderDiagnostics: ").append(toIndentedString(classLoaderDiagnostics)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

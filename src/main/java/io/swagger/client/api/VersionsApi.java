@@ -13,27 +13,11 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
+import io.swagger.client.*;
+import io.swagger.client.model.*;
 
 import java.io.IOException;
-
-
-import io.swagger.client.model.CreateActiveRequestEntity;
-import io.swagger.client.model.StartVersionControlRequestEntity;
-import io.swagger.client.model.VersionControlComponentMappingEntity;
-import io.swagger.client.model.VersionControlInformationEntity;
-import io.swagger.client.model.VersionedFlowSnapshotEntity;
-import io.swagger.client.model.VersionedFlowUpdateRequestEntity;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,8 +45,9 @@ public class VersionsApi {
 
     /**
      * Build call for createVersionControlRequest
-     * @param body The versioned flow details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The versioned flow details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -81,41 +66,41 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "text/plain"
+                "text/plain"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createVersionControlRequestValidateBeforeCall(CreateActiveRequestEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createVersionControlRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createVersionControlRequestCall(body, progressListener, progressRequestListener);
         return call;
@@ -125,6 +110,7 @@ public class VersionsApi {
     /**
      * Create a version control request
      * Creates a request so that a Process Group can be placed under Version Control or have its Version Control configuration changed. Creating this request will prevent any other threads from simultaneously saving local changes to Version Control. It will not, however, actually save the local flow to the Flow Registry. A POST to /versions/process-groups/{id} should be used to initiate saving of the local flow to the Flow Registry. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param body The versioned flow details. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -137,20 +123,23 @@ public class VersionsApi {
     /**
      * Create a version control request
      * Creates a request so that a Process Group can be placed under Version Control or have its Version Control configuration changed. Creating this request will prevent any other threads from simultaneously saving local changes to Version Control. It will not, however, actually save the local flow to the Flow Registry. A POST to /versions/process-groups/{id} should be used to initiate saving of the local flow to the Flow Registry. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param body The versioned flow details. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<String> createVersionControlRequestWithHttpInfo(CreateActiveRequestEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createVersionControlRequestValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create a version control request (asynchronously)
      * Creates a request so that a Process Group can be placed under Version Control or have its Version Control configuration changed. Creating this request will prevent any other threads from simultaneously saving local changes to Version Control. It will not, however, actually save the local flow to the Flow Registry. A POST to /versions/process-groups/{id} should be used to initiate saving of the local flow to the Flow Registry. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param body The versioned flow details. (required)
+     *
+     * @param body     The versioned flow details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -177,16 +166,19 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = createVersionControlRequestValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteRevertRequest
-     * @param id The ID of the Revert Request (required)
+     *
+     * @param id                           The ID of the Revert Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -195,53 +187,53 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/revert-requests/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteRevertRequestValidateBeforeCall(String id, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteRevertRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteRevertRequestCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -251,7 +243,8 @@ public class VersionsApi {
     /**
      * Deletes the Revert Request with the given ID
      * Deletes the Revert Request with the given ID. After a request is created via a POST to /versions/revert-requests/process-groups/{id}, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Revert process has completed. If the request is deleted before the request completes, then the Revert request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Revert Request (required)
+     *
+     * @param id                           The ID of the Revert Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return VersionedFlowUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -264,23 +257,26 @@ public class VersionsApi {
     /**
      * Deletes the Revert Request with the given ID
      * Deletes the Revert Request with the given ID. After a request is created via a POST to /versions/revert-requests/process-groups/{id}, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Revert process has completed. If the request is deleted before the request completes, then the Revert request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Revert Request (required)
+     *
+     * @param id                           The ID of the Revert Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;VersionedFlowUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowUpdateRequestEntity> deleteRevertRequestWithHttpInfo(String id, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteRevertRequestValidateBeforeCall(id, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the Revert Request with the given ID (asynchronously)
      * Deletes the Revert Request with the given ID. After a request is created via a POST to /versions/revert-requests/process-groups/{id}, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Revert process has completed. If the request is deleted before the request completes, then the Revert request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Revert Request (required)
+     *
+     * @param id                           The ID of the Revert Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -306,16 +302,19 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = deleteRevertRequestValidateBeforeCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteUpdateRequest
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -324,53 +323,53 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/update-requests/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteUpdateRequestValidateBeforeCall(String id, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteUpdateRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteUpdateRequestCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -380,7 +379,8 @@ public class VersionsApi {
     /**
      * Deletes the Update Request with the given ID
      * Deletes the Update Request with the given ID. After a request is created via a POST to /versions/update-requests/process-groups/{id}, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Update process has completed. If the request is deleted before the request completes, then the Update request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return VersionedFlowUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -393,23 +393,26 @@ public class VersionsApi {
     /**
      * Deletes the Update Request with the given ID
      * Deletes the Update Request with the given ID. After a request is created via a POST to /versions/update-requests/process-groups/{id}, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Update process has completed. If the request is deleted before the request completes, then the Update request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;VersionedFlowUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowUpdateRequestEntity> deleteUpdateRequestWithHttpInfo(String id, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteUpdateRequestValidateBeforeCall(id, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the Update Request with the given ID (asynchronously)
      * Deletes the Update Request with the given ID. After a request is created via a POST to /versions/update-requests/process-groups/{id}, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Update process has completed. If the request is deleted before the request completes, then the Update request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -435,16 +438,19 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = deleteUpdateRequestValidateBeforeCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteVersionControlRequest
-     * @param id The request ID. (required)
+     *
+     * @param id                           The request ID. (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -453,53 +459,53 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/active-requests/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteVersionControlRequestValidateBeforeCall(String id, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteVersionControlRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteVersionControlRequestCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -509,7 +515,8 @@ public class VersionsApi {
     /**
      * Deletes the version control request with the given ID
      * Deletes the Version Control Request with the given ID. This will allow other threads to save flows to the Flow Registry. See also the documentation for POSTing to /versions/active-requests for information regarding why this is done. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The request ID. (required)
+     *
+     * @param id                           The request ID. (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -520,7 +527,8 @@ public class VersionsApi {
     /**
      * Deletes the version control request with the given ID
      * Deletes the Version Control Request with the given ID. This will allow other threads to save flows to the Flow Registry. See also the documentation for POSTing to /versions/active-requests for information regarding why this is done. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The request ID. (required)
+     *
+     * @param id                           The request ID. (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -533,9 +541,10 @@ public class VersionsApi {
     /**
      * Deletes the version control request with the given ID (asynchronously)
      * Deletes the Version Control Request with the given ID. This will allow other threads to save flows to the Flow Registry. See also the documentation for POSTing to /versions/active-requests for information regarding why this is done. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The request ID. (required)
+     *
+     * @param id                           The request ID. (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -564,10 +573,12 @@ public class VersionsApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
+
     /**
      * Build call for exportFlowVersion
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -577,7 +588,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/process-groups/{id}/download"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -587,41 +598,41 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call exportFlowVersionValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling exportFlowVersion(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = exportFlowVersionCall(id, progressListener, progressRequestListener);
         return call;
@@ -630,7 +641,7 @@ public class VersionsApi {
 
     /**
      * Gets the latest version of a Process Group for download
-     * 
+     *
      * @param id The process group id. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -642,21 +653,22 @@ public class VersionsApi {
 
     /**
      * Gets the latest version of a Process Group for download
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<String> exportFlowVersionWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = exportFlowVersionValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the latest version of a Process Group for download (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -683,14 +695,17 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = exportFlowVersionValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getRevertRequest
-     * @param id The ID of the Revert Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The ID of the Revert Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -700,7 +715,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/revert-requests/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -710,41 +725,41 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRevertRequestValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getRevertRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getRevertRequestCall(id, progressListener, progressRequestListener);
         return call;
@@ -754,6 +769,7 @@ public class VersionsApi {
     /**
      * Returns the Revert Request with the given ID
      * Returns the Revert Request with the given ID. Once a Revert Request has been created by performing a POST to /versions/revert-requests/process-groups/{id}, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The ID of the Revert Request (required)
      * @return VersionedFlowUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -766,20 +782,23 @@ public class VersionsApi {
     /**
      * Returns the Revert Request with the given ID
      * Returns the Revert Request with the given ID. Once a Revert Request has been created by performing a POST to /versions/revert-requests/process-groups/{id}, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The ID of the Revert Request (required)
      * @return ApiResponse&lt;VersionedFlowUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowUpdateRequestEntity> getRevertRequestWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getRevertRequestValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Returns the Revert Request with the given ID (asynchronously)
      * Returns the Revert Request with the given ID. Once a Revert Request has been created by performing a POST to /versions/revert-requests/process-groups/{id}, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Revert Request (required)
+     *
+     * @param id       The ID of the Revert Request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -806,14 +825,17 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = getRevertRequestValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getUpdateRequest
-     * @param id The ID of the Update Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The ID of the Update Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -823,7 +845,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/update-requests/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -833,41 +855,41 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getUpdateRequestValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getUpdateRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getUpdateRequestCall(id, progressListener, progressRequestListener);
         return call;
@@ -877,6 +899,7 @@ public class VersionsApi {
     /**
      * Returns the Update Request with the given ID
      * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /versions/update-requests/process-groups/{id}, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The ID of the Update Request (required)
      * @return VersionedFlowUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -889,20 +912,23 @@ public class VersionsApi {
     /**
      * Returns the Update Request with the given ID
      * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /versions/update-requests/process-groups/{id}, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The ID of the Update Request (required)
      * @return ApiResponse&lt;VersionedFlowUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowUpdateRequestEntity> getUpdateRequestWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getUpdateRequestValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Returns the Update Request with the given ID (asynchronously)
      * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /versions/update-requests/process-groups/{id}, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id       The ID of the Update Request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -929,14 +955,17 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = getUpdateRequestValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getVersionInformation
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -946,7 +975,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -956,41 +985,41 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getVersionInformationValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getVersionInformation(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getVersionInformationCall(id, progressListener, progressRequestListener);
         return call;
@@ -1000,6 +1029,7 @@ public class VersionsApi {
     /**
      * Gets the Version Control information for a process group
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The process group id. (required)
      * @return VersionControlInformationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1012,20 +1042,23 @@ public class VersionsApi {
     /**
      * Gets the Version Control information for a process group
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;VersionControlInformationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionControlInformationEntity> getVersionInformationWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getVersionInformationValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the Version Control information for a process group (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1052,15 +1085,18 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = getVersionInformationValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for initiateRevertFlowVersion
-     * @param id The process group id. (required)
-     * @param body The Version Control Information to revert to. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The Version Control Information to revert to. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1070,7 +1106,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/revert-requests/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1080,46 +1116,46 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call initiateRevertFlowVersionValidateBeforeCall(String id, VersionControlInformationEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling initiateRevertFlowVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling initiateRevertFlowVersion(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = initiateRevertFlowVersionCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1129,7 +1165,8 @@ public class VersionsApi {
     /**
      * Initiate the Revert Request of a Process Group with the given ID
      * For a Process Group that is already under Version Control, this will initiate the action of reverting any local changes that have been made to the Process Group since it was last synchronized with the Flow Registry. This will result in the flow matching the Versioned Flow that exists in the Flow Registry. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a VersionedFlowUpdateRequestEntity, and the process of updating the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /versions/revert-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /versions/revert-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The Version Control Information to revert to. (required)
      * @return VersionedFlowUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1142,22 +1179,25 @@ public class VersionsApi {
     /**
      * Initiate the Revert Request of a Process Group with the given ID
      * For a Process Group that is already under Version Control, this will initiate the action of reverting any local changes that have been made to the Process Group since it was last synchronized with the Flow Registry. This will result in the flow matching the Versioned Flow that exists in the Flow Registry. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a VersionedFlowUpdateRequestEntity, and the process of updating the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /versions/revert-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /versions/revert-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The Version Control Information to revert to. (required)
      * @return ApiResponse&lt;VersionedFlowUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowUpdateRequestEntity> initiateRevertFlowVersionWithHttpInfo(String id, VersionControlInformationEntity body) throws ApiException {
         com.squareup.okhttp.Call call = initiateRevertFlowVersionValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Initiate the Revert Request of a Process Group with the given ID (asynchronously)
      * For a Process Group that is already under Version Control, this will initiate the action of reverting any local changes that have been made to the Process Group since it was last synchronized with the Flow Registry. This will result in the flow matching the Versioned Flow that exists in the Flow Registry. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a VersionedFlowUpdateRequestEntity, and the process of updating the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /versions/revert-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /versions/revert-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param body The Version Control Information to revert to. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The Version Control Information to revert to. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1184,15 +1224,18 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = initiateRevertFlowVersionValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for initiateVersionControlUpdate
-     * @param id The process group id. (required)
-     * @param body The controller service configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The controller service configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1202,7 +1245,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/update-requests/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1212,46 +1255,46 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call initiateVersionControlUpdateValidateBeforeCall(String id, VersionControlInformationEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling initiateVersionControlUpdate(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling initiateVersionControlUpdate(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = initiateVersionControlUpdateCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1261,7 +1304,8 @@ public class VersionsApi {
     /**
      * Initiate the Update Request of a Process Group with the given ID
      * For a Process Group that is already under Version Control, this will initiate the action of changing from a specific version of the flow in the Flow Registry to a different version of the flow. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a VersionedFlowUpdateRequestEntity, and the process of updating the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /versions/update-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /versions/update-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The controller service configuration details. (required)
      * @return VersionedFlowUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1274,22 +1318,25 @@ public class VersionsApi {
     /**
      * Initiate the Update Request of a Process Group with the given ID
      * For a Process Group that is already under Version Control, this will initiate the action of changing from a specific version of the flow in the Flow Registry to a different version of the flow. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a VersionedFlowUpdateRequestEntity, and the process of updating the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /versions/update-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /versions/update-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The controller service configuration details. (required)
      * @return ApiResponse&lt;VersionedFlowUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowUpdateRequestEntity> initiateVersionControlUpdateWithHttpInfo(String id, VersionControlInformationEntity body) throws ApiException {
         com.squareup.okhttp.Call call = initiateVersionControlUpdateValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Initiate the Update Request of a Process Group with the given ID (asynchronously)
      * For a Process Group that is already under Version Control, this will initiate the action of changing from a specific version of the flow in the Flow Registry to a different version of the flow. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a VersionedFlowUpdateRequestEntity, and the process of updating the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /versions/update-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /versions/update-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param body The controller service configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The controller service configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1316,15 +1363,18 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = initiateVersionControlUpdateValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for saveToFlowRegistry
-     * @param id The process group id. (required)
-     * @param body The versioned flow details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The versioned flow details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1334,7 +1384,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1344,46 +1394,46 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call saveToFlowRegistryValidateBeforeCall(String id, StartVersionControlRequestEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling saveToFlowRegistry(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling saveToFlowRegistry(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = saveToFlowRegistryCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1393,7 +1443,8 @@ public class VersionsApi {
     /**
      * Save the Process Group with the given ID
      * Begins version controlling the Process Group with the given ID or commits changes to the Versioned Flow, depending on if the provided VersionControlInformation includes a flowId. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The versioned flow details. (required)
      * @return VersionControlInformationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1406,22 +1457,25 @@ public class VersionsApi {
     /**
      * Save the Process Group with the given ID
      * Begins version controlling the Process Group with the given ID or commits changes to the Versioned Flow, depending on if the provided VersionControlInformation includes a flowId. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The versioned flow details. (required)
      * @return ApiResponse&lt;VersionControlInformationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionControlInformationEntity> saveToFlowRegistryWithHttpInfo(String id, StartVersionControlRequestEntity body) throws ApiException {
         com.squareup.okhttp.Call call = saveToFlowRegistryValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Save the Process Group with the given ID (asynchronously)
      * Begins version controlling the Process Group with the given ID or commits changes to the Versioned Flow, depending on if the provided VersionControlInformation includes a flowId. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param body The versioned flow details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The versioned flow details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1448,18 +1502,21 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = saveToFlowRegistryValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for stopVersionControl
-     * @param id The process group id. (required)
-     * @param version The version is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The process group id. (required)
+     * @param version                      The version is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -1468,57 +1525,57 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (version != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
+            localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call stopVersionControlValidateBeforeCall(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling stopVersionControl(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = stopVersionControlCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -1528,9 +1585,10 @@ public class VersionsApi {
     /**
      * Stops version controlling the Process Group with the given ID
      * Stops version controlling the Process Group with the given ID. The Process Group will no longer track to any Versioned Flow. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param version The version is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The process group id. (required)
+     * @param version                      The version is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return VersionControlInformationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1543,27 +1601,30 @@ public class VersionsApi {
     /**
      * Stops version controlling the Process Group with the given ID
      * Stops version controlling the Process Group with the given ID. The Process Group will no longer track to any Versioned Flow. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param version The version is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The process group id. (required)
+     * @param version                      The version is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;VersionControlInformationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionControlInformationEntity> stopVersionControlWithHttpInfo(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = stopVersionControlValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Stops version controlling the Process Group with the given ID (asynchronously)
      * Stops version controlling the Process Group with the given ID. The Process Group will no longer track to any Versioned Flow. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param version The version is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The process group id. (required)
+     * @param version                      The version is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1589,15 +1650,18 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = stopVersionControlValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateFlowVersion
-     * @param id The process group id. (required)
-     * @param body The controller service configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The controller service configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1607,7 +1671,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1617,46 +1681,46 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateFlowVersionValidateBeforeCall(String id, VersionedFlowSnapshotEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateFlowVersion(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateFlowVersion(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateFlowVersionCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1666,7 +1730,8 @@ public class VersionsApi {
     /**
      * Update the version of a Process Group with the given ID
      * For a Process Group that is already under Version Control, this will update the version of the flow to a different version. This endpoint expects that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The controller service configuration details. (required)
      * @return VersionControlInformationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1679,22 +1744,25 @@ public class VersionsApi {
     /**
      * Update the version of a Process Group with the given ID
      * For a Process Group that is already under Version Control, this will update the version of the flow to a different version. This endpoint expects that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The controller service configuration details. (required)
      * @return ApiResponse&lt;VersionControlInformationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionControlInformationEntity> updateFlowVersionWithHttpInfo(String id, VersionedFlowSnapshotEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateFlowVersionValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Update the version of a Process Group with the given ID (asynchronously)
      * For a Process Group that is already under Version Control, this will update the version of the flow to a different version. This endpoint expects that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param body The controller service configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The controller service configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1721,15 +1789,18 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = updateFlowVersionValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateVersionControlRequest
-     * @param id The request ID. (required)
-     * @param body The version control component mapping. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The request ID. (required)
+     * @param body                    The version control component mapping. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1739,7 +1810,7 @@ public class VersionsApi {
 
         // create path and map variables
         String localVarPath = "/versions/active-requests/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1749,46 +1820,46 @@ public class VersionsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateVersionControlRequestValidateBeforeCall(String id, VersionControlComponentMappingEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateVersionControlRequest(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateVersionControlRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateVersionControlRequestCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1798,7 +1869,8 @@ public class VersionsApi {
     /**
      * Updates the request with the given ID
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The request ID. (required)
+     *
+     * @param id   The request ID. (required)
      * @param body The version control component mapping. (required)
      * @return VersionControlInformationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1811,22 +1883,25 @@ public class VersionsApi {
     /**
      * Updates the request with the given ID
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The request ID. (required)
+     *
+     * @param id   The request ID. (required)
      * @param body The version control component mapping. (required)
      * @return ApiResponse&lt;VersionControlInformationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionControlInformationEntity> updateVersionControlRequestWithHttpInfo(String id, VersionControlComponentMappingEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateVersionControlRequestValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates the request with the given ID (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The request ID. (required)
-     * @param body The version control component mapping. (required)
+     *
+     * @param id       The request ID. (required)
+     * @param body     The version control component mapping. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1853,7 +1928,8 @@ public class VersionsApi {
         }
 
         com.squareup.okhttp.Call call = updateVersionControlRequestValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionControlInformationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

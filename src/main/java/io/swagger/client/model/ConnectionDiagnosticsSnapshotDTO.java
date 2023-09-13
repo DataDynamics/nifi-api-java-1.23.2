@@ -13,186 +13,183 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.LocalQueuePartitionDTO;
-import io.swagger.client.model.RemoteQueuePartitionDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ConnectionDiagnosticsSnapshotDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ConnectionDiagnosticsSnapshotDTO {
-  @SerializedName("totalFlowFileCount")
-  private Integer totalFlowFileCount = null;
+    @SerializedName("totalFlowFileCount")
+    private Integer totalFlowFileCount = null;
 
-  @SerializedName("totalByteCount")
-  private Long totalByteCount = null;
+    @SerializedName("totalByteCount")
+    private Long totalByteCount = null;
 
-  @SerializedName("nodeIdentifier")
-  private String nodeIdentifier = null;
+    @SerializedName("nodeIdentifier")
+    private String nodeIdentifier = null;
 
-  @SerializedName("localQueuePartition")
-  private LocalQueuePartitionDTO localQueuePartition = null;
+    @SerializedName("localQueuePartition")
+    private LocalQueuePartitionDTO localQueuePartition = null;
 
-  @SerializedName("remoteQueuePartitions")
-  private List<RemoteQueuePartitionDTO> remoteQueuePartitions = null;
+    @SerializedName("remoteQueuePartitions")
+    private List<RemoteQueuePartitionDTO> remoteQueuePartitions = null;
 
-  public ConnectionDiagnosticsSnapshotDTO totalFlowFileCount(Integer totalFlowFileCount) {
-    this.totalFlowFileCount = totalFlowFileCount;
-    return this;
-  }
-
-   /**
-   * Total number of FlowFiles owned by the Connection
-   * @return totalFlowFileCount
-  **/
-  @ApiModelProperty(value = "Total number of FlowFiles owned by the Connection")
-  public Integer getTotalFlowFileCount() {
-    return totalFlowFileCount;
-  }
-
-  public void setTotalFlowFileCount(Integer totalFlowFileCount) {
-    this.totalFlowFileCount = totalFlowFileCount;
-  }
-
-  public ConnectionDiagnosticsSnapshotDTO totalByteCount(Long totalByteCount) {
-    this.totalByteCount = totalByteCount;
-    return this;
-  }
-
-   /**
-   * Total number of bytes that make up the content for the FlowFiles owned by this Connection
-   * @return totalByteCount
-  **/
-  @ApiModelProperty(value = "Total number of bytes that make up the content for the FlowFiles owned by this Connection")
-  public Long getTotalByteCount() {
-    return totalByteCount;
-  }
-
-  public void setTotalByteCount(Long totalByteCount) {
-    this.totalByteCount = totalByteCount;
-  }
-
-  public ConnectionDiagnosticsSnapshotDTO nodeIdentifier(String nodeIdentifier) {
-    this.nodeIdentifier = nodeIdentifier;
-    return this;
-  }
-
-   /**
-   * The Node Identifier that this information pertains to
-   * @return nodeIdentifier
-  **/
-  @ApiModelProperty(value = "The Node Identifier that this information pertains to")
-  public String getNodeIdentifier() {
-    return nodeIdentifier;
-  }
-
-  public void setNodeIdentifier(String nodeIdentifier) {
-    this.nodeIdentifier = nodeIdentifier;
-  }
-
-  public ConnectionDiagnosticsSnapshotDTO localQueuePartition(LocalQueuePartitionDTO localQueuePartition) {
-    this.localQueuePartition = localQueuePartition;
-    return this;
-  }
-
-   /**
-   * The local queue partition, from which components can pull FlowFiles on this node.
-   * @return localQueuePartition
-  **/
-  @ApiModelProperty(value = "The local queue partition, from which components can pull FlowFiles on this node.")
-  public LocalQueuePartitionDTO getLocalQueuePartition() {
-    return localQueuePartition;
-  }
-
-  public void setLocalQueuePartition(LocalQueuePartitionDTO localQueuePartition) {
-    this.localQueuePartition = localQueuePartition;
-  }
-
-  public ConnectionDiagnosticsSnapshotDTO remoteQueuePartitions(List<RemoteQueuePartitionDTO> remoteQueuePartitions) {
-    this.remoteQueuePartitions = remoteQueuePartitions;
-    return this;
-  }
-
-  public ConnectionDiagnosticsSnapshotDTO addRemoteQueuePartitionsItem(RemoteQueuePartitionDTO remoteQueuePartitionsItem) {
-    if (this.remoteQueuePartitions == null) {
-      this.remoteQueuePartitions = new ArrayList<RemoteQueuePartitionDTO>();
+    public ConnectionDiagnosticsSnapshotDTO totalFlowFileCount(Integer totalFlowFileCount) {
+        this.totalFlowFileCount = totalFlowFileCount;
+        return this;
     }
-    this.remoteQueuePartitions.add(remoteQueuePartitionsItem);
-    return this;
-  }
 
-   /**
-   * Get remoteQueuePartitions
-   * @return remoteQueuePartitions
-  **/
-  @ApiModelProperty(value = "")
-  public List<RemoteQueuePartitionDTO> getRemoteQueuePartitions() {
-    return remoteQueuePartitions;
-  }
-
-  public void setRemoteQueuePartitions(List<RemoteQueuePartitionDTO> remoteQueuePartitions) {
-    this.remoteQueuePartitions = remoteQueuePartitions;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Total number of FlowFiles owned by the Connection
+     *
+     * @return totalFlowFileCount
+     **/
+    @ApiModelProperty(value = "Total number of FlowFiles owned by the Connection")
+    public Integer getTotalFlowFileCount() {
+        return totalFlowFileCount;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setTotalFlowFileCount(Integer totalFlowFileCount) {
+        this.totalFlowFileCount = totalFlowFileCount;
     }
-    ConnectionDiagnosticsSnapshotDTO connectionDiagnosticsSnapshotDTO = (ConnectionDiagnosticsSnapshotDTO) o;
-    return Objects.equals(this.totalFlowFileCount, connectionDiagnosticsSnapshotDTO.totalFlowFileCount) &&
-        Objects.equals(this.totalByteCount, connectionDiagnosticsSnapshotDTO.totalByteCount) &&
-        Objects.equals(this.nodeIdentifier, connectionDiagnosticsSnapshotDTO.nodeIdentifier) &&
-        Objects.equals(this.localQueuePartition, connectionDiagnosticsSnapshotDTO.localQueuePartition) &&
-        Objects.equals(this.remoteQueuePartitions, connectionDiagnosticsSnapshotDTO.remoteQueuePartitions);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(totalFlowFileCount, totalByteCount, nodeIdentifier, localQueuePartition, remoteQueuePartitions);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ConnectionDiagnosticsSnapshotDTO {\n");
-    
-    sb.append("    totalFlowFileCount: ").append(toIndentedString(totalFlowFileCount)).append("\n");
-    sb.append("    totalByteCount: ").append(toIndentedString(totalByteCount)).append("\n");
-    sb.append("    nodeIdentifier: ").append(toIndentedString(nodeIdentifier)).append("\n");
-    sb.append("    localQueuePartition: ").append(toIndentedString(localQueuePartition)).append("\n");
-    sb.append("    remoteQueuePartitions: ").append(toIndentedString(remoteQueuePartitions)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public ConnectionDiagnosticsSnapshotDTO totalByteCount(Long totalByteCount) {
+        this.totalByteCount = totalByteCount;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Total number of bytes that make up the content for the FlowFiles owned by this Connection
+     *
+     * @return totalByteCount
+     **/
+    @ApiModelProperty(value = "Total number of bytes that make up the content for the FlowFiles owned by this Connection")
+    public Long getTotalByteCount() {
+        return totalByteCount;
+    }
+
+    public void setTotalByteCount(Long totalByteCount) {
+        this.totalByteCount = totalByteCount;
+    }
+
+    public ConnectionDiagnosticsSnapshotDTO nodeIdentifier(String nodeIdentifier) {
+        this.nodeIdentifier = nodeIdentifier;
+        return this;
+    }
+
+    /**
+     * The Node Identifier that this information pertains to
+     *
+     * @return nodeIdentifier
+     **/
+    @ApiModelProperty(value = "The Node Identifier that this information pertains to")
+    public String getNodeIdentifier() {
+        return nodeIdentifier;
+    }
+
+    public void setNodeIdentifier(String nodeIdentifier) {
+        this.nodeIdentifier = nodeIdentifier;
+    }
+
+    public ConnectionDiagnosticsSnapshotDTO localQueuePartition(LocalQueuePartitionDTO localQueuePartition) {
+        this.localQueuePartition = localQueuePartition;
+        return this;
+    }
+
+    /**
+     * The local queue partition, from which components can pull FlowFiles on this node.
+     *
+     * @return localQueuePartition
+     **/
+    @ApiModelProperty(value = "The local queue partition, from which components can pull FlowFiles on this node.")
+    public LocalQueuePartitionDTO getLocalQueuePartition() {
+        return localQueuePartition;
+    }
+
+    public void setLocalQueuePartition(LocalQueuePartitionDTO localQueuePartition) {
+        this.localQueuePartition = localQueuePartition;
+    }
+
+    public ConnectionDiagnosticsSnapshotDTO remoteQueuePartitions(List<RemoteQueuePartitionDTO> remoteQueuePartitions) {
+        this.remoteQueuePartitions = remoteQueuePartitions;
+        return this;
+    }
+
+    public ConnectionDiagnosticsSnapshotDTO addRemoteQueuePartitionsItem(RemoteQueuePartitionDTO remoteQueuePartitionsItem) {
+        if (this.remoteQueuePartitions == null) {
+            this.remoteQueuePartitions = new ArrayList<RemoteQueuePartitionDTO>();
+        }
+        this.remoteQueuePartitions.add(remoteQueuePartitionsItem);
+        return this;
+    }
+
+    /**
+     * Get remoteQueuePartitions
+     *
+     * @return remoteQueuePartitions
+     **/
+    @ApiModelProperty(value = "")
+    public List<RemoteQueuePartitionDTO> getRemoteQueuePartitions() {
+        return remoteQueuePartitions;
+    }
+
+    public void setRemoteQueuePartitions(List<RemoteQueuePartitionDTO> remoteQueuePartitions) {
+        this.remoteQueuePartitions = remoteQueuePartitions;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ConnectionDiagnosticsSnapshotDTO connectionDiagnosticsSnapshotDTO = (ConnectionDiagnosticsSnapshotDTO) o;
+        return Objects.equals(this.totalFlowFileCount, connectionDiagnosticsSnapshotDTO.totalFlowFileCount) &&
+                Objects.equals(this.totalByteCount, connectionDiagnosticsSnapshotDTO.totalByteCount) &&
+                Objects.equals(this.nodeIdentifier, connectionDiagnosticsSnapshotDTO.nodeIdentifier) &&
+                Objects.equals(this.localQueuePartition, connectionDiagnosticsSnapshotDTO.localQueuePartition) &&
+                Objects.equals(this.remoteQueuePartitions, connectionDiagnosticsSnapshotDTO.remoteQueuePartitions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalFlowFileCount, totalByteCount, nodeIdentifier, localQueuePartition, remoteQueuePartitions);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ConnectionDiagnosticsSnapshotDTO {\n");
+
+        sb.append("    totalFlowFileCount: ").append(toIndentedString(totalFlowFileCount)).append("\n");
+        sb.append("    totalByteCount: ").append(toIndentedString(totalByteCount)).append("\n");
+        sb.append("    nodeIdentifier: ").append(toIndentedString(nodeIdentifier)).append("\n");
+        sb.append("    localQueuePartition: ").append(toIndentedString(localQueuePartition)).append("\n");
+        sb.append("    remoteQueuePartitions: ").append(toIndentedString(remoteQueuePartitions)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

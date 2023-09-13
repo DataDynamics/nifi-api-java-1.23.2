@@ -13,228 +13,227 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * ControllerServiceStatusDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerServiceStatusDTO {
-  /**
-   * The run status of this ControllerService
-   */
-  @JsonAdapter(RunStatusEnum.Adapter.class)
-  public enum RunStatusEnum {
-    ENABLED("ENABLED"),
-    
-    ENABLING("ENABLING"),
-    
-    DISABLED("DISABLED"),
-    
-    DISABLING("DISABLING");
+    @SerializedName("runStatus")
+    private RunStatusEnum runStatus = null;
+    @SerializedName("validationStatus")
+    private ValidationStatusEnum validationStatus = null;
+    @SerializedName("activeThreadCount")
+    private Integer activeThreadCount = null;
 
-    private String value;
-
-    RunStatusEnum(String value) {
-      this.value = value;
+    public ControllerServiceStatusDTO runStatus(RunStatusEnum runStatus) {
+        this.runStatus = runStatus;
+        return this;
     }
 
-    public String getValue() {
-      return value;
+    /**
+     * The run status of this ControllerService
+     *
+     * @return runStatus
+     **/
+    @ApiModelProperty(value = "The run status of this ControllerService")
+    public RunStatusEnum getRunStatus() {
+        return runStatus;
+    }
+
+    public void setRunStatus(RunStatusEnum runStatus) {
+        this.runStatus = runStatus;
+    }
+
+    public ControllerServiceStatusDTO validationStatus(ValidationStatusEnum validationStatus) {
+        this.validationStatus = validationStatus;
+        return this;
+    }
+
+    /**
+     * Indicates whether the component is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the component is valid)
+     *
+     * @return validationStatus
+     **/
+    @ApiModelProperty(value = "Indicates whether the component is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the component is valid)")
+    public ValidationStatusEnum getValidationStatus() {
+        return validationStatus;
+    }
+
+    public void setValidationStatus(ValidationStatusEnum validationStatus) {
+        this.validationStatus = validationStatus;
+    }
+
+    public ControllerServiceStatusDTO activeThreadCount(Integer activeThreadCount) {
+        this.activeThreadCount = activeThreadCount;
+        return this;
+    }
+
+    /**
+     * The number of active threads for the component.
+     *
+     * @return activeThreadCount
+     **/
+    @ApiModelProperty(value = "The number of active threads for the component.")
+    public Integer getActiveThreadCount() {
+        return activeThreadCount;
+    }
+
+    public void setActiveThreadCount(Integer activeThreadCount) {
+        this.activeThreadCount = activeThreadCount;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerServiceStatusDTO controllerServiceStatusDTO = (ControllerServiceStatusDTO) o;
+        return Objects.equals(this.runStatus, controllerServiceStatusDTO.runStatus) &&
+                Objects.equals(this.validationStatus, controllerServiceStatusDTO.validationStatus) &&
+                Objects.equals(this.activeThreadCount, controllerServiceStatusDTO.activeThreadCount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(runStatus, validationStatus, activeThreadCount);
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerServiceStatusDTO {\n");
+
+        sb.append("    runStatus: ").append(toIndentedString(runStatus)).append("\n");
+        sb.append("    validationStatus: ").append(toIndentedString(validationStatus)).append("\n");
+        sb.append("    activeThreadCount: ").append(toIndentedString(activeThreadCount)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
-    public static RunStatusEnum fromValue(String text) {
-      for (RunStatusEnum b : RunStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
         }
-      }
-      return null;
+        return o.toString().replace("\n", "\n    ");
     }
 
-    public static class Adapter extends TypeAdapter<RunStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final RunStatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
 
-      @Override
-      public RunStatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return RunStatusEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+    /**
+     * The run status of this ControllerService
+     */
+    @JsonAdapter(RunStatusEnum.Adapter.class)
+    public enum RunStatusEnum {
+        ENABLED("ENABLED"),
 
-  @SerializedName("runStatus")
-  private RunStatusEnum runStatus = null;
+        ENABLING("ENABLING"),
 
-  /**
-   * Indicates whether the component is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the component is valid)
-   */
-  @JsonAdapter(ValidationStatusEnum.Adapter.class)
-  public enum ValidationStatusEnum {
-    VALID("VALID"),
-    
-    INVALID("INVALID"),
-    
-    VALIDATING("VALIDATING");
+        DISABLED("DISABLED"),
 
-    private String value;
+        DISABLING("DISABLING");
 
-    ValidationStatusEnum(String value) {
-      this.value = value;
-    }
+        private String value;
 
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ValidationStatusEnum fromValue(String text) {
-      for (ValidationStatusEnum b : ValidationStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+        RunStatusEnum(String value) {
+            this.value = value;
         }
-      }
-      return null;
+
+        public static RunStatusEnum fromValue(String text) {
+            for (RunStatusEnum b : RunStatusEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<RunStatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final RunStatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public RunStatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return RunStatusEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public static class Adapter extends TypeAdapter<ValidationStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ValidationStatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+    /**
+     * Indicates whether the component is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the component is valid)
+     */
+    @JsonAdapter(ValidationStatusEnum.Adapter.class)
+    public enum ValidationStatusEnum {
+        VALID("VALID"),
 
-      @Override
-      public ValidationStatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ValidationStatusEnum.fromValue(String.valueOf(value));
-      }
+        INVALID("INVALID"),
+
+        VALIDATING("VALIDATING");
+
+        private String value;
+
+        ValidationStatusEnum(String value) {
+            this.value = value;
+        }
+
+        public static ValidationStatusEnum fromValue(String text) {
+            for (ValidationStatusEnum b : ValidationStatusEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<ValidationStatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ValidationStatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ValidationStatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ValidationStatusEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
-  }
-
-  @SerializedName("validationStatus")
-  private ValidationStatusEnum validationStatus = null;
-
-  @SerializedName("activeThreadCount")
-  private Integer activeThreadCount = null;
-
-  public ControllerServiceStatusDTO runStatus(RunStatusEnum runStatus) {
-    this.runStatus = runStatus;
-    return this;
-  }
-
-   /**
-   * The run status of this ControllerService
-   * @return runStatus
-  **/
-  @ApiModelProperty(value = "The run status of this ControllerService")
-  public RunStatusEnum getRunStatus() {
-    return runStatus;
-  }
-
-  public void setRunStatus(RunStatusEnum runStatus) {
-    this.runStatus = runStatus;
-  }
-
-  public ControllerServiceStatusDTO validationStatus(ValidationStatusEnum validationStatus) {
-    this.validationStatus = validationStatus;
-    return this;
-  }
-
-   /**
-   * Indicates whether the component is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the component is valid)
-   * @return validationStatus
-  **/
-  @ApiModelProperty(value = "Indicates whether the component is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the component is valid)")
-  public ValidationStatusEnum getValidationStatus() {
-    return validationStatus;
-  }
-
-  public void setValidationStatus(ValidationStatusEnum validationStatus) {
-    this.validationStatus = validationStatus;
-  }
-
-  public ControllerServiceStatusDTO activeThreadCount(Integer activeThreadCount) {
-    this.activeThreadCount = activeThreadCount;
-    return this;
-  }
-
-   /**
-   * The number of active threads for the component.
-   * @return activeThreadCount
-  **/
-  @ApiModelProperty(value = "The number of active threads for the component.")
-  public Integer getActiveThreadCount() {
-    return activeThreadCount;
-  }
-
-  public void setActiveThreadCount(Integer activeThreadCount) {
-    this.activeThreadCount = activeThreadCount;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ControllerServiceStatusDTO controllerServiceStatusDTO = (ControllerServiceStatusDTO) o;
-    return Objects.equals(this.runStatus, controllerServiceStatusDTO.runStatus) &&
-        Objects.equals(this.validationStatus, controllerServiceStatusDTO.validationStatus) &&
-        Objects.equals(this.activeThreadCount, controllerServiceStatusDTO.activeThreadCount);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(runStatus, validationStatus, activeThreadCount);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerServiceStatusDTO {\n");
-    
-    sb.append("    runStatus: ").append(toIndentedString(runStatus)).append("\n");
-    sb.append("    validationStatus: ").append(toIndentedString(validationStatus)).append("\n");
-    sb.append("    activeThreadCount: ").append(toIndentedString(activeThreadCount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 
 }
 

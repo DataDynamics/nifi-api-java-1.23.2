@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ReportingTaskEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ReportingTasksEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ReportingTasksEntity {
-  @SerializedName("reportingTasks")
-  private List<ReportingTaskEntity> reportingTasks = null;
+    @SerializedName("reportingTasks")
+    private List<ReportingTaskEntity> reportingTasks = null;
 
-  public ReportingTasksEntity reportingTasks(List<ReportingTaskEntity> reportingTasks) {
-    this.reportingTasks = reportingTasks;
-    return this;
-  }
-
-  public ReportingTasksEntity addReportingTasksItem(ReportingTaskEntity reportingTasksItem) {
-    if (this.reportingTasks == null) {
-      this.reportingTasks = new ArrayList<ReportingTaskEntity>();
+    public ReportingTasksEntity reportingTasks(List<ReportingTaskEntity> reportingTasks) {
+        this.reportingTasks = reportingTasks;
+        return this;
     }
-    this.reportingTasks.add(reportingTasksItem);
-    return this;
-  }
 
-   /**
-   * Get reportingTasks
-   * @return reportingTasks
-  **/
-  @ApiModelProperty(value = "")
-  public List<ReportingTaskEntity> getReportingTasks() {
-    return reportingTasks;
-  }
-
-  public void setReportingTasks(List<ReportingTaskEntity> reportingTasks) {
-    this.reportingTasks = reportingTasks;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ReportingTasksEntity addReportingTasksItem(ReportingTaskEntity reportingTasksItem) {
+        if (this.reportingTasks == null) {
+            this.reportingTasks = new ArrayList<ReportingTaskEntity>();
+        }
+        this.reportingTasks.add(reportingTasksItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get reportingTasks
+     *
+     * @return reportingTasks
+     **/
+    @ApiModelProperty(value = "")
+    public List<ReportingTaskEntity> getReportingTasks() {
+        return reportingTasks;
     }
-    ReportingTasksEntity reportingTasksEntity = (ReportingTasksEntity) o;
-    return Objects.equals(this.reportingTasks, reportingTasksEntity.reportingTasks);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(reportingTasks);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ReportingTasksEntity {\n");
-    
-    sb.append("    reportingTasks: ").append(toIndentedString(reportingTasks)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setReportingTasks(List<ReportingTaskEntity> reportingTasks) {
+        this.reportingTasks = reportingTasks;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ReportingTasksEntity reportingTasksEntity = (ReportingTasksEntity) o;
+        return Objects.equals(this.reportingTasks, reportingTasksEntity.reportingTasks);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(reportingTasks);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ReportingTasksEntity {\n");
+
+        sb.append("    reportingTasks: ").append(toIndentedString(reportingTasks)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

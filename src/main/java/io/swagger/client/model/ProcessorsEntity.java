@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ProcessorEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ProcessorsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProcessorsEntity {
-  @SerializedName("processors")
-  private List<ProcessorEntity> processors = null;
+    @SerializedName("processors")
+    private List<ProcessorEntity> processors = null;
 
-  public ProcessorsEntity processors(List<ProcessorEntity> processors) {
-    this.processors = processors;
-    return this;
-  }
-
-  public ProcessorsEntity addProcessorsItem(ProcessorEntity processorsItem) {
-    if (this.processors == null) {
-      this.processors = new ArrayList<ProcessorEntity>();
+    public ProcessorsEntity processors(List<ProcessorEntity> processors) {
+        this.processors = processors;
+        return this;
     }
-    this.processors.add(processorsItem);
-    return this;
-  }
 
-   /**
-   * Get processors
-   * @return processors
-  **/
-  @ApiModelProperty(value = "")
-  public List<ProcessorEntity> getProcessors() {
-    return processors;
-  }
-
-  public void setProcessors(List<ProcessorEntity> processors) {
-    this.processors = processors;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ProcessorsEntity addProcessorsItem(ProcessorEntity processorsItem) {
+        if (this.processors == null) {
+            this.processors = new ArrayList<ProcessorEntity>();
+        }
+        this.processors.add(processorsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get processors
+     *
+     * @return processors
+     **/
+    @ApiModelProperty(value = "")
+    public List<ProcessorEntity> getProcessors() {
+        return processors;
     }
-    ProcessorsEntity processorsEntity = (ProcessorsEntity) o;
-    return Objects.equals(this.processors, processorsEntity.processors);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(processors);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessorsEntity {\n");
-    
-    sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setProcessors(List<ProcessorEntity> processors) {
+        this.processors = processors;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessorsEntity processorsEntity = (ProcessorsEntity) o;
+        return Objects.equals(this.processors, processorsEntity.processors);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processors);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessorsEntity {\n");
+
+        sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

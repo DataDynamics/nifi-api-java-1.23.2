@@ -13,128 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * VerifyConfigUpdateStepDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VerifyConfigUpdateStepDTO {
-  @SerializedName("description")
-  private String description = null;
+    @SerializedName("description")
+    private String description = null;
 
-  @SerializedName("complete")
-  private Boolean complete = null;
+    @SerializedName("complete")
+    private Boolean complete = null;
 
-  @SerializedName("failureReason")
-  private String failureReason = null;
+    @SerializedName("failureReason")
+    private String failureReason = null;
 
-  public VerifyConfigUpdateStepDTO description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Explanation of what happens in this step
-   * @return description
-  **/
-  @ApiModelProperty(value = "Explanation of what happens in this step")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public VerifyConfigUpdateStepDTO complete(Boolean complete) {
-    this.complete = complete;
-    return this;
-  }
-
-   /**
-   * Whether or not this step has completed
-   * @return complete
-  **/
-  @ApiModelProperty(value = "Whether or not this step has completed")
-  public Boolean isComplete() {
-    return complete;
-  }
-
-  public void setComplete(Boolean complete) {
-    this.complete = complete;
-  }
-
-  public VerifyConfigUpdateStepDTO failureReason(String failureReason) {
-    this.failureReason = failureReason;
-    return this;
-  }
-
-   /**
-   * An explanation of why this step failed, or null if this step did not fail
-   * @return failureReason
-  **/
-  @ApiModelProperty(value = "An explanation of why this step failed, or null if this step did not fail")
-  public String getFailureReason() {
-    return failureReason;
-  }
-
-  public void setFailureReason(String failureReason) {
-    this.failureReason = failureReason;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public VerifyConfigUpdateStepDTO description(String description) {
+        this.description = description;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Explanation of what happens in this step
+     *
+     * @return description
+     **/
+    @ApiModelProperty(value = "Explanation of what happens in this step")
+    public String getDescription() {
+        return description;
     }
-    VerifyConfigUpdateStepDTO verifyConfigUpdateStepDTO = (VerifyConfigUpdateStepDTO) o;
-    return Objects.equals(this.description, verifyConfigUpdateStepDTO.description) &&
-        Objects.equals(this.complete, verifyConfigUpdateStepDTO.complete) &&
-        Objects.equals(this.failureReason, verifyConfigUpdateStepDTO.failureReason);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(description, complete, failureReason);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VerifyConfigUpdateStepDTO {\n");
-    
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    complete: ").append(toIndentedString(complete)).append("\n");
-    sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setDescription(String description) {
+        this.description = description;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public VerifyConfigUpdateStepDTO complete(Boolean complete) {
+        this.complete = complete;
+        return this;
+    }
+
+    /**
+     * Whether or not this step has completed
+     *
+     * @return complete
+     **/
+    @ApiModelProperty(value = "Whether or not this step has completed")
+    public Boolean isComplete() {
+        return complete;
+    }
+
+    public void setComplete(Boolean complete) {
+        this.complete = complete;
+    }
+
+    public VerifyConfigUpdateStepDTO failureReason(String failureReason) {
+        this.failureReason = failureReason;
+        return this;
+    }
+
+    /**
+     * An explanation of why this step failed, or null if this step did not fail
+     *
+     * @return failureReason
+     **/
+    @ApiModelProperty(value = "An explanation of why this step failed, or null if this step did not fail")
+    public String getFailureReason() {
+        return failureReason;
+    }
+
+    public void setFailureReason(String failureReason) {
+        this.failureReason = failureReason;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VerifyConfigUpdateStepDTO verifyConfigUpdateStepDTO = (VerifyConfigUpdateStepDTO) o;
+        return Objects.equals(this.description, verifyConfigUpdateStepDTO.description) &&
+                Objects.equals(this.complete, verifyConfigUpdateStepDTO.complete) &&
+                Objects.equals(this.failureReason, verifyConfigUpdateStepDTO.failureReason);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, complete, failureReason);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VerifyConfigUpdateStepDTO {\n");
+
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    complete: ").append(toIndentedString(complete)).append("\n");
+        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

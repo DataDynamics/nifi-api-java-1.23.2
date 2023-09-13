@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.DocumentedTypeDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ProcessorTypesEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProcessorTypesEntity {
-  @SerializedName("processorTypes")
-  private List<DocumentedTypeDTO> processorTypes = null;
+    @SerializedName("processorTypes")
+    private List<DocumentedTypeDTO> processorTypes = null;
 
-  public ProcessorTypesEntity processorTypes(List<DocumentedTypeDTO> processorTypes) {
-    this.processorTypes = processorTypes;
-    return this;
-  }
-
-  public ProcessorTypesEntity addProcessorTypesItem(DocumentedTypeDTO processorTypesItem) {
-    if (this.processorTypes == null) {
-      this.processorTypes = new ArrayList<DocumentedTypeDTO>();
+    public ProcessorTypesEntity processorTypes(List<DocumentedTypeDTO> processorTypes) {
+        this.processorTypes = processorTypes;
+        return this;
     }
-    this.processorTypes.add(processorTypesItem);
-    return this;
-  }
 
-   /**
-   * Get processorTypes
-   * @return processorTypes
-  **/
-  @ApiModelProperty(value = "")
-  public List<DocumentedTypeDTO> getProcessorTypes() {
-    return processorTypes;
-  }
-
-  public void setProcessorTypes(List<DocumentedTypeDTO> processorTypes) {
-    this.processorTypes = processorTypes;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ProcessorTypesEntity addProcessorTypesItem(DocumentedTypeDTO processorTypesItem) {
+        if (this.processorTypes == null) {
+            this.processorTypes = new ArrayList<DocumentedTypeDTO>();
+        }
+        this.processorTypes.add(processorTypesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get processorTypes
+     *
+     * @return processorTypes
+     **/
+    @ApiModelProperty(value = "")
+    public List<DocumentedTypeDTO> getProcessorTypes() {
+        return processorTypes;
     }
-    ProcessorTypesEntity processorTypesEntity = (ProcessorTypesEntity) o;
-    return Objects.equals(this.processorTypes, processorTypesEntity.processorTypes);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(processorTypes);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessorTypesEntity {\n");
-    
-    sb.append("    processorTypes: ").append(toIndentedString(processorTypes)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setProcessorTypes(List<DocumentedTypeDTO> processorTypes) {
+        this.processorTypes = processorTypes;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessorTypesEntity processorTypesEntity = (ProcessorTypesEntity) o;
+        return Objects.equals(this.processorTypes, processorTypesEntity.processorTypes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processorTypes);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessorTypesEntity {\n");
+
+        sb.append("    processorTypes: ").append(toIndentedString(processorTypes)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

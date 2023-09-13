@@ -13,24 +13,13 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.PortEntity;
 import io.swagger.client.model.PortRunStatusEntity;
 import io.swagger.client.model.ProcessorEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,8 +47,9 @@ public class InputPortsApi {
 
     /**
      * Build call for getInputPort
-     * @param id The input port id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The input port id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -69,7 +59,7 @@ public class InputPortsApi {
 
         // create path and map variables
         String localVarPath = "/input-ports/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -79,41 +69,41 @@ public class InputPortsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getInputPortValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getInputPort(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getInputPortCall(id, progressListener, progressRequestListener);
         return call;
@@ -122,7 +112,7 @@ public class InputPortsApi {
 
     /**
      * Gets an input port
-     * 
+     *
      * @param id The input port id. (required)
      * @return PortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -134,21 +124,22 @@ public class InputPortsApi {
 
     /**
      * Gets an input port
-     * 
+     *
      * @param id The input port id. (required)
      * @return ApiResponse&lt;PortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PortEntity> getInputPortWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getInputPortValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets an input port (asynchronously)
-     * 
-     * @param id The input port id. (required)
+     *
+     * @param id       The input port id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -175,18 +166,21 @@ public class InputPortsApi {
         }
 
         com.squareup.okhttp.Call call = getInputPortValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for removeInputPort
-     * @param id The input port id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The input port id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -195,57 +189,57 @@ public class InputPortsApi {
 
         // create path and map variables
         String localVarPath = "/input-ports/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (version != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
+            localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeInputPortValidateBeforeCall(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling removeInputPort(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = removeInputPortCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -254,10 +248,10 @@ public class InputPortsApi {
 
     /**
      * Deletes an input port
-     * 
-     * @param id The input port id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The input port id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return PortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -269,28 +263,29 @@ public class InputPortsApi {
 
     /**
      * Deletes an input port
-     * 
-     * @param id The input port id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The input port id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;PortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PortEntity> removeInputPortWithHttpInfo(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = removeInputPortValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes an input port (asynchronously)
-     * 
-     * @param id The input port id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The input port id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -316,15 +311,18 @@ public class InputPortsApi {
         }
 
         com.squareup.okhttp.Call call = removeInputPortValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateInputPort
-     * @param id The input port id. (required)
-     * @param body The input port configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The input port id. (required)
+     * @param body                    The input port configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -334,7 +332,7 @@ public class InputPortsApi {
 
         // create path and map variables
         String localVarPath = "/input-ports/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -344,46 +342,46 @@ public class InputPortsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateInputPortValidateBeforeCall(String id, PortEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateInputPort(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateInputPort(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateInputPortCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -392,8 +390,8 @@ public class InputPortsApi {
 
     /**
      * Updates an input port
-     * 
-     * @param id The input port id. (required)
+     *
+     * @param id   The input port id. (required)
      * @param body The input port configuration details. (required)
      * @return PortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -405,23 +403,24 @@ public class InputPortsApi {
 
     /**
      * Updates an input port
-     * 
-     * @param id The input port id. (required)
+     *
+     * @param id   The input port id. (required)
      * @param body The input port configuration details. (required)
      * @return ApiResponse&lt;PortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PortEntity> updateInputPortWithHttpInfo(String id, PortEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateInputPortValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates an input port (asynchronously)
-     * 
-     * @param id The input port id. (required)
-     * @param body The input port configuration details. (required)
+     *
+     * @param id       The input port id. (required)
+     * @param body     The input port configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -448,15 +447,18 @@ public class InputPortsApi {
         }
 
         com.squareup.okhttp.Call call = updateInputPortValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateRunStatus
-     * @param id The port id. (required)
-     * @param body The port run status. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The port id. (required)
+     * @param body                    The port run status. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -466,7 +468,7 @@ public class InputPortsApi {
 
         // create path and map variables
         String localVarPath = "/input-ports/{id}/run-status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -476,46 +478,46 @@ public class InputPortsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRunStatusValidateBeforeCall(String id, PortRunStatusEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRunStatus(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateRunStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateRunStatusCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -524,8 +526,8 @@ public class InputPortsApi {
 
     /**
      * Updates run status of an input-port
-     * 
-     * @param id The port id. (required)
+     *
+     * @param id   The port id. (required)
      * @param body The port run status. (required)
      * @return ProcessorEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -537,23 +539,24 @@ public class InputPortsApi {
 
     /**
      * Updates run status of an input-port
-     * 
-     * @param id The port id. (required)
+     *
+     * @param id   The port id. (required)
      * @param body The port run status. (required)
      * @return ApiResponse&lt;ProcessorEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessorEntity> updateRunStatusWithHttpInfo(String id, PortRunStatusEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateRunStatusValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ProcessorEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates run status of an input-port (asynchronously)
-     * 
-     * @param id The port id. (required)
-     * @param body The port run status. (required)
+     *
+     * @param id       The port id. (required)
+     * @param body     The port run status. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -580,7 +583,8 @@ public class InputPortsApi {
         }
 
         com.squareup.okhttp.Call call = updateRunStatusValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessorEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

@@ -13,434 +13,439 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ComponentSearchResultDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * SearchResultsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class SearchResultsDTO {
-  @SerializedName("processorResults")
-  private List<ComponentSearchResultDTO> processorResults = null;
+    @SerializedName("processorResults")
+    private List<ComponentSearchResultDTO> processorResults = null;
 
-  @SerializedName("connectionResults")
-  private List<ComponentSearchResultDTO> connectionResults = null;
+    @SerializedName("connectionResults")
+    private List<ComponentSearchResultDTO> connectionResults = null;
 
-  @SerializedName("processGroupResults")
-  private List<ComponentSearchResultDTO> processGroupResults = null;
+    @SerializedName("processGroupResults")
+    private List<ComponentSearchResultDTO> processGroupResults = null;
 
-  @SerializedName("inputPortResults")
-  private List<ComponentSearchResultDTO> inputPortResults = null;
+    @SerializedName("inputPortResults")
+    private List<ComponentSearchResultDTO> inputPortResults = null;
 
-  @SerializedName("outputPortResults")
-  private List<ComponentSearchResultDTO> outputPortResults = null;
+    @SerializedName("outputPortResults")
+    private List<ComponentSearchResultDTO> outputPortResults = null;
 
-  @SerializedName("remoteProcessGroupResults")
-  private List<ComponentSearchResultDTO> remoteProcessGroupResults = null;
+    @SerializedName("remoteProcessGroupResults")
+    private List<ComponentSearchResultDTO> remoteProcessGroupResults = null;
 
-  @SerializedName("funnelResults")
-  private List<ComponentSearchResultDTO> funnelResults = null;
+    @SerializedName("funnelResults")
+    private List<ComponentSearchResultDTO> funnelResults = null;
 
-  @SerializedName("labelResults")
-  private List<ComponentSearchResultDTO> labelResults = null;
+    @SerializedName("labelResults")
+    private List<ComponentSearchResultDTO> labelResults = null;
 
-  @SerializedName("controllerServiceNodeResults")
-  private List<ComponentSearchResultDTO> controllerServiceNodeResults = null;
+    @SerializedName("controllerServiceNodeResults")
+    private List<ComponentSearchResultDTO> controllerServiceNodeResults = null;
 
-  @SerializedName("parameterContextResults")
-  private List<ComponentSearchResultDTO> parameterContextResults = null;
+    @SerializedName("parameterContextResults")
+    private List<ComponentSearchResultDTO> parameterContextResults = null;
 
-  @SerializedName("parameterProviderNodeResults")
-  private List<ComponentSearchResultDTO> parameterProviderNodeResults = null;
+    @SerializedName("parameterProviderNodeResults")
+    private List<ComponentSearchResultDTO> parameterProviderNodeResults = null;
 
-  @SerializedName("parameterResults")
-  private List<ComponentSearchResultDTO> parameterResults = null;
+    @SerializedName("parameterResults")
+    private List<ComponentSearchResultDTO> parameterResults = null;
 
-  public SearchResultsDTO processorResults(List<ComponentSearchResultDTO> processorResults) {
-    this.processorResults = processorResults;
-    return this;
-  }
-
-  public SearchResultsDTO addProcessorResultsItem(ComponentSearchResultDTO processorResultsItem) {
-    if (this.processorResults == null) {
-      this.processorResults = new ArrayList<ComponentSearchResultDTO>();
+    public SearchResultsDTO processorResults(List<ComponentSearchResultDTO> processorResults) {
+        this.processorResults = processorResults;
+        return this;
     }
-    this.processorResults.add(processorResultsItem);
-    return this;
-  }
 
-   /**
-   * The processors that matched the search.
-   * @return processorResults
-  **/
-  @ApiModelProperty(value = "The processors that matched the search.")
-  public List<ComponentSearchResultDTO> getProcessorResults() {
-    return processorResults;
-  }
-
-  public void setProcessorResults(List<ComponentSearchResultDTO> processorResults) {
-    this.processorResults = processorResults;
-  }
-
-  public SearchResultsDTO connectionResults(List<ComponentSearchResultDTO> connectionResults) {
-    this.connectionResults = connectionResults;
-    return this;
-  }
-
-  public SearchResultsDTO addConnectionResultsItem(ComponentSearchResultDTO connectionResultsItem) {
-    if (this.connectionResults == null) {
-      this.connectionResults = new ArrayList<ComponentSearchResultDTO>();
+    public SearchResultsDTO addProcessorResultsItem(ComponentSearchResultDTO processorResultsItem) {
+        if (this.processorResults == null) {
+            this.processorResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.processorResults.add(processorResultsItem);
+        return this;
     }
-    this.connectionResults.add(connectionResultsItem);
-    return this;
-  }
 
-   /**
-   * The connections that matched the search.
-   * @return connectionResults
-  **/
-  @ApiModelProperty(value = "The connections that matched the search.")
-  public List<ComponentSearchResultDTO> getConnectionResults() {
-    return connectionResults;
-  }
-
-  public void setConnectionResults(List<ComponentSearchResultDTO> connectionResults) {
-    this.connectionResults = connectionResults;
-  }
-
-  public SearchResultsDTO processGroupResults(List<ComponentSearchResultDTO> processGroupResults) {
-    this.processGroupResults = processGroupResults;
-    return this;
-  }
-
-  public SearchResultsDTO addProcessGroupResultsItem(ComponentSearchResultDTO processGroupResultsItem) {
-    if (this.processGroupResults == null) {
-      this.processGroupResults = new ArrayList<ComponentSearchResultDTO>();
+    /**
+     * The processors that matched the search.
+     *
+     * @return processorResults
+     **/
+    @ApiModelProperty(value = "The processors that matched the search.")
+    public List<ComponentSearchResultDTO> getProcessorResults() {
+        return processorResults;
     }
-    this.processGroupResults.add(processGroupResultsItem);
-    return this;
-  }
 
-   /**
-   * The process groups that matched the search.
-   * @return processGroupResults
-  **/
-  @ApiModelProperty(value = "The process groups that matched the search.")
-  public List<ComponentSearchResultDTO> getProcessGroupResults() {
-    return processGroupResults;
-  }
-
-  public void setProcessGroupResults(List<ComponentSearchResultDTO> processGroupResults) {
-    this.processGroupResults = processGroupResults;
-  }
-
-  public SearchResultsDTO inputPortResults(List<ComponentSearchResultDTO> inputPortResults) {
-    this.inputPortResults = inputPortResults;
-    return this;
-  }
-
-  public SearchResultsDTO addInputPortResultsItem(ComponentSearchResultDTO inputPortResultsItem) {
-    if (this.inputPortResults == null) {
-      this.inputPortResults = new ArrayList<ComponentSearchResultDTO>();
+    public void setProcessorResults(List<ComponentSearchResultDTO> processorResults) {
+        this.processorResults = processorResults;
     }
-    this.inputPortResults.add(inputPortResultsItem);
-    return this;
-  }
 
-   /**
-   * The input ports that matched the search.
-   * @return inputPortResults
-  **/
-  @ApiModelProperty(value = "The input ports that matched the search.")
-  public List<ComponentSearchResultDTO> getInputPortResults() {
-    return inputPortResults;
-  }
-
-  public void setInputPortResults(List<ComponentSearchResultDTO> inputPortResults) {
-    this.inputPortResults = inputPortResults;
-  }
-
-  public SearchResultsDTO outputPortResults(List<ComponentSearchResultDTO> outputPortResults) {
-    this.outputPortResults = outputPortResults;
-    return this;
-  }
-
-  public SearchResultsDTO addOutputPortResultsItem(ComponentSearchResultDTO outputPortResultsItem) {
-    if (this.outputPortResults == null) {
-      this.outputPortResults = new ArrayList<ComponentSearchResultDTO>();
+    public SearchResultsDTO connectionResults(List<ComponentSearchResultDTO> connectionResults) {
+        this.connectionResults = connectionResults;
+        return this;
     }
-    this.outputPortResults.add(outputPortResultsItem);
-    return this;
-  }
 
-   /**
-   * The output ports that matched the search.
-   * @return outputPortResults
-  **/
-  @ApiModelProperty(value = "The output ports that matched the search.")
-  public List<ComponentSearchResultDTO> getOutputPortResults() {
-    return outputPortResults;
-  }
-
-  public void setOutputPortResults(List<ComponentSearchResultDTO> outputPortResults) {
-    this.outputPortResults = outputPortResults;
-  }
-
-  public SearchResultsDTO remoteProcessGroupResults(List<ComponentSearchResultDTO> remoteProcessGroupResults) {
-    this.remoteProcessGroupResults = remoteProcessGroupResults;
-    return this;
-  }
-
-  public SearchResultsDTO addRemoteProcessGroupResultsItem(ComponentSearchResultDTO remoteProcessGroupResultsItem) {
-    if (this.remoteProcessGroupResults == null) {
-      this.remoteProcessGroupResults = new ArrayList<ComponentSearchResultDTO>();
+    public SearchResultsDTO addConnectionResultsItem(ComponentSearchResultDTO connectionResultsItem) {
+        if (this.connectionResults == null) {
+            this.connectionResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.connectionResults.add(connectionResultsItem);
+        return this;
     }
-    this.remoteProcessGroupResults.add(remoteProcessGroupResultsItem);
-    return this;
-  }
 
-   /**
-   * The remote process groups that matched the search.
-   * @return remoteProcessGroupResults
-  **/
-  @ApiModelProperty(value = "The remote process groups that matched the search.")
-  public List<ComponentSearchResultDTO> getRemoteProcessGroupResults() {
-    return remoteProcessGroupResults;
-  }
-
-  public void setRemoteProcessGroupResults(List<ComponentSearchResultDTO> remoteProcessGroupResults) {
-    this.remoteProcessGroupResults = remoteProcessGroupResults;
-  }
-
-  public SearchResultsDTO funnelResults(List<ComponentSearchResultDTO> funnelResults) {
-    this.funnelResults = funnelResults;
-    return this;
-  }
-
-  public SearchResultsDTO addFunnelResultsItem(ComponentSearchResultDTO funnelResultsItem) {
-    if (this.funnelResults == null) {
-      this.funnelResults = new ArrayList<ComponentSearchResultDTO>();
+    /**
+     * The connections that matched the search.
+     *
+     * @return connectionResults
+     **/
+    @ApiModelProperty(value = "The connections that matched the search.")
+    public List<ComponentSearchResultDTO> getConnectionResults() {
+        return connectionResults;
     }
-    this.funnelResults.add(funnelResultsItem);
-    return this;
-  }
 
-   /**
-   * The funnels that matched the search.
-   * @return funnelResults
-  **/
-  @ApiModelProperty(value = "The funnels that matched the search.")
-  public List<ComponentSearchResultDTO> getFunnelResults() {
-    return funnelResults;
-  }
-
-  public void setFunnelResults(List<ComponentSearchResultDTO> funnelResults) {
-    this.funnelResults = funnelResults;
-  }
-
-  public SearchResultsDTO labelResults(List<ComponentSearchResultDTO> labelResults) {
-    this.labelResults = labelResults;
-    return this;
-  }
-
-  public SearchResultsDTO addLabelResultsItem(ComponentSearchResultDTO labelResultsItem) {
-    if (this.labelResults == null) {
-      this.labelResults = new ArrayList<ComponentSearchResultDTO>();
+    public void setConnectionResults(List<ComponentSearchResultDTO> connectionResults) {
+        this.connectionResults = connectionResults;
     }
-    this.labelResults.add(labelResultsItem);
-    return this;
-  }
 
-   /**
-   * The labels that matched the search.
-   * @return labelResults
-  **/
-  @ApiModelProperty(value = "The labels that matched the search.")
-  public List<ComponentSearchResultDTO> getLabelResults() {
-    return labelResults;
-  }
-
-  public void setLabelResults(List<ComponentSearchResultDTO> labelResults) {
-    this.labelResults = labelResults;
-  }
-
-  public SearchResultsDTO controllerServiceNodeResults(List<ComponentSearchResultDTO> controllerServiceNodeResults) {
-    this.controllerServiceNodeResults = controllerServiceNodeResults;
-    return this;
-  }
-
-  public SearchResultsDTO addControllerServiceNodeResultsItem(ComponentSearchResultDTO controllerServiceNodeResultsItem) {
-    if (this.controllerServiceNodeResults == null) {
-      this.controllerServiceNodeResults = new ArrayList<ComponentSearchResultDTO>();
+    public SearchResultsDTO processGroupResults(List<ComponentSearchResultDTO> processGroupResults) {
+        this.processGroupResults = processGroupResults;
+        return this;
     }
-    this.controllerServiceNodeResults.add(controllerServiceNodeResultsItem);
-    return this;
-  }
 
-   /**
-   * The controller service nodes that matched the search
-   * @return controllerServiceNodeResults
-  **/
-  @ApiModelProperty(value = "The controller service nodes that matched the search")
-  public List<ComponentSearchResultDTO> getControllerServiceNodeResults() {
-    return controllerServiceNodeResults;
-  }
-
-  public void setControllerServiceNodeResults(List<ComponentSearchResultDTO> controllerServiceNodeResults) {
-    this.controllerServiceNodeResults = controllerServiceNodeResults;
-  }
-
-  public SearchResultsDTO parameterContextResults(List<ComponentSearchResultDTO> parameterContextResults) {
-    this.parameterContextResults = parameterContextResults;
-    return this;
-  }
-
-  public SearchResultsDTO addParameterContextResultsItem(ComponentSearchResultDTO parameterContextResultsItem) {
-    if (this.parameterContextResults == null) {
-      this.parameterContextResults = new ArrayList<ComponentSearchResultDTO>();
+    public SearchResultsDTO addProcessGroupResultsItem(ComponentSearchResultDTO processGroupResultsItem) {
+        if (this.processGroupResults == null) {
+            this.processGroupResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.processGroupResults.add(processGroupResultsItem);
+        return this;
     }
-    this.parameterContextResults.add(parameterContextResultsItem);
-    return this;
-  }
 
-   /**
-   * The parameter contexts that matched the search.
-   * @return parameterContextResults
-  **/
-  @ApiModelProperty(value = "The parameter contexts that matched the search.")
-  public List<ComponentSearchResultDTO> getParameterContextResults() {
-    return parameterContextResults;
-  }
-
-  public void setParameterContextResults(List<ComponentSearchResultDTO> parameterContextResults) {
-    this.parameterContextResults = parameterContextResults;
-  }
-
-  public SearchResultsDTO parameterProviderNodeResults(List<ComponentSearchResultDTO> parameterProviderNodeResults) {
-    this.parameterProviderNodeResults = parameterProviderNodeResults;
-    return this;
-  }
-
-  public SearchResultsDTO addParameterProviderNodeResultsItem(ComponentSearchResultDTO parameterProviderNodeResultsItem) {
-    if (this.parameterProviderNodeResults == null) {
-      this.parameterProviderNodeResults = new ArrayList<ComponentSearchResultDTO>();
+    /**
+     * The process groups that matched the search.
+     *
+     * @return processGroupResults
+     **/
+    @ApiModelProperty(value = "The process groups that matched the search.")
+    public List<ComponentSearchResultDTO> getProcessGroupResults() {
+        return processGroupResults;
     }
-    this.parameterProviderNodeResults.add(parameterProviderNodeResultsItem);
-    return this;
-  }
 
-   /**
-   * The parameter provider nodes that matched the search
-   * @return parameterProviderNodeResults
-  **/
-  @ApiModelProperty(value = "The parameter provider nodes that matched the search")
-  public List<ComponentSearchResultDTO> getParameterProviderNodeResults() {
-    return parameterProviderNodeResults;
-  }
-
-  public void setParameterProviderNodeResults(List<ComponentSearchResultDTO> parameterProviderNodeResults) {
-    this.parameterProviderNodeResults = parameterProviderNodeResults;
-  }
-
-  public SearchResultsDTO parameterResults(List<ComponentSearchResultDTO> parameterResults) {
-    this.parameterResults = parameterResults;
-    return this;
-  }
-
-  public SearchResultsDTO addParameterResultsItem(ComponentSearchResultDTO parameterResultsItem) {
-    if (this.parameterResults == null) {
-      this.parameterResults = new ArrayList<ComponentSearchResultDTO>();
+    public void setProcessGroupResults(List<ComponentSearchResultDTO> processGroupResults) {
+        this.processGroupResults = processGroupResults;
     }
-    this.parameterResults.add(parameterResultsItem);
-    return this;
-  }
 
-   /**
-   * The parameters that matched the search.
-   * @return parameterResults
-  **/
-  @ApiModelProperty(value = "The parameters that matched the search.")
-  public List<ComponentSearchResultDTO> getParameterResults() {
-    return parameterResults;
-  }
-
-  public void setParameterResults(List<ComponentSearchResultDTO> parameterResults) {
-    this.parameterResults = parameterResults;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public SearchResultsDTO inputPortResults(List<ComponentSearchResultDTO> inputPortResults) {
+        this.inputPortResults = inputPortResults;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public SearchResultsDTO addInputPortResultsItem(ComponentSearchResultDTO inputPortResultsItem) {
+        if (this.inputPortResults == null) {
+            this.inputPortResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.inputPortResults.add(inputPortResultsItem);
+        return this;
     }
-    SearchResultsDTO searchResultsDTO = (SearchResultsDTO) o;
-    return Objects.equals(this.processorResults, searchResultsDTO.processorResults) &&
-        Objects.equals(this.connectionResults, searchResultsDTO.connectionResults) &&
-        Objects.equals(this.processGroupResults, searchResultsDTO.processGroupResults) &&
-        Objects.equals(this.inputPortResults, searchResultsDTO.inputPortResults) &&
-        Objects.equals(this.outputPortResults, searchResultsDTO.outputPortResults) &&
-        Objects.equals(this.remoteProcessGroupResults, searchResultsDTO.remoteProcessGroupResults) &&
-        Objects.equals(this.funnelResults, searchResultsDTO.funnelResults) &&
-        Objects.equals(this.labelResults, searchResultsDTO.labelResults) &&
-        Objects.equals(this.controllerServiceNodeResults, searchResultsDTO.controllerServiceNodeResults) &&
-        Objects.equals(this.parameterContextResults, searchResultsDTO.parameterContextResults) &&
-        Objects.equals(this.parameterProviderNodeResults, searchResultsDTO.parameterProviderNodeResults) &&
-        Objects.equals(this.parameterResults, searchResultsDTO.parameterResults);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(processorResults, connectionResults, processGroupResults, inputPortResults, outputPortResults, remoteProcessGroupResults, funnelResults, labelResults, controllerServiceNodeResults, parameterContextResults, parameterProviderNodeResults, parameterResults);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SearchResultsDTO {\n");
-    
-    sb.append("    processorResults: ").append(toIndentedString(processorResults)).append("\n");
-    sb.append("    connectionResults: ").append(toIndentedString(connectionResults)).append("\n");
-    sb.append("    processGroupResults: ").append(toIndentedString(processGroupResults)).append("\n");
-    sb.append("    inputPortResults: ").append(toIndentedString(inputPortResults)).append("\n");
-    sb.append("    outputPortResults: ").append(toIndentedString(outputPortResults)).append("\n");
-    sb.append("    remoteProcessGroupResults: ").append(toIndentedString(remoteProcessGroupResults)).append("\n");
-    sb.append("    funnelResults: ").append(toIndentedString(funnelResults)).append("\n");
-    sb.append("    labelResults: ").append(toIndentedString(labelResults)).append("\n");
-    sb.append("    controllerServiceNodeResults: ").append(toIndentedString(controllerServiceNodeResults)).append("\n");
-    sb.append("    parameterContextResults: ").append(toIndentedString(parameterContextResults)).append("\n");
-    sb.append("    parameterProviderNodeResults: ").append(toIndentedString(parameterProviderNodeResults)).append("\n");
-    sb.append("    parameterResults: ").append(toIndentedString(parameterResults)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * The input ports that matched the search.
+     *
+     * @return inputPortResults
+     **/
+    @ApiModelProperty(value = "The input ports that matched the search.")
+    public List<ComponentSearchResultDTO> getInputPortResults() {
+        return inputPortResults;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setInputPortResults(List<ComponentSearchResultDTO> inputPortResults) {
+        this.inputPortResults = inputPortResults;
+    }
+
+    public SearchResultsDTO outputPortResults(List<ComponentSearchResultDTO> outputPortResults) {
+        this.outputPortResults = outputPortResults;
+        return this;
+    }
+
+    public SearchResultsDTO addOutputPortResultsItem(ComponentSearchResultDTO outputPortResultsItem) {
+        if (this.outputPortResults == null) {
+            this.outputPortResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.outputPortResults.add(outputPortResultsItem);
+        return this;
+    }
+
+    /**
+     * The output ports that matched the search.
+     *
+     * @return outputPortResults
+     **/
+    @ApiModelProperty(value = "The output ports that matched the search.")
+    public List<ComponentSearchResultDTO> getOutputPortResults() {
+        return outputPortResults;
+    }
+
+    public void setOutputPortResults(List<ComponentSearchResultDTO> outputPortResults) {
+        this.outputPortResults = outputPortResults;
+    }
+
+    public SearchResultsDTO remoteProcessGroupResults(List<ComponentSearchResultDTO> remoteProcessGroupResults) {
+        this.remoteProcessGroupResults = remoteProcessGroupResults;
+        return this;
+    }
+
+    public SearchResultsDTO addRemoteProcessGroupResultsItem(ComponentSearchResultDTO remoteProcessGroupResultsItem) {
+        if (this.remoteProcessGroupResults == null) {
+            this.remoteProcessGroupResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.remoteProcessGroupResults.add(remoteProcessGroupResultsItem);
+        return this;
+    }
+
+    /**
+     * The remote process groups that matched the search.
+     *
+     * @return remoteProcessGroupResults
+     **/
+    @ApiModelProperty(value = "The remote process groups that matched the search.")
+    public List<ComponentSearchResultDTO> getRemoteProcessGroupResults() {
+        return remoteProcessGroupResults;
+    }
+
+    public void setRemoteProcessGroupResults(List<ComponentSearchResultDTO> remoteProcessGroupResults) {
+        this.remoteProcessGroupResults = remoteProcessGroupResults;
+    }
+
+    public SearchResultsDTO funnelResults(List<ComponentSearchResultDTO> funnelResults) {
+        this.funnelResults = funnelResults;
+        return this;
+    }
+
+    public SearchResultsDTO addFunnelResultsItem(ComponentSearchResultDTO funnelResultsItem) {
+        if (this.funnelResults == null) {
+            this.funnelResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.funnelResults.add(funnelResultsItem);
+        return this;
+    }
+
+    /**
+     * The funnels that matched the search.
+     *
+     * @return funnelResults
+     **/
+    @ApiModelProperty(value = "The funnels that matched the search.")
+    public List<ComponentSearchResultDTO> getFunnelResults() {
+        return funnelResults;
+    }
+
+    public void setFunnelResults(List<ComponentSearchResultDTO> funnelResults) {
+        this.funnelResults = funnelResults;
+    }
+
+    public SearchResultsDTO labelResults(List<ComponentSearchResultDTO> labelResults) {
+        this.labelResults = labelResults;
+        return this;
+    }
+
+    public SearchResultsDTO addLabelResultsItem(ComponentSearchResultDTO labelResultsItem) {
+        if (this.labelResults == null) {
+            this.labelResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.labelResults.add(labelResultsItem);
+        return this;
+    }
+
+    /**
+     * The labels that matched the search.
+     *
+     * @return labelResults
+     **/
+    @ApiModelProperty(value = "The labels that matched the search.")
+    public List<ComponentSearchResultDTO> getLabelResults() {
+        return labelResults;
+    }
+
+    public void setLabelResults(List<ComponentSearchResultDTO> labelResults) {
+        this.labelResults = labelResults;
+    }
+
+    public SearchResultsDTO controllerServiceNodeResults(List<ComponentSearchResultDTO> controllerServiceNodeResults) {
+        this.controllerServiceNodeResults = controllerServiceNodeResults;
+        return this;
+    }
+
+    public SearchResultsDTO addControllerServiceNodeResultsItem(ComponentSearchResultDTO controllerServiceNodeResultsItem) {
+        if (this.controllerServiceNodeResults == null) {
+            this.controllerServiceNodeResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.controllerServiceNodeResults.add(controllerServiceNodeResultsItem);
+        return this;
+    }
+
+    /**
+     * The controller service nodes that matched the search
+     *
+     * @return controllerServiceNodeResults
+     **/
+    @ApiModelProperty(value = "The controller service nodes that matched the search")
+    public List<ComponentSearchResultDTO> getControllerServiceNodeResults() {
+        return controllerServiceNodeResults;
+    }
+
+    public void setControllerServiceNodeResults(List<ComponentSearchResultDTO> controllerServiceNodeResults) {
+        this.controllerServiceNodeResults = controllerServiceNodeResults;
+    }
+
+    public SearchResultsDTO parameterContextResults(List<ComponentSearchResultDTO> parameterContextResults) {
+        this.parameterContextResults = parameterContextResults;
+        return this;
+    }
+
+    public SearchResultsDTO addParameterContextResultsItem(ComponentSearchResultDTO parameterContextResultsItem) {
+        if (this.parameterContextResults == null) {
+            this.parameterContextResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.parameterContextResults.add(parameterContextResultsItem);
+        return this;
+    }
+
+    /**
+     * The parameter contexts that matched the search.
+     *
+     * @return parameterContextResults
+     **/
+    @ApiModelProperty(value = "The parameter contexts that matched the search.")
+    public List<ComponentSearchResultDTO> getParameterContextResults() {
+        return parameterContextResults;
+    }
+
+    public void setParameterContextResults(List<ComponentSearchResultDTO> parameterContextResults) {
+        this.parameterContextResults = parameterContextResults;
+    }
+
+    public SearchResultsDTO parameterProviderNodeResults(List<ComponentSearchResultDTO> parameterProviderNodeResults) {
+        this.parameterProviderNodeResults = parameterProviderNodeResults;
+        return this;
+    }
+
+    public SearchResultsDTO addParameterProviderNodeResultsItem(ComponentSearchResultDTO parameterProviderNodeResultsItem) {
+        if (this.parameterProviderNodeResults == null) {
+            this.parameterProviderNodeResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.parameterProviderNodeResults.add(parameterProviderNodeResultsItem);
+        return this;
+    }
+
+    /**
+     * The parameter provider nodes that matched the search
+     *
+     * @return parameterProviderNodeResults
+     **/
+    @ApiModelProperty(value = "The parameter provider nodes that matched the search")
+    public List<ComponentSearchResultDTO> getParameterProviderNodeResults() {
+        return parameterProviderNodeResults;
+    }
+
+    public void setParameterProviderNodeResults(List<ComponentSearchResultDTO> parameterProviderNodeResults) {
+        this.parameterProviderNodeResults = parameterProviderNodeResults;
+    }
+
+    public SearchResultsDTO parameterResults(List<ComponentSearchResultDTO> parameterResults) {
+        this.parameterResults = parameterResults;
+        return this;
+    }
+
+    public SearchResultsDTO addParameterResultsItem(ComponentSearchResultDTO parameterResultsItem) {
+        if (this.parameterResults == null) {
+            this.parameterResults = new ArrayList<ComponentSearchResultDTO>();
+        }
+        this.parameterResults.add(parameterResultsItem);
+        return this;
+    }
+
+    /**
+     * The parameters that matched the search.
+     *
+     * @return parameterResults
+     **/
+    @ApiModelProperty(value = "The parameters that matched the search.")
+    public List<ComponentSearchResultDTO> getParameterResults() {
+        return parameterResults;
+    }
+
+    public void setParameterResults(List<ComponentSearchResultDTO> parameterResults) {
+        this.parameterResults = parameterResults;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SearchResultsDTO searchResultsDTO = (SearchResultsDTO) o;
+        return Objects.equals(this.processorResults, searchResultsDTO.processorResults) &&
+                Objects.equals(this.connectionResults, searchResultsDTO.connectionResults) &&
+                Objects.equals(this.processGroupResults, searchResultsDTO.processGroupResults) &&
+                Objects.equals(this.inputPortResults, searchResultsDTO.inputPortResults) &&
+                Objects.equals(this.outputPortResults, searchResultsDTO.outputPortResults) &&
+                Objects.equals(this.remoteProcessGroupResults, searchResultsDTO.remoteProcessGroupResults) &&
+                Objects.equals(this.funnelResults, searchResultsDTO.funnelResults) &&
+                Objects.equals(this.labelResults, searchResultsDTO.labelResults) &&
+                Objects.equals(this.controllerServiceNodeResults, searchResultsDTO.controllerServiceNodeResults) &&
+                Objects.equals(this.parameterContextResults, searchResultsDTO.parameterContextResults) &&
+                Objects.equals(this.parameterProviderNodeResults, searchResultsDTO.parameterProviderNodeResults) &&
+                Objects.equals(this.parameterResults, searchResultsDTO.parameterResults);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processorResults, connectionResults, processGroupResults, inputPortResults, outputPortResults, remoteProcessGroupResults, funnelResults, labelResults, controllerServiceNodeResults, parameterContextResults, parameterProviderNodeResults, parameterResults);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SearchResultsDTO {\n");
+
+        sb.append("    processorResults: ").append(toIndentedString(processorResults)).append("\n");
+        sb.append("    connectionResults: ").append(toIndentedString(connectionResults)).append("\n");
+        sb.append("    processGroupResults: ").append(toIndentedString(processGroupResults)).append("\n");
+        sb.append("    inputPortResults: ").append(toIndentedString(inputPortResults)).append("\n");
+        sb.append("    outputPortResults: ").append(toIndentedString(outputPortResults)).append("\n");
+        sb.append("    remoteProcessGroupResults: ").append(toIndentedString(remoteProcessGroupResults)).append("\n");
+        sb.append("    funnelResults: ").append(toIndentedString(funnelResults)).append("\n");
+        sb.append("    labelResults: ").append(toIndentedString(labelResults)).append("\n");
+        sb.append("    controllerServiceNodeResults: ").append(toIndentedString(controllerServiceNodeResults)).append("\n");
+        sb.append("    parameterContextResults: ").append(toIndentedString(parameterContextResults)).append("\n");
+        sb.append("    parameterProviderNodeResults: ").append(toIndentedString(parameterProviderNodeResults)).append("\n");
+        sb.append("    parameterResults: ").append(toIndentedString(parameterResults)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.NodeDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * NodeEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class NodeEntity {
-  @SerializedName("node")
-  private NodeDTO node = null;
+    @SerializedName("node")
+    private NodeDTO node = null;
 
-  public NodeEntity node(NodeDTO node) {
-    this.node = node;
-    return this;
-  }
-
-   /**
-   * Get node
-   * @return node
-  **/
-  @ApiModelProperty(value = "")
-  public NodeDTO getNode() {
-    return node;
-  }
-
-  public void setNode(NodeDTO node) {
-    this.node = node;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public NodeEntity node(NodeDTO node) {
+        this.node = node;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get node
+     *
+     * @return node
+     **/
+    @ApiModelProperty(value = "")
+    public NodeDTO getNode() {
+        return node;
     }
-    NodeEntity nodeEntity = (NodeEntity) o;
-    return Objects.equals(this.node, nodeEntity.node);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(node);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class NodeEntity {\n");
-    
-    sb.append("    node: ").append(toIndentedString(node)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setNode(NodeDTO node) {
+        this.node = node;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        NodeEntity nodeEntity = (NodeEntity) o;
+        return Objects.equals(this.node, nodeEntity.node);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(node);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class NodeEntity {\n");
+
+        sb.append("    node: ").append(toIndentedString(node)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

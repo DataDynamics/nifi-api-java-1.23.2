@@ -13,107 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.RevisionDTO;
-import io.swagger.client.model.VersionedFlowUpdateRequestDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * VersionedFlowUpdateRequestEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VersionedFlowUpdateRequestEntity {
-  @SerializedName("processGroupRevision")
-  private RevisionDTO processGroupRevision = null;
+    @SerializedName("processGroupRevision")
+    private RevisionDTO processGroupRevision = null;
 
-  @SerializedName("request")
-  private VersionedFlowUpdateRequestDTO request = null;
+    @SerializedName("request")
+    private VersionedFlowUpdateRequestDTO request = null;
 
-  public VersionedFlowUpdateRequestEntity processGroupRevision(RevisionDTO processGroupRevision) {
-    this.processGroupRevision = processGroupRevision;
-    return this;
-  }
-
-   /**
-   * The revision for the Process Group being updated.
-   * @return processGroupRevision
-  **/
-  @ApiModelProperty(value = "The revision for the Process Group being updated.")
-  public RevisionDTO getProcessGroupRevision() {
-    return processGroupRevision;
-  }
-
-  public void setProcessGroupRevision(RevisionDTO processGroupRevision) {
-    this.processGroupRevision = processGroupRevision;
-  }
-
-  public VersionedFlowUpdateRequestEntity request(VersionedFlowUpdateRequestDTO request) {
-    this.request = request;
-    return this;
-  }
-
-   /**
-   * The Flow Update Request
-   * @return request
-  **/
-  @ApiModelProperty(value = "The Flow Update Request")
-  public VersionedFlowUpdateRequestDTO getRequest() {
-    return request;
-  }
-
-  public void setRequest(VersionedFlowUpdateRequestDTO request) {
-    this.request = request;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public VersionedFlowUpdateRequestEntity processGroupRevision(RevisionDTO processGroupRevision) {
+        this.processGroupRevision = processGroupRevision;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The revision for the Process Group being updated.
+     *
+     * @return processGroupRevision
+     **/
+    @ApiModelProperty(value = "The revision for the Process Group being updated.")
+    public RevisionDTO getProcessGroupRevision() {
+        return processGroupRevision;
     }
-    VersionedFlowUpdateRequestEntity versionedFlowUpdateRequestEntity = (VersionedFlowUpdateRequestEntity) o;
-    return Objects.equals(this.processGroupRevision, versionedFlowUpdateRequestEntity.processGroupRevision) &&
-        Objects.equals(this.request, versionedFlowUpdateRequestEntity.request);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(processGroupRevision, request);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VersionedFlowUpdateRequestEntity {\n");
-    
-    sb.append("    processGroupRevision: ").append(toIndentedString(processGroupRevision)).append("\n");
-    sb.append("    request: ").append(toIndentedString(request)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setProcessGroupRevision(RevisionDTO processGroupRevision) {
+        this.processGroupRevision = processGroupRevision;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public VersionedFlowUpdateRequestEntity request(VersionedFlowUpdateRequestDTO request) {
+        this.request = request;
+        return this;
+    }
+
+    /**
+     * The Flow Update Request
+     *
+     * @return request
+     **/
+    @ApiModelProperty(value = "The Flow Update Request")
+    public VersionedFlowUpdateRequestDTO getRequest() {
+        return request;
+    }
+
+    public void setRequest(VersionedFlowUpdateRequestDTO request) {
+        this.request = request;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VersionedFlowUpdateRequestEntity versionedFlowUpdateRequestEntity = (VersionedFlowUpdateRequestEntity) o;
+        return Objects.equals(this.processGroupRevision, versionedFlowUpdateRequestEntity.processGroupRevision) &&
+                Objects.equals(this.request, versionedFlowUpdateRequestEntity.request);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processGroupRevision, request);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VersionedFlowUpdateRequestEntity {\n");
+
+        sb.append("    processGroupRevision: ").append(toIndentedString(processGroupRevision)).append("\n");
+        sb.append("    request: ").append(toIndentedString(request)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

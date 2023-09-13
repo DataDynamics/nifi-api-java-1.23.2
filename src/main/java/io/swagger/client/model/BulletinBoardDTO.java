@@ -13,116 +13,111 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.BulletinEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * BulletinBoardDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class BulletinBoardDTO {
-  @SerializedName("bulletins")
-  private List<BulletinEntity> bulletins = null;
+    @SerializedName("bulletins")
+    private List<BulletinEntity> bulletins = null;
 
-  @SerializedName("generated")
-  private String generated = null;
+    @SerializedName("generated")
+    private String generated = null;
 
-  public BulletinBoardDTO bulletins(List<BulletinEntity> bulletins) {
-    this.bulletins = bulletins;
-    return this;
-  }
-
-  public BulletinBoardDTO addBulletinsItem(BulletinEntity bulletinsItem) {
-    if (this.bulletins == null) {
-      this.bulletins = new ArrayList<BulletinEntity>();
+    public BulletinBoardDTO bulletins(List<BulletinEntity> bulletins) {
+        this.bulletins = bulletins;
+        return this;
     }
-    this.bulletins.add(bulletinsItem);
-    return this;
-  }
 
-   /**
-   * The bulletins in the bulletin board, that matches the supplied request.
-   * @return bulletins
-  **/
-  @ApiModelProperty(value = "The bulletins in the bulletin board, that matches the supplied request.")
-  public List<BulletinEntity> getBulletins() {
-    return bulletins;
-  }
-
-  public void setBulletins(List<BulletinEntity> bulletins) {
-    this.bulletins = bulletins;
-  }
-
-  public BulletinBoardDTO generated(String generated) {
-    this.generated = generated;
-    return this;
-  }
-
-   /**
-   * The timestamp when this report was generated.
-   * @return generated
-  **/
-  @ApiModelProperty(value = "The timestamp when this report was generated.")
-  public String getGenerated() {
-    return generated;
-  }
-
-  public void setGenerated(String generated) {
-    this.generated = generated;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public BulletinBoardDTO addBulletinsItem(BulletinEntity bulletinsItem) {
+        if (this.bulletins == null) {
+            this.bulletins = new ArrayList<BulletinEntity>();
+        }
+        this.bulletins.add(bulletinsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The bulletins in the bulletin board, that matches the supplied request.
+     *
+     * @return bulletins
+     **/
+    @ApiModelProperty(value = "The bulletins in the bulletin board, that matches the supplied request.")
+    public List<BulletinEntity> getBulletins() {
+        return bulletins;
     }
-    BulletinBoardDTO bulletinBoardDTO = (BulletinBoardDTO) o;
-    return Objects.equals(this.bulletins, bulletinBoardDTO.bulletins) &&
-        Objects.equals(this.generated, bulletinBoardDTO.generated);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(bulletins, generated);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class BulletinBoardDTO {\n");
-    
-    sb.append("    bulletins: ").append(toIndentedString(bulletins)).append("\n");
-    sb.append("    generated: ").append(toIndentedString(generated)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setBulletins(List<BulletinEntity> bulletins) {
+        this.bulletins = bulletins;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public BulletinBoardDTO generated(String generated) {
+        this.generated = generated;
+        return this;
+    }
+
+    /**
+     * The timestamp when this report was generated.
+     *
+     * @return generated
+     **/
+    @ApiModelProperty(value = "The timestamp when this report was generated.")
+    public String getGenerated() {
+        return generated;
+    }
+
+    public void setGenerated(String generated) {
+        this.generated = generated;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        BulletinBoardDTO bulletinBoardDTO = (BulletinBoardDTO) o;
+        return Objects.equals(this.bulletins, bulletinBoardDTO.bulletins) &&
+                Objects.equals(this.generated, bulletinBoardDTO.generated);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bulletins, generated);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BulletinBoardDTO {\n");
+
+        sb.append("    bulletins: ").append(toIndentedString(bulletins)).append("\n");
+        sb.append("    generated: ").append(toIndentedString(generated)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

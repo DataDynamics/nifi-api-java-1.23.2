@@ -13,130 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.RevisionDTO;
-import io.swagger.client.model.VersionedFlowDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * StartVersionControlRequestEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class StartVersionControlRequestEntity {
-  @SerializedName("versionedFlow")
-  private VersionedFlowDTO versionedFlow = null;
+    @SerializedName("versionedFlow")
+    private VersionedFlowDTO versionedFlow = null;
 
-  @SerializedName("processGroupRevision")
-  private RevisionDTO processGroupRevision = null;
+    @SerializedName("processGroupRevision")
+    private RevisionDTO processGroupRevision = null;
 
-  @SerializedName("disconnectedNodeAcknowledged")
-  private Boolean disconnectedNodeAcknowledged = null;
+    @SerializedName("disconnectedNodeAcknowledged")
+    private Boolean disconnectedNodeAcknowledged = null;
 
-  public StartVersionControlRequestEntity versionedFlow(VersionedFlowDTO versionedFlow) {
-    this.versionedFlow = versionedFlow;
-    return this;
-  }
-
-   /**
-   * The versioned flow
-   * @return versionedFlow
-  **/
-  @ApiModelProperty(value = "The versioned flow")
-  public VersionedFlowDTO getVersionedFlow() {
-    return versionedFlow;
-  }
-
-  public void setVersionedFlow(VersionedFlowDTO versionedFlow) {
-    this.versionedFlow = versionedFlow;
-  }
-
-  public StartVersionControlRequestEntity processGroupRevision(RevisionDTO processGroupRevision) {
-    this.processGroupRevision = processGroupRevision;
-    return this;
-  }
-
-   /**
-   * The Revision of the Process Group under Version Control
-   * @return processGroupRevision
-  **/
-  @ApiModelProperty(value = "The Revision of the Process Group under Version Control")
-  public RevisionDTO getProcessGroupRevision() {
-    return processGroupRevision;
-  }
-
-  public void setProcessGroupRevision(RevisionDTO processGroupRevision) {
-    this.processGroupRevision = processGroupRevision;
-  }
-
-  public StartVersionControlRequestEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-    return this;
-  }
-
-   /**
-   * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
-   * @return disconnectedNodeAcknowledged
-  **/
-  @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
-  public Boolean isDisconnectedNodeAcknowledged() {
-    return disconnectedNodeAcknowledged;
-  }
-
-  public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public StartVersionControlRequestEntity versionedFlow(VersionedFlowDTO versionedFlow) {
+        this.versionedFlow = versionedFlow;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The versioned flow
+     *
+     * @return versionedFlow
+     **/
+    @ApiModelProperty(value = "The versioned flow")
+    public VersionedFlowDTO getVersionedFlow() {
+        return versionedFlow;
     }
-    StartVersionControlRequestEntity startVersionControlRequestEntity = (StartVersionControlRequestEntity) o;
-    return Objects.equals(this.versionedFlow, startVersionControlRequestEntity.versionedFlow) &&
-        Objects.equals(this.processGroupRevision, startVersionControlRequestEntity.processGroupRevision) &&
-        Objects.equals(this.disconnectedNodeAcknowledged, startVersionControlRequestEntity.disconnectedNodeAcknowledged);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(versionedFlow, processGroupRevision, disconnectedNodeAcknowledged);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class StartVersionControlRequestEntity {\n");
-    
-    sb.append("    versionedFlow: ").append(toIndentedString(versionedFlow)).append("\n");
-    sb.append("    processGroupRevision: ").append(toIndentedString(processGroupRevision)).append("\n");
-    sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setVersionedFlow(VersionedFlowDTO versionedFlow) {
+        this.versionedFlow = versionedFlow;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public StartVersionControlRequestEntity processGroupRevision(RevisionDTO processGroupRevision) {
+        this.processGroupRevision = processGroupRevision;
+        return this;
+    }
+
+    /**
+     * The Revision of the Process Group under Version Control
+     *
+     * @return processGroupRevision
+     **/
+    @ApiModelProperty(value = "The Revision of the Process Group under Version Control")
+    public RevisionDTO getProcessGroupRevision() {
+        return processGroupRevision;
+    }
+
+    public void setProcessGroupRevision(RevisionDTO processGroupRevision) {
+        this.processGroupRevision = processGroupRevision;
+    }
+
+    public StartVersionControlRequestEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+        return this;
+    }
+
+    /**
+     * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
+     *
+     * @return disconnectedNodeAcknowledged
+     **/
+    @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
+    public Boolean isDisconnectedNodeAcknowledged() {
+        return disconnectedNodeAcknowledged;
+    }
+
+    public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        StartVersionControlRequestEntity startVersionControlRequestEntity = (StartVersionControlRequestEntity) o;
+        return Objects.equals(this.versionedFlow, startVersionControlRequestEntity.versionedFlow) &&
+                Objects.equals(this.processGroupRevision, startVersionControlRequestEntity.processGroupRevision) &&
+                Objects.equals(this.disconnectedNodeAcknowledged, startVersionControlRequestEntity.disconnectedNodeAcknowledged);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(versionedFlow, processGroupRevision, disconnectedNodeAcknowledged);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class StartVersionControlRequestEntity {\n");
+
+        sb.append("    versionedFlow: ").append(toIndentedString(versionedFlow)).append("\n");
+        sb.append("    processGroupRevision: ").append(toIndentedString(processGroupRevision)).append("\n");
+        sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

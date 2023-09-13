@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.PreviousValueDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * PropertyHistoryDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class PropertyHistoryDTO {
-  @SerializedName("previousValues")
-  private List<PreviousValueDTO> previousValues = null;
+    @SerializedName("previousValues")
+    private List<PreviousValueDTO> previousValues = null;
 
-  public PropertyHistoryDTO previousValues(List<PreviousValueDTO> previousValues) {
-    this.previousValues = previousValues;
-    return this;
-  }
-
-  public PropertyHistoryDTO addPreviousValuesItem(PreviousValueDTO previousValuesItem) {
-    if (this.previousValues == null) {
-      this.previousValues = new ArrayList<PreviousValueDTO>();
+    public PropertyHistoryDTO previousValues(List<PreviousValueDTO> previousValues) {
+        this.previousValues = previousValues;
+        return this;
     }
-    this.previousValues.add(previousValuesItem);
-    return this;
-  }
 
-   /**
-   * Previous values for a given property.
-   * @return previousValues
-  **/
-  @ApiModelProperty(value = "Previous values for a given property.")
-  public List<PreviousValueDTO> getPreviousValues() {
-    return previousValues;
-  }
-
-  public void setPreviousValues(List<PreviousValueDTO> previousValues) {
-    this.previousValues = previousValues;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public PropertyHistoryDTO addPreviousValuesItem(PreviousValueDTO previousValuesItem) {
+        if (this.previousValues == null) {
+            this.previousValues = new ArrayList<PreviousValueDTO>();
+        }
+        this.previousValues.add(previousValuesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Previous values for a given property.
+     *
+     * @return previousValues
+     **/
+    @ApiModelProperty(value = "Previous values for a given property.")
+    public List<PreviousValueDTO> getPreviousValues() {
+        return previousValues;
     }
-    PropertyHistoryDTO propertyHistoryDTO = (PropertyHistoryDTO) o;
-    return Objects.equals(this.previousValues, propertyHistoryDTO.previousValues);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(previousValues);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PropertyHistoryDTO {\n");
-    
-    sb.append("    previousValues: ").append(toIndentedString(previousValues)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setPreviousValues(List<PreviousValueDTO> previousValues) {
+        this.previousValues = previousValues;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PropertyHistoryDTO propertyHistoryDTO = (PropertyHistoryDTO) o;
+        return Objects.equals(this.previousValues, propertyHistoryDTO.previousValues);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(previousValues);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PropertyHistoryDTO {\n");
+
+        sb.append("    previousValues: ").append(toIndentedString(previousValues)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

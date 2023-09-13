@@ -13,186 +13,183 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.NodeProcessGroupStatusSnapshotDTO;
-import io.swagger.client.model.ProcessGroupStatusSnapshotDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ProcessGroupStatusDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProcessGroupStatusDTO {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("statsLastRefreshed")
-  private String statsLastRefreshed = null;
+    @SerializedName("statsLastRefreshed")
+    private String statsLastRefreshed = null;
 
-  @SerializedName("aggregateSnapshot")
-  private ProcessGroupStatusSnapshotDTO aggregateSnapshot = null;
+    @SerializedName("aggregateSnapshot")
+    private ProcessGroupStatusSnapshotDTO aggregateSnapshot = null;
 
-  @SerializedName("nodeSnapshots")
-  private List<NodeProcessGroupStatusSnapshotDTO> nodeSnapshots = null;
+    @SerializedName("nodeSnapshots")
+    private List<NodeProcessGroupStatusSnapshotDTO> nodeSnapshots = null;
 
-  public ProcessGroupStatusDTO id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ID of the Process Group
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID of the Process Group")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ProcessGroupStatusDTO name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The name of the Process Group
-   * @return name
-  **/
-  @ApiModelProperty(value = "The name of the Process Group")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ProcessGroupStatusDTO statsLastRefreshed(String statsLastRefreshed) {
-    this.statsLastRefreshed = statsLastRefreshed;
-    return this;
-  }
-
-   /**
-   * The time the status for the process group was last refreshed.
-   * @return statsLastRefreshed
-  **/
-  @ApiModelProperty(value = "The time the status for the process group was last refreshed.")
-  public String getStatsLastRefreshed() {
-    return statsLastRefreshed;
-  }
-
-  public void setStatsLastRefreshed(String statsLastRefreshed) {
-    this.statsLastRefreshed = statsLastRefreshed;
-  }
-
-  public ProcessGroupStatusDTO aggregateSnapshot(ProcessGroupStatusSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-    return this;
-  }
-
-   /**
-   * The aggregate status of all nodes in the cluster
-   * @return aggregateSnapshot
-  **/
-  @ApiModelProperty(value = "The aggregate status of all nodes in the cluster")
-  public ProcessGroupStatusSnapshotDTO getAggregateSnapshot() {
-    return aggregateSnapshot;
-  }
-
-  public void setAggregateSnapshot(ProcessGroupStatusSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-  }
-
-  public ProcessGroupStatusDTO nodeSnapshots(List<NodeProcessGroupStatusSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-    return this;
-  }
-
-  public ProcessGroupStatusDTO addNodeSnapshotsItem(NodeProcessGroupStatusSnapshotDTO nodeSnapshotsItem) {
-    if (this.nodeSnapshots == null) {
-      this.nodeSnapshots = new ArrayList<NodeProcessGroupStatusSnapshotDTO>();
+    public ProcessGroupStatusDTO id(String id) {
+        this.id = id;
+        return this;
     }
-    this.nodeSnapshots.add(nodeSnapshotsItem);
-    return this;
-  }
 
-   /**
-   * The status reported by each node in the cluster. If the NiFi instance is a standalone instance, rather than a clustered instance, this value may be null.
-   * @return nodeSnapshots
-  **/
-  @ApiModelProperty(value = "The status reported by each node in the cluster. If the NiFi instance is a standalone instance, rather than a clustered instance, this value may be null.")
-  public List<NodeProcessGroupStatusSnapshotDTO> getNodeSnapshots() {
-    return nodeSnapshots;
-  }
-
-  public void setNodeSnapshots(List<NodeProcessGroupStatusSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The ID of the Process Group
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The ID of the Process Group")
+    public String getId() {
+        return id;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setId(String id) {
+        this.id = id;
     }
-    ProcessGroupStatusDTO processGroupStatusDTO = (ProcessGroupStatusDTO) o;
-    return Objects.equals(this.id, processGroupStatusDTO.id) &&
-        Objects.equals(this.name, processGroupStatusDTO.name) &&
-        Objects.equals(this.statsLastRefreshed, processGroupStatusDTO.statsLastRefreshed) &&
-        Objects.equals(this.aggregateSnapshot, processGroupStatusDTO.aggregateSnapshot) &&
-        Objects.equals(this.nodeSnapshots, processGroupStatusDTO.nodeSnapshots);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name, statsLastRefreshed, aggregateSnapshot, nodeSnapshots);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessGroupStatusDTO {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    statsLastRefreshed: ").append(toIndentedString(statsLastRefreshed)).append("\n");
-    sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
-    sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public ProcessGroupStatusDTO name(String name) {
+        this.name = name;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The name of the Process Group
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "The name of the Process Group")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ProcessGroupStatusDTO statsLastRefreshed(String statsLastRefreshed) {
+        this.statsLastRefreshed = statsLastRefreshed;
+        return this;
+    }
+
+    /**
+     * The time the status for the process group was last refreshed.
+     *
+     * @return statsLastRefreshed
+     **/
+    @ApiModelProperty(value = "The time the status for the process group was last refreshed.")
+    public String getStatsLastRefreshed() {
+        return statsLastRefreshed;
+    }
+
+    public void setStatsLastRefreshed(String statsLastRefreshed) {
+        this.statsLastRefreshed = statsLastRefreshed;
+    }
+
+    public ProcessGroupStatusDTO aggregateSnapshot(ProcessGroupStatusSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+        return this;
+    }
+
+    /**
+     * The aggregate status of all nodes in the cluster
+     *
+     * @return aggregateSnapshot
+     **/
+    @ApiModelProperty(value = "The aggregate status of all nodes in the cluster")
+    public ProcessGroupStatusSnapshotDTO getAggregateSnapshot() {
+        return aggregateSnapshot;
+    }
+
+    public void setAggregateSnapshot(ProcessGroupStatusSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+    }
+
+    public ProcessGroupStatusDTO nodeSnapshots(List<NodeProcessGroupStatusSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+        return this;
+    }
+
+    public ProcessGroupStatusDTO addNodeSnapshotsItem(NodeProcessGroupStatusSnapshotDTO nodeSnapshotsItem) {
+        if (this.nodeSnapshots == null) {
+            this.nodeSnapshots = new ArrayList<NodeProcessGroupStatusSnapshotDTO>();
+        }
+        this.nodeSnapshots.add(nodeSnapshotsItem);
+        return this;
+    }
+
+    /**
+     * The status reported by each node in the cluster. If the NiFi instance is a standalone instance, rather than a clustered instance, this value may be null.
+     *
+     * @return nodeSnapshots
+     **/
+    @ApiModelProperty(value = "The status reported by each node in the cluster. If the NiFi instance is a standalone instance, rather than a clustered instance, this value may be null.")
+    public List<NodeProcessGroupStatusSnapshotDTO> getNodeSnapshots() {
+        return nodeSnapshots;
+    }
+
+    public void setNodeSnapshots(List<NodeProcessGroupStatusSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessGroupStatusDTO processGroupStatusDTO = (ProcessGroupStatusDTO) o;
+        return Objects.equals(this.id, processGroupStatusDTO.id) &&
+                Objects.equals(this.name, processGroupStatusDTO.name) &&
+                Objects.equals(this.statsLastRefreshed, processGroupStatusDTO.statsLastRefreshed) &&
+                Objects.equals(this.aggregateSnapshot, processGroupStatusDTO.aggregateSnapshot) &&
+                Objects.equals(this.nodeSnapshots, processGroupStatusDTO.nodeSnapshots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, statsLastRefreshed, aggregateSnapshot, nodeSnapshots);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessGroupStatusDTO {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    statsLastRefreshed: ").append(toIndentedString(statsLastRefreshed)).append("\n");
+        sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
+        sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

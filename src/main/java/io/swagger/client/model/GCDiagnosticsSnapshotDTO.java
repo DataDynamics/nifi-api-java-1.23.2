@@ -13,129 +13,126 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+
+import java.util.Objects;
 
 /**
  * GCDiagnosticsSnapshotDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class GCDiagnosticsSnapshotDTO {
-  @SerializedName("timestamp")
-  private OffsetDateTime timestamp = null;
+    @SerializedName("timestamp")
+    private OffsetDateTime timestamp = null;
 
-  @SerializedName("collectionCount")
-  private Long collectionCount = null;
+    @SerializedName("collectionCount")
+    private Long collectionCount = null;
 
-  @SerializedName("collectionMillis")
-  private Long collectionMillis = null;
+    @SerializedName("collectionMillis")
+    private Long collectionMillis = null;
 
-  public GCDiagnosticsSnapshotDTO timestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
-    return this;
-  }
-
-   /**
-   * The timestamp of when the Snapshot was taken
-   * @return timestamp
-  **/
-  @ApiModelProperty(value = "The timestamp of when the Snapshot was taken")
-  public OffsetDateTime getTimestamp() {
-    return timestamp;
-  }
-
-  public void setTimestamp(OffsetDateTime timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public GCDiagnosticsSnapshotDTO collectionCount(Long collectionCount) {
-    this.collectionCount = collectionCount;
-    return this;
-  }
-
-   /**
-   * The number of times that Garbage Collection has occurred
-   * @return collectionCount
-  **/
-  @ApiModelProperty(value = "The number of times that Garbage Collection has occurred")
-  public Long getCollectionCount() {
-    return collectionCount;
-  }
-
-  public void setCollectionCount(Long collectionCount) {
-    this.collectionCount = collectionCount;
-  }
-
-  public GCDiagnosticsSnapshotDTO collectionMillis(Long collectionMillis) {
-    this.collectionMillis = collectionMillis;
-    return this;
-  }
-
-   /**
-   * The number of milliseconds that the Garbage Collector spent performing Garbage Collection duties
-   * @return collectionMillis
-  **/
-  @ApiModelProperty(value = "The number of milliseconds that the Garbage Collector spent performing Garbage Collection duties")
-  public Long getCollectionMillis() {
-    return collectionMillis;
-  }
-
-  public void setCollectionMillis(Long collectionMillis) {
-    this.collectionMillis = collectionMillis;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public GCDiagnosticsSnapshotDTO timestamp(OffsetDateTime timestamp) {
+        this.timestamp = timestamp;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The timestamp of when the Snapshot was taken
+     *
+     * @return timestamp
+     **/
+    @ApiModelProperty(value = "The timestamp of when the Snapshot was taken")
+    public OffsetDateTime getTimestamp() {
+        return timestamp;
     }
-    GCDiagnosticsSnapshotDTO gcDiagnosticsSnapshotDTO = (GCDiagnosticsSnapshotDTO) o;
-    return Objects.equals(this.timestamp, gcDiagnosticsSnapshotDTO.timestamp) &&
-        Objects.equals(this.collectionCount, gcDiagnosticsSnapshotDTO.collectionCount) &&
-        Objects.equals(this.collectionMillis, gcDiagnosticsSnapshotDTO.collectionMillis);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(timestamp, collectionCount, collectionMillis);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class GCDiagnosticsSnapshotDTO {\n");
-    
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    collectionCount: ").append(toIndentedString(collectionCount)).append("\n");
-    sb.append("    collectionMillis: ").append(toIndentedString(collectionMillis)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setTimestamp(OffsetDateTime timestamp) {
+        this.timestamp = timestamp;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public GCDiagnosticsSnapshotDTO collectionCount(Long collectionCount) {
+        this.collectionCount = collectionCount;
+        return this;
+    }
+
+    /**
+     * The number of times that Garbage Collection has occurred
+     *
+     * @return collectionCount
+     **/
+    @ApiModelProperty(value = "The number of times that Garbage Collection has occurred")
+    public Long getCollectionCount() {
+        return collectionCount;
+    }
+
+    public void setCollectionCount(Long collectionCount) {
+        this.collectionCount = collectionCount;
+    }
+
+    public GCDiagnosticsSnapshotDTO collectionMillis(Long collectionMillis) {
+        this.collectionMillis = collectionMillis;
+        return this;
+    }
+
+    /**
+     * The number of milliseconds that the Garbage Collector spent performing Garbage Collection duties
+     *
+     * @return collectionMillis
+     **/
+    @ApiModelProperty(value = "The number of milliseconds that the Garbage Collector spent performing Garbage Collection duties")
+    public Long getCollectionMillis() {
+        return collectionMillis;
+    }
+
+    public void setCollectionMillis(Long collectionMillis) {
+        this.collectionMillis = collectionMillis;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GCDiagnosticsSnapshotDTO gcDiagnosticsSnapshotDTO = (GCDiagnosticsSnapshotDTO) o;
+        return Objects.equals(this.timestamp, gcDiagnosticsSnapshotDTO.timestamp) &&
+                Objects.equals(this.collectionCount, gcDiagnosticsSnapshotDTO.collectionCount) &&
+                Objects.equals(this.collectionMillis, gcDiagnosticsSnapshotDTO.collectionMillis);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(timestamp, collectionCount, collectionMillis);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GCDiagnosticsSnapshotDTO {\n");
+
+        sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("    collectionCount: ").append(toIndentedString(collectionCount)).append("\n");
+        sb.append("    collectionMillis: ").append(toIndentedString(collectionMillis)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

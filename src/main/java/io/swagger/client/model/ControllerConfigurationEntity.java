@@ -13,154 +13,149 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ControllerConfigurationDTO;
-import io.swagger.client.model.PermissionsDTO;
-import io.swagger.client.model.RevisionDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ControllerConfigurationEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerConfigurationEntity {
-  @SerializedName("revision")
-  private RevisionDTO revision = null;
+    @SerializedName("revision")
+    private RevisionDTO revision = null;
 
-  @SerializedName("permissions")
-  private PermissionsDTO permissions = null;
+    @SerializedName("permissions")
+    private PermissionsDTO permissions = null;
 
-  @SerializedName("disconnectedNodeAcknowledged")
-  private Boolean disconnectedNodeAcknowledged = null;
+    @SerializedName("disconnectedNodeAcknowledged")
+    private Boolean disconnectedNodeAcknowledged = null;
 
-  @SerializedName("component")
-  private ControllerConfigurationDTO component = null;
+    @SerializedName("component")
+    private ControllerConfigurationDTO component = null;
 
-  public ControllerConfigurationEntity revision(RevisionDTO revision) {
-    this.revision = revision;
-    return this;
-  }
-
-   /**
-   * The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.
-   * @return revision
-  **/
-  @ApiModelProperty(value = "The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.")
-  public RevisionDTO getRevision() {
-    return revision;
-  }
-
-  public void setRevision(RevisionDTO revision) {
-    this.revision = revision;
-  }
-
-  public ControllerConfigurationEntity permissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * The permissions for this component.
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "The permissions for this component.")
-  public PermissionsDTO getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-  }
-
-  public ControllerConfigurationEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-    return this;
-  }
-
-   /**
-   * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
-   * @return disconnectedNodeAcknowledged
-  **/
-  @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
-  public Boolean isDisconnectedNodeAcknowledged() {
-    return disconnectedNodeAcknowledged;
-  }
-
-  public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-  }
-
-  public ControllerConfigurationEntity component(ControllerConfigurationDTO component) {
-    this.component = component;
-    return this;
-  }
-
-   /**
-   * The controller configuration.
-   * @return component
-  **/
-  @ApiModelProperty(value = "The controller configuration.")
-  public ControllerConfigurationDTO getComponent() {
-    return component;
-  }
-
-  public void setComponent(ControllerConfigurationDTO component) {
-    this.component = component;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ControllerConfigurationEntity revision(RevisionDTO revision) {
+        this.revision = revision;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.
+     *
+     * @return revision
+     **/
+    @ApiModelProperty(value = "The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.")
+    public RevisionDTO getRevision() {
+        return revision;
     }
-    ControllerConfigurationEntity controllerConfigurationEntity = (ControllerConfigurationEntity) o;
-    return Objects.equals(this.revision, controllerConfigurationEntity.revision) &&
-        Objects.equals(this.permissions, controllerConfigurationEntity.permissions) &&
-        Objects.equals(this.disconnectedNodeAcknowledged, controllerConfigurationEntity.disconnectedNodeAcknowledged) &&
-        Objects.equals(this.component, controllerConfigurationEntity.component);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(revision, permissions, disconnectedNodeAcknowledged, component);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerConfigurationEntity {\n");
-    
-    sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
-    sb.append("    component: ").append(toIndentedString(component)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setRevision(RevisionDTO revision) {
+        this.revision = revision;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ControllerConfigurationEntity permissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * The permissions for this component.
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "The permissions for this component.")
+    public PermissionsDTO getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+    }
+
+    public ControllerConfigurationEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+        return this;
+    }
+
+    /**
+     * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
+     *
+     * @return disconnectedNodeAcknowledged
+     **/
+    @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
+    public Boolean isDisconnectedNodeAcknowledged() {
+        return disconnectedNodeAcknowledged;
+    }
+
+    public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+    }
+
+    public ControllerConfigurationEntity component(ControllerConfigurationDTO component) {
+        this.component = component;
+        return this;
+    }
+
+    /**
+     * The controller configuration.
+     *
+     * @return component
+     **/
+    @ApiModelProperty(value = "The controller configuration.")
+    public ControllerConfigurationDTO getComponent() {
+        return component;
+    }
+
+    public void setComponent(ControllerConfigurationDTO component) {
+        this.component = component;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerConfigurationEntity controllerConfigurationEntity = (ControllerConfigurationEntity) o;
+        return Objects.equals(this.revision, controllerConfigurationEntity.revision) &&
+                Objects.equals(this.permissions, controllerConfigurationEntity.permissions) &&
+                Objects.equals(this.disconnectedNodeAcknowledged, controllerConfigurationEntity.disconnectedNodeAcknowledged) &&
+                Objects.equals(this.component, controllerConfigurationEntity.component);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(revision, permissions, disconnectedNodeAcknowledged, component);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerConfigurationEntity {\n");
+
+        sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
+        sb.append("    component: ").append(toIndentedString(component)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,105 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * SubmitReplayRequestEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class SubmitReplayRequestEntity {
-  @SerializedName("eventId")
-  private Long eventId = null;
+    @SerializedName("eventId")
+    private Long eventId = null;
 
-  @SerializedName("clusterNodeId")
-  private String clusterNodeId = null;
+    @SerializedName("clusterNodeId")
+    private String clusterNodeId = null;
 
-  public SubmitReplayRequestEntity eventId(Long eventId) {
-    this.eventId = eventId;
-    return this;
-  }
-
-   /**
-   * The event identifier
-   * @return eventId
-  **/
-  @ApiModelProperty(value = "The event identifier")
-  public Long getEventId() {
-    return eventId;
-  }
-
-  public void setEventId(Long eventId) {
-    this.eventId = eventId;
-  }
-
-  public SubmitReplayRequestEntity clusterNodeId(String clusterNodeId) {
-    this.clusterNodeId = clusterNodeId;
-    return this;
-  }
-
-   /**
-   * The identifier of the node where to submit the replay request.
-   * @return clusterNodeId
-  **/
-  @ApiModelProperty(value = "The identifier of the node where to submit the replay request.")
-  public String getClusterNodeId() {
-    return clusterNodeId;
-  }
-
-  public void setClusterNodeId(String clusterNodeId) {
-    this.clusterNodeId = clusterNodeId;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public SubmitReplayRequestEntity eventId(Long eventId) {
+        this.eventId = eventId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The event identifier
+     *
+     * @return eventId
+     **/
+    @ApiModelProperty(value = "The event identifier")
+    public Long getEventId() {
+        return eventId;
     }
-    SubmitReplayRequestEntity submitReplayRequestEntity = (SubmitReplayRequestEntity) o;
-    return Objects.equals(this.eventId, submitReplayRequestEntity.eventId) &&
-        Objects.equals(this.clusterNodeId, submitReplayRequestEntity.clusterNodeId);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(eventId, clusterNodeId);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SubmitReplayRequestEntity {\n");
-    
-    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
-    sb.append("    clusterNodeId: ").append(toIndentedString(clusterNodeId)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setEventId(Long eventId) {
+        this.eventId = eventId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public SubmitReplayRequestEntity clusterNodeId(String clusterNodeId) {
+        this.clusterNodeId = clusterNodeId;
+        return this;
+    }
+
+    /**
+     * The identifier of the node where to submit the replay request.
+     *
+     * @return clusterNodeId
+     **/
+    @ApiModelProperty(value = "The identifier of the node where to submit the replay request.")
+    public String getClusterNodeId() {
+        return clusterNodeId;
+    }
+
+    public void setClusterNodeId(String clusterNodeId) {
+        this.clusterNodeId = clusterNodeId;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SubmitReplayRequestEntity submitReplayRequestEntity = (SubmitReplayRequestEntity) o;
+        return Objects.equals(this.eventId, submitReplayRequestEntity.eventId) &&
+                Objects.equals(this.clusterNodeId, submitReplayRequestEntity.clusterNodeId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(eventId, clusterNodeId);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SubmitReplayRequestEntity {\n");
+
+        sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
+        sb.append("    clusterNodeId: ").append(toIndentedString(clusterNodeId)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

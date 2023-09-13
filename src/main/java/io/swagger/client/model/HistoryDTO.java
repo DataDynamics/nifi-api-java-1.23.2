@@ -13,139 +13,135 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ActionEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * HistoryDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class HistoryDTO {
-  @SerializedName("total")
-  private Integer total = null;
+    @SerializedName("total")
+    private Integer total = null;
 
-  @SerializedName("lastRefreshed")
-  private String lastRefreshed = null;
+    @SerializedName("lastRefreshed")
+    private String lastRefreshed = null;
 
-  @SerializedName("actions")
-  private List<ActionEntity> actions = null;
+    @SerializedName("actions")
+    private List<ActionEntity> actions = null;
 
-  public HistoryDTO total(Integer total) {
-    this.total = total;
-    return this;
-  }
-
-   /**
-   * The number of number of actions that matched the search criteria..
-   * @return total
-  **/
-  @ApiModelProperty(value = "The number of number of actions that matched the search criteria..")
-  public Integer getTotal() {
-    return total;
-  }
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
-
-  public HistoryDTO lastRefreshed(String lastRefreshed) {
-    this.lastRefreshed = lastRefreshed;
-    return this;
-  }
-
-   /**
-   * The timestamp when the report was generated.
-   * @return lastRefreshed
-  **/
-  @ApiModelProperty(value = "The timestamp when the report was generated.")
-  public String getLastRefreshed() {
-    return lastRefreshed;
-  }
-
-  public void setLastRefreshed(String lastRefreshed) {
-    this.lastRefreshed = lastRefreshed;
-  }
-
-  public HistoryDTO actions(List<ActionEntity> actions) {
-    this.actions = actions;
-    return this;
-  }
-
-  public HistoryDTO addActionsItem(ActionEntity actionsItem) {
-    if (this.actions == null) {
-      this.actions = new ArrayList<ActionEntity>();
+    public HistoryDTO total(Integer total) {
+        this.total = total;
+        return this;
     }
-    this.actions.add(actionsItem);
-    return this;
-  }
 
-   /**
-   * The actions.
-   * @return actions
-  **/
-  @ApiModelProperty(value = "The actions.")
-  public List<ActionEntity> getActions() {
-    return actions;
-  }
-
-  public void setActions(List<ActionEntity> actions) {
-    this.actions = actions;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The number of number of actions that matched the search criteria..
+     *
+     * @return total
+     **/
+    @ApiModelProperty(value = "The number of number of actions that matched the search criteria..")
+    public Integer getTotal() {
+        return total;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
-    HistoryDTO historyDTO = (HistoryDTO) o;
-    return Objects.equals(this.total, historyDTO.total) &&
-        Objects.equals(this.lastRefreshed, historyDTO.lastRefreshed) &&
-        Objects.equals(this.actions, historyDTO.actions);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(total, lastRefreshed, actions);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class HistoryDTO {\n");
-    
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    lastRefreshed: ").append(toIndentedString(lastRefreshed)).append("\n");
-    sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public HistoryDTO lastRefreshed(String lastRefreshed) {
+        this.lastRefreshed = lastRefreshed;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The timestamp when the report was generated.
+     *
+     * @return lastRefreshed
+     **/
+    @ApiModelProperty(value = "The timestamp when the report was generated.")
+    public String getLastRefreshed() {
+        return lastRefreshed;
+    }
+
+    public void setLastRefreshed(String lastRefreshed) {
+        this.lastRefreshed = lastRefreshed;
+    }
+
+    public HistoryDTO actions(List<ActionEntity> actions) {
+        this.actions = actions;
+        return this;
+    }
+
+    public HistoryDTO addActionsItem(ActionEntity actionsItem) {
+        if (this.actions == null) {
+            this.actions = new ArrayList<ActionEntity>();
+        }
+        this.actions.add(actionsItem);
+        return this;
+    }
+
+    /**
+     * The actions.
+     *
+     * @return actions
+     **/
+    @ApiModelProperty(value = "The actions.")
+    public List<ActionEntity> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<ActionEntity> actions) {
+        this.actions = actions;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HistoryDTO historyDTO = (HistoryDTO) o;
+        return Objects.equals(this.total, historyDTO.total) &&
+                Objects.equals(this.lastRefreshed, historyDTO.lastRefreshed) &&
+                Objects.equals(this.actions, historyDTO.actions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(total, lastRefreshed, actions);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class HistoryDTO {\n");
+
+        sb.append("    total: ").append(toIndentedString(total)).append("\n");
+        sb.append("    lastRefreshed: ").append(toIndentedString(lastRefreshed)).append("\n");
+        sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

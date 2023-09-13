@@ -13,116 +13,111 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.GCDiagnosticsSnapshotDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * GarbageCollectionDiagnosticsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class GarbageCollectionDiagnosticsDTO {
-  @SerializedName("memoryManagerName")
-  private String memoryManagerName = null;
+    @SerializedName("memoryManagerName")
+    private String memoryManagerName = null;
 
-  @SerializedName("snapshots")
-  private List<GCDiagnosticsSnapshotDTO> snapshots = null;
+    @SerializedName("snapshots")
+    private List<GCDiagnosticsSnapshotDTO> snapshots = null;
 
-  public GarbageCollectionDiagnosticsDTO memoryManagerName(String memoryManagerName) {
-    this.memoryManagerName = memoryManagerName;
-    return this;
-  }
-
-   /**
-   * The name of the Memory Manager that this Garbage Collection information pertains to
-   * @return memoryManagerName
-  **/
-  @ApiModelProperty(value = "The name of the Memory Manager that this Garbage Collection information pertains to")
-  public String getMemoryManagerName() {
-    return memoryManagerName;
-  }
-
-  public void setMemoryManagerName(String memoryManagerName) {
-    this.memoryManagerName = memoryManagerName;
-  }
-
-  public GarbageCollectionDiagnosticsDTO snapshots(List<GCDiagnosticsSnapshotDTO> snapshots) {
-    this.snapshots = snapshots;
-    return this;
-  }
-
-  public GarbageCollectionDiagnosticsDTO addSnapshotsItem(GCDiagnosticsSnapshotDTO snapshotsItem) {
-    if (this.snapshots == null) {
-      this.snapshots = new ArrayList<GCDiagnosticsSnapshotDTO>();
+    public GarbageCollectionDiagnosticsDTO memoryManagerName(String memoryManagerName) {
+        this.memoryManagerName = memoryManagerName;
+        return this;
     }
-    this.snapshots.add(snapshotsItem);
-    return this;
-  }
 
-   /**
-   * A list of snapshots that have been taken to determine the health of the JVM&#39;s heap
-   * @return snapshots
-  **/
-  @ApiModelProperty(value = "A list of snapshots that have been taken to determine the health of the JVM's heap")
-  public List<GCDiagnosticsSnapshotDTO> getSnapshots() {
-    return snapshots;
-  }
-
-  public void setSnapshots(List<GCDiagnosticsSnapshotDTO> snapshots) {
-    this.snapshots = snapshots;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The name of the Memory Manager that this Garbage Collection information pertains to
+     *
+     * @return memoryManagerName
+     **/
+    @ApiModelProperty(value = "The name of the Memory Manager that this Garbage Collection information pertains to")
+    public String getMemoryManagerName() {
+        return memoryManagerName;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setMemoryManagerName(String memoryManagerName) {
+        this.memoryManagerName = memoryManagerName;
     }
-    GarbageCollectionDiagnosticsDTO garbageCollectionDiagnosticsDTO = (GarbageCollectionDiagnosticsDTO) o;
-    return Objects.equals(this.memoryManagerName, garbageCollectionDiagnosticsDTO.memoryManagerName) &&
-        Objects.equals(this.snapshots, garbageCollectionDiagnosticsDTO.snapshots);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(memoryManagerName, snapshots);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class GarbageCollectionDiagnosticsDTO {\n");
-    
-    sb.append("    memoryManagerName: ").append(toIndentedString(memoryManagerName)).append("\n");
-    sb.append("    snapshots: ").append(toIndentedString(snapshots)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public GarbageCollectionDiagnosticsDTO snapshots(List<GCDiagnosticsSnapshotDTO> snapshots) {
+        this.snapshots = snapshots;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public GarbageCollectionDiagnosticsDTO addSnapshotsItem(GCDiagnosticsSnapshotDTO snapshotsItem) {
+        if (this.snapshots == null) {
+            this.snapshots = new ArrayList<GCDiagnosticsSnapshotDTO>();
+        }
+        this.snapshots.add(snapshotsItem);
+        return this;
+    }
+
+    /**
+     * A list of snapshots that have been taken to determine the health of the JVM&#39;s heap
+     *
+     * @return snapshots
+     **/
+    @ApiModelProperty(value = "A list of snapshots that have been taken to determine the health of the JVM's heap")
+    public List<GCDiagnosticsSnapshotDTO> getSnapshots() {
+        return snapshots;
+    }
+
+    public void setSnapshots(List<GCDiagnosticsSnapshotDTO> snapshots) {
+        this.snapshots = snapshots;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        GarbageCollectionDiagnosticsDTO garbageCollectionDiagnosticsDTO = (GarbageCollectionDiagnosticsDTO) o;
+        return Objects.equals(this.memoryManagerName, garbageCollectionDiagnosticsDTO.memoryManagerName) &&
+                Objects.equals(this.snapshots, garbageCollectionDiagnosticsDTO.snapshots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(memoryManagerName, snapshots);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class GarbageCollectionDiagnosticsDTO {\n");
+
+        sb.append("    memoryManagerName: ").append(toIndentedString(memoryManagerName)).append("\n");
+        sb.append("    snapshots: ").append(toIndentedString(snapshots)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

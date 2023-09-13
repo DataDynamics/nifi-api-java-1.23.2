@@ -13,25 +13,14 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.DropRequestEntity;
 import io.swagger.client.model.FlowFileEntity;
 import io.swagger.client.model.ListingRequestEntity;
 import io.swagger.client.model.StreamingOutput;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,8 +48,9 @@ public class FlowfileQueuesApi {
 
     /**
      * Build call for createDropRequest
-     * @param id The connection id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -70,7 +60,7 @@ public class FlowfileQueuesApi {
 
         // create path and map variables
         String localVarPath = "/flowfile-queues/{id}/drop-requests"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -80,41 +70,41 @@ public class FlowfileQueuesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createDropRequestValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createDropRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createDropRequestCall(id, progressListener, progressRequestListener);
         return call;
@@ -123,7 +113,7 @@ public class FlowfileQueuesApi {
 
     /**
      * Creates a request to drop the contents of the queue in this connection.
-     * 
+     *
      * @param id The connection id. (required)
      * @return DropRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -135,21 +125,22 @@ public class FlowfileQueuesApi {
 
     /**
      * Creates a request to drop the contents of the queue in this connection.
-     * 
+     *
      * @param id The connection id. (required)
      * @return ApiResponse&lt;DropRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<DropRequestEntity> createDropRequestWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = createDropRequestValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a request to drop the contents of the queue in this connection. (asynchronously)
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id       The connection id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -176,14 +167,17 @@ public class FlowfileQueuesApi {
         }
 
         com.squareup.okhttp.Call call = createDropRequestValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createFlowFileListing
-     * @param id The connection id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -193,7 +187,7 @@ public class FlowfileQueuesApi {
 
         // create path and map variables
         String localVarPath = "/flowfile-queues/{id}/listing-requests"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -203,41 +197,41 @@ public class FlowfileQueuesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createFlowFileListingValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createFlowFileListing(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createFlowFileListingCall(id, progressListener, progressRequestListener);
         return call;
@@ -246,7 +240,7 @@ public class FlowfileQueuesApi {
 
     /**
      * Lists the contents of the queue in this connection.
-     * 
+     *
      * @param id The connection id. (required)
      * @return ListingRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -258,21 +252,22 @@ public class FlowfileQueuesApi {
 
     /**
      * Lists the contents of the queue in this connection.
-     * 
+     *
      * @param id The connection id. (required)
      * @return ApiResponse&lt;ListingRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ListingRequestEntity> createFlowFileListingWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = createFlowFileListingValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ListingRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListingRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Lists the contents of the queue in this connection. (asynchronously)
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id       The connection id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -299,15 +294,18 @@ public class FlowfileQueuesApi {
         }
 
         com.squareup.okhttp.Call call = createFlowFileListingValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListingRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListingRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteListingRequest
-     * @param id The connection id. (required)
-     * @param listingRequestId The listing request id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param listingRequestId        The listing request id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -317,8 +315,8 @@ public class FlowfileQueuesApi {
 
         // create path and map variables
         String localVarPath = "/flowfile-queues/{id}/listing-requests/{listing-request-id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "listing-request-id" + "\\}", apiClient.escapeString(listingRequestId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "listing-request-id" + "\\}", apiClient.escapeString(listingRequestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -328,46 +326,46 @@ public class FlowfileQueuesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteListingRequestValidateBeforeCall(String id, String listingRequestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteListingRequest(Async)");
         }
-        
+
         // verify the required parameter 'listingRequestId' is set
         if (listingRequestId == null) {
             throw new ApiException("Missing the required parameter 'listingRequestId' when calling deleteListingRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteListingRequestCall(id, listingRequestId, progressListener, progressRequestListener);
         return call;
@@ -376,8 +374,8 @@ public class FlowfileQueuesApi {
 
     /**
      * Cancels and/or removes a request to list the contents of this connection.
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id               The connection id. (required)
      * @param listingRequestId The listing request id. (required)
      * @return ListingRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -389,24 +387,25 @@ public class FlowfileQueuesApi {
 
     /**
      * Cancels and/or removes a request to list the contents of this connection.
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id               The connection id. (required)
      * @param listingRequestId The listing request id. (required)
      * @return ApiResponse&lt;ListingRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ListingRequestEntity> deleteListingRequestWithHttpInfo(String id, String listingRequestId) throws ApiException {
         com.squareup.okhttp.Call call = deleteListingRequestValidateBeforeCall(id, listingRequestId, null, null);
-        Type localVarReturnType = new TypeToken<ListingRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListingRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Cancels and/or removes a request to list the contents of this connection. (asynchronously)
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id               The connection id. (required)
      * @param listingRequestId The listing request id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback         The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -432,17 +431,20 @@ public class FlowfileQueuesApi {
         }
 
         com.squareup.okhttp.Call call = deleteListingRequestValidateBeforeCall(id, listingRequestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListingRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListingRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for downloadFlowFileContent
-     * @param id The connection id. (required)
-     * @param flowfileUuid The flowfile uuid. (required)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
-     * @param clusterNodeId The id of the node where the content exists if clustered. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param flowfileUuid            The flowfile uuid. (required)
+     * @param clientId                If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     * @param clusterNodeId           The id of the node where the content exists if clustered. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -452,61 +454,61 @@ public class FlowfileQueuesApi {
 
         // create path and map variables
         String localVarPath = "/flowfile-queues/{id}/flowfiles/{flowfile-uuid}/content"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "flowfile-uuid" + "\\}", apiClient.escapeString(flowfileUuid.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "flowfile-uuid" + "\\}", apiClient.escapeString(flowfileUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
+                "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call downloadFlowFileContentValidateBeforeCall(String id, String flowfileUuid, String clientId, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling downloadFlowFileContent(Async)");
         }
-        
+
         // verify the required parameter 'flowfileUuid' is set
         if (flowfileUuid == null) {
             throw new ApiException("Missing the required parameter 'flowfileUuid' when calling downloadFlowFileContent(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = downloadFlowFileContentCall(id, flowfileUuid, clientId, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -515,10 +517,10 @@ public class FlowfileQueuesApi {
 
     /**
      * Gets the content for a FlowFile in a Connection.
-     * 
-     * @param id The connection id. (required)
-     * @param flowfileUuid The flowfile uuid. (required)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id            The connection id. (required)
+     * @param flowfileUuid  The flowfile uuid. (required)
+     * @param clientId      If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param clusterNodeId The id of the node where the content exists if clustered. (optional)
      * @return StreamingOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -530,28 +532,29 @@ public class FlowfileQueuesApi {
 
     /**
      * Gets the content for a FlowFile in a Connection.
-     * 
-     * @param id The connection id. (required)
-     * @param flowfileUuid The flowfile uuid. (required)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id            The connection id. (required)
+     * @param flowfileUuid  The flowfile uuid. (required)
+     * @param clientId      If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param clusterNodeId The id of the node where the content exists if clustered. (optional)
      * @return ApiResponse&lt;StreamingOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<StreamingOutput> downloadFlowFileContentWithHttpInfo(String id, String flowfileUuid, String clientId, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = downloadFlowFileContentValidateBeforeCall(id, flowfileUuid, clientId, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<StreamingOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamingOutput>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the content for a FlowFile in a Connection. (asynchronously)
-     * 
-     * @param id The connection id. (required)
-     * @param flowfileUuid The flowfile uuid. (required)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id            The connection id. (required)
+     * @param flowfileUuid  The flowfile uuid. (required)
+     * @param clientId      If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param clusterNodeId The id of the node where the content exists if clustered. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -577,15 +580,18 @@ public class FlowfileQueuesApi {
         }
 
         com.squareup.okhttp.Call call = downloadFlowFileContentValidateBeforeCall(id, flowfileUuid, clientId, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StreamingOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamingOutput>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getDropRequest
-     * @param id The connection id. (required)
-     * @param dropRequestId The drop request id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param dropRequestId           The drop request id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -595,8 +601,8 @@ public class FlowfileQueuesApi {
 
         // create path and map variables
         String localVarPath = "/flowfile-queues/{id}/drop-requests/{drop-request-id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "drop-request-id" + "\\}", apiClient.escapeString(dropRequestId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "drop-request-id" + "\\}", apiClient.escapeString(dropRequestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -606,46 +612,46 @@ public class FlowfileQueuesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDropRequestValidateBeforeCall(String id, String dropRequestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getDropRequest(Async)");
         }
-        
+
         // verify the required parameter 'dropRequestId' is set
         if (dropRequestId == null) {
             throw new ApiException("Missing the required parameter 'dropRequestId' when calling getDropRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getDropRequestCall(id, dropRequestId, progressListener, progressRequestListener);
         return call;
@@ -654,8 +660,8 @@ public class FlowfileQueuesApi {
 
     /**
      * Gets the current status of a drop request for the specified connection.
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id            The connection id. (required)
      * @param dropRequestId The drop request id. (required)
      * @return DropRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -667,24 +673,25 @@ public class FlowfileQueuesApi {
 
     /**
      * Gets the current status of a drop request for the specified connection.
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id            The connection id. (required)
      * @param dropRequestId The drop request id. (required)
      * @return ApiResponse&lt;DropRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<DropRequestEntity> getDropRequestWithHttpInfo(String id, String dropRequestId) throws ApiException {
         com.squareup.okhttp.Call call = getDropRequestValidateBeforeCall(id, dropRequestId, null, null);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the current status of a drop request for the specified connection. (asynchronously)
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id            The connection id. (required)
      * @param dropRequestId The drop request id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -710,16 +717,19 @@ public class FlowfileQueuesApi {
         }
 
         com.squareup.okhttp.Call call = getDropRequestValidateBeforeCall(id, dropRequestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getFlowFile
-     * @param id The connection id. (required)
-     * @param flowfileUuid The flowfile uuid. (required)
-     * @param clusterNodeId The id of the node where the content exists if clustered. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param flowfileUuid            The flowfile uuid. (required)
+     * @param clusterNodeId           The id of the node where the content exists if clustered. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -729,59 +739,59 @@ public class FlowfileQueuesApi {
 
         // create path and map variables
         String localVarPath = "/flowfile-queues/{id}/flowfiles/{flowfile-uuid}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "flowfile-uuid" + "\\}", apiClient.escapeString(flowfileUuid.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "flowfile-uuid" + "\\}", apiClient.escapeString(flowfileUuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFlowFileValidateBeforeCall(String id, String flowfileUuid, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getFlowFile(Async)");
         }
-        
+
         // verify the required parameter 'flowfileUuid' is set
         if (flowfileUuid == null) {
             throw new ApiException("Missing the required parameter 'flowfileUuid' when calling getFlowFile(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getFlowFileCall(id, flowfileUuid, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -790,9 +800,9 @@ public class FlowfileQueuesApi {
 
     /**
      * Gets a FlowFile from a Connection.
-     * 
-     * @param id The connection id. (required)
-     * @param flowfileUuid The flowfile uuid. (required)
+     *
+     * @param id            The connection id. (required)
+     * @param flowfileUuid  The flowfile uuid. (required)
      * @param clusterNodeId The id of the node where the content exists if clustered. (optional)
      * @return FlowFileEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -804,26 +814,27 @@ public class FlowfileQueuesApi {
 
     /**
      * Gets a FlowFile from a Connection.
-     * 
-     * @param id The connection id. (required)
-     * @param flowfileUuid The flowfile uuid. (required)
+     *
+     * @param id            The connection id. (required)
+     * @param flowfileUuid  The flowfile uuid. (required)
      * @param clusterNodeId The id of the node where the content exists if clustered. (optional)
      * @return ApiResponse&lt;FlowFileEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowFileEntity> getFlowFileWithHttpInfo(String id, String flowfileUuid, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getFlowFileValidateBeforeCall(id, flowfileUuid, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<FlowFileEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowFileEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a FlowFile from a Connection. (asynchronously)
-     * 
-     * @param id The connection id. (required)
-     * @param flowfileUuid The flowfile uuid. (required)
+     *
+     * @param id            The connection id. (required)
+     * @param flowfileUuid  The flowfile uuid. (required)
      * @param clusterNodeId The id of the node where the content exists if clustered. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -849,15 +860,18 @@ public class FlowfileQueuesApi {
         }
 
         com.squareup.okhttp.Call call = getFlowFileValidateBeforeCall(id, flowfileUuid, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowFileEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowFileEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getListingRequest
-     * @param id The connection id. (required)
-     * @param listingRequestId The listing request id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param listingRequestId        The listing request id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -867,8 +881,8 @@ public class FlowfileQueuesApi {
 
         // create path and map variables
         String localVarPath = "/flowfile-queues/{id}/listing-requests/{listing-request-id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "listing-request-id" + "\\}", apiClient.escapeString(listingRequestId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "listing-request-id" + "\\}", apiClient.escapeString(listingRequestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -878,46 +892,46 @@ public class FlowfileQueuesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getListingRequestValidateBeforeCall(String id, String listingRequestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getListingRequest(Async)");
         }
-        
+
         // verify the required parameter 'listingRequestId' is set
         if (listingRequestId == null) {
             throw new ApiException("Missing the required parameter 'listingRequestId' when calling getListingRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getListingRequestCall(id, listingRequestId, progressListener, progressRequestListener);
         return call;
@@ -926,8 +940,8 @@ public class FlowfileQueuesApi {
 
     /**
      * Gets the current status of a listing request for the specified connection.
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id               The connection id. (required)
      * @param listingRequestId The listing request id. (required)
      * @return ListingRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -939,24 +953,25 @@ public class FlowfileQueuesApi {
 
     /**
      * Gets the current status of a listing request for the specified connection.
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id               The connection id. (required)
      * @param listingRequestId The listing request id. (required)
      * @return ApiResponse&lt;ListingRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ListingRequestEntity> getListingRequestWithHttpInfo(String id, String listingRequestId) throws ApiException {
         com.squareup.okhttp.Call call = getListingRequestValidateBeforeCall(id, listingRequestId, null, null);
-        Type localVarReturnType = new TypeToken<ListingRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListingRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the current status of a listing request for the specified connection. (asynchronously)
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id               The connection id. (required)
      * @param listingRequestId The listing request id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback         The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -982,15 +997,18 @@ public class FlowfileQueuesApi {
         }
 
         com.squareup.okhttp.Call call = getListingRequestValidateBeforeCall(id, listingRequestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ListingRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ListingRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for removeDropRequest
-     * @param id The connection id. (required)
-     * @param dropRequestId The drop request id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param dropRequestId           The drop request id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1000,8 +1018,8 @@ public class FlowfileQueuesApi {
 
         // create path and map variables
         String localVarPath = "/flowfile-queues/{id}/drop-requests/{drop-request-id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "drop-request-id" + "\\}", apiClient.escapeString(dropRequestId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "drop-request-id" + "\\}", apiClient.escapeString(dropRequestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1011,46 +1029,46 @@ public class FlowfileQueuesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeDropRequestValidateBeforeCall(String id, String dropRequestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling removeDropRequest(Async)");
         }
-        
+
         // verify the required parameter 'dropRequestId' is set
         if (dropRequestId == null) {
             throw new ApiException("Missing the required parameter 'dropRequestId' when calling removeDropRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = removeDropRequestCall(id, dropRequestId, progressListener, progressRequestListener);
         return call;
@@ -1059,8 +1077,8 @@ public class FlowfileQueuesApi {
 
     /**
      * Cancels and/or removes a request to drop the contents of this connection.
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id            The connection id. (required)
      * @param dropRequestId The drop request id. (required)
      * @return DropRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1072,24 +1090,25 @@ public class FlowfileQueuesApi {
 
     /**
      * Cancels and/or removes a request to drop the contents of this connection.
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id            The connection id. (required)
      * @param dropRequestId The drop request id. (required)
      * @return ApiResponse&lt;DropRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<DropRequestEntity> removeDropRequestWithHttpInfo(String id, String dropRequestId) throws ApiException {
         com.squareup.okhttp.Call call = removeDropRequestValidateBeforeCall(id, dropRequestId, null, null);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Cancels and/or removes a request to drop the contents of this connection. (asynchronously)
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id            The connection id. (required)
      * @param dropRequestId The drop request id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1115,7 +1134,8 @@ public class FlowfileQueuesApi {
         }
 
         com.squareup.okhttp.Call call = removeDropRequestValidateBeforeCall(id, dropRequestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

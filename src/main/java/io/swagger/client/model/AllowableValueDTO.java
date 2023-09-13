@@ -13,128 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * AllowableValueDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class AllowableValueDTO {
-  @SerializedName("displayName")
-  private String displayName = null;
+    @SerializedName("displayName")
+    private String displayName = null;
 
-  @SerializedName("value")
-  private String value = null;
+    @SerializedName("value")
+    private String value = null;
 
-  @SerializedName("description")
-  private String description = null;
+    @SerializedName("description")
+    private String description = null;
 
-  public AllowableValueDTO displayName(String displayName) {
-    this.displayName = displayName;
-    return this;
-  }
-
-   /**
-   * A human readable value that is allowed for the property descriptor.
-   * @return displayName
-  **/
-  @ApiModelProperty(value = "A human readable value that is allowed for the property descriptor.")
-  public String getDisplayName() {
-    return displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public AllowableValueDTO value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * A value that is allowed for the property descriptor.
-   * @return value
-  **/
-  @ApiModelProperty(value = "A value that is allowed for the property descriptor.")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public AllowableValueDTO description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * A description for this allowable value.
-   * @return description
-  **/
-  @ApiModelProperty(value = "A description for this allowable value.")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public AllowableValueDTO displayName(String displayName) {
+        this.displayName = displayName;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * A human readable value that is allowed for the property descriptor.
+     *
+     * @return displayName
+     **/
+    @ApiModelProperty(value = "A human readable value that is allowed for the property descriptor.")
+    public String getDisplayName() {
+        return displayName;
     }
-    AllowableValueDTO allowableValueDTO = (AllowableValueDTO) o;
-    return Objects.equals(this.displayName, allowableValueDTO.displayName) &&
-        Objects.equals(this.value, allowableValueDTO.value) &&
-        Objects.equals(this.description, allowableValueDTO.description);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(displayName, value, description);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AllowableValueDTO {\n");
-    
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public AllowableValueDTO value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * A value that is allowed for the property descriptor.
+     *
+     * @return value
+     **/
+    @ApiModelProperty(value = "A value that is allowed for the property descriptor.")
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public AllowableValueDTO description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * A description for this allowable value.
+     *
+     * @return description
+     **/
+    @ApiModelProperty(value = "A description for this allowable value.")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AllowableValueDTO allowableValueDTO = (AllowableValueDTO) o;
+        return Objects.equals(this.displayName, allowableValueDTO.displayName) &&
+                Objects.equals(this.value, allowableValueDTO.value) &&
+                Objects.equals(this.description, allowableValueDTO.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(displayName, value, description);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AllowableValueDTO {\n");
+
+        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

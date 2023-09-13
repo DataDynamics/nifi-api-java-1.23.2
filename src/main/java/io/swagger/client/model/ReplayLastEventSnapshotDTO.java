@@ -13,138 +13,135 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ReplayLastEventSnapshotDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ReplayLastEventSnapshotDTO {
-  @SerializedName("eventsReplayed")
-  private List<Long> eventsReplayed = null;
+    @SerializedName("eventsReplayed")
+    private List<Long> eventsReplayed = null;
 
-  @SerializedName("failureExplanation")
-  private String failureExplanation = null;
+    @SerializedName("failureExplanation")
+    private String failureExplanation = null;
 
-  @SerializedName("eventAvailable")
-  private Boolean eventAvailable = null;
+    @SerializedName("eventAvailable")
+    private Boolean eventAvailable = null;
 
-  public ReplayLastEventSnapshotDTO eventsReplayed(List<Long> eventsReplayed) {
-    this.eventsReplayed = eventsReplayed;
-    return this;
-  }
-
-  public ReplayLastEventSnapshotDTO addEventsReplayedItem(Long eventsReplayedItem) {
-    if (this.eventsReplayed == null) {
-      this.eventsReplayed = new ArrayList<Long>();
+    public ReplayLastEventSnapshotDTO eventsReplayed(List<Long> eventsReplayed) {
+        this.eventsReplayed = eventsReplayed;
+        return this;
     }
-    this.eventsReplayed.add(eventsReplayedItem);
-    return this;
-  }
 
-   /**
-   * The IDs of the events that were successfully replayed
-   * @return eventsReplayed
-  **/
-  @ApiModelProperty(value = "The IDs of the events that were successfully replayed")
-  public List<Long> getEventsReplayed() {
-    return eventsReplayed;
-  }
-
-  public void setEventsReplayed(List<Long> eventsReplayed) {
-    this.eventsReplayed = eventsReplayed;
-  }
-
-  public ReplayLastEventSnapshotDTO failureExplanation(String failureExplanation) {
-    this.failureExplanation = failureExplanation;
-    return this;
-  }
-
-   /**
-   * If unable to replay an event, specifies why the event could not be replayed
-   * @return failureExplanation
-  **/
-  @ApiModelProperty(value = "If unable to replay an event, specifies why the event could not be replayed")
-  public String getFailureExplanation() {
-    return failureExplanation;
-  }
-
-  public void setFailureExplanation(String failureExplanation) {
-    this.failureExplanation = failureExplanation;
-  }
-
-  public ReplayLastEventSnapshotDTO eventAvailable(Boolean eventAvailable) {
-    this.eventAvailable = eventAvailable;
-    return this;
-  }
-
-   /**
-   * Whether or not an event was available. This may not be populated if there was a failure.
-   * @return eventAvailable
-  **/
-  @ApiModelProperty(value = "Whether or not an event was available. This may not be populated if there was a failure.")
-  public Boolean isEventAvailable() {
-    return eventAvailable;
-  }
-
-  public void setEventAvailable(Boolean eventAvailable) {
-    this.eventAvailable = eventAvailable;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ReplayLastEventSnapshotDTO addEventsReplayedItem(Long eventsReplayedItem) {
+        if (this.eventsReplayed == null) {
+            this.eventsReplayed = new ArrayList<Long>();
+        }
+        this.eventsReplayed.add(eventsReplayedItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The IDs of the events that were successfully replayed
+     *
+     * @return eventsReplayed
+     **/
+    @ApiModelProperty(value = "The IDs of the events that were successfully replayed")
+    public List<Long> getEventsReplayed() {
+        return eventsReplayed;
     }
-    ReplayLastEventSnapshotDTO replayLastEventSnapshotDTO = (ReplayLastEventSnapshotDTO) o;
-    return Objects.equals(this.eventsReplayed, replayLastEventSnapshotDTO.eventsReplayed) &&
-        Objects.equals(this.failureExplanation, replayLastEventSnapshotDTO.failureExplanation) &&
-        Objects.equals(this.eventAvailable, replayLastEventSnapshotDTO.eventAvailable);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(eventsReplayed, failureExplanation, eventAvailable);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ReplayLastEventSnapshotDTO {\n");
-    
-    sb.append("    eventsReplayed: ").append(toIndentedString(eventsReplayed)).append("\n");
-    sb.append("    failureExplanation: ").append(toIndentedString(failureExplanation)).append("\n");
-    sb.append("    eventAvailable: ").append(toIndentedString(eventAvailable)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setEventsReplayed(List<Long> eventsReplayed) {
+        this.eventsReplayed = eventsReplayed;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ReplayLastEventSnapshotDTO failureExplanation(String failureExplanation) {
+        this.failureExplanation = failureExplanation;
+        return this;
+    }
+
+    /**
+     * If unable to replay an event, specifies why the event could not be replayed
+     *
+     * @return failureExplanation
+     **/
+    @ApiModelProperty(value = "If unable to replay an event, specifies why the event could not be replayed")
+    public String getFailureExplanation() {
+        return failureExplanation;
+    }
+
+    public void setFailureExplanation(String failureExplanation) {
+        this.failureExplanation = failureExplanation;
+    }
+
+    public ReplayLastEventSnapshotDTO eventAvailable(Boolean eventAvailable) {
+        this.eventAvailable = eventAvailable;
+        return this;
+    }
+
+    /**
+     * Whether or not an event was available. This may not be populated if there was a failure.
+     *
+     * @return eventAvailable
+     **/
+    @ApiModelProperty(value = "Whether or not an event was available. This may not be populated if there was a failure.")
+    public Boolean isEventAvailable() {
+        return eventAvailable;
+    }
+
+    public void setEventAvailable(Boolean eventAvailable) {
+        this.eventAvailable = eventAvailable;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ReplayLastEventSnapshotDTO replayLastEventSnapshotDTO = (ReplayLastEventSnapshotDTO) o;
+        return Objects.equals(this.eventsReplayed, replayLastEventSnapshotDTO.eventsReplayed) &&
+                Objects.equals(this.failureExplanation, replayLastEventSnapshotDTO.failureExplanation) &&
+                Objects.equals(this.eventAvailable, replayLastEventSnapshotDTO.eventAvailable);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(eventsReplayed, failureExplanation, eventAvailable);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ReplayLastEventSnapshotDTO {\n");
+
+        sb.append("    eventsReplayed: ").append(toIndentedString(eventsReplayed)).append("\n");
+        sb.append("    failureExplanation: ").append(toIndentedString(failureExplanation)).append("\n");
+        sb.append("    eventAvailable: ").append(toIndentedString(eventAvailable)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

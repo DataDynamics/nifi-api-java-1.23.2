@@ -13,725 +13,733 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.BuildInfo;
-import io.swagger.client.model.DefinedType;
-import io.swagger.client.model.DynamicProperty;
-import io.swagger.client.model.PropertyDescriptor;
-import io.swagger.client.model.Restriction;
-import io.swagger.client.model.Stateful;
-import io.swagger.client.model.SystemResourceConsideration;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 /**
  * ReportingTaskDefinition
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ReportingTaskDefinition {
-  @SerializedName("group")
-  private String group = null;
+    @SerializedName("group")
+    private String group = null;
 
-  @SerializedName("artifact")
-  private String artifact = null;
+    @SerializedName("artifact")
+    private String artifact = null;
 
-  @SerializedName("version")
-  private String version = null;
+    @SerializedName("version")
+    private String version = null;
 
-  @SerializedName("type")
-  private String type = null;
+    @SerializedName("type")
+    private String type = null;
 
-  @SerializedName("typeDescription")
-  private String typeDescription = null;
+    @SerializedName("typeDescription")
+    private String typeDescription = null;
 
-  @SerializedName("buildInfo")
-  private BuildInfo buildInfo = null;
+    @SerializedName("buildInfo")
+    private BuildInfo buildInfo = null;
 
-  @SerializedName("providedApiImplementations")
-  private List<DefinedType> providedApiImplementations = null;
+    @SerializedName("providedApiImplementations")
+    private List<DefinedType> providedApiImplementations = null;
 
-  @SerializedName("tags")
-  private List<String> tags = null;
+    @SerializedName("tags")
+    private List<String> tags = null;
 
-  @SerializedName("seeAlso")
-  private List<String> seeAlso = null;
+    @SerializedName("seeAlso")
+    private List<String> seeAlso = null;
 
-  @SerializedName("deprecated")
-  private Boolean deprecated = null;
+    @SerializedName("deprecated")
+    private Boolean deprecated = null;
 
-  @SerializedName("deprecationReason")
-  private String deprecationReason = null;
+    @SerializedName("deprecationReason")
+    private String deprecationReason = null;
 
-  @SerializedName("deprecationAlternatives")
-  private List<String> deprecationAlternatives = null;
+    @SerializedName("deprecationAlternatives")
+    private List<String> deprecationAlternatives = null;
 
-  @SerializedName("restricted")
-  private Boolean restricted = null;
+    @SerializedName("restricted")
+    private Boolean restricted = null;
 
-  @SerializedName("restrictedExplanation")
-  private String restrictedExplanation = null;
+    @SerializedName("restrictedExplanation")
+    private String restrictedExplanation = null;
 
-  @SerializedName("explicitRestrictions")
-  private List<Restriction> explicitRestrictions = null;
+    @SerializedName("explicitRestrictions")
+    private List<Restriction> explicitRestrictions = null;
 
-  @SerializedName("stateful")
-  private Stateful stateful = null;
+    @SerializedName("stateful")
+    private Stateful stateful = null;
 
-  @SerializedName("systemResourceConsiderations")
-  private List<SystemResourceConsideration> systemResourceConsiderations = null;
+    @SerializedName("systemResourceConsiderations")
+    private List<SystemResourceConsideration> systemResourceConsiderations = null;
 
-  @SerializedName("additionalDetails")
-  private Boolean additionalDetails = null;
+    @SerializedName("additionalDetails")
+    private Boolean additionalDetails = null;
 
-  @SerializedName("propertyDescriptors")
-  private Map<String, PropertyDescriptor> propertyDescriptors = null;
+    @SerializedName("propertyDescriptors")
+    private Map<String, PropertyDescriptor> propertyDescriptors = null;
 
-  @SerializedName("supportsDynamicProperties")
-  private Boolean supportsDynamicProperties = null;
+    @SerializedName("supportsDynamicProperties")
+    private Boolean supportsDynamicProperties = null;
 
-  @SerializedName("supportsSensitiveDynamicProperties")
-  private Boolean supportsSensitiveDynamicProperties = null;
+    @SerializedName("supportsSensitiveDynamicProperties")
+    private Boolean supportsSensitiveDynamicProperties = null;
 
-  @SerializedName("dynamicProperties")
-  private List<DynamicProperty> dynamicProperties = null;
+    @SerializedName("dynamicProperties")
+    private List<DynamicProperty> dynamicProperties = null;
 
-  @SerializedName("supportedSchedulingStrategies")
-  private List<String> supportedSchedulingStrategies = null;
+    @SerializedName("supportedSchedulingStrategies")
+    private List<String> supportedSchedulingStrategies = null;
 
-  @SerializedName("defaultSchedulingStrategy")
-  private String defaultSchedulingStrategy = null;
+    @SerializedName("defaultSchedulingStrategy")
+    private String defaultSchedulingStrategy = null;
 
-  @SerializedName("defaultSchedulingPeriodBySchedulingStrategy")
-  private Map<String, String> defaultSchedulingPeriodBySchedulingStrategy = null;
+    @SerializedName("defaultSchedulingPeriodBySchedulingStrategy")
+    private Map<String, String> defaultSchedulingPeriodBySchedulingStrategy = null;
 
-  public ReportingTaskDefinition group(String group) {
-    this.group = group;
-    return this;
-  }
-
-   /**
-   * The group name of the bundle that provides the referenced type.
-   * @return group
-  **/
-  @ApiModelProperty(value = "The group name of the bundle that provides the referenced type.")
-  public String getGroup() {
-    return group;
-  }
-
-  public void setGroup(String group) {
-    this.group = group;
-  }
-
-  public ReportingTaskDefinition artifact(String artifact) {
-    this.artifact = artifact;
-    return this;
-  }
-
-   /**
-   * The artifact name of the bundle that provides the referenced type.
-   * @return artifact
-  **/
-  @ApiModelProperty(value = "The artifact name of the bundle that provides the referenced type.")
-  public String getArtifact() {
-    return artifact;
-  }
-
-  public void setArtifact(String artifact) {
-    this.artifact = artifact;
-  }
-
-  public ReportingTaskDefinition version(String version) {
-    this.version = version;
-    return this;
-  }
-
-   /**
-   * The version of the bundle that provides the referenced type.
-   * @return version
-  **/
-  @ApiModelProperty(value = "The version of the bundle that provides the referenced type.")
-  public String getVersion() {
-    return version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public ReportingTaskDefinition type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The fully-qualified class type
-   * @return type
-  **/
-  @ApiModelProperty(required = true, value = "The fully-qualified class type")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public ReportingTaskDefinition typeDescription(String typeDescription) {
-    this.typeDescription = typeDescription;
-    return this;
-  }
-
-   /**
-   * The description of the type.
-   * @return typeDescription
-  **/
-  @ApiModelProperty(value = "The description of the type.")
-  public String getTypeDescription() {
-    return typeDescription;
-  }
-
-  public void setTypeDescription(String typeDescription) {
-    this.typeDescription = typeDescription;
-  }
-
-  public ReportingTaskDefinition buildInfo(BuildInfo buildInfo) {
-    this.buildInfo = buildInfo;
-    return this;
-  }
-
-   /**
-   * The build metadata for this component
-   * @return buildInfo
-  **/
-  @ApiModelProperty(value = "The build metadata for this component")
-  public BuildInfo getBuildInfo() {
-    return buildInfo;
-  }
-
-  public void setBuildInfo(BuildInfo buildInfo) {
-    this.buildInfo = buildInfo;
-  }
-
-  public ReportingTaskDefinition providedApiImplementations(List<DefinedType> providedApiImplementations) {
-    this.providedApiImplementations = providedApiImplementations;
-    return this;
-  }
-
-  public ReportingTaskDefinition addProvidedApiImplementationsItem(DefinedType providedApiImplementationsItem) {
-    if (this.providedApiImplementations == null) {
-      this.providedApiImplementations = new ArrayList<DefinedType>();
+    public ReportingTaskDefinition group(String group) {
+        this.group = group;
+        return this;
     }
-    this.providedApiImplementations.add(providedApiImplementationsItem);
-    return this;
-  }
 
-   /**
-   * If this type represents a provider for an interface, this lists the APIs it implements
-   * @return providedApiImplementations
-  **/
-  @ApiModelProperty(value = "If this type represents a provider for an interface, this lists the APIs it implements")
-  public List<DefinedType> getProvidedApiImplementations() {
-    return providedApiImplementations;
-  }
-
-  public void setProvidedApiImplementations(List<DefinedType> providedApiImplementations) {
-    this.providedApiImplementations = providedApiImplementations;
-  }
-
-  public ReportingTaskDefinition tags(List<String> tags) {
-    this.tags = tags;
-    return this;
-  }
-
-  public ReportingTaskDefinition addTagsItem(String tagsItem) {
-    if (this.tags == null) {
-      this.tags = new ArrayList<String>();
+    /**
+     * The group name of the bundle that provides the referenced type.
+     *
+     * @return group
+     **/
+    @ApiModelProperty(value = "The group name of the bundle that provides the referenced type.")
+    public String getGroup() {
+        return group;
     }
-    this.tags.add(tagsItem);
-    return this;
-  }
 
-   /**
-   * The tags associated with this type
-   * @return tags
-  **/
-  @ApiModelProperty(value = "The tags associated with this type")
-  public List<String> getTags() {
-    return tags;
-  }
-
-  public void setTags(List<String> tags) {
-    this.tags = tags;
-  }
-
-  public ReportingTaskDefinition seeAlso(List<String> seeAlso) {
-    this.seeAlso = seeAlso;
-    return this;
-  }
-
-  public ReportingTaskDefinition addSeeAlsoItem(String seeAlsoItem) {
-    if (this.seeAlso == null) {
-      this.seeAlso = new ArrayList<String>();
+    public void setGroup(String group) {
+        this.group = group;
     }
-    this.seeAlso.add(seeAlsoItem);
-    return this;
-  }
 
-   /**
-   * The names of other component types that may be related
-   * @return seeAlso
-  **/
-  @ApiModelProperty(value = "The names of other component types that may be related")
-  public List<String> getSeeAlso() {
-    return seeAlso;
-  }
-
-  public void setSeeAlso(List<String> seeAlso) {
-    this.seeAlso = seeAlso;
-  }
-
-  public ReportingTaskDefinition deprecated(Boolean deprecated) {
-    this.deprecated = deprecated;
-    return this;
-  }
-
-   /**
-   * Whether or not the component has been deprecated
-   * @return deprecated
-  **/
-  @ApiModelProperty(value = "Whether or not the component has been deprecated")
-  public Boolean isDeprecated() {
-    return deprecated;
-  }
-
-  public void setDeprecated(Boolean deprecated) {
-    this.deprecated = deprecated;
-  }
-
-  public ReportingTaskDefinition deprecationReason(String deprecationReason) {
-    this.deprecationReason = deprecationReason;
-    return this;
-  }
-
-   /**
-   * If this component has been deprecated, this optional field can be used to provide an explanation
-   * @return deprecationReason
-  **/
-  @ApiModelProperty(value = "If this component has been deprecated, this optional field can be used to provide an explanation")
-  public String getDeprecationReason() {
-    return deprecationReason;
-  }
-
-  public void setDeprecationReason(String deprecationReason) {
-    this.deprecationReason = deprecationReason;
-  }
-
-  public ReportingTaskDefinition deprecationAlternatives(List<String> deprecationAlternatives) {
-    this.deprecationAlternatives = deprecationAlternatives;
-    return this;
-  }
-
-  public ReportingTaskDefinition addDeprecationAlternativesItem(String deprecationAlternativesItem) {
-    if (this.deprecationAlternatives == null) {
-      this.deprecationAlternatives = new ArrayList<String>();
+    public ReportingTaskDefinition artifact(String artifact) {
+        this.artifact = artifact;
+        return this;
     }
-    this.deprecationAlternatives.add(deprecationAlternativesItem);
-    return this;
-  }
 
-   /**
-   * If this component has been deprecated, this optional field provides alternatives to use
-   * @return deprecationAlternatives
-  **/
-  @ApiModelProperty(value = "If this component has been deprecated, this optional field provides alternatives to use")
-  public List<String> getDeprecationAlternatives() {
-    return deprecationAlternatives;
-  }
-
-  public void setDeprecationAlternatives(List<String> deprecationAlternatives) {
-    this.deprecationAlternatives = deprecationAlternatives;
-  }
-
-  public ReportingTaskDefinition restricted(Boolean restricted) {
-    this.restricted = restricted;
-    return this;
-  }
-
-   /**
-   * Whether or not the component has a general restriction
-   * @return restricted
-  **/
-  @ApiModelProperty(value = "Whether or not the component has a general restriction")
-  public Boolean isRestricted() {
-    return restricted;
-  }
-
-  public void setRestricted(Boolean restricted) {
-    this.restricted = restricted;
-  }
-
-  public ReportingTaskDefinition restrictedExplanation(String restrictedExplanation) {
-    this.restrictedExplanation = restrictedExplanation;
-    return this;
-  }
-
-   /**
-   * An optional description of the general restriction
-   * @return restrictedExplanation
-  **/
-  @ApiModelProperty(value = "An optional description of the general restriction")
-  public String getRestrictedExplanation() {
-    return restrictedExplanation;
-  }
-
-  public void setRestrictedExplanation(String restrictedExplanation) {
-    this.restrictedExplanation = restrictedExplanation;
-  }
-
-  public ReportingTaskDefinition explicitRestrictions(List<Restriction> explicitRestrictions) {
-    this.explicitRestrictions = explicitRestrictions;
-    return this;
-  }
-
-  public ReportingTaskDefinition addExplicitRestrictionsItem(Restriction explicitRestrictionsItem) {
-    if (this.explicitRestrictions == null) {
-      this.explicitRestrictions = new ArrayList<Restriction>();
+    /**
+     * The artifact name of the bundle that provides the referenced type.
+     *
+     * @return artifact
+     **/
+    @ApiModelProperty(value = "The artifact name of the bundle that provides the referenced type.")
+    public String getArtifact() {
+        return artifact;
     }
-    this.explicitRestrictions.add(explicitRestrictionsItem);
-    return this;
-  }
 
-   /**
-   * Explicit restrictions that indicate a require permission to use the component
-   * @return explicitRestrictions
-  **/
-  @ApiModelProperty(value = "Explicit restrictions that indicate a require permission to use the component")
-  public List<Restriction> getExplicitRestrictions() {
-    return explicitRestrictions;
-  }
-
-  public void setExplicitRestrictions(List<Restriction> explicitRestrictions) {
-    this.explicitRestrictions = explicitRestrictions;
-  }
-
-  public ReportingTaskDefinition stateful(Stateful stateful) {
-    this.stateful = stateful;
-    return this;
-  }
-
-   /**
-   * Indicates if the component stores state
-   * @return stateful
-  **/
-  @ApiModelProperty(value = "Indicates if the component stores state")
-  public Stateful getStateful() {
-    return stateful;
-  }
-
-  public void setStateful(Stateful stateful) {
-    this.stateful = stateful;
-  }
-
-  public ReportingTaskDefinition systemResourceConsiderations(List<SystemResourceConsideration> systemResourceConsiderations) {
-    this.systemResourceConsiderations = systemResourceConsiderations;
-    return this;
-  }
-
-  public ReportingTaskDefinition addSystemResourceConsiderationsItem(SystemResourceConsideration systemResourceConsiderationsItem) {
-    if (this.systemResourceConsiderations == null) {
-      this.systemResourceConsiderations = new ArrayList<SystemResourceConsideration>();
+    public void setArtifact(String artifact) {
+        this.artifact = artifact;
     }
-    this.systemResourceConsiderations.add(systemResourceConsiderationsItem);
-    return this;
-  }
 
-   /**
-   * The system resource considerations for the given component
-   * @return systemResourceConsiderations
-  **/
-  @ApiModelProperty(value = "The system resource considerations for the given component")
-  public List<SystemResourceConsideration> getSystemResourceConsiderations() {
-    return systemResourceConsiderations;
-  }
-
-  public void setSystemResourceConsiderations(List<SystemResourceConsideration> systemResourceConsiderations) {
-    this.systemResourceConsiderations = systemResourceConsiderations;
-  }
-
-  public ReportingTaskDefinition additionalDetails(Boolean additionalDetails) {
-    this.additionalDetails = additionalDetails;
-    return this;
-  }
-
-   /**
-   * Indicates if the component has additional details documentation
-   * @return additionalDetails
-  **/
-  @ApiModelProperty(value = "Indicates if the component has additional details documentation")
-  public Boolean isAdditionalDetails() {
-    return additionalDetails;
-  }
-
-  public void setAdditionalDetails(Boolean additionalDetails) {
-    this.additionalDetails = additionalDetails;
-  }
-
-  public ReportingTaskDefinition propertyDescriptors(Map<String, PropertyDescriptor> propertyDescriptors) {
-    this.propertyDescriptors = propertyDescriptors;
-    return this;
-  }
-
-  public ReportingTaskDefinition putPropertyDescriptorsItem(String key, PropertyDescriptor propertyDescriptorsItem) {
-    if (this.propertyDescriptors == null) {
-      this.propertyDescriptors = new HashMap<String, PropertyDescriptor>();
+    public ReportingTaskDefinition version(String version) {
+        this.version = version;
+        return this;
     }
-    this.propertyDescriptors.put(key, propertyDescriptorsItem);
-    return this;
-  }
 
-   /**
-   * Descriptions of configuration properties applicable to this component.
-   * @return propertyDescriptors
-  **/
-  @ApiModelProperty(value = "Descriptions of configuration properties applicable to this component.")
-  public Map<String, PropertyDescriptor> getPropertyDescriptors() {
-    return propertyDescriptors;
-  }
-
-  public void setPropertyDescriptors(Map<String, PropertyDescriptor> propertyDescriptors) {
-    this.propertyDescriptors = propertyDescriptors;
-  }
-
-  public ReportingTaskDefinition supportsDynamicProperties(Boolean supportsDynamicProperties) {
-    this.supportsDynamicProperties = supportsDynamicProperties;
-    return this;
-  }
-
-   /**
-   * Whether or not this component makes use of dynamic (user-set) properties.
-   * @return supportsDynamicProperties
-  **/
-  @ApiModelProperty(value = "Whether or not this component makes use of dynamic (user-set) properties.")
-  public Boolean isSupportsDynamicProperties() {
-    return supportsDynamicProperties;
-  }
-
-  public void setSupportsDynamicProperties(Boolean supportsDynamicProperties) {
-    this.supportsDynamicProperties = supportsDynamicProperties;
-  }
-
-  public ReportingTaskDefinition supportsSensitiveDynamicProperties(Boolean supportsSensitiveDynamicProperties) {
-    this.supportsSensitiveDynamicProperties = supportsSensitiveDynamicProperties;
-    return this;
-  }
-
-   /**
-   * Whether or not this component makes use of sensitive dynamic (user-set) properties.
-   * @return supportsSensitiveDynamicProperties
-  **/
-  @ApiModelProperty(value = "Whether or not this component makes use of sensitive dynamic (user-set) properties.")
-  public Boolean isSupportsSensitiveDynamicProperties() {
-    return supportsSensitiveDynamicProperties;
-  }
-
-  public void setSupportsSensitiveDynamicProperties(Boolean supportsSensitiveDynamicProperties) {
-    this.supportsSensitiveDynamicProperties = supportsSensitiveDynamicProperties;
-  }
-
-  public ReportingTaskDefinition dynamicProperties(List<DynamicProperty> dynamicProperties) {
-    this.dynamicProperties = dynamicProperties;
-    return this;
-  }
-
-  public ReportingTaskDefinition addDynamicPropertiesItem(DynamicProperty dynamicPropertiesItem) {
-    if (this.dynamicProperties == null) {
-      this.dynamicProperties = new ArrayList<DynamicProperty>();
+    /**
+     * The version of the bundle that provides the referenced type.
+     *
+     * @return version
+     **/
+    @ApiModelProperty(value = "The version of the bundle that provides the referenced type.")
+    public String getVersion() {
+        return version;
     }
-    this.dynamicProperties.add(dynamicPropertiesItem);
-    return this;
-  }
 
-   /**
-   * Describes the dynamic properties supported by this component
-   * @return dynamicProperties
-  **/
-  @ApiModelProperty(value = "Describes the dynamic properties supported by this component")
-  public List<DynamicProperty> getDynamicProperties() {
-    return dynamicProperties;
-  }
-
-  public void setDynamicProperties(List<DynamicProperty> dynamicProperties) {
-    this.dynamicProperties = dynamicProperties;
-  }
-
-  public ReportingTaskDefinition supportedSchedulingStrategies(List<String> supportedSchedulingStrategies) {
-    this.supportedSchedulingStrategies = supportedSchedulingStrategies;
-    return this;
-  }
-
-  public ReportingTaskDefinition addSupportedSchedulingStrategiesItem(String supportedSchedulingStrategiesItem) {
-    if (this.supportedSchedulingStrategies == null) {
-      this.supportedSchedulingStrategies = new ArrayList<String>();
+    public void setVersion(String version) {
+        this.version = version;
     }
-    this.supportedSchedulingStrategies.add(supportedSchedulingStrategiesItem);
-    return this;
-  }
 
-   /**
-   * The supported scheduling strategies, such as TIME_DRIVER or CRON.
-   * @return supportedSchedulingStrategies
-  **/
-  @ApiModelProperty(value = "The supported scheduling strategies, such as TIME_DRIVER or CRON.")
-  public List<String> getSupportedSchedulingStrategies() {
-    return supportedSchedulingStrategies;
-  }
-
-  public void setSupportedSchedulingStrategies(List<String> supportedSchedulingStrategies) {
-    this.supportedSchedulingStrategies = supportedSchedulingStrategies;
-  }
-
-  public ReportingTaskDefinition defaultSchedulingStrategy(String defaultSchedulingStrategy) {
-    this.defaultSchedulingStrategy = defaultSchedulingStrategy;
-    return this;
-  }
-
-   /**
-   * The default scheduling strategy for the reporting task.
-   * @return defaultSchedulingStrategy
-  **/
-  @ApiModelProperty(value = "The default scheduling strategy for the reporting task.")
-  public String getDefaultSchedulingStrategy() {
-    return defaultSchedulingStrategy;
-  }
-
-  public void setDefaultSchedulingStrategy(String defaultSchedulingStrategy) {
-    this.defaultSchedulingStrategy = defaultSchedulingStrategy;
-  }
-
-  public ReportingTaskDefinition defaultSchedulingPeriodBySchedulingStrategy(Map<String, String> defaultSchedulingPeriodBySchedulingStrategy) {
-    this.defaultSchedulingPeriodBySchedulingStrategy = defaultSchedulingPeriodBySchedulingStrategy;
-    return this;
-  }
-
-  public ReportingTaskDefinition putDefaultSchedulingPeriodBySchedulingStrategyItem(String key, String defaultSchedulingPeriodBySchedulingStrategyItem) {
-    if (this.defaultSchedulingPeriodBySchedulingStrategy == null) {
-      this.defaultSchedulingPeriodBySchedulingStrategy = new HashMap<String, String>();
+    public ReportingTaskDefinition type(String type) {
+        this.type = type;
+        return this;
     }
-    this.defaultSchedulingPeriodBySchedulingStrategy.put(key, defaultSchedulingPeriodBySchedulingStrategyItem);
-    return this;
-  }
 
-   /**
-   * The default scheduling period for each scheduling strategy. The scheduling period is expected to be a time period, such as \&quot;30 sec\&quot;.
-   * @return defaultSchedulingPeriodBySchedulingStrategy
-  **/
-  @ApiModelProperty(value = "The default scheduling period for each scheduling strategy. The scheduling period is expected to be a time period, such as \"30 sec\".")
-  public Map<String, String> getDefaultSchedulingPeriodBySchedulingStrategy() {
-    return defaultSchedulingPeriodBySchedulingStrategy;
-  }
-
-  public void setDefaultSchedulingPeriodBySchedulingStrategy(Map<String, String> defaultSchedulingPeriodBySchedulingStrategy) {
-    this.defaultSchedulingPeriodBySchedulingStrategy = defaultSchedulingPeriodBySchedulingStrategy;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The fully-qualified class type
+     *
+     * @return type
+     **/
+    @ApiModelProperty(required = true, value = "The fully-qualified class type")
+    public String getType() {
+        return type;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setType(String type) {
+        this.type = type;
     }
-    ReportingTaskDefinition reportingTaskDefinition = (ReportingTaskDefinition) o;
-    return Objects.equals(this.group, reportingTaskDefinition.group) &&
-        Objects.equals(this.artifact, reportingTaskDefinition.artifact) &&
-        Objects.equals(this.version, reportingTaskDefinition.version) &&
-        Objects.equals(this.type, reportingTaskDefinition.type) &&
-        Objects.equals(this.typeDescription, reportingTaskDefinition.typeDescription) &&
-        Objects.equals(this.buildInfo, reportingTaskDefinition.buildInfo) &&
-        Objects.equals(this.providedApiImplementations, reportingTaskDefinition.providedApiImplementations) &&
-        Objects.equals(this.tags, reportingTaskDefinition.tags) &&
-        Objects.equals(this.seeAlso, reportingTaskDefinition.seeAlso) &&
-        Objects.equals(this.deprecated, reportingTaskDefinition.deprecated) &&
-        Objects.equals(this.deprecationReason, reportingTaskDefinition.deprecationReason) &&
-        Objects.equals(this.deprecationAlternatives, reportingTaskDefinition.deprecationAlternatives) &&
-        Objects.equals(this.restricted, reportingTaskDefinition.restricted) &&
-        Objects.equals(this.restrictedExplanation, reportingTaskDefinition.restrictedExplanation) &&
-        Objects.equals(this.explicitRestrictions, reportingTaskDefinition.explicitRestrictions) &&
-        Objects.equals(this.stateful, reportingTaskDefinition.stateful) &&
-        Objects.equals(this.systemResourceConsiderations, reportingTaskDefinition.systemResourceConsiderations) &&
-        Objects.equals(this.additionalDetails, reportingTaskDefinition.additionalDetails) &&
-        Objects.equals(this.propertyDescriptors, reportingTaskDefinition.propertyDescriptors) &&
-        Objects.equals(this.supportsDynamicProperties, reportingTaskDefinition.supportsDynamicProperties) &&
-        Objects.equals(this.supportsSensitiveDynamicProperties, reportingTaskDefinition.supportsSensitiveDynamicProperties) &&
-        Objects.equals(this.dynamicProperties, reportingTaskDefinition.dynamicProperties) &&
-        Objects.equals(this.supportedSchedulingStrategies, reportingTaskDefinition.supportedSchedulingStrategies) &&
-        Objects.equals(this.defaultSchedulingStrategy, reportingTaskDefinition.defaultSchedulingStrategy) &&
-        Objects.equals(this.defaultSchedulingPeriodBySchedulingStrategy, reportingTaskDefinition.defaultSchedulingPeriodBySchedulingStrategy);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(group, artifact, version, type, typeDescription, buildInfo, providedApiImplementations, tags, seeAlso, deprecated, deprecationReason, deprecationAlternatives, restricted, restrictedExplanation, explicitRestrictions, stateful, systemResourceConsiderations, additionalDetails, propertyDescriptors, supportsDynamicProperties, supportsSensitiveDynamicProperties, dynamicProperties, supportedSchedulingStrategies, defaultSchedulingStrategy, defaultSchedulingPeriodBySchedulingStrategy);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ReportingTaskDefinition {\n");
-    
-    sb.append("    group: ").append(toIndentedString(group)).append("\n");
-    sb.append("    artifact: ").append(toIndentedString(artifact)).append("\n");
-    sb.append("    version: ").append(toIndentedString(version)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    typeDescription: ").append(toIndentedString(typeDescription)).append("\n");
-    sb.append("    buildInfo: ").append(toIndentedString(buildInfo)).append("\n");
-    sb.append("    providedApiImplementations: ").append(toIndentedString(providedApiImplementations)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    seeAlso: ").append(toIndentedString(seeAlso)).append("\n");
-    sb.append("    deprecated: ").append(toIndentedString(deprecated)).append("\n");
-    sb.append("    deprecationReason: ").append(toIndentedString(deprecationReason)).append("\n");
-    sb.append("    deprecationAlternatives: ").append(toIndentedString(deprecationAlternatives)).append("\n");
-    sb.append("    restricted: ").append(toIndentedString(restricted)).append("\n");
-    sb.append("    restrictedExplanation: ").append(toIndentedString(restrictedExplanation)).append("\n");
-    sb.append("    explicitRestrictions: ").append(toIndentedString(explicitRestrictions)).append("\n");
-    sb.append("    stateful: ").append(toIndentedString(stateful)).append("\n");
-    sb.append("    systemResourceConsiderations: ").append(toIndentedString(systemResourceConsiderations)).append("\n");
-    sb.append("    additionalDetails: ").append(toIndentedString(additionalDetails)).append("\n");
-    sb.append("    propertyDescriptors: ").append(toIndentedString(propertyDescriptors)).append("\n");
-    sb.append("    supportsDynamicProperties: ").append(toIndentedString(supportsDynamicProperties)).append("\n");
-    sb.append("    supportsSensitiveDynamicProperties: ").append(toIndentedString(supportsSensitiveDynamicProperties)).append("\n");
-    sb.append("    dynamicProperties: ").append(toIndentedString(dynamicProperties)).append("\n");
-    sb.append("    supportedSchedulingStrategies: ").append(toIndentedString(supportedSchedulingStrategies)).append("\n");
-    sb.append("    defaultSchedulingStrategy: ").append(toIndentedString(defaultSchedulingStrategy)).append("\n");
-    sb.append("    defaultSchedulingPeriodBySchedulingStrategy: ").append(toIndentedString(defaultSchedulingPeriodBySchedulingStrategy)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public ReportingTaskDefinition typeDescription(String typeDescription) {
+        this.typeDescription = typeDescription;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The description of the type.
+     *
+     * @return typeDescription
+     **/
+    @ApiModelProperty(value = "The description of the type.")
+    public String getTypeDescription() {
+        return typeDescription;
+    }
+
+    public void setTypeDescription(String typeDescription) {
+        this.typeDescription = typeDescription;
+    }
+
+    public ReportingTaskDefinition buildInfo(BuildInfo buildInfo) {
+        this.buildInfo = buildInfo;
+        return this;
+    }
+
+    /**
+     * The build metadata for this component
+     *
+     * @return buildInfo
+     **/
+    @ApiModelProperty(value = "The build metadata for this component")
+    public BuildInfo getBuildInfo() {
+        return buildInfo;
+    }
+
+    public void setBuildInfo(BuildInfo buildInfo) {
+        this.buildInfo = buildInfo;
+    }
+
+    public ReportingTaskDefinition providedApiImplementations(List<DefinedType> providedApiImplementations) {
+        this.providedApiImplementations = providedApiImplementations;
+        return this;
+    }
+
+    public ReportingTaskDefinition addProvidedApiImplementationsItem(DefinedType providedApiImplementationsItem) {
+        if (this.providedApiImplementations == null) {
+            this.providedApiImplementations = new ArrayList<DefinedType>();
+        }
+        this.providedApiImplementations.add(providedApiImplementationsItem);
+        return this;
+    }
+
+    /**
+     * If this type represents a provider for an interface, this lists the APIs it implements
+     *
+     * @return providedApiImplementations
+     **/
+    @ApiModelProperty(value = "If this type represents a provider for an interface, this lists the APIs it implements")
+    public List<DefinedType> getProvidedApiImplementations() {
+        return providedApiImplementations;
+    }
+
+    public void setProvidedApiImplementations(List<DefinedType> providedApiImplementations) {
+        this.providedApiImplementations = providedApiImplementations;
+    }
+
+    public ReportingTaskDefinition tags(List<String> tags) {
+        this.tags = tags;
+        return this;
+    }
+
+    public ReportingTaskDefinition addTagsItem(String tagsItem) {
+        if (this.tags == null) {
+            this.tags = new ArrayList<String>();
+        }
+        this.tags.add(tagsItem);
+        return this;
+    }
+
+    /**
+     * The tags associated with this type
+     *
+     * @return tags
+     **/
+    @ApiModelProperty(value = "The tags associated with this type")
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    public ReportingTaskDefinition seeAlso(List<String> seeAlso) {
+        this.seeAlso = seeAlso;
+        return this;
+    }
+
+    public ReportingTaskDefinition addSeeAlsoItem(String seeAlsoItem) {
+        if (this.seeAlso == null) {
+            this.seeAlso = new ArrayList<String>();
+        }
+        this.seeAlso.add(seeAlsoItem);
+        return this;
+    }
+
+    /**
+     * The names of other component types that may be related
+     *
+     * @return seeAlso
+     **/
+    @ApiModelProperty(value = "The names of other component types that may be related")
+    public List<String> getSeeAlso() {
+        return seeAlso;
+    }
+
+    public void setSeeAlso(List<String> seeAlso) {
+        this.seeAlso = seeAlso;
+    }
+
+    public ReportingTaskDefinition deprecated(Boolean deprecated) {
+        this.deprecated = deprecated;
+        return this;
+    }
+
+    /**
+     * Whether or not the component has been deprecated
+     *
+     * @return deprecated
+     **/
+    @ApiModelProperty(value = "Whether or not the component has been deprecated")
+    public Boolean isDeprecated() {
+        return deprecated;
+    }
+
+    public void setDeprecated(Boolean deprecated) {
+        this.deprecated = deprecated;
+    }
+
+    public ReportingTaskDefinition deprecationReason(String deprecationReason) {
+        this.deprecationReason = deprecationReason;
+        return this;
+    }
+
+    /**
+     * If this component has been deprecated, this optional field can be used to provide an explanation
+     *
+     * @return deprecationReason
+     **/
+    @ApiModelProperty(value = "If this component has been deprecated, this optional field can be used to provide an explanation")
+    public String getDeprecationReason() {
+        return deprecationReason;
+    }
+
+    public void setDeprecationReason(String deprecationReason) {
+        this.deprecationReason = deprecationReason;
+    }
+
+    public ReportingTaskDefinition deprecationAlternatives(List<String> deprecationAlternatives) {
+        this.deprecationAlternatives = deprecationAlternatives;
+        return this;
+    }
+
+    public ReportingTaskDefinition addDeprecationAlternativesItem(String deprecationAlternativesItem) {
+        if (this.deprecationAlternatives == null) {
+            this.deprecationAlternatives = new ArrayList<String>();
+        }
+        this.deprecationAlternatives.add(deprecationAlternativesItem);
+        return this;
+    }
+
+    /**
+     * If this component has been deprecated, this optional field provides alternatives to use
+     *
+     * @return deprecationAlternatives
+     **/
+    @ApiModelProperty(value = "If this component has been deprecated, this optional field provides alternatives to use")
+    public List<String> getDeprecationAlternatives() {
+        return deprecationAlternatives;
+    }
+
+    public void setDeprecationAlternatives(List<String> deprecationAlternatives) {
+        this.deprecationAlternatives = deprecationAlternatives;
+    }
+
+    public ReportingTaskDefinition restricted(Boolean restricted) {
+        this.restricted = restricted;
+        return this;
+    }
+
+    /**
+     * Whether or not the component has a general restriction
+     *
+     * @return restricted
+     **/
+    @ApiModelProperty(value = "Whether or not the component has a general restriction")
+    public Boolean isRestricted() {
+        return restricted;
+    }
+
+    public void setRestricted(Boolean restricted) {
+        this.restricted = restricted;
+    }
+
+    public ReportingTaskDefinition restrictedExplanation(String restrictedExplanation) {
+        this.restrictedExplanation = restrictedExplanation;
+        return this;
+    }
+
+    /**
+     * An optional description of the general restriction
+     *
+     * @return restrictedExplanation
+     **/
+    @ApiModelProperty(value = "An optional description of the general restriction")
+    public String getRestrictedExplanation() {
+        return restrictedExplanation;
+    }
+
+    public void setRestrictedExplanation(String restrictedExplanation) {
+        this.restrictedExplanation = restrictedExplanation;
+    }
+
+    public ReportingTaskDefinition explicitRestrictions(List<Restriction> explicitRestrictions) {
+        this.explicitRestrictions = explicitRestrictions;
+        return this;
+    }
+
+    public ReportingTaskDefinition addExplicitRestrictionsItem(Restriction explicitRestrictionsItem) {
+        if (this.explicitRestrictions == null) {
+            this.explicitRestrictions = new ArrayList<Restriction>();
+        }
+        this.explicitRestrictions.add(explicitRestrictionsItem);
+        return this;
+    }
+
+    /**
+     * Explicit restrictions that indicate a require permission to use the component
+     *
+     * @return explicitRestrictions
+     **/
+    @ApiModelProperty(value = "Explicit restrictions that indicate a require permission to use the component")
+    public List<Restriction> getExplicitRestrictions() {
+        return explicitRestrictions;
+    }
+
+    public void setExplicitRestrictions(List<Restriction> explicitRestrictions) {
+        this.explicitRestrictions = explicitRestrictions;
+    }
+
+    public ReportingTaskDefinition stateful(Stateful stateful) {
+        this.stateful = stateful;
+        return this;
+    }
+
+    /**
+     * Indicates if the component stores state
+     *
+     * @return stateful
+     **/
+    @ApiModelProperty(value = "Indicates if the component stores state")
+    public Stateful getStateful() {
+        return stateful;
+    }
+
+    public void setStateful(Stateful stateful) {
+        this.stateful = stateful;
+    }
+
+    public ReportingTaskDefinition systemResourceConsiderations(List<SystemResourceConsideration> systemResourceConsiderations) {
+        this.systemResourceConsiderations = systemResourceConsiderations;
+        return this;
+    }
+
+    public ReportingTaskDefinition addSystemResourceConsiderationsItem(SystemResourceConsideration systemResourceConsiderationsItem) {
+        if (this.systemResourceConsiderations == null) {
+            this.systemResourceConsiderations = new ArrayList<SystemResourceConsideration>();
+        }
+        this.systemResourceConsiderations.add(systemResourceConsiderationsItem);
+        return this;
+    }
+
+    /**
+     * The system resource considerations for the given component
+     *
+     * @return systemResourceConsiderations
+     **/
+    @ApiModelProperty(value = "The system resource considerations for the given component")
+    public List<SystemResourceConsideration> getSystemResourceConsiderations() {
+        return systemResourceConsiderations;
+    }
+
+    public void setSystemResourceConsiderations(List<SystemResourceConsideration> systemResourceConsiderations) {
+        this.systemResourceConsiderations = systemResourceConsiderations;
+    }
+
+    public ReportingTaskDefinition additionalDetails(Boolean additionalDetails) {
+        this.additionalDetails = additionalDetails;
+        return this;
+    }
+
+    /**
+     * Indicates if the component has additional details documentation
+     *
+     * @return additionalDetails
+     **/
+    @ApiModelProperty(value = "Indicates if the component has additional details documentation")
+    public Boolean isAdditionalDetails() {
+        return additionalDetails;
+    }
+
+    public void setAdditionalDetails(Boolean additionalDetails) {
+        this.additionalDetails = additionalDetails;
+    }
+
+    public ReportingTaskDefinition propertyDescriptors(Map<String, PropertyDescriptor> propertyDescriptors) {
+        this.propertyDescriptors = propertyDescriptors;
+        return this;
+    }
+
+    public ReportingTaskDefinition putPropertyDescriptorsItem(String key, PropertyDescriptor propertyDescriptorsItem) {
+        if (this.propertyDescriptors == null) {
+            this.propertyDescriptors = new HashMap<String, PropertyDescriptor>();
+        }
+        this.propertyDescriptors.put(key, propertyDescriptorsItem);
+        return this;
+    }
+
+    /**
+     * Descriptions of configuration properties applicable to this component.
+     *
+     * @return propertyDescriptors
+     **/
+    @ApiModelProperty(value = "Descriptions of configuration properties applicable to this component.")
+    public Map<String, PropertyDescriptor> getPropertyDescriptors() {
+        return propertyDescriptors;
+    }
+
+    public void setPropertyDescriptors(Map<String, PropertyDescriptor> propertyDescriptors) {
+        this.propertyDescriptors = propertyDescriptors;
+    }
+
+    public ReportingTaskDefinition supportsDynamicProperties(Boolean supportsDynamicProperties) {
+        this.supportsDynamicProperties = supportsDynamicProperties;
+        return this;
+    }
+
+    /**
+     * Whether or not this component makes use of dynamic (user-set) properties.
+     *
+     * @return supportsDynamicProperties
+     **/
+    @ApiModelProperty(value = "Whether or not this component makes use of dynamic (user-set) properties.")
+    public Boolean isSupportsDynamicProperties() {
+        return supportsDynamicProperties;
+    }
+
+    public void setSupportsDynamicProperties(Boolean supportsDynamicProperties) {
+        this.supportsDynamicProperties = supportsDynamicProperties;
+    }
+
+    public ReportingTaskDefinition supportsSensitiveDynamicProperties(Boolean supportsSensitiveDynamicProperties) {
+        this.supportsSensitiveDynamicProperties = supportsSensitiveDynamicProperties;
+        return this;
+    }
+
+    /**
+     * Whether or not this component makes use of sensitive dynamic (user-set) properties.
+     *
+     * @return supportsSensitiveDynamicProperties
+     **/
+    @ApiModelProperty(value = "Whether or not this component makes use of sensitive dynamic (user-set) properties.")
+    public Boolean isSupportsSensitiveDynamicProperties() {
+        return supportsSensitiveDynamicProperties;
+    }
+
+    public void setSupportsSensitiveDynamicProperties(Boolean supportsSensitiveDynamicProperties) {
+        this.supportsSensitiveDynamicProperties = supportsSensitiveDynamicProperties;
+    }
+
+    public ReportingTaskDefinition dynamicProperties(List<DynamicProperty> dynamicProperties) {
+        this.dynamicProperties = dynamicProperties;
+        return this;
+    }
+
+    public ReportingTaskDefinition addDynamicPropertiesItem(DynamicProperty dynamicPropertiesItem) {
+        if (this.dynamicProperties == null) {
+            this.dynamicProperties = new ArrayList<DynamicProperty>();
+        }
+        this.dynamicProperties.add(dynamicPropertiesItem);
+        return this;
+    }
+
+    /**
+     * Describes the dynamic properties supported by this component
+     *
+     * @return dynamicProperties
+     **/
+    @ApiModelProperty(value = "Describes the dynamic properties supported by this component")
+    public List<DynamicProperty> getDynamicProperties() {
+        return dynamicProperties;
+    }
+
+    public void setDynamicProperties(List<DynamicProperty> dynamicProperties) {
+        this.dynamicProperties = dynamicProperties;
+    }
+
+    public ReportingTaskDefinition supportedSchedulingStrategies(List<String> supportedSchedulingStrategies) {
+        this.supportedSchedulingStrategies = supportedSchedulingStrategies;
+        return this;
+    }
+
+    public ReportingTaskDefinition addSupportedSchedulingStrategiesItem(String supportedSchedulingStrategiesItem) {
+        if (this.supportedSchedulingStrategies == null) {
+            this.supportedSchedulingStrategies = new ArrayList<String>();
+        }
+        this.supportedSchedulingStrategies.add(supportedSchedulingStrategiesItem);
+        return this;
+    }
+
+    /**
+     * The supported scheduling strategies, such as TIME_DRIVER or CRON.
+     *
+     * @return supportedSchedulingStrategies
+     **/
+    @ApiModelProperty(value = "The supported scheduling strategies, such as TIME_DRIVER or CRON.")
+    public List<String> getSupportedSchedulingStrategies() {
+        return supportedSchedulingStrategies;
+    }
+
+    public void setSupportedSchedulingStrategies(List<String> supportedSchedulingStrategies) {
+        this.supportedSchedulingStrategies = supportedSchedulingStrategies;
+    }
+
+    public ReportingTaskDefinition defaultSchedulingStrategy(String defaultSchedulingStrategy) {
+        this.defaultSchedulingStrategy = defaultSchedulingStrategy;
+        return this;
+    }
+
+    /**
+     * The default scheduling strategy for the reporting task.
+     *
+     * @return defaultSchedulingStrategy
+     **/
+    @ApiModelProperty(value = "The default scheduling strategy for the reporting task.")
+    public String getDefaultSchedulingStrategy() {
+        return defaultSchedulingStrategy;
+    }
+
+    public void setDefaultSchedulingStrategy(String defaultSchedulingStrategy) {
+        this.defaultSchedulingStrategy = defaultSchedulingStrategy;
+    }
+
+    public ReportingTaskDefinition defaultSchedulingPeriodBySchedulingStrategy(Map<String, String> defaultSchedulingPeriodBySchedulingStrategy) {
+        this.defaultSchedulingPeriodBySchedulingStrategy = defaultSchedulingPeriodBySchedulingStrategy;
+        return this;
+    }
+
+    public ReportingTaskDefinition putDefaultSchedulingPeriodBySchedulingStrategyItem(String key, String defaultSchedulingPeriodBySchedulingStrategyItem) {
+        if (this.defaultSchedulingPeriodBySchedulingStrategy == null) {
+            this.defaultSchedulingPeriodBySchedulingStrategy = new HashMap<String, String>();
+        }
+        this.defaultSchedulingPeriodBySchedulingStrategy.put(key, defaultSchedulingPeriodBySchedulingStrategyItem);
+        return this;
+    }
+
+    /**
+     * The default scheduling period for each scheduling strategy. The scheduling period is expected to be a time period, such as \&quot;30 sec\&quot;.
+     *
+     * @return defaultSchedulingPeriodBySchedulingStrategy
+     **/
+    @ApiModelProperty(value = "The default scheduling period for each scheduling strategy. The scheduling period is expected to be a time period, such as \"30 sec\".")
+    public Map<String, String> getDefaultSchedulingPeriodBySchedulingStrategy() {
+        return defaultSchedulingPeriodBySchedulingStrategy;
+    }
+
+    public void setDefaultSchedulingPeriodBySchedulingStrategy(Map<String, String> defaultSchedulingPeriodBySchedulingStrategy) {
+        this.defaultSchedulingPeriodBySchedulingStrategy = defaultSchedulingPeriodBySchedulingStrategy;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ReportingTaskDefinition reportingTaskDefinition = (ReportingTaskDefinition) o;
+        return Objects.equals(this.group, reportingTaskDefinition.group) &&
+                Objects.equals(this.artifact, reportingTaskDefinition.artifact) &&
+                Objects.equals(this.version, reportingTaskDefinition.version) &&
+                Objects.equals(this.type, reportingTaskDefinition.type) &&
+                Objects.equals(this.typeDescription, reportingTaskDefinition.typeDescription) &&
+                Objects.equals(this.buildInfo, reportingTaskDefinition.buildInfo) &&
+                Objects.equals(this.providedApiImplementations, reportingTaskDefinition.providedApiImplementations) &&
+                Objects.equals(this.tags, reportingTaskDefinition.tags) &&
+                Objects.equals(this.seeAlso, reportingTaskDefinition.seeAlso) &&
+                Objects.equals(this.deprecated, reportingTaskDefinition.deprecated) &&
+                Objects.equals(this.deprecationReason, reportingTaskDefinition.deprecationReason) &&
+                Objects.equals(this.deprecationAlternatives, reportingTaskDefinition.deprecationAlternatives) &&
+                Objects.equals(this.restricted, reportingTaskDefinition.restricted) &&
+                Objects.equals(this.restrictedExplanation, reportingTaskDefinition.restrictedExplanation) &&
+                Objects.equals(this.explicitRestrictions, reportingTaskDefinition.explicitRestrictions) &&
+                Objects.equals(this.stateful, reportingTaskDefinition.stateful) &&
+                Objects.equals(this.systemResourceConsiderations, reportingTaskDefinition.systemResourceConsiderations) &&
+                Objects.equals(this.additionalDetails, reportingTaskDefinition.additionalDetails) &&
+                Objects.equals(this.propertyDescriptors, reportingTaskDefinition.propertyDescriptors) &&
+                Objects.equals(this.supportsDynamicProperties, reportingTaskDefinition.supportsDynamicProperties) &&
+                Objects.equals(this.supportsSensitiveDynamicProperties, reportingTaskDefinition.supportsSensitiveDynamicProperties) &&
+                Objects.equals(this.dynamicProperties, reportingTaskDefinition.dynamicProperties) &&
+                Objects.equals(this.supportedSchedulingStrategies, reportingTaskDefinition.supportedSchedulingStrategies) &&
+                Objects.equals(this.defaultSchedulingStrategy, reportingTaskDefinition.defaultSchedulingStrategy) &&
+                Objects.equals(this.defaultSchedulingPeriodBySchedulingStrategy, reportingTaskDefinition.defaultSchedulingPeriodBySchedulingStrategy);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(group, artifact, version, type, typeDescription, buildInfo, providedApiImplementations, tags, seeAlso, deprecated, deprecationReason, deprecationAlternatives, restricted, restrictedExplanation, explicitRestrictions, stateful, systemResourceConsiderations, additionalDetails, propertyDescriptors, supportsDynamicProperties, supportsSensitiveDynamicProperties, dynamicProperties, supportedSchedulingStrategies, defaultSchedulingStrategy, defaultSchedulingPeriodBySchedulingStrategy);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ReportingTaskDefinition {\n");
+
+        sb.append("    group: ").append(toIndentedString(group)).append("\n");
+        sb.append("    artifact: ").append(toIndentedString(artifact)).append("\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    typeDescription: ").append(toIndentedString(typeDescription)).append("\n");
+        sb.append("    buildInfo: ").append(toIndentedString(buildInfo)).append("\n");
+        sb.append("    providedApiImplementations: ").append(toIndentedString(providedApiImplementations)).append("\n");
+        sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+        sb.append("    seeAlso: ").append(toIndentedString(seeAlso)).append("\n");
+        sb.append("    deprecated: ").append(toIndentedString(deprecated)).append("\n");
+        sb.append("    deprecationReason: ").append(toIndentedString(deprecationReason)).append("\n");
+        sb.append("    deprecationAlternatives: ").append(toIndentedString(deprecationAlternatives)).append("\n");
+        sb.append("    restricted: ").append(toIndentedString(restricted)).append("\n");
+        sb.append("    restrictedExplanation: ").append(toIndentedString(restrictedExplanation)).append("\n");
+        sb.append("    explicitRestrictions: ").append(toIndentedString(explicitRestrictions)).append("\n");
+        sb.append("    stateful: ").append(toIndentedString(stateful)).append("\n");
+        sb.append("    systemResourceConsiderations: ").append(toIndentedString(systemResourceConsiderations)).append("\n");
+        sb.append("    additionalDetails: ").append(toIndentedString(additionalDetails)).append("\n");
+        sb.append("    propertyDescriptors: ").append(toIndentedString(propertyDescriptors)).append("\n");
+        sb.append("    supportsDynamicProperties: ").append(toIndentedString(supportsDynamicProperties)).append("\n");
+        sb.append("    supportsSensitiveDynamicProperties: ").append(toIndentedString(supportsSensitiveDynamicProperties)).append("\n");
+        sb.append("    dynamicProperties: ").append(toIndentedString(dynamicProperties)).append("\n");
+        sb.append("    supportedSchedulingStrategies: ").append(toIndentedString(supportedSchedulingStrategies)).append("\n");
+        sb.append("    defaultSchedulingStrategy: ").append(toIndentedString(defaultSchedulingStrategy)).append("\n");
+        sb.append("    defaultSchedulingPeriodBySchedulingStrategy: ").append(toIndentedString(defaultSchedulingPeriodBySchedulingStrategy)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

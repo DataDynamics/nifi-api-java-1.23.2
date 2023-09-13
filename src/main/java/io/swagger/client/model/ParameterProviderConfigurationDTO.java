@@ -13,151 +13,149 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ParameterProviderConfigurationDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ParameterProviderConfigurationDTO {
-  @SerializedName("parameterProviderId")
-  private String parameterProviderId = null;
+    @SerializedName("parameterProviderId")
+    private String parameterProviderId = null;
 
-  @SerializedName("parameterProviderName")
-  private String parameterProviderName = null;
+    @SerializedName("parameterProviderName")
+    private String parameterProviderName = null;
 
-  @SerializedName("parameterGroupName")
-  private String parameterGroupName = null;
+    @SerializedName("parameterGroupName")
+    private String parameterGroupName = null;
 
-  @SerializedName("synchronized")
-  private Boolean _synchronized = null;
+    @SerializedName("synchronized")
+    private Boolean _synchronized = null;
 
-  public ParameterProviderConfigurationDTO parameterProviderId(String parameterProviderId) {
-    this.parameterProviderId = parameterProviderId;
-    return this;
-  }
-
-   /**
-   * The ID of the Parameter Provider
-   * @return parameterProviderId
-  **/
-  @ApiModelProperty(value = "The ID of the Parameter Provider")
-  public String getParameterProviderId() {
-    return parameterProviderId;
-  }
-
-  public void setParameterProviderId(String parameterProviderId) {
-    this.parameterProviderId = parameterProviderId;
-  }
-
-  public ParameterProviderConfigurationDTO parameterProviderName(String parameterProviderName) {
-    this.parameterProviderName = parameterProviderName;
-    return this;
-  }
-
-   /**
-   * The name of the Parameter Provider
-   * @return parameterProviderName
-  **/
-  @ApiModelProperty(value = "The name of the Parameter Provider")
-  public String getParameterProviderName() {
-    return parameterProviderName;
-  }
-
-  public void setParameterProviderName(String parameterProviderName) {
-    this.parameterProviderName = parameterProviderName;
-  }
-
-  public ParameterProviderConfigurationDTO parameterGroupName(String parameterGroupName) {
-    this.parameterGroupName = parameterGroupName;
-    return this;
-  }
-
-   /**
-   * The Parameter Group name that maps to the Parameter Context
-   * @return parameterGroupName
-  **/
-  @ApiModelProperty(value = "The Parameter Group name that maps to the Parameter Context")
-  public String getParameterGroupName() {
-    return parameterGroupName;
-  }
-
-  public void setParameterGroupName(String parameterGroupName) {
-    this.parameterGroupName = parameterGroupName;
-  }
-
-  public ParameterProviderConfigurationDTO _synchronized(Boolean _synchronized) {
-    this._synchronized = _synchronized;
-    return this;
-  }
-
-   /**
-   * True if the Parameter Context should receive the parameters from the mapped Parameter Group
-   * @return _synchronized
-  **/
-  @ApiModelProperty(value = "True if the Parameter Context should receive the parameters from the mapped Parameter Group")
-  public Boolean isSynchronized() {
-    return _synchronized;
-  }
-
-  public void setSynchronized(Boolean _synchronized) {
-    this._synchronized = _synchronized;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ParameterProviderConfigurationDTO parameterProviderId(String parameterProviderId) {
+        this.parameterProviderId = parameterProviderId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The ID of the Parameter Provider
+     *
+     * @return parameterProviderId
+     **/
+    @ApiModelProperty(value = "The ID of the Parameter Provider")
+    public String getParameterProviderId() {
+        return parameterProviderId;
     }
-    ParameterProviderConfigurationDTO parameterProviderConfigurationDTO = (ParameterProviderConfigurationDTO) o;
-    return Objects.equals(this.parameterProviderId, parameterProviderConfigurationDTO.parameterProviderId) &&
-        Objects.equals(this.parameterProviderName, parameterProviderConfigurationDTO.parameterProviderName) &&
-        Objects.equals(this.parameterGroupName, parameterProviderConfigurationDTO.parameterGroupName) &&
-        Objects.equals(this._synchronized, parameterProviderConfigurationDTO._synchronized);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(parameterProviderId, parameterProviderName, parameterGroupName, _synchronized);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterProviderConfigurationDTO {\n");
-    
-    sb.append("    parameterProviderId: ").append(toIndentedString(parameterProviderId)).append("\n");
-    sb.append("    parameterProviderName: ").append(toIndentedString(parameterProviderName)).append("\n");
-    sb.append("    parameterGroupName: ").append(toIndentedString(parameterGroupName)).append("\n");
-    sb.append("    _synchronized: ").append(toIndentedString(_synchronized)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setParameterProviderId(String parameterProviderId) {
+        this.parameterProviderId = parameterProviderId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ParameterProviderConfigurationDTO parameterProviderName(String parameterProviderName) {
+        this.parameterProviderName = parameterProviderName;
+        return this;
+    }
+
+    /**
+     * The name of the Parameter Provider
+     *
+     * @return parameterProviderName
+     **/
+    @ApiModelProperty(value = "The name of the Parameter Provider")
+    public String getParameterProviderName() {
+        return parameterProviderName;
+    }
+
+    public void setParameterProviderName(String parameterProviderName) {
+        this.parameterProviderName = parameterProviderName;
+    }
+
+    public ParameterProviderConfigurationDTO parameterGroupName(String parameterGroupName) {
+        this.parameterGroupName = parameterGroupName;
+        return this;
+    }
+
+    /**
+     * The Parameter Group name that maps to the Parameter Context
+     *
+     * @return parameterGroupName
+     **/
+    @ApiModelProperty(value = "The Parameter Group name that maps to the Parameter Context")
+    public String getParameterGroupName() {
+        return parameterGroupName;
+    }
+
+    public void setParameterGroupName(String parameterGroupName) {
+        this.parameterGroupName = parameterGroupName;
+    }
+
+    public ParameterProviderConfigurationDTO _synchronized(Boolean _synchronized) {
+        this._synchronized = _synchronized;
+        return this;
+    }
+
+    /**
+     * True if the Parameter Context should receive the parameters from the mapped Parameter Group
+     *
+     * @return _synchronized
+     **/
+    @ApiModelProperty(value = "True if the Parameter Context should receive the parameters from the mapped Parameter Group")
+    public Boolean isSynchronized() {
+        return _synchronized;
+    }
+
+    public void setSynchronized(Boolean _synchronized) {
+        this._synchronized = _synchronized;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParameterProviderConfigurationDTO parameterProviderConfigurationDTO = (ParameterProviderConfigurationDTO) o;
+        return Objects.equals(this.parameterProviderId, parameterProviderConfigurationDTO.parameterProviderId) &&
+                Objects.equals(this.parameterProviderName, parameterProviderConfigurationDTO.parameterProviderName) &&
+                Objects.equals(this.parameterGroupName, parameterProviderConfigurationDTO.parameterGroupName) &&
+                Objects.equals(this._synchronized, parameterProviderConfigurationDTO._synchronized);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(parameterProviderId, parameterProviderName, parameterGroupName, _synchronized);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ParameterProviderConfigurationDTO {\n");
+
+        sb.append("    parameterProviderId: ").append(toIndentedString(parameterProviderId)).append("\n");
+        sb.append("    parameterProviderName: ").append(toIndentedString(parameterProviderName)).append("\n");
+        sb.append("    parameterGroupName: ").append(toIndentedString(parameterGroupName)).append("\n");
+        sb.append("    _synchronized: ").append(toIndentedString(_synchronized)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

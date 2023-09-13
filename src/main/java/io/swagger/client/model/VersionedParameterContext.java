@@ -13,453 +13,459 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.Position;
-import io.swagger.client.model.VersionedParameter;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * VersionedParameterContext
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VersionedParameterContext {
-  @SerializedName("identifier")
-  private String identifier = null;
+    @SerializedName("identifier")
+    private String identifier = null;
 
-  @SerializedName("instanceIdentifier")
-  private String instanceIdentifier = null;
+    @SerializedName("instanceIdentifier")
+    private String instanceIdentifier = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("comments")
-  private String comments = null;
+    @SerializedName("comments")
+    private String comments = null;
 
-  @SerializedName("position")
-  private Position position = null;
+    @SerializedName("position")
+    private Position position = null;
 
-  @SerializedName("parameters")
-  private List<VersionedParameter> parameters = null;
+    @SerializedName("parameters")
+    private List<VersionedParameter> parameters = null;
 
-  @SerializedName("inheritedParameterContexts")
-  private List<String> inheritedParameterContexts = null;
+    @SerializedName("inheritedParameterContexts")
+    private List<String> inheritedParameterContexts = null;
 
-  @SerializedName("description")
-  private String description = null;
+    @SerializedName("description")
+    private String description = null;
 
-  @SerializedName("parameterProvider")
-  private String parameterProvider = null;
+    @SerializedName("parameterProvider")
+    private String parameterProvider = null;
 
-  @SerializedName("parameterGroupName")
-  private String parameterGroupName = null;
+    @SerializedName("parameterGroupName")
+    private String parameterGroupName = null;
 
-  @SerializedName("synchronized")
-  private Boolean _synchronized = null;
+    @SerializedName("synchronized")
+    private Boolean _synchronized = null;
+    @SerializedName("componentType")
+    private ComponentTypeEnum componentType = null;
+    @SerializedName("groupIdentifier")
+    private String groupIdentifier = null;
 
-  /**
-   * Gets or Sets componentType
-   */
-  @JsonAdapter(ComponentTypeEnum.Adapter.class)
-  public enum ComponentTypeEnum {
-    CONNECTION("CONNECTION"),
-    
-    PROCESSOR("PROCESSOR"),
-    
-    PROCESS_GROUP("PROCESS_GROUP"),
-    
-    REMOTE_PROCESS_GROUP("REMOTE_PROCESS_GROUP"),
-    
-    INPUT_PORT("INPUT_PORT"),
-    
-    OUTPUT_PORT("OUTPUT_PORT"),
-    
-    REMOTE_INPUT_PORT("REMOTE_INPUT_PORT"),
-    
-    REMOTE_OUTPUT_PORT("REMOTE_OUTPUT_PORT"),
-    
-    FUNNEL("FUNNEL"),
-    
-    LABEL("LABEL"),
-    
-    CONTROLLER_SERVICE("CONTROLLER_SERVICE"),
-    
-    REPORTING_TASK("REPORTING_TASK"),
-    
-    PARAMETER_CONTEXT("PARAMETER_CONTEXT"),
-    
-    PARAMETER_PROVIDER("PARAMETER_PROVIDER"),
-    
-    TEMPLATE("TEMPLATE"),
-    
-    FLOW_REGISTRY_CLIENT("FLOW_REGISTRY_CLIENT");
-
-    private String value;
-
-    ComponentTypeEnum(String value) {
-      this.value = value;
+    public VersionedParameterContext identifier(String identifier) {
+        this.identifier = identifier;
+        return this;
     }
 
-    public String getValue() {
-      return value;
+    /**
+     * The component&#39;s unique identifier
+     *
+     * @return identifier
+     **/
+    @ApiModelProperty(value = "The component's unique identifier")
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    public VersionedParameterContext instanceIdentifier(String instanceIdentifier) {
+        this.instanceIdentifier = instanceIdentifier;
+        return this;
+    }
+
+    /**
+     * The instance ID of an existing component that is described by this VersionedComponent, or null if this is not mapped to an instantiated component
+     *
+     * @return instanceIdentifier
+     **/
+    @ApiModelProperty(value = "The instance ID of an existing component that is described by this VersionedComponent, or null if this is not mapped to an instantiated component")
+    public String getInstanceIdentifier() {
+        return instanceIdentifier;
+    }
+
+    public void setInstanceIdentifier(String instanceIdentifier) {
+        this.instanceIdentifier = instanceIdentifier;
+    }
+
+    public VersionedParameterContext name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The component&#39;s name
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "The component's name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public VersionedParameterContext comments(String comments) {
+        this.comments = comments;
+        return this;
+    }
+
+    /**
+     * The user-supplied comments for the component
+     *
+     * @return comments
+     **/
+    @ApiModelProperty(value = "The user-supplied comments for the component")
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public VersionedParameterContext position(Position position) {
+        this.position = position;
+        return this;
+    }
+
+    /**
+     * The component&#39;s position on the graph
+     *
+     * @return position
+     **/
+    @ApiModelProperty(value = "The component's position on the graph")
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public VersionedParameterContext parameters(List<VersionedParameter> parameters) {
+        this.parameters = parameters;
+        return this;
+    }
+
+    public VersionedParameterContext addParametersItem(VersionedParameter parametersItem) {
+        if (this.parameters == null) {
+            this.parameters = new ArrayList<VersionedParameter>();
+        }
+        this.parameters.add(parametersItem);
+        return this;
+    }
+
+    /**
+     * The parameters in the context
+     *
+     * @return parameters
+     **/
+    @ApiModelProperty(value = "The parameters in the context")
+    public List<VersionedParameter> getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(List<VersionedParameter> parameters) {
+        this.parameters = parameters;
+    }
+
+    public VersionedParameterContext inheritedParameterContexts(List<String> inheritedParameterContexts) {
+        this.inheritedParameterContexts = inheritedParameterContexts;
+        return this;
+    }
+
+    public VersionedParameterContext addInheritedParameterContextsItem(String inheritedParameterContextsItem) {
+        if (this.inheritedParameterContexts == null) {
+            this.inheritedParameterContexts = new ArrayList<String>();
+        }
+        this.inheritedParameterContexts.add(inheritedParameterContextsItem);
+        return this;
+    }
+
+    /**
+     * The names of additional parameter contexts from which to inherit parameters
+     *
+     * @return inheritedParameterContexts
+     **/
+    @ApiModelProperty(value = "The names of additional parameter contexts from which to inherit parameters")
+    public List<String> getInheritedParameterContexts() {
+        return inheritedParameterContexts;
+    }
+
+    public void setInheritedParameterContexts(List<String> inheritedParameterContexts) {
+        this.inheritedParameterContexts = inheritedParameterContexts;
+    }
+
+    public VersionedParameterContext description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * The description of the parameter context
+     *
+     * @return description
+     **/
+    @ApiModelProperty(value = "The description of the parameter context")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public VersionedParameterContext parameterProvider(String parameterProvider) {
+        this.parameterProvider = parameterProvider;
+        return this;
+    }
+
+    /**
+     * The identifier of an optional parameter provider
+     *
+     * @return parameterProvider
+     **/
+    @ApiModelProperty(value = "The identifier of an optional parameter provider")
+    public String getParameterProvider() {
+        return parameterProvider;
+    }
+
+    public void setParameterProvider(String parameterProvider) {
+        this.parameterProvider = parameterProvider;
+    }
+
+    public VersionedParameterContext parameterGroupName(String parameterGroupName) {
+        this.parameterGroupName = parameterGroupName;
+        return this;
+    }
+
+    /**
+     * The corresponding parameter group name fetched from the parameter provider, if applicable
+     *
+     * @return parameterGroupName
+     **/
+    @ApiModelProperty(value = "The corresponding parameter group name fetched from the parameter provider, if applicable")
+    public String getParameterGroupName() {
+        return parameterGroupName;
+    }
+
+    public void setParameterGroupName(String parameterGroupName) {
+        this.parameterGroupName = parameterGroupName;
+    }
+
+    public VersionedParameterContext _synchronized(Boolean _synchronized) {
+        this._synchronized = _synchronized;
+        return this;
+    }
+
+    /**
+     * True if the parameter provider is set and the context should receive updates when its parameters are next fetched
+     *
+     * @return _synchronized
+     **/
+    @ApiModelProperty(value = "True if the parameter provider is set and the context should receive updates when its parameters are next fetched")
+    public Boolean isSynchronized() {
+        return _synchronized;
+    }
+
+    public void setSynchronized(Boolean _synchronized) {
+        this._synchronized = _synchronized;
+    }
+
+    public VersionedParameterContext componentType(ComponentTypeEnum componentType) {
+        this.componentType = componentType;
+        return this;
+    }
+
+    /**
+     * Get componentType
+     *
+     * @return componentType
+     **/
+    @ApiModelProperty(value = "")
+    public ComponentTypeEnum getComponentType() {
+        return componentType;
+    }
+
+    public void setComponentType(ComponentTypeEnum componentType) {
+        this.componentType = componentType;
+    }
+
+    public VersionedParameterContext groupIdentifier(String groupIdentifier) {
+        this.groupIdentifier = groupIdentifier;
+        return this;
+    }
+
+    /**
+     * The ID of the Process Group that this component belongs to
+     *
+     * @return groupIdentifier
+     **/
+    @ApiModelProperty(value = "The ID of the Process Group that this component belongs to")
+    public String getGroupIdentifier() {
+        return groupIdentifier;
+    }
+
+    public void setGroupIdentifier(String groupIdentifier) {
+        this.groupIdentifier = groupIdentifier;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VersionedParameterContext versionedParameterContext = (VersionedParameterContext) o;
+        return Objects.equals(this.identifier, versionedParameterContext.identifier) &&
+                Objects.equals(this.instanceIdentifier, versionedParameterContext.instanceIdentifier) &&
+                Objects.equals(this.name, versionedParameterContext.name) &&
+                Objects.equals(this.comments, versionedParameterContext.comments) &&
+                Objects.equals(this.position, versionedParameterContext.position) &&
+                Objects.equals(this.parameters, versionedParameterContext.parameters) &&
+                Objects.equals(this.inheritedParameterContexts, versionedParameterContext.inheritedParameterContexts) &&
+                Objects.equals(this.description, versionedParameterContext.description) &&
+                Objects.equals(this.parameterProvider, versionedParameterContext.parameterProvider) &&
+                Objects.equals(this.parameterGroupName, versionedParameterContext.parameterGroupName) &&
+                Objects.equals(this._synchronized, versionedParameterContext._synchronized) &&
+                Objects.equals(this.componentType, versionedParameterContext.componentType) &&
+                Objects.equals(this.groupIdentifier, versionedParameterContext.groupIdentifier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identifier, instanceIdentifier, name, comments, position, parameters, inheritedParameterContexts, description, parameterProvider, parameterGroupName, _synchronized, componentType, groupIdentifier);
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VersionedParameterContext {\n");
+
+        sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+        sb.append("    instanceIdentifier: ").append(toIndentedString(instanceIdentifier)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+        sb.append("    position: ").append(toIndentedString(position)).append("\n");
+        sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+        sb.append("    inheritedParameterContexts: ").append(toIndentedString(inheritedParameterContexts)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    parameterProvider: ").append(toIndentedString(parameterProvider)).append("\n");
+        sb.append("    parameterGroupName: ").append(toIndentedString(parameterGroupName)).append("\n");
+        sb.append("    _synchronized: ").append(toIndentedString(_synchronized)).append("\n");
+        sb.append("    componentType: ").append(toIndentedString(componentType)).append("\n");
+        sb.append("    groupIdentifier: ").append(toIndentedString(groupIdentifier)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
-    public static ComponentTypeEnum fromValue(String text) {
-      for (ComponentTypeEnum b : ComponentTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
         }
-      }
-      return null;
+        return o.toString().replace("\n", "\n    ");
     }
 
-    public static class Adapter extends TypeAdapter<ComponentTypeEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ComponentTypeEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+    /**
+     * Gets or Sets componentType
+     */
+    @JsonAdapter(ComponentTypeEnum.Adapter.class)
+    public enum ComponentTypeEnum {
+        CONNECTION("CONNECTION"),
 
-      @Override
-      public ComponentTypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ComponentTypeEnum.fromValue(String.valueOf(value));
-      }
+        PROCESSOR("PROCESSOR"),
+
+        PROCESS_GROUP("PROCESS_GROUP"),
+
+        REMOTE_PROCESS_GROUP("REMOTE_PROCESS_GROUP"),
+
+        INPUT_PORT("INPUT_PORT"),
+
+        OUTPUT_PORT("OUTPUT_PORT"),
+
+        REMOTE_INPUT_PORT("REMOTE_INPUT_PORT"),
+
+        REMOTE_OUTPUT_PORT("REMOTE_OUTPUT_PORT"),
+
+        FUNNEL("FUNNEL"),
+
+        LABEL("LABEL"),
+
+        CONTROLLER_SERVICE("CONTROLLER_SERVICE"),
+
+        REPORTING_TASK("REPORTING_TASK"),
+
+        PARAMETER_CONTEXT("PARAMETER_CONTEXT"),
+
+        PARAMETER_PROVIDER("PARAMETER_PROVIDER"),
+
+        TEMPLATE("TEMPLATE"),
+
+        FLOW_REGISTRY_CLIENT("FLOW_REGISTRY_CLIENT");
+
+        private String value;
+
+        ComponentTypeEnum(String value) {
+            this.value = value;
+        }
+
+        public static ComponentTypeEnum fromValue(String text) {
+            for (ComponentTypeEnum b : ComponentTypeEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<ComponentTypeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ComponentTypeEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ComponentTypeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ComponentTypeEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
-  }
-
-  @SerializedName("componentType")
-  private ComponentTypeEnum componentType = null;
-
-  @SerializedName("groupIdentifier")
-  private String groupIdentifier = null;
-
-  public VersionedParameterContext identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * The component&#39;s unique identifier
-   * @return identifier
-  **/
-  @ApiModelProperty(value = "The component's unique identifier")
-  public String getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public VersionedParameterContext instanceIdentifier(String instanceIdentifier) {
-    this.instanceIdentifier = instanceIdentifier;
-    return this;
-  }
-
-   /**
-   * The instance ID of an existing component that is described by this VersionedComponent, or null if this is not mapped to an instantiated component
-   * @return instanceIdentifier
-  **/
-  @ApiModelProperty(value = "The instance ID of an existing component that is described by this VersionedComponent, or null if this is not mapped to an instantiated component")
-  public String getInstanceIdentifier() {
-    return instanceIdentifier;
-  }
-
-  public void setInstanceIdentifier(String instanceIdentifier) {
-    this.instanceIdentifier = instanceIdentifier;
-  }
-
-  public VersionedParameterContext name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The component&#39;s name
-   * @return name
-  **/
-  @ApiModelProperty(value = "The component's name")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public VersionedParameterContext comments(String comments) {
-    this.comments = comments;
-    return this;
-  }
-
-   /**
-   * The user-supplied comments for the component
-   * @return comments
-  **/
-  @ApiModelProperty(value = "The user-supplied comments for the component")
-  public String getComments() {
-    return comments;
-  }
-
-  public void setComments(String comments) {
-    this.comments = comments;
-  }
-
-  public VersionedParameterContext position(Position position) {
-    this.position = position;
-    return this;
-  }
-
-   /**
-   * The component&#39;s position on the graph
-   * @return position
-  **/
-  @ApiModelProperty(value = "The component's position on the graph")
-  public Position getPosition() {
-    return position;
-  }
-
-  public void setPosition(Position position) {
-    this.position = position;
-  }
-
-  public VersionedParameterContext parameters(List<VersionedParameter> parameters) {
-    this.parameters = parameters;
-    return this;
-  }
-
-  public VersionedParameterContext addParametersItem(VersionedParameter parametersItem) {
-    if (this.parameters == null) {
-      this.parameters = new ArrayList<VersionedParameter>();
-    }
-    this.parameters.add(parametersItem);
-    return this;
-  }
-
-   /**
-   * The parameters in the context
-   * @return parameters
-  **/
-  @ApiModelProperty(value = "The parameters in the context")
-  public List<VersionedParameter> getParameters() {
-    return parameters;
-  }
-
-  public void setParameters(List<VersionedParameter> parameters) {
-    this.parameters = parameters;
-  }
-
-  public VersionedParameterContext inheritedParameterContexts(List<String> inheritedParameterContexts) {
-    this.inheritedParameterContexts = inheritedParameterContexts;
-    return this;
-  }
-
-  public VersionedParameterContext addInheritedParameterContextsItem(String inheritedParameterContextsItem) {
-    if (this.inheritedParameterContexts == null) {
-      this.inheritedParameterContexts = new ArrayList<String>();
-    }
-    this.inheritedParameterContexts.add(inheritedParameterContextsItem);
-    return this;
-  }
-
-   /**
-   * The names of additional parameter contexts from which to inherit parameters
-   * @return inheritedParameterContexts
-  **/
-  @ApiModelProperty(value = "The names of additional parameter contexts from which to inherit parameters")
-  public List<String> getInheritedParameterContexts() {
-    return inheritedParameterContexts;
-  }
-
-  public void setInheritedParameterContexts(List<String> inheritedParameterContexts) {
-    this.inheritedParameterContexts = inheritedParameterContexts;
-  }
-
-  public VersionedParameterContext description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * The description of the parameter context
-   * @return description
-  **/
-  @ApiModelProperty(value = "The description of the parameter context")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public VersionedParameterContext parameterProvider(String parameterProvider) {
-    this.parameterProvider = parameterProvider;
-    return this;
-  }
-
-   /**
-   * The identifier of an optional parameter provider
-   * @return parameterProvider
-  **/
-  @ApiModelProperty(value = "The identifier of an optional parameter provider")
-  public String getParameterProvider() {
-    return parameterProvider;
-  }
-
-  public void setParameterProvider(String parameterProvider) {
-    this.parameterProvider = parameterProvider;
-  }
-
-  public VersionedParameterContext parameterGroupName(String parameterGroupName) {
-    this.parameterGroupName = parameterGroupName;
-    return this;
-  }
-
-   /**
-   * The corresponding parameter group name fetched from the parameter provider, if applicable
-   * @return parameterGroupName
-  **/
-  @ApiModelProperty(value = "The corresponding parameter group name fetched from the parameter provider, if applicable")
-  public String getParameterGroupName() {
-    return parameterGroupName;
-  }
-
-  public void setParameterGroupName(String parameterGroupName) {
-    this.parameterGroupName = parameterGroupName;
-  }
-
-  public VersionedParameterContext _synchronized(Boolean _synchronized) {
-    this._synchronized = _synchronized;
-    return this;
-  }
-
-   /**
-   * True if the parameter provider is set and the context should receive updates when its parameters are next fetched
-   * @return _synchronized
-  **/
-  @ApiModelProperty(value = "True if the parameter provider is set and the context should receive updates when its parameters are next fetched")
-  public Boolean isSynchronized() {
-    return _synchronized;
-  }
-
-  public void setSynchronized(Boolean _synchronized) {
-    this._synchronized = _synchronized;
-  }
-
-  public VersionedParameterContext componentType(ComponentTypeEnum componentType) {
-    this.componentType = componentType;
-    return this;
-  }
-
-   /**
-   * Get componentType
-   * @return componentType
-  **/
-  @ApiModelProperty(value = "")
-  public ComponentTypeEnum getComponentType() {
-    return componentType;
-  }
-
-  public void setComponentType(ComponentTypeEnum componentType) {
-    this.componentType = componentType;
-  }
-
-  public VersionedParameterContext groupIdentifier(String groupIdentifier) {
-    this.groupIdentifier = groupIdentifier;
-    return this;
-  }
-
-   /**
-   * The ID of the Process Group that this component belongs to
-   * @return groupIdentifier
-  **/
-  @ApiModelProperty(value = "The ID of the Process Group that this component belongs to")
-  public String getGroupIdentifier() {
-    return groupIdentifier;
-  }
-
-  public void setGroupIdentifier(String groupIdentifier) {
-    this.groupIdentifier = groupIdentifier;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    VersionedParameterContext versionedParameterContext = (VersionedParameterContext) o;
-    return Objects.equals(this.identifier, versionedParameterContext.identifier) &&
-        Objects.equals(this.instanceIdentifier, versionedParameterContext.instanceIdentifier) &&
-        Objects.equals(this.name, versionedParameterContext.name) &&
-        Objects.equals(this.comments, versionedParameterContext.comments) &&
-        Objects.equals(this.position, versionedParameterContext.position) &&
-        Objects.equals(this.parameters, versionedParameterContext.parameters) &&
-        Objects.equals(this.inheritedParameterContexts, versionedParameterContext.inheritedParameterContexts) &&
-        Objects.equals(this.description, versionedParameterContext.description) &&
-        Objects.equals(this.parameterProvider, versionedParameterContext.parameterProvider) &&
-        Objects.equals(this.parameterGroupName, versionedParameterContext.parameterGroupName) &&
-        Objects.equals(this._synchronized, versionedParameterContext._synchronized) &&
-        Objects.equals(this.componentType, versionedParameterContext.componentType) &&
-        Objects.equals(this.groupIdentifier, versionedParameterContext.groupIdentifier);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(identifier, instanceIdentifier, name, comments, position, parameters, inheritedParameterContexts, description, parameterProvider, parameterGroupName, _synchronized, componentType, groupIdentifier);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VersionedParameterContext {\n");
-    
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-    sb.append("    instanceIdentifier: ").append(toIndentedString(instanceIdentifier)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
-    sb.append("    inheritedParameterContexts: ").append(toIndentedString(inheritedParameterContexts)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    parameterProvider: ").append(toIndentedString(parameterProvider)).append("\n");
-    sb.append("    parameterGroupName: ").append(toIndentedString(parameterGroupName)).append("\n");
-    sb.append("    _synchronized: ").append(toIndentedString(_synchronized)).append("\n");
-    sb.append("    componentType: ").append(toIndentedString(componentType)).append("\n");
-    sb.append("    groupIdentifier: ").append(toIndentedString(groupIdentifier)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 
 }
 

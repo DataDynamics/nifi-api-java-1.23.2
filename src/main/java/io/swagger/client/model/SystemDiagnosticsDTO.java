@@ -13,117 +13,111 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.NodeSystemDiagnosticsSnapshotDTO;
-import io.swagger.client.model.SystemDiagnosticsSnapshotDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * SystemDiagnosticsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class SystemDiagnosticsDTO {
-  @SerializedName("aggregateSnapshot")
-  private SystemDiagnosticsSnapshotDTO aggregateSnapshot = null;
+    @SerializedName("aggregateSnapshot")
+    private SystemDiagnosticsSnapshotDTO aggregateSnapshot = null;
 
-  @SerializedName("nodeSnapshots")
-  private List<NodeSystemDiagnosticsSnapshotDTO> nodeSnapshots = null;
+    @SerializedName("nodeSnapshots")
+    private List<NodeSystemDiagnosticsSnapshotDTO> nodeSnapshots = null;
 
-  public SystemDiagnosticsDTO aggregateSnapshot(SystemDiagnosticsSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-    return this;
-  }
-
-   /**
-   * A systems diagnostic snapshot that represents the aggregate values of all nodes in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this represents the stats of the single instance.
-   * @return aggregateSnapshot
-  **/
-  @ApiModelProperty(value = "A systems diagnostic snapshot that represents the aggregate values of all nodes in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this represents the stats of the single instance.")
-  public SystemDiagnosticsSnapshotDTO getAggregateSnapshot() {
-    return aggregateSnapshot;
-  }
-
-  public void setAggregateSnapshot(SystemDiagnosticsSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-  }
-
-  public SystemDiagnosticsDTO nodeSnapshots(List<NodeSystemDiagnosticsSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-    return this;
-  }
-
-  public SystemDiagnosticsDTO addNodeSnapshotsItem(NodeSystemDiagnosticsSnapshotDTO nodeSnapshotsItem) {
-    if (this.nodeSnapshots == null) {
-      this.nodeSnapshots = new ArrayList<NodeSystemDiagnosticsSnapshotDTO>();
+    public SystemDiagnosticsDTO aggregateSnapshot(SystemDiagnosticsSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+        return this;
     }
-    this.nodeSnapshots.add(nodeSnapshotsItem);
-    return this;
-  }
 
-   /**
-   * A systems diagnostics snapshot for each node in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this may be null.
-   * @return nodeSnapshots
-  **/
-  @ApiModelProperty(value = "A systems diagnostics snapshot for each node in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this may be null.")
-  public List<NodeSystemDiagnosticsSnapshotDTO> getNodeSnapshots() {
-    return nodeSnapshots;
-  }
-
-  public void setNodeSnapshots(List<NodeSystemDiagnosticsSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * A systems diagnostic snapshot that represents the aggregate values of all nodes in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this represents the stats of the single instance.
+     *
+     * @return aggregateSnapshot
+     **/
+    @ApiModelProperty(value = "A systems diagnostic snapshot that represents the aggregate values of all nodes in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this represents the stats of the single instance.")
+    public SystemDiagnosticsSnapshotDTO getAggregateSnapshot() {
+        return aggregateSnapshot;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setAggregateSnapshot(SystemDiagnosticsSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
     }
-    SystemDiagnosticsDTO systemDiagnosticsDTO = (SystemDiagnosticsDTO) o;
-    return Objects.equals(this.aggregateSnapshot, systemDiagnosticsDTO.aggregateSnapshot) &&
-        Objects.equals(this.nodeSnapshots, systemDiagnosticsDTO.nodeSnapshots);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(aggregateSnapshot, nodeSnapshots);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SystemDiagnosticsDTO {\n");
-    
-    sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
-    sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public SystemDiagnosticsDTO nodeSnapshots(List<NodeSystemDiagnosticsSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public SystemDiagnosticsDTO addNodeSnapshotsItem(NodeSystemDiagnosticsSnapshotDTO nodeSnapshotsItem) {
+        if (this.nodeSnapshots == null) {
+            this.nodeSnapshots = new ArrayList<NodeSystemDiagnosticsSnapshotDTO>();
+        }
+        this.nodeSnapshots.add(nodeSnapshotsItem);
+        return this;
+    }
+
+    /**
+     * A systems diagnostics snapshot for each node in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this may be null.
+     *
+     * @return nodeSnapshots
+     **/
+    @ApiModelProperty(value = "A systems diagnostics snapshot for each node in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this may be null.")
+    public List<NodeSystemDiagnosticsSnapshotDTO> getNodeSnapshots() {
+        return nodeSnapshots;
+    }
+
+    public void setNodeSnapshots(List<NodeSystemDiagnosticsSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SystemDiagnosticsDTO systemDiagnosticsDTO = (SystemDiagnosticsDTO) o;
+        return Objects.equals(this.aggregateSnapshot, systemDiagnosticsDTO.aggregateSnapshot) &&
+                Objects.equals(this.nodeSnapshots, systemDiagnosticsDTO.nodeSnapshots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(aggregateSnapshot, nodeSnapshots);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SystemDiagnosticsDTO {\n");
+
+        sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
+        sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

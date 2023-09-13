@@ -13,175 +13,173 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ActionDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ActionEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ActionEntity {
-  @SerializedName("id")
-  private Integer id = null;
+    @SerializedName("id")
+    private Integer id = null;
 
-  @SerializedName("timestamp")
-  private String timestamp = null;
+    @SerializedName("timestamp")
+    private String timestamp = null;
 
-  @SerializedName("sourceId")
-  private String sourceId = null;
+    @SerializedName("sourceId")
+    private String sourceId = null;
 
-  @SerializedName("canRead")
-  private Boolean canRead = null;
+    @SerializedName("canRead")
+    private Boolean canRead = null;
 
-  @SerializedName("action")
-  private ActionDTO action = null;
+    @SerializedName("action")
+    private ActionDTO action = null;
 
-  public ActionEntity id(Integer id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public ActionEntity timestamp(String timestamp) {
-    this.timestamp = timestamp;
-    return this;
-  }
-
-   /**
-   * The timestamp of the action.
-   * @return timestamp
-  **/
-  @ApiModelProperty(value = "The timestamp of the action.")
-  public String getTimestamp() {
-    return timestamp;
-  }
-
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public ActionEntity sourceId(String sourceId) {
-    this.sourceId = sourceId;
-    return this;
-  }
-
-   /**
-   * Get sourceId
-   * @return sourceId
-  **/
-  @ApiModelProperty(value = "")
-  public String getSourceId() {
-    return sourceId;
-  }
-
-  public void setSourceId(String sourceId) {
-    this.sourceId = sourceId;
-  }
-
-  public ActionEntity canRead(Boolean canRead) {
-    this.canRead = canRead;
-    return this;
-  }
-
-   /**
-   * Indicates whether the user can read a given resource.
-   * @return canRead
-  **/
-  @ApiModelProperty(value = "Indicates whether the user can read a given resource.")
-  public Boolean isCanRead() {
-    return canRead;
-  }
-
-  public void setCanRead(Boolean canRead) {
-    this.canRead = canRead;
-  }
-
-  public ActionEntity action(ActionDTO action) {
-    this.action = action;
-    return this;
-  }
-
-   /**
-   * Get action
-   * @return action
-  **/
-  @ApiModelProperty(value = "")
-  public ActionDTO getAction() {
-    return action;
-  }
-
-  public void setAction(ActionDTO action) {
-    this.action = action;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ActionEntity id(Integer id) {
+        this.id = id;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get id
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "")
+    public Integer getId() {
+        return id;
     }
-    ActionEntity actionEntity = (ActionEntity) o;
-    return Objects.equals(this.id, actionEntity.id) &&
-        Objects.equals(this.timestamp, actionEntity.timestamp) &&
-        Objects.equals(this.sourceId, actionEntity.sourceId) &&
-        Objects.equals(this.canRead, actionEntity.canRead) &&
-        Objects.equals(this.action, actionEntity.action);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, timestamp, sourceId, canRead, action);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ActionEntity {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
-    sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
-    sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setId(Integer id) {
+        this.id = id;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ActionEntity timestamp(String timestamp) {
+        this.timestamp = timestamp;
+        return this;
+    }
+
+    /**
+     * The timestamp of the action.
+     *
+     * @return timestamp
+     **/
+    @ApiModelProperty(value = "The timestamp of the action.")
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public ActionEntity sourceId(String sourceId) {
+        this.sourceId = sourceId;
+        return this;
+    }
+
+    /**
+     * Get sourceId
+     *
+     * @return sourceId
+     **/
+    @ApiModelProperty(value = "")
+    public String getSourceId() {
+        return sourceId;
+    }
+
+    public void setSourceId(String sourceId) {
+        this.sourceId = sourceId;
+    }
+
+    public ActionEntity canRead(Boolean canRead) {
+        this.canRead = canRead;
+        return this;
+    }
+
+    /**
+     * Indicates whether the user can read a given resource.
+     *
+     * @return canRead
+     **/
+    @ApiModelProperty(value = "Indicates whether the user can read a given resource.")
+    public Boolean isCanRead() {
+        return canRead;
+    }
+
+    public void setCanRead(Boolean canRead) {
+        this.canRead = canRead;
+    }
+
+    public ActionEntity action(ActionDTO action) {
+        this.action = action;
+        return this;
+    }
+
+    /**
+     * Get action
+     *
+     * @return action
+     **/
+    @ApiModelProperty(value = "")
+    public ActionDTO getAction() {
+        return action;
+    }
+
+    public void setAction(ActionDTO action) {
+        this.action = action;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ActionEntity actionEntity = (ActionEntity) o;
+        return Objects.equals(this.id, actionEntity.id) &&
+                Objects.equals(this.timestamp, actionEntity.timestamp) &&
+                Objects.equals(this.sourceId, actionEntity.sourceId) &&
+                Objects.equals(this.canRead, actionEntity.canRead) &&
+                Objects.equals(this.action, actionEntity.action);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, timestamp, sourceId, canRead, action);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ActionEntity {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("    sourceId: ").append(toIndentedString(sourceId)).append("\n");
+        sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
+        sb.append("    action: ").append(toIndentedString(action)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,106 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ProcessGroupStatusDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ProcessGroupStatusEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProcessGroupStatusEntity {
-  @SerializedName("processGroupStatus")
-  private ProcessGroupStatusDTO processGroupStatus = null;
+    @SerializedName("processGroupStatus")
+    private ProcessGroupStatusDTO processGroupStatus = null;
 
-  @SerializedName("canRead")
-  private Boolean canRead = null;
+    @SerializedName("canRead")
+    private Boolean canRead = null;
 
-  public ProcessGroupStatusEntity processGroupStatus(ProcessGroupStatusDTO processGroupStatus) {
-    this.processGroupStatus = processGroupStatus;
-    return this;
-  }
-
-   /**
-   * Get processGroupStatus
-   * @return processGroupStatus
-  **/
-  @ApiModelProperty(value = "")
-  public ProcessGroupStatusDTO getProcessGroupStatus() {
-    return processGroupStatus;
-  }
-
-  public void setProcessGroupStatus(ProcessGroupStatusDTO processGroupStatus) {
-    this.processGroupStatus = processGroupStatus;
-  }
-
-  public ProcessGroupStatusEntity canRead(Boolean canRead) {
-    this.canRead = canRead;
-    return this;
-  }
-
-   /**
-   * Indicates whether the user can read a given resource.
-   * @return canRead
-  **/
-  @ApiModelProperty(value = "Indicates whether the user can read a given resource.")
-  public Boolean isCanRead() {
-    return canRead;
-  }
-
-  public void setCanRead(Boolean canRead) {
-    this.canRead = canRead;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ProcessGroupStatusEntity processGroupStatus(ProcessGroupStatusDTO processGroupStatus) {
+        this.processGroupStatus = processGroupStatus;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get processGroupStatus
+     *
+     * @return processGroupStatus
+     **/
+    @ApiModelProperty(value = "")
+    public ProcessGroupStatusDTO getProcessGroupStatus() {
+        return processGroupStatus;
     }
-    ProcessGroupStatusEntity processGroupStatusEntity = (ProcessGroupStatusEntity) o;
-    return Objects.equals(this.processGroupStatus, processGroupStatusEntity.processGroupStatus) &&
-        Objects.equals(this.canRead, processGroupStatusEntity.canRead);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(processGroupStatus, canRead);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessGroupStatusEntity {\n");
-    
-    sb.append("    processGroupStatus: ").append(toIndentedString(processGroupStatus)).append("\n");
-    sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setProcessGroupStatus(ProcessGroupStatusDTO processGroupStatus) {
+        this.processGroupStatus = processGroupStatus;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ProcessGroupStatusEntity canRead(Boolean canRead) {
+        this.canRead = canRead;
+        return this;
+    }
+
+    /**
+     * Indicates whether the user can read a given resource.
+     *
+     * @return canRead
+     **/
+    @ApiModelProperty(value = "Indicates whether the user can read a given resource.")
+    public Boolean isCanRead() {
+        return canRead;
+    }
+
+    public void setCanRead(Boolean canRead) {
+        this.canRead = canRead;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessGroupStatusEntity processGroupStatusEntity = (ProcessGroupStatusEntity) o;
+        return Objects.equals(this.processGroupStatus, processGroupStatusEntity.processGroupStatus) &&
+                Objects.equals(this.canRead, processGroupStatusEntity.canRead);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processGroupStatus, canRead);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessGroupStatusEntity {\n");
+
+        sb.append("    processGroupStatus: ").append(toIndentedString(processGroupStatus)).append("\n");
+        sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

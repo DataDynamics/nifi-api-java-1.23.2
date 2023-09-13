@@ -13,175 +13,173 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FlowRegistryPermissions;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * FlowRegistryBucket
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowRegistryBucket {
-  @SerializedName("identifier")
-  private String identifier = null;
+    @SerializedName("identifier")
+    private String identifier = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("description")
-  private String description = null;
+    @SerializedName("description")
+    private String description = null;
 
-  @SerializedName("createdTimestamp")
-  private Long createdTimestamp = null;
+    @SerializedName("createdTimestamp")
+    private Long createdTimestamp = null;
 
-  @SerializedName("permissions")
-  private FlowRegistryPermissions permissions = null;
+    @SerializedName("permissions")
+    private FlowRegistryPermissions permissions = null;
 
-  public FlowRegistryBucket identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * Get identifier
-   * @return identifier
-  **/
-  @ApiModelProperty(value = "")
-  public String getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public FlowRegistryBucket name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public FlowRegistryBucket description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @ApiModelProperty(value = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public FlowRegistryBucket createdTimestamp(Long createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
-    return this;
-  }
-
-   /**
-   * Get createdTimestamp
-   * @return createdTimestamp
-  **/
-  @ApiModelProperty(value = "")
-  public Long getCreatedTimestamp() {
-    return createdTimestamp;
-  }
-
-  public void setCreatedTimestamp(Long createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
-  }
-
-  public FlowRegistryBucket permissions(FlowRegistryPermissions permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * Get permissions
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "")
-  public FlowRegistryPermissions getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(FlowRegistryPermissions permissions) {
-    this.permissions = permissions;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FlowRegistryBucket identifier(String identifier) {
+        this.identifier = identifier;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get identifier
+     *
+     * @return identifier
+     **/
+    @ApiModelProperty(value = "")
+    public String getIdentifier() {
+        return identifier;
     }
-    FlowRegistryBucket flowRegistryBucket = (FlowRegistryBucket) o;
-    return Objects.equals(this.identifier, flowRegistryBucket.identifier) &&
-        Objects.equals(this.name, flowRegistryBucket.name) &&
-        Objects.equals(this.description, flowRegistryBucket.description) &&
-        Objects.equals(this.createdTimestamp, flowRegistryBucket.createdTimestamp) &&
-        Objects.equals(this.permissions, flowRegistryBucket.permissions);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(identifier, name, description, createdTimestamp, permissions);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowRegistryBucket {\n");
-    
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public FlowRegistryBucket name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public FlowRegistryBucket description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return description
+     **/
+    @ApiModelProperty(value = "")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public FlowRegistryBucket createdTimestamp(Long createdTimestamp) {
+        this.createdTimestamp = createdTimestamp;
+        return this;
+    }
+
+    /**
+     * Get createdTimestamp
+     *
+     * @return createdTimestamp
+     **/
+    @ApiModelProperty(value = "")
+    public Long getCreatedTimestamp() {
+        return createdTimestamp;
+    }
+
+    public void setCreatedTimestamp(Long createdTimestamp) {
+        this.createdTimestamp = createdTimestamp;
+    }
+
+    public FlowRegistryBucket permissions(FlowRegistryPermissions permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "")
+    public FlowRegistryPermissions getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(FlowRegistryPermissions permissions) {
+        this.permissions = permissions;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowRegistryBucket flowRegistryBucket = (FlowRegistryBucket) o;
+        return Objects.equals(this.identifier, flowRegistryBucket.identifier) &&
+                Objects.equals(this.name, flowRegistryBucket.name) &&
+                Objects.equals(this.description, flowRegistryBucket.description) &&
+                Objects.equals(this.createdTimestamp, flowRegistryBucket.createdTimestamp) &&
+                Objects.equals(this.permissions, flowRegistryBucket.permissions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identifier, name, description, createdTimestamp, permissions);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowRegistryBucket {\n");
+
+        sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

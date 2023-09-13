@@ -13,34 +13,11 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
+import io.swagger.client.*;
+import io.swagger.client.model.*;
 
 import java.io.IOException;
-
-
-import io.swagger.client.model.BulletinEntity;
-import io.swagger.client.model.ClusterEntity;
-import io.swagger.client.model.ComponentHistoryEntity;
-import io.swagger.client.model.ControllerConfigurationEntity;
-import io.swagger.client.model.ControllerServiceEntity;
-import io.swagger.client.model.FlowRegistryClientEntity;
-import io.swagger.client.model.FlowRegistryClientTypesEntity;
-import io.swagger.client.model.FlowRegistryClientsEntity;
-import io.swagger.client.model.HistoryEntity;
-import io.swagger.client.model.NodeEntity;
-import io.swagger.client.model.ParameterProviderEntity;
-import io.swagger.client.model.PropertyDescriptorEntity;
-import io.swagger.client.model.ReportingTaskEntity;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,8 +45,9 @@ public class ControllerApi {
 
     /**
      * Build call for createBulletin
-     * @param body The reporting task configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The reporting task configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -88,41 +66,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createBulletinValidateBeforeCall(BulletinEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createBulletin(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createBulletinCall(body, progressListener, progressRequestListener);
         return call;
@@ -131,7 +109,7 @@ public class ControllerApi {
 
     /**
      * Creates a new bulletin
-     * 
+     *
      * @param body The reporting task configuration details. (required)
      * @return BulletinEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -143,21 +121,22 @@ public class ControllerApi {
 
     /**
      * Creates a new bulletin
-     * 
+     *
      * @param body The reporting task configuration details. (required)
      * @return ApiResponse&lt;BulletinEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<BulletinEntity> createBulletinWithHttpInfo(BulletinEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createBulletinValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<BulletinEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<BulletinEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a new bulletin (asynchronously)
-     * 
-     * @param body The reporting task configuration details. (required)
+     *
+     * @param body     The reporting task configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -184,14 +163,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = createBulletinValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<BulletinEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<BulletinEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createControllerService
-     * @param body The controller service configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The controller service configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -210,41 +192,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createControllerServiceValidateBeforeCall(ControllerServiceEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createControllerService(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createControllerServiceCall(body, progressListener, progressRequestListener);
         return call;
@@ -253,7 +235,7 @@ public class ControllerApi {
 
     /**
      * Creates a new controller service
-     * 
+     *
      * @param body The controller service configuration details. (required)
      * @return ControllerServiceEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -265,21 +247,22 @@ public class ControllerApi {
 
     /**
      * Creates a new controller service
-     * 
+     *
      * @param body The controller service configuration details. (required)
      * @return ApiResponse&lt;ControllerServiceEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerServiceEntity> createControllerServiceWithHttpInfo(ControllerServiceEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createControllerServiceValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ControllerServiceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServiceEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a new controller service (asynchronously)
-     * 
-     * @param body The controller service configuration details. (required)
+     *
+     * @param body     The controller service configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -306,14 +289,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = createControllerServiceValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerServiceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServiceEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createFlowRegistryClient
-     * @param body The flow registry client configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The flow registry client configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -332,41 +318,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createFlowRegistryClientValidateBeforeCall(FlowRegistryClientEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createFlowRegistryClient(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createFlowRegistryClientCall(body, progressListener, progressRequestListener);
         return call;
@@ -375,7 +361,7 @@ public class ControllerApi {
 
     /**
      * Creates a new flow registry client
-     * 
+     *
      * @param body The flow registry client configuration details. (required)
      * @return FlowRegistryClientEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -387,21 +373,22 @@ public class ControllerApi {
 
     /**
      * Creates a new flow registry client
-     * 
+     *
      * @param body The flow registry client configuration details. (required)
      * @return ApiResponse&lt;FlowRegistryClientEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowRegistryClientEntity> createFlowRegistryClientWithHttpInfo(FlowRegistryClientEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createFlowRegistryClientValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a new flow registry client (asynchronously)
-     * 
-     * @param body The flow registry client configuration details. (required)
+     *
+     * @param body     The flow registry client configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -428,14 +415,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = createFlowRegistryClientValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createParameterProvider
-     * @param body The parameter provider configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The parameter provider configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -454,41 +444,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createParameterProviderValidateBeforeCall(ParameterProviderEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createParameterProvider(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createParameterProviderCall(body, progressListener, progressRequestListener);
         return call;
@@ -497,7 +487,7 @@ public class ControllerApi {
 
     /**
      * Creates a new parameter provider
-     * 
+     *
      * @param body The parameter provider configuration details. (required)
      * @return ParameterProviderEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -509,21 +499,22 @@ public class ControllerApi {
 
     /**
      * Creates a new parameter provider
-     * 
+     *
      * @param body The parameter provider configuration details. (required)
      * @return ApiResponse&lt;ParameterProviderEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderEntity> createParameterProviderWithHttpInfo(ParameterProviderEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createParameterProviderValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a new parameter provider (asynchronously)
-     * 
-     * @param body The parameter provider configuration details. (required)
+     *
+     * @param body     The parameter provider configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -550,14 +541,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = createParameterProviderValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createReportingTask
-     * @param body The reporting task configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The reporting task configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -576,41 +570,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createReportingTaskValidateBeforeCall(ReportingTaskEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createReportingTask(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createReportingTaskCall(body, progressListener, progressRequestListener);
         return call;
@@ -619,7 +613,7 @@ public class ControllerApi {
 
     /**
      * Creates a new reporting task
-     * 
+     *
      * @param body The reporting task configuration details. (required)
      * @return ReportingTaskEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -631,21 +625,22 @@ public class ControllerApi {
 
     /**
      * Creates a new reporting task
-     * 
+     *
      * @param body The reporting task configuration details. (required)
      * @return ApiResponse&lt;ReportingTaskEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ReportingTaskEntity> createReportingTaskWithHttpInfo(ReportingTaskEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createReportingTaskValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ReportingTaskEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ReportingTaskEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a new reporting task (asynchronously)
-     * 
-     * @param body The reporting task configuration details. (required)
+     *
+     * @param body     The reporting task configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -672,18 +667,21 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = createReportingTaskValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ReportingTaskEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ReportingTaskEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteFlowRegistryClient
-     * @param id The flow registry client id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The flow registry client id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -692,57 +690,57 @@ public class ControllerApi {
 
         // create path and map variables
         String localVarPath = "/controller/registry-clients/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (version != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
+            localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteFlowRegistryClientValidateBeforeCall(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteFlowRegistryClient(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteFlowRegistryClientCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -751,10 +749,10 @@ public class ControllerApi {
 
     /**
      * Deletes a flow registry client
-     * 
-     * @param id The flow registry client id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The flow registry client id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return FlowRegistryClientEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -766,28 +764,29 @@ public class ControllerApi {
 
     /**
      * Deletes a flow registry client
-     * 
-     * @param id The flow registry client id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The flow registry client id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;FlowRegistryClientEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowRegistryClientEntity> deleteFlowRegistryClientWithHttpInfo(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteFlowRegistryClientValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes a flow registry client (asynchronously)
-     * 
-     * @param id The flow registry client id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The flow registry client id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -813,14 +812,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = deleteFlowRegistryClientValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteHistory
-     * @param endDate Purge actions before this date/time. (required)
-     * @param progressListener Progress listener
+     *
+     * @param endDate                 Purge actions before this date/time. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -834,48 +836,48 @@ public class ControllerApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (endDate != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+            localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteHistoryValidateBeforeCall(String endDate, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'endDate' is set
         if (endDate == null) {
             throw new ApiException("Missing the required parameter 'endDate' when calling deleteHistory(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteHistoryCall(endDate, progressListener, progressRequestListener);
         return call;
@@ -884,7 +886,7 @@ public class ControllerApi {
 
     /**
      * Purges history
-     * 
+     *
      * @param endDate Purge actions before this date/time. (required)
      * @return HistoryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -896,21 +898,22 @@ public class ControllerApi {
 
     /**
      * Purges history
-     * 
+     *
      * @param endDate Purge actions before this date/time. (required)
      * @return ApiResponse&lt;HistoryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<HistoryEntity> deleteHistoryWithHttpInfo(String endDate) throws ApiException {
         com.squareup.okhttp.Call call = deleteHistoryValidateBeforeCall(endDate, null, null);
-        Type localVarReturnType = new TypeToken<HistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<HistoryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Purges history (asynchronously)
-     * 
-     * @param endDate Purge actions before this date/time. (required)
+     *
+     * @param endDate  Purge actions before this date/time. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -937,14 +940,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = deleteHistoryValidateBeforeCall(endDate, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<HistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<HistoryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteNode
-     * @param id The node id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The node id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -954,7 +960,7 @@ public class ControllerApi {
 
         // create path and map variables
         String localVarPath = "/controller/cluster/nodes/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -964,41 +970,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteNodeValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteNode(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteNodeCall(id, progressListener, progressRequestListener);
         return call;
@@ -1007,7 +1013,7 @@ public class ControllerApi {
 
     /**
      * Removes a node from the cluster
-     * 
+     *
      * @param id The node id. (required)
      * @return NodeEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1019,21 +1025,22 @@ public class ControllerApi {
 
     /**
      * Removes a node from the cluster
-     * 
+     *
      * @param id The node id. (required)
      * @return ApiResponse&lt;NodeEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<NodeEntity> deleteNodeWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = deleteNodeValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<NodeEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<NodeEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Removes a node from the cluster (asynchronously)
-     * 
-     * @param id The node id. (required)
+     *
+     * @param id       The node id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1060,13 +1067,16 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = deleteNodeValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<NodeEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<NodeEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getCluster
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1085,36 +1095,36 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getClusterValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getClusterCall(progressListener, progressRequestListener);
         return call;
@@ -1124,6 +1134,7 @@ public class ControllerApi {
     /**
      * Gets the contents of the cluster
      * Returns the contents of the cluster including all nodes and their status.
+     *
      * @return ClusterEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1135,18 +1146,21 @@ public class ControllerApi {
     /**
      * Gets the contents of the cluster
      * Returns the contents of the cluster including all nodes and their status.
+     *
      * @return ApiResponse&lt;ClusterEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ClusterEntity> getClusterWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getClusterValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ClusterEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the contents of the cluster (asynchronously)
      * Returns the contents of the cluster including all nodes and their status.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1173,13 +1187,16 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = getClusterValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ClusterEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getControllerConfig
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1198,36 +1215,36 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getControllerConfigValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getControllerConfigCall(progressListener, progressRequestListener);
         return call;
@@ -1236,7 +1253,7 @@ public class ControllerApi {
 
     /**
      * Retrieves the configuration for this NiFi Controller
-     * 
+     *
      * @return ControllerConfigurationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1247,19 +1264,20 @@ public class ControllerApi {
 
     /**
      * Retrieves the configuration for this NiFi Controller
-     * 
+     *
      * @return ApiResponse&lt;ControllerConfigurationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerConfigurationEntity> getControllerConfigWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getControllerConfigValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ControllerConfigurationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerConfigurationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the configuration for this NiFi Controller (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1286,14 +1304,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = getControllerConfigValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerConfigurationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerConfigurationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getFlowRegistryClient
-     * @param id The flow registry client id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The flow registry client id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1303,7 +1324,7 @@ public class ControllerApi {
 
         // create path and map variables
         String localVarPath = "/controller/registry-clients/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1313,41 +1334,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFlowRegistryClientValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getFlowRegistryClient(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getFlowRegistryClientCall(id, progressListener, progressRequestListener);
         return call;
@@ -1356,7 +1377,7 @@ public class ControllerApi {
 
     /**
      * Gets a flow registry client
-     * 
+     *
      * @param id The flow registry client id. (required)
      * @return FlowRegistryClientEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1368,21 +1389,22 @@ public class ControllerApi {
 
     /**
      * Gets a flow registry client
-     * 
+     *
      * @param id The flow registry client id. (required)
      * @return ApiResponse&lt;FlowRegistryClientEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowRegistryClientEntity> getFlowRegistryClientWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getFlowRegistryClientValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a flow registry client (asynchronously)
-     * 
-     * @param id The flow registry client id. (required)
+     *
+     * @param id       The flow registry client id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1409,13 +1431,16 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = getFlowRegistryClientValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getFlowRegistryClients
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1434,36 +1459,36 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFlowRegistryClientsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getFlowRegistryClientsCall(progressListener, progressRequestListener);
         return call;
@@ -1472,7 +1497,7 @@ public class ControllerApi {
 
     /**
      * Gets the listing of available flow registry clients
-     * 
+     *
      * @return FlowRegistryClientsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1483,19 +1508,20 @@ public class ControllerApi {
 
     /**
      * Gets the listing of available flow registry clients
-     * 
+     *
      * @return ApiResponse&lt;FlowRegistryClientsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowRegistryClientsEntity> getFlowRegistryClientsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getFlowRegistryClientsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the listing of available flow registry clients (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1522,14 +1548,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = getFlowRegistryClientsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getNode
-     * @param id The node id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The node id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1539,7 +1568,7 @@ public class ControllerApi {
 
         // create path and map variables
         String localVarPath = "/controller/cluster/nodes/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1549,41 +1578,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getNodeValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getNode(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getNodeCall(id, progressListener, progressRequestListener);
         return call;
@@ -1592,7 +1621,7 @@ public class ControllerApi {
 
     /**
      * Gets a node in the cluster
-     * 
+     *
      * @param id The node id. (required)
      * @return NodeEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1604,21 +1633,22 @@ public class ControllerApi {
 
     /**
      * Gets a node in the cluster
-     * 
+     *
      * @param id The node id. (required)
      * @return ApiResponse&lt;NodeEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<NodeEntity> getNodeWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getNodeValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<NodeEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<NodeEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a node in the cluster (asynchronously)
-     * 
-     * @param id The node id. (required)
+     *
+     * @param id       The node id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1645,13 +1675,16 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = getNodeValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<NodeEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<NodeEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getNodeStatusHistory
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1670,36 +1703,36 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getNodeStatusHistoryValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getNodeStatusHistoryCall(progressListener, progressRequestListener);
         return call;
@@ -1709,6 +1742,7 @@ public class ControllerApi {
     /**
      * Gets status history for the node
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ComponentHistoryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1720,18 +1754,21 @@ public class ControllerApi {
     /**
      * Gets status history for the node
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;ComponentHistoryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ComponentHistoryEntity> getNodeStatusHistoryWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getNodeStatusHistoryValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ComponentHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentHistoryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets status history for the node (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1758,16 +1795,19 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = getNodeStatusHistoryValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ComponentHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentHistoryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getPropertyDescriptor
-     * @param id The flow registry client id. (required)
-     * @param propertyName The property name. (required)
-     * @param sensitive Property Descriptor requested sensitive status (optional, default to false)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The flow registry client id. (required)
+     * @param propertyName            The property name. (required)
+     * @param sensitive               Property Descriptor requested sensitive status (optional, default to false)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1777,60 +1817,60 @@ public class ControllerApi {
 
         // create path and map variables
         String localVarPath = "/controller/registry-clients/{id}/descriptors"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (propertyName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("propertyName", propertyName));
+            localVarQueryParams.addAll(apiClient.parameterToPair("propertyName", propertyName));
         if (sensitive != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sensitive", sensitive));
+            localVarQueryParams.addAll(apiClient.parameterToPair("sensitive", sensitive));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getPropertyDescriptorValidateBeforeCall(String id, String propertyName, Boolean sensitive, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getPropertyDescriptor(Async)");
         }
-        
+
         // verify the required parameter 'propertyName' is set
         if (propertyName == null) {
             throw new ApiException("Missing the required parameter 'propertyName' when calling getPropertyDescriptor(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getPropertyDescriptorCall(id, propertyName, sensitive, progressListener, progressRequestListener);
         return call;
@@ -1839,10 +1879,10 @@ public class ControllerApi {
 
     /**
      * Gets a flow registry client property descriptor
-     * 
-     * @param id The flow registry client id. (required)
+     *
+     * @param id           The flow registry client id. (required)
      * @param propertyName The property name. (required)
-     * @param sensitive Property Descriptor requested sensitive status (optional, default to false)
+     * @param sensitive    Property Descriptor requested sensitive status (optional, default to false)
      * @return PropertyDescriptorEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1853,26 +1893,27 @@ public class ControllerApi {
 
     /**
      * Gets a flow registry client property descriptor
-     * 
-     * @param id The flow registry client id. (required)
+     *
+     * @param id           The flow registry client id. (required)
      * @param propertyName The property name. (required)
-     * @param sensitive Property Descriptor requested sensitive status (optional, default to false)
+     * @param sensitive    Property Descriptor requested sensitive status (optional, default to false)
      * @return ApiResponse&lt;PropertyDescriptorEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PropertyDescriptorEntity> getPropertyDescriptorWithHttpInfo(String id, String propertyName, Boolean sensitive) throws ApiException {
         com.squareup.okhttp.Call call = getPropertyDescriptorValidateBeforeCall(id, propertyName, sensitive, null, null);
-        Type localVarReturnType = new TypeToken<PropertyDescriptorEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PropertyDescriptorEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a flow registry client property descriptor (asynchronously)
-     * 
-     * @param id The flow registry client id. (required)
+     *
+     * @param id           The flow registry client id. (required)
      * @param propertyName The property name. (required)
-     * @param sensitive Property Descriptor requested sensitive status (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param sensitive    Property Descriptor requested sensitive status (optional, default to false)
+     * @param callback     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1898,13 +1939,16 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = getPropertyDescriptorValidateBeforeCall(id, propertyName, sensitive, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PropertyDescriptorEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PropertyDescriptorEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getRegistryClientTypes
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1923,36 +1967,36 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRegistryClientTypesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getRegistryClientTypesCall(progressListener, progressRequestListener);
         return call;
@@ -1962,6 +2006,7 @@ public class ControllerApi {
     /**
      * Retrieves the types of flow  that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return FlowRegistryClientTypesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1973,18 +2018,21 @@ public class ControllerApi {
     /**
      * Retrieves the types of flow  that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;FlowRegistryClientTypesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowRegistryClientTypesEntity> getRegistryClientTypesWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getRegistryClientTypesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientTypesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the types of flow  that this NiFi supports (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2011,14 +2059,17 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = getRegistryClientTypesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientTypesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateControllerConfig
-     * @param body The controller configuration. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The controller configuration. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2037,41 +2088,41 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateControllerConfigValidateBeforeCall(ControllerConfigurationEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateControllerConfig(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateControllerConfigCall(body, progressListener, progressRequestListener);
         return call;
@@ -2080,7 +2131,7 @@ public class ControllerApi {
 
     /**
      * Retrieves the configuration for this NiFi
-     * 
+     *
      * @param body The controller configuration. (required)
      * @return ControllerConfigurationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2092,21 +2143,22 @@ public class ControllerApi {
 
     /**
      * Retrieves the configuration for this NiFi
-     * 
+     *
      * @param body The controller configuration. (required)
      * @return ApiResponse&lt;ControllerConfigurationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerConfigurationEntity> updateControllerConfigWithHttpInfo(ControllerConfigurationEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateControllerConfigValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ControllerConfigurationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerConfigurationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the configuration for this NiFi (asynchronously)
-     * 
-     * @param body The controller configuration. (required)
+     *
+     * @param body     The controller configuration. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2133,15 +2185,18 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = updateControllerConfigValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerConfigurationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerConfigurationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateFlowRegistryClient
-     * @param id The flow registry client id. (required)
-     * @param body The flow registry client configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The flow registry client id. (required)
+     * @param body                    The flow registry client configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2151,7 +2206,7 @@ public class ControllerApi {
 
         // create path and map variables
         String localVarPath = "/controller/registry-clients/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2161,46 +2216,46 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateFlowRegistryClientValidateBeforeCall(String id, FlowRegistryClientEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateFlowRegistryClient(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateFlowRegistryClient(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateFlowRegistryClientCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -2209,8 +2264,8 @@ public class ControllerApi {
 
     /**
      * Updates a flow registry client
-     * 
-     * @param id The flow registry client id. (required)
+     *
+     * @param id   The flow registry client id. (required)
      * @param body The flow registry client configuration details. (required)
      * @return FlowRegistryClientEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2222,23 +2277,24 @@ public class ControllerApi {
 
     /**
      * Updates a flow registry client
-     * 
-     * @param id The flow registry client id. (required)
+     *
+     * @param id   The flow registry client id. (required)
      * @param body The flow registry client configuration details. (required)
      * @return ApiResponse&lt;FlowRegistryClientEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowRegistryClientEntity> updateFlowRegistryClientWithHttpInfo(String id, FlowRegistryClientEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateFlowRegistryClientValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates a flow registry client (asynchronously)
-     * 
-     * @param id The flow registry client id. (required)
-     * @param body The flow registry client configuration details. (required)
+     *
+     * @param id       The flow registry client id. (required)
+     * @param body     The flow registry client configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2265,15 +2321,18 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = updateFlowRegistryClientValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateNode
-     * @param id The node id. (required)
-     * @param body The node configuration. The only configuration that will be honored at this endpoint is the status. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The node id. (required)
+     * @param body                    The node configuration. The only configuration that will be honored at this endpoint is the status. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2283,7 +2342,7 @@ public class ControllerApi {
 
         // create path and map variables
         String localVarPath = "/controller/cluster/nodes/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2293,46 +2352,46 @@ public class ControllerApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateNodeValidateBeforeCall(String id, NodeEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateNode(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateNode(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateNodeCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -2341,8 +2400,8 @@ public class ControllerApi {
 
     /**
      * Updates a node in the cluster
-     * 
-     * @param id The node id. (required)
+     *
+     * @param id   The node id. (required)
      * @param body The node configuration. The only configuration that will be honored at this endpoint is the status. (required)
      * @return NodeEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2354,23 +2413,24 @@ public class ControllerApi {
 
     /**
      * Updates a node in the cluster
-     * 
-     * @param id The node id. (required)
+     *
+     * @param id   The node id. (required)
      * @param body The node configuration. The only configuration that will be honored at this endpoint is the status. (required)
      * @return ApiResponse&lt;NodeEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<NodeEntity> updateNodeWithHttpInfo(String id, NodeEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateNodeValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<NodeEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<NodeEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates a node in the cluster (asynchronously)
-     * 
-     * @param id The node id. (required)
-     * @param body The node configuration. The only configuration that will be honored at this endpoint is the status. (required)
+     *
+     * @param id       The node id. (required)
+     * @param body     The node configuration. The only configuration that will be honored at this endpoint is the status. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2397,7 +2457,8 @@ public class ControllerApi {
         }
 
         com.squareup.okhttp.Call call = updateNodeValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<NodeEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<NodeEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

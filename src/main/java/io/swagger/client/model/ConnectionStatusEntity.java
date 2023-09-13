@@ -13,106 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ConnectionStatusDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ConnectionStatusEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ConnectionStatusEntity {
-  @SerializedName("connectionStatus")
-  private ConnectionStatusDTO connectionStatus = null;
+    @SerializedName("connectionStatus")
+    private ConnectionStatusDTO connectionStatus = null;
 
-  @SerializedName("canRead")
-  private Boolean canRead = null;
+    @SerializedName("canRead")
+    private Boolean canRead = null;
 
-  public ConnectionStatusEntity connectionStatus(ConnectionStatusDTO connectionStatus) {
-    this.connectionStatus = connectionStatus;
-    return this;
-  }
-
-   /**
-   * Get connectionStatus
-   * @return connectionStatus
-  **/
-  @ApiModelProperty(value = "")
-  public ConnectionStatusDTO getConnectionStatus() {
-    return connectionStatus;
-  }
-
-  public void setConnectionStatus(ConnectionStatusDTO connectionStatus) {
-    this.connectionStatus = connectionStatus;
-  }
-
-  public ConnectionStatusEntity canRead(Boolean canRead) {
-    this.canRead = canRead;
-    return this;
-  }
-
-   /**
-   * Indicates whether the user can read a given resource.
-   * @return canRead
-  **/
-  @ApiModelProperty(value = "Indicates whether the user can read a given resource.")
-  public Boolean isCanRead() {
-    return canRead;
-  }
-
-  public void setCanRead(Boolean canRead) {
-    this.canRead = canRead;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ConnectionStatusEntity connectionStatus(ConnectionStatusDTO connectionStatus) {
+        this.connectionStatus = connectionStatus;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get connectionStatus
+     *
+     * @return connectionStatus
+     **/
+    @ApiModelProperty(value = "")
+    public ConnectionStatusDTO getConnectionStatus() {
+        return connectionStatus;
     }
-    ConnectionStatusEntity connectionStatusEntity = (ConnectionStatusEntity) o;
-    return Objects.equals(this.connectionStatus, connectionStatusEntity.connectionStatus) &&
-        Objects.equals(this.canRead, connectionStatusEntity.canRead);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(connectionStatus, canRead);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ConnectionStatusEntity {\n");
-    
-    sb.append("    connectionStatus: ").append(toIndentedString(connectionStatus)).append("\n");
-    sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setConnectionStatus(ConnectionStatusDTO connectionStatus) {
+        this.connectionStatus = connectionStatus;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ConnectionStatusEntity canRead(Boolean canRead) {
+        this.canRead = canRead;
+        return this;
+    }
+
+    /**
+     * Indicates whether the user can read a given resource.
+     *
+     * @return canRead
+     **/
+    @ApiModelProperty(value = "Indicates whether the user can read a given resource.")
+    public Boolean isCanRead() {
+        return canRead;
+    }
+
+    public void setCanRead(Boolean canRead) {
+        this.canRead = canRead;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ConnectionStatusEntity connectionStatusEntity = (ConnectionStatusEntity) o;
+        return Objects.equals(this.connectionStatus, connectionStatusEntity.connectionStatus) &&
+                Objects.equals(this.canRead, connectionStatusEntity.canRead);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(connectionStatus, canRead);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ConnectionStatusEntity {\n");
+
+        sb.append("    connectionStatus: ").append(toIndentedString(connectionStatus)).append("\n");
+        sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

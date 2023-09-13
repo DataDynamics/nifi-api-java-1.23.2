@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.LineageDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * LineageEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class LineageEntity {
-  @SerializedName("lineage")
-  private LineageDTO lineage = null;
+    @SerializedName("lineage")
+    private LineageDTO lineage = null;
 
-  public LineageEntity lineage(LineageDTO lineage) {
-    this.lineage = lineage;
-    return this;
-  }
-
-   /**
-   * Get lineage
-   * @return lineage
-  **/
-  @ApiModelProperty(value = "")
-  public LineageDTO getLineage() {
-    return lineage;
-  }
-
-  public void setLineage(LineageDTO lineage) {
-    this.lineage = lineage;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public LineageEntity lineage(LineageDTO lineage) {
+        this.lineage = lineage;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get lineage
+     *
+     * @return lineage
+     **/
+    @ApiModelProperty(value = "")
+    public LineageDTO getLineage() {
+        return lineage;
     }
-    LineageEntity lineageEntity = (LineageEntity) o;
-    return Objects.equals(this.lineage, lineageEntity.lineage);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(lineage);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class LineageEntity {\n");
-    
-    sb.append("    lineage: ").append(toIndentedString(lineage)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setLineage(LineageDTO lineage) {
+        this.lineage = lineage;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        LineageEntity lineageEntity = (LineageEntity) o;
+        return Objects.equals(this.lineage, lineageEntity.lineage);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lineage);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class LineageEntity {\n");
+
+        sb.append("    lineage: ").append(toIndentedString(lineage)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

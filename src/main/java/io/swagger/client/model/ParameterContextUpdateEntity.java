@@ -13,141 +13,135 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.AffectedComponentEntity;
-import io.swagger.client.model.ParameterContextDTO;
-import io.swagger.client.model.RevisionDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ParameterContextUpdateEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ParameterContextUpdateEntity {
-  @SerializedName("parameterContextRevision")
-  private RevisionDTO parameterContextRevision = null;
+    @SerializedName("parameterContextRevision")
+    private RevisionDTO parameterContextRevision = null;
 
-  @SerializedName("parameterContext")
-  private ParameterContextDTO parameterContext = null;
+    @SerializedName("parameterContext")
+    private ParameterContextDTO parameterContext = null;
 
-  @SerializedName("referencingComponents")
-  private List<AffectedComponentEntity> referencingComponents = null;
+    @SerializedName("referencingComponents")
+    private List<AffectedComponentEntity> referencingComponents = null;
 
-  public ParameterContextUpdateEntity parameterContextRevision(RevisionDTO parameterContextRevision) {
-    this.parameterContextRevision = parameterContextRevision;
-    return this;
-  }
-
-   /**
-   * The Revision of the Parameter Context
-   * @return parameterContextRevision
-  **/
-  @ApiModelProperty(value = "The Revision of the Parameter Context")
-  public RevisionDTO getParameterContextRevision() {
-    return parameterContextRevision;
-  }
-
-  public void setParameterContextRevision(RevisionDTO parameterContextRevision) {
-    this.parameterContextRevision = parameterContextRevision;
-  }
-
-  public ParameterContextUpdateEntity parameterContext(ParameterContextDTO parameterContext) {
-    this.parameterContext = parameterContext;
-    return this;
-  }
-
-   /**
-   * The Parameter Context that is being operated on. This may not be populated until the request has successfully completed.
-   * @return parameterContext
-  **/
-  @ApiModelProperty(value = "The Parameter Context that is being operated on. This may not be populated until the request has successfully completed.")
-  public ParameterContextDTO getParameterContext() {
-    return parameterContext;
-  }
-
-  public void setParameterContext(ParameterContextDTO parameterContext) {
-    this.parameterContext = parameterContext;
-  }
-
-  public ParameterContextUpdateEntity referencingComponents(List<AffectedComponentEntity> referencingComponents) {
-    this.referencingComponents = referencingComponents;
-    return this;
-  }
-
-  public ParameterContextUpdateEntity addReferencingComponentsItem(AffectedComponentEntity referencingComponentsItem) {
-    if (this.referencingComponents == null) {
-      this.referencingComponents = new ArrayList<AffectedComponentEntity>();
+    public ParameterContextUpdateEntity parameterContextRevision(RevisionDTO parameterContextRevision) {
+        this.parameterContextRevision = parameterContextRevision;
+        return this;
     }
-    this.referencingComponents.add(referencingComponentsItem);
-    return this;
-  }
 
-   /**
-   * The components that are referenced by the update.
-   * @return referencingComponents
-  **/
-  @ApiModelProperty(value = "The components that are referenced by the update.")
-  public List<AffectedComponentEntity> getReferencingComponents() {
-    return referencingComponents;
-  }
-
-  public void setReferencingComponents(List<AffectedComponentEntity> referencingComponents) {
-    this.referencingComponents = referencingComponents;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The Revision of the Parameter Context
+     *
+     * @return parameterContextRevision
+     **/
+    @ApiModelProperty(value = "The Revision of the Parameter Context")
+    public RevisionDTO getParameterContextRevision() {
+        return parameterContextRevision;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setParameterContextRevision(RevisionDTO parameterContextRevision) {
+        this.parameterContextRevision = parameterContextRevision;
     }
-    ParameterContextUpdateEntity parameterContextUpdateEntity = (ParameterContextUpdateEntity) o;
-    return Objects.equals(this.parameterContextRevision, parameterContextUpdateEntity.parameterContextRevision) &&
-        Objects.equals(this.parameterContext, parameterContextUpdateEntity.parameterContext) &&
-        Objects.equals(this.referencingComponents, parameterContextUpdateEntity.referencingComponents);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(parameterContextRevision, parameterContext, referencingComponents);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterContextUpdateEntity {\n");
-    
-    sb.append("    parameterContextRevision: ").append(toIndentedString(parameterContextRevision)).append("\n");
-    sb.append("    parameterContext: ").append(toIndentedString(parameterContext)).append("\n");
-    sb.append("    referencingComponents: ").append(toIndentedString(referencingComponents)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public ParameterContextUpdateEntity parameterContext(ParameterContextDTO parameterContext) {
+        this.parameterContext = parameterContext;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The Parameter Context that is being operated on. This may not be populated until the request has successfully completed.
+     *
+     * @return parameterContext
+     **/
+    @ApiModelProperty(value = "The Parameter Context that is being operated on. This may not be populated until the request has successfully completed.")
+    public ParameterContextDTO getParameterContext() {
+        return parameterContext;
+    }
+
+    public void setParameterContext(ParameterContextDTO parameterContext) {
+        this.parameterContext = parameterContext;
+    }
+
+    public ParameterContextUpdateEntity referencingComponents(List<AffectedComponentEntity> referencingComponents) {
+        this.referencingComponents = referencingComponents;
+        return this;
+    }
+
+    public ParameterContextUpdateEntity addReferencingComponentsItem(AffectedComponentEntity referencingComponentsItem) {
+        if (this.referencingComponents == null) {
+            this.referencingComponents = new ArrayList<AffectedComponentEntity>();
+        }
+        this.referencingComponents.add(referencingComponentsItem);
+        return this;
+    }
+
+    /**
+     * The components that are referenced by the update.
+     *
+     * @return referencingComponents
+     **/
+    @ApiModelProperty(value = "The components that are referenced by the update.")
+    public List<AffectedComponentEntity> getReferencingComponents() {
+        return referencingComponents;
+    }
+
+    public void setReferencingComponents(List<AffectedComponentEntity> referencingComponents) {
+        this.referencingComponents = referencingComponents;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParameterContextUpdateEntity parameterContextUpdateEntity = (ParameterContextUpdateEntity) o;
+        return Objects.equals(this.parameterContextRevision, parameterContextUpdateEntity.parameterContextRevision) &&
+                Objects.equals(this.parameterContext, parameterContextUpdateEntity.parameterContext) &&
+                Objects.equals(this.referencingComponents, parameterContextUpdateEntity.referencingComponents);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(parameterContextRevision, parameterContext, referencingComponents);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ParameterContextUpdateEntity {\n");
+
+        sb.append("    parameterContextRevision: ").append(toIndentedString(parameterContextRevision)).append("\n");
+        sb.append("    parameterContext: ").append(toIndentedString(parameterContext)).append("\n");
+        sb.append("    referencingComponents: ").append(toIndentedString(referencingComponents)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

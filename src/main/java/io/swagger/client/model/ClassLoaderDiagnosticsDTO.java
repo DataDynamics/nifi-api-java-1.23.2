@@ -13,107 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.BundleDTO;
-import io.swagger.client.model.ClassLoaderDiagnosticsDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ClassLoaderDiagnosticsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ClassLoaderDiagnosticsDTO {
-  @SerializedName("bundle")
-  private BundleDTO bundle = null;
+    @SerializedName("bundle")
+    private BundleDTO bundle = null;
 
-  @SerializedName("parentClassLoader")
-  private ClassLoaderDiagnosticsDTO parentClassLoader = null;
+    @SerializedName("parentClassLoader")
+    private ClassLoaderDiagnosticsDTO parentClassLoader = null;
 
-  public ClassLoaderDiagnosticsDTO bundle(BundleDTO bundle) {
-    this.bundle = bundle;
-    return this;
-  }
-
-   /**
-   * Information about the Bundle that the ClassLoader belongs to, if any
-   * @return bundle
-  **/
-  @ApiModelProperty(value = "Information about the Bundle that the ClassLoader belongs to, if any")
-  public BundleDTO getBundle() {
-    return bundle;
-  }
-
-  public void setBundle(BundleDTO bundle) {
-    this.bundle = bundle;
-  }
-
-  public ClassLoaderDiagnosticsDTO parentClassLoader(ClassLoaderDiagnosticsDTO parentClassLoader) {
-    this.parentClassLoader = parentClassLoader;
-    return this;
-  }
-
-   /**
-   * A ClassLoaderDiagnosticsDTO that provides information about the parent ClassLoader
-   * @return parentClassLoader
-  **/
-  @ApiModelProperty(value = "A ClassLoaderDiagnosticsDTO that provides information about the parent ClassLoader")
-  public ClassLoaderDiagnosticsDTO getParentClassLoader() {
-    return parentClassLoader;
-  }
-
-  public void setParentClassLoader(ClassLoaderDiagnosticsDTO parentClassLoader) {
-    this.parentClassLoader = parentClassLoader;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ClassLoaderDiagnosticsDTO bundle(BundleDTO bundle) {
+        this.bundle = bundle;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Information about the Bundle that the ClassLoader belongs to, if any
+     *
+     * @return bundle
+     **/
+    @ApiModelProperty(value = "Information about the Bundle that the ClassLoader belongs to, if any")
+    public BundleDTO getBundle() {
+        return bundle;
     }
-    ClassLoaderDiagnosticsDTO classLoaderDiagnosticsDTO = (ClassLoaderDiagnosticsDTO) o;
-    return Objects.equals(this.bundle, classLoaderDiagnosticsDTO.bundle) &&
-        Objects.equals(this.parentClassLoader, classLoaderDiagnosticsDTO.parentClassLoader);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(bundle, parentClassLoader);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ClassLoaderDiagnosticsDTO {\n");
-    
-    sb.append("    bundle: ").append(toIndentedString(bundle)).append("\n");
-    sb.append("    parentClassLoader: ").append(toIndentedString(parentClassLoader)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setBundle(BundleDTO bundle) {
+        this.bundle = bundle;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ClassLoaderDiagnosticsDTO parentClassLoader(ClassLoaderDiagnosticsDTO parentClassLoader) {
+        this.parentClassLoader = parentClassLoader;
+        return this;
+    }
+
+    /**
+     * A ClassLoaderDiagnosticsDTO that provides information about the parent ClassLoader
+     *
+     * @return parentClassLoader
+     **/
+    @ApiModelProperty(value = "A ClassLoaderDiagnosticsDTO that provides information about the parent ClassLoader")
+    public ClassLoaderDiagnosticsDTO getParentClassLoader() {
+        return parentClassLoader;
+    }
+
+    public void setParentClassLoader(ClassLoaderDiagnosticsDTO parentClassLoader) {
+        this.parentClassLoader = parentClassLoader;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ClassLoaderDiagnosticsDTO classLoaderDiagnosticsDTO = (ClassLoaderDiagnosticsDTO) o;
+        return Objects.equals(this.bundle, classLoaderDiagnosticsDTO.bundle) &&
+                Objects.equals(this.parentClassLoader, classLoaderDiagnosticsDTO.parentClassLoader);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bundle, parentClassLoader);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ClassLoaderDiagnosticsDTO {\n");
+
+        sb.append("    bundle: ").append(toIndentedString(bundle)).append("\n");
+        sb.append("    parentClassLoader: ").append(toIndentedString(parentClassLoader)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

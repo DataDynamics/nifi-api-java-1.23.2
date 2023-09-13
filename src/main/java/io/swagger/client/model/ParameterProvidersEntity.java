@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ParameterProviderEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ParameterProvidersEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ParameterProvidersEntity {
-  @SerializedName("parameterProviders")
-  private List<ParameterProviderEntity> parameterProviders = null;
+    @SerializedName("parameterProviders")
+    private List<ParameterProviderEntity> parameterProviders = null;
 
-  public ParameterProvidersEntity parameterProviders(List<ParameterProviderEntity> parameterProviders) {
-    this.parameterProviders = parameterProviders;
-    return this;
-  }
-
-  public ParameterProvidersEntity addParameterProvidersItem(ParameterProviderEntity parameterProvidersItem) {
-    if (this.parameterProviders == null) {
-      this.parameterProviders = new ArrayList<ParameterProviderEntity>();
+    public ParameterProvidersEntity parameterProviders(List<ParameterProviderEntity> parameterProviders) {
+        this.parameterProviders = parameterProviders;
+        return this;
     }
-    this.parameterProviders.add(parameterProvidersItem);
-    return this;
-  }
 
-   /**
-   * Get parameterProviders
-   * @return parameterProviders
-  **/
-  @ApiModelProperty(value = "")
-  public List<ParameterProviderEntity> getParameterProviders() {
-    return parameterProviders;
-  }
-
-  public void setParameterProviders(List<ParameterProviderEntity> parameterProviders) {
-    this.parameterProviders = parameterProviders;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ParameterProvidersEntity addParameterProvidersItem(ParameterProviderEntity parameterProvidersItem) {
+        if (this.parameterProviders == null) {
+            this.parameterProviders = new ArrayList<ParameterProviderEntity>();
+        }
+        this.parameterProviders.add(parameterProvidersItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get parameterProviders
+     *
+     * @return parameterProviders
+     **/
+    @ApiModelProperty(value = "")
+    public List<ParameterProviderEntity> getParameterProviders() {
+        return parameterProviders;
     }
-    ParameterProvidersEntity parameterProvidersEntity = (ParameterProvidersEntity) o;
-    return Objects.equals(this.parameterProviders, parameterProvidersEntity.parameterProviders);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(parameterProviders);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterProvidersEntity {\n");
-    
-    sb.append("    parameterProviders: ").append(toIndentedString(parameterProviders)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setParameterProviders(List<ParameterProviderEntity> parameterProviders) {
+        this.parameterProviders = parameterProviders;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParameterProvidersEntity parameterProvidersEntity = (ParameterProvidersEntity) o;
+        return Objects.equals(this.parameterProviders, parameterProvidersEntity.parameterProviders);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(parameterProviders);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ParameterProvidersEntity {\n");
+
+        sb.append("    parameterProviders: ").append(toIndentedString(parameterProviders)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

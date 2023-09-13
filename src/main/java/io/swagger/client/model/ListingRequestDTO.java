@@ -13,370 +13,375 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FlowFileSummaryDTO;
-import io.swagger.client.model.QueueSizeDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ListingRequestDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ListingRequestDTO {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("uri")
-  private String uri = null;
+    @SerializedName("uri")
+    private String uri = null;
 
-  @SerializedName("submissionTime")
-  private String submissionTime = null;
+    @SerializedName("submissionTime")
+    private String submissionTime = null;
 
-  @SerializedName("lastUpdated")
-  private String lastUpdated = null;
+    @SerializedName("lastUpdated")
+    private String lastUpdated = null;
 
-  @SerializedName("percentCompleted")
-  private Integer percentCompleted = null;
+    @SerializedName("percentCompleted")
+    private Integer percentCompleted = null;
 
-  @SerializedName("finished")
-  private Boolean finished = null;
+    @SerializedName("finished")
+    private Boolean finished = null;
 
-  @SerializedName("failureReason")
-  private String failureReason = null;
+    @SerializedName("failureReason")
+    private String failureReason = null;
 
-  @SerializedName("maxResults")
-  private Integer maxResults = null;
+    @SerializedName("maxResults")
+    private Integer maxResults = null;
 
-  @SerializedName("state")
-  private String state = null;
+    @SerializedName("state")
+    private String state = null;
 
-  @SerializedName("queueSize")
-  private QueueSizeDTO queueSize = null;
+    @SerializedName("queueSize")
+    private QueueSizeDTO queueSize = null;
 
-  @SerializedName("flowFileSummaries")
-  private List<FlowFileSummaryDTO> flowFileSummaries = null;
+    @SerializedName("flowFileSummaries")
+    private List<FlowFileSummaryDTO> flowFileSummaries = null;
 
-  @SerializedName("sourceRunning")
-  private Boolean sourceRunning = null;
+    @SerializedName("sourceRunning")
+    private Boolean sourceRunning = null;
 
-  @SerializedName("destinationRunning")
-  private Boolean destinationRunning = null;
+    @SerializedName("destinationRunning")
+    private Boolean destinationRunning = null;
 
-  public ListingRequestDTO id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The id for this listing request.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The id for this listing request.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ListingRequestDTO uri(String uri) {
-    this.uri = uri;
-    return this;
-  }
-
-   /**
-   * The URI for future requests to this listing request.
-   * @return uri
-  **/
-  @ApiModelProperty(value = "The URI for future requests to this listing request.")
-  public String getUri() {
-    return uri;
-  }
-
-  public void setUri(String uri) {
-    this.uri = uri;
-  }
-
-  public ListingRequestDTO submissionTime(String submissionTime) {
-    this.submissionTime = submissionTime;
-    return this;
-  }
-
-   /**
-   * The timestamp when the query was submitted.
-   * @return submissionTime
-  **/
-  @ApiModelProperty(value = "The timestamp when the query was submitted.")
-  public String getSubmissionTime() {
-    return submissionTime;
-  }
-
-  public void setSubmissionTime(String submissionTime) {
-    this.submissionTime = submissionTime;
-  }
-
-  public ListingRequestDTO lastUpdated(String lastUpdated) {
-    this.lastUpdated = lastUpdated;
-    return this;
-  }
-
-   /**
-   * The last time this listing request was updated.
-   * @return lastUpdated
-  **/
-  @ApiModelProperty(value = "The last time this listing request was updated.")
-  public String getLastUpdated() {
-    return lastUpdated;
-  }
-
-  public void setLastUpdated(String lastUpdated) {
-    this.lastUpdated = lastUpdated;
-  }
-
-  public ListingRequestDTO percentCompleted(Integer percentCompleted) {
-    this.percentCompleted = percentCompleted;
-    return this;
-  }
-
-   /**
-   * The current percent complete.
-   * @return percentCompleted
-  **/
-  @ApiModelProperty(value = "The current percent complete.")
-  public Integer getPercentCompleted() {
-    return percentCompleted;
-  }
-
-  public void setPercentCompleted(Integer percentCompleted) {
-    this.percentCompleted = percentCompleted;
-  }
-
-  public ListingRequestDTO finished(Boolean finished) {
-    this.finished = finished;
-    return this;
-  }
-
-   /**
-   * Whether the query has finished.
-   * @return finished
-  **/
-  @ApiModelProperty(value = "Whether the query has finished.")
-  public Boolean isFinished() {
-    return finished;
-  }
-
-  public void setFinished(Boolean finished) {
-    this.finished = finished;
-  }
-
-  public ListingRequestDTO failureReason(String failureReason) {
-    this.failureReason = failureReason;
-    return this;
-  }
-
-   /**
-   * The reason, if any, that this listing request failed.
-   * @return failureReason
-  **/
-  @ApiModelProperty(value = "The reason, if any, that this listing request failed.")
-  public String getFailureReason() {
-    return failureReason;
-  }
-
-  public void setFailureReason(String failureReason) {
-    this.failureReason = failureReason;
-  }
-
-  public ListingRequestDTO maxResults(Integer maxResults) {
-    this.maxResults = maxResults;
-    return this;
-  }
-
-   /**
-   * The maximum number of FlowFileSummary objects to return
-   * @return maxResults
-  **/
-  @ApiModelProperty(value = "The maximum number of FlowFileSummary objects to return")
-  public Integer getMaxResults() {
-    return maxResults;
-  }
-
-  public void setMaxResults(Integer maxResults) {
-    this.maxResults = maxResults;
-  }
-
-  public ListingRequestDTO state(String state) {
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * The current state of the listing request.
-   * @return state
-  **/
-  @ApiModelProperty(value = "The current state of the listing request.")
-  public String getState() {
-    return state;
-  }
-
-  public void setState(String state) {
-    this.state = state;
-  }
-
-  public ListingRequestDTO queueSize(QueueSizeDTO queueSize) {
-    this.queueSize = queueSize;
-    return this;
-  }
-
-   /**
-   * The size of the queue
-   * @return queueSize
-  **/
-  @ApiModelProperty(value = "The size of the queue")
-  public QueueSizeDTO getQueueSize() {
-    return queueSize;
-  }
-
-  public void setQueueSize(QueueSizeDTO queueSize) {
-    this.queueSize = queueSize;
-  }
-
-  public ListingRequestDTO flowFileSummaries(List<FlowFileSummaryDTO> flowFileSummaries) {
-    this.flowFileSummaries = flowFileSummaries;
-    return this;
-  }
-
-  public ListingRequestDTO addFlowFileSummariesItem(FlowFileSummaryDTO flowFileSummariesItem) {
-    if (this.flowFileSummaries == null) {
-      this.flowFileSummaries = new ArrayList<FlowFileSummaryDTO>();
+    public ListingRequestDTO id(String id) {
+        this.id = id;
+        return this;
     }
-    this.flowFileSummaries.add(flowFileSummariesItem);
-    return this;
-  }
 
-   /**
-   * The FlowFile summaries. The summaries will be populated once the request has completed.
-   * @return flowFileSummaries
-  **/
-  @ApiModelProperty(value = "The FlowFile summaries. The summaries will be populated once the request has completed.")
-  public List<FlowFileSummaryDTO> getFlowFileSummaries() {
-    return flowFileSummaries;
-  }
-
-  public void setFlowFileSummaries(List<FlowFileSummaryDTO> flowFileSummaries) {
-    this.flowFileSummaries = flowFileSummaries;
-  }
-
-  public ListingRequestDTO sourceRunning(Boolean sourceRunning) {
-    this.sourceRunning = sourceRunning;
-    return this;
-  }
-
-   /**
-   * Whether the source of the connection is running
-   * @return sourceRunning
-  **/
-  @ApiModelProperty(value = "Whether the source of the connection is running")
-  public Boolean isSourceRunning() {
-    return sourceRunning;
-  }
-
-  public void setSourceRunning(Boolean sourceRunning) {
-    this.sourceRunning = sourceRunning;
-  }
-
-  public ListingRequestDTO destinationRunning(Boolean destinationRunning) {
-    this.destinationRunning = destinationRunning;
-    return this;
-  }
-
-   /**
-   * Whether the destination of the connection is running
-   * @return destinationRunning
-  **/
-  @ApiModelProperty(value = "Whether the destination of the connection is running")
-  public Boolean isDestinationRunning() {
-    return destinationRunning;
-  }
-
-  public void setDestinationRunning(Boolean destinationRunning) {
-    this.destinationRunning = destinationRunning;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The id for this listing request.
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The id for this listing request.")
+    public String getId() {
+        return id;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setId(String id) {
+        this.id = id;
     }
-    ListingRequestDTO listingRequestDTO = (ListingRequestDTO) o;
-    return Objects.equals(this.id, listingRequestDTO.id) &&
-        Objects.equals(this.uri, listingRequestDTO.uri) &&
-        Objects.equals(this.submissionTime, listingRequestDTO.submissionTime) &&
-        Objects.equals(this.lastUpdated, listingRequestDTO.lastUpdated) &&
-        Objects.equals(this.percentCompleted, listingRequestDTO.percentCompleted) &&
-        Objects.equals(this.finished, listingRequestDTO.finished) &&
-        Objects.equals(this.failureReason, listingRequestDTO.failureReason) &&
-        Objects.equals(this.maxResults, listingRequestDTO.maxResults) &&
-        Objects.equals(this.state, listingRequestDTO.state) &&
-        Objects.equals(this.queueSize, listingRequestDTO.queueSize) &&
-        Objects.equals(this.flowFileSummaries, listingRequestDTO.flowFileSummaries) &&
-        Objects.equals(this.sourceRunning, listingRequestDTO.sourceRunning) &&
-        Objects.equals(this.destinationRunning, listingRequestDTO.destinationRunning);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, uri, submissionTime, lastUpdated, percentCompleted, finished, failureReason, maxResults, state, queueSize, flowFileSummaries, sourceRunning, destinationRunning);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ListingRequestDTO {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
-    sb.append("    submissionTime: ").append(toIndentedString(submissionTime)).append("\n");
-    sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
-    sb.append("    percentCompleted: ").append(toIndentedString(percentCompleted)).append("\n");
-    sb.append("    finished: ").append(toIndentedString(finished)).append("\n");
-    sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-    sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    queueSize: ").append(toIndentedString(queueSize)).append("\n");
-    sb.append("    flowFileSummaries: ").append(toIndentedString(flowFileSummaries)).append("\n");
-    sb.append("    sourceRunning: ").append(toIndentedString(sourceRunning)).append("\n");
-    sb.append("    destinationRunning: ").append(toIndentedString(destinationRunning)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public ListingRequestDTO uri(String uri) {
+        this.uri = uri;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The URI for future requests to this listing request.
+     *
+     * @return uri
+     **/
+    @ApiModelProperty(value = "The URI for future requests to this listing request.")
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public ListingRequestDTO submissionTime(String submissionTime) {
+        this.submissionTime = submissionTime;
+        return this;
+    }
+
+    /**
+     * The timestamp when the query was submitted.
+     *
+     * @return submissionTime
+     **/
+    @ApiModelProperty(value = "The timestamp when the query was submitted.")
+    public String getSubmissionTime() {
+        return submissionTime;
+    }
+
+    public void setSubmissionTime(String submissionTime) {
+        this.submissionTime = submissionTime;
+    }
+
+    public ListingRequestDTO lastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
+    }
+
+    /**
+     * The last time this listing request was updated.
+     *
+     * @return lastUpdated
+     **/
+    @ApiModelProperty(value = "The last time this listing request was updated.")
+    public String getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(String lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    public ListingRequestDTO percentCompleted(Integer percentCompleted) {
+        this.percentCompleted = percentCompleted;
+        return this;
+    }
+
+    /**
+     * The current percent complete.
+     *
+     * @return percentCompleted
+     **/
+    @ApiModelProperty(value = "The current percent complete.")
+    public Integer getPercentCompleted() {
+        return percentCompleted;
+    }
+
+    public void setPercentCompleted(Integer percentCompleted) {
+        this.percentCompleted = percentCompleted;
+    }
+
+    public ListingRequestDTO finished(Boolean finished) {
+        this.finished = finished;
+        return this;
+    }
+
+    /**
+     * Whether the query has finished.
+     *
+     * @return finished
+     **/
+    @ApiModelProperty(value = "Whether the query has finished.")
+    public Boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(Boolean finished) {
+        this.finished = finished;
+    }
+
+    public ListingRequestDTO failureReason(String failureReason) {
+        this.failureReason = failureReason;
+        return this;
+    }
+
+    /**
+     * The reason, if any, that this listing request failed.
+     *
+     * @return failureReason
+     **/
+    @ApiModelProperty(value = "The reason, if any, that this listing request failed.")
+    public String getFailureReason() {
+        return failureReason;
+    }
+
+    public void setFailureReason(String failureReason) {
+        this.failureReason = failureReason;
+    }
+
+    public ListingRequestDTO maxResults(Integer maxResults) {
+        this.maxResults = maxResults;
+        return this;
+    }
+
+    /**
+     * The maximum number of FlowFileSummary objects to return
+     *
+     * @return maxResults
+     **/
+    @ApiModelProperty(value = "The maximum number of FlowFileSummary objects to return")
+    public Integer getMaxResults() {
+        return maxResults;
+    }
+
+    public void setMaxResults(Integer maxResults) {
+        this.maxResults = maxResults;
+    }
+
+    public ListingRequestDTO state(String state) {
+        this.state = state;
+        return this;
+    }
+
+    /**
+     * The current state of the listing request.
+     *
+     * @return state
+     **/
+    @ApiModelProperty(value = "The current state of the listing request.")
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public ListingRequestDTO queueSize(QueueSizeDTO queueSize) {
+        this.queueSize = queueSize;
+        return this;
+    }
+
+    /**
+     * The size of the queue
+     *
+     * @return queueSize
+     **/
+    @ApiModelProperty(value = "The size of the queue")
+    public QueueSizeDTO getQueueSize() {
+        return queueSize;
+    }
+
+    public void setQueueSize(QueueSizeDTO queueSize) {
+        this.queueSize = queueSize;
+    }
+
+    public ListingRequestDTO flowFileSummaries(List<FlowFileSummaryDTO> flowFileSummaries) {
+        this.flowFileSummaries = flowFileSummaries;
+        return this;
+    }
+
+    public ListingRequestDTO addFlowFileSummariesItem(FlowFileSummaryDTO flowFileSummariesItem) {
+        if (this.flowFileSummaries == null) {
+            this.flowFileSummaries = new ArrayList<FlowFileSummaryDTO>();
+        }
+        this.flowFileSummaries.add(flowFileSummariesItem);
+        return this;
+    }
+
+    /**
+     * The FlowFile summaries. The summaries will be populated once the request has completed.
+     *
+     * @return flowFileSummaries
+     **/
+    @ApiModelProperty(value = "The FlowFile summaries. The summaries will be populated once the request has completed.")
+    public List<FlowFileSummaryDTO> getFlowFileSummaries() {
+        return flowFileSummaries;
+    }
+
+    public void setFlowFileSummaries(List<FlowFileSummaryDTO> flowFileSummaries) {
+        this.flowFileSummaries = flowFileSummaries;
+    }
+
+    public ListingRequestDTO sourceRunning(Boolean sourceRunning) {
+        this.sourceRunning = sourceRunning;
+        return this;
+    }
+
+    /**
+     * Whether the source of the connection is running
+     *
+     * @return sourceRunning
+     **/
+    @ApiModelProperty(value = "Whether the source of the connection is running")
+    public Boolean isSourceRunning() {
+        return sourceRunning;
+    }
+
+    public void setSourceRunning(Boolean sourceRunning) {
+        this.sourceRunning = sourceRunning;
+    }
+
+    public ListingRequestDTO destinationRunning(Boolean destinationRunning) {
+        this.destinationRunning = destinationRunning;
+        return this;
+    }
+
+    /**
+     * Whether the destination of the connection is running
+     *
+     * @return destinationRunning
+     **/
+    @ApiModelProperty(value = "Whether the destination of the connection is running")
+    public Boolean isDestinationRunning() {
+        return destinationRunning;
+    }
+
+    public void setDestinationRunning(Boolean destinationRunning) {
+        this.destinationRunning = destinationRunning;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ListingRequestDTO listingRequestDTO = (ListingRequestDTO) o;
+        return Objects.equals(this.id, listingRequestDTO.id) &&
+                Objects.equals(this.uri, listingRequestDTO.uri) &&
+                Objects.equals(this.submissionTime, listingRequestDTO.submissionTime) &&
+                Objects.equals(this.lastUpdated, listingRequestDTO.lastUpdated) &&
+                Objects.equals(this.percentCompleted, listingRequestDTO.percentCompleted) &&
+                Objects.equals(this.finished, listingRequestDTO.finished) &&
+                Objects.equals(this.failureReason, listingRequestDTO.failureReason) &&
+                Objects.equals(this.maxResults, listingRequestDTO.maxResults) &&
+                Objects.equals(this.state, listingRequestDTO.state) &&
+                Objects.equals(this.queueSize, listingRequestDTO.queueSize) &&
+                Objects.equals(this.flowFileSummaries, listingRequestDTO.flowFileSummaries) &&
+                Objects.equals(this.sourceRunning, listingRequestDTO.sourceRunning) &&
+                Objects.equals(this.destinationRunning, listingRequestDTO.destinationRunning);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, uri, submissionTime, lastUpdated, percentCompleted, finished, failureReason, maxResults, state, queueSize, flowFileSummaries, sourceRunning, destinationRunning);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ListingRequestDTO {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+        sb.append("    submissionTime: ").append(toIndentedString(submissionTime)).append("\n");
+        sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
+        sb.append("    percentCompleted: ").append(toIndentedString(percentCompleted)).append("\n");
+        sb.append("    finished: ").append(toIndentedString(finished)).append("\n");
+        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+        sb.append("    maxResults: ").append(toIndentedString(maxResults)).append("\n");
+        sb.append("    state: ").append(toIndentedString(state)).append("\n");
+        sb.append("    queueSize: ").append(toIndentedString(queueSize)).append("\n");
+        sb.append("    flowFileSummaries: ").append(toIndentedString(flowFileSummaries)).append("\n");
+        sb.append("    sourceRunning: ").append(toIndentedString(sourceRunning)).append("\n");
+        sb.append("    destinationRunning: ").append(toIndentedString(destinationRunning)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

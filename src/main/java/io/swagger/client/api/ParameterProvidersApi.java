@@ -13,30 +13,11 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
+import io.swagger.client.*;
+import io.swagger.client.model.*;
 
 import java.io.IOException;
-
-
-import io.swagger.client.model.ComponentStateEntity;
-import io.swagger.client.model.ConfigurationAnalysisEntity;
-import io.swagger.client.model.ParameterProviderApplyParametersRequestEntity;
-import io.swagger.client.model.ParameterProviderEntity;
-import io.swagger.client.model.ParameterProviderParameterApplicationEntity;
-import io.swagger.client.model.ParameterProviderParameterFetchEntity;
-import io.swagger.client.model.ParameterProviderReferencingComponentsEntity;
-import io.swagger.client.model.PropertyDescriptorEntity;
-import io.swagger.client.model.VerifyConfigRequestEntity;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,9 +45,10 @@ public class ParameterProvidersApi {
 
     /**
      * Build call for analyzeConfiguration
-     * @param id The parameter provider id. (required)
-     * @param body The configuration analysis request. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param body                    The configuration analysis request. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -76,7 +58,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/config/analysis"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -86,46 +68,46 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call analyzeConfigurationValidateBeforeCall(String id, ConfigurationAnalysisEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling analyzeConfiguration(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling analyzeConfiguration(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = analyzeConfigurationCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -134,8 +116,8 @@ public class ParameterProvidersApi {
 
     /**
      * Performs analysis of the component&#39;s configuration, providing information about which attributes are referenced.
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id   The parameter provider id. (required)
      * @param body The configuration analysis request. (required)
      * @return ConfigurationAnalysisEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -147,23 +129,24 @@ public class ParameterProvidersApi {
 
     /**
      * Performs analysis of the component&#39;s configuration, providing information about which attributes are referenced.
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id   The parameter provider id. (required)
      * @param body The configuration analysis request. (required)
      * @return ApiResponse&lt;ConfigurationAnalysisEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ConfigurationAnalysisEntity> analyzeConfigurationWithHttpInfo(String id, ConfigurationAnalysisEntity body) throws ApiException {
         com.squareup.okhttp.Call call = analyzeConfigurationValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ConfigurationAnalysisEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConfigurationAnalysisEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Performs analysis of the component&#39;s configuration, providing information about which attributes are referenced. (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
-     * @param body The configuration analysis request. (required)
+     *
+     * @param id       The parameter provider id. (required)
+     * @param body     The configuration analysis request. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -190,14 +173,17 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = analyzeConfigurationValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ConfigurationAnalysisEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConfigurationAnalysisEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for clearState
-     * @param id The parameter provider id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -207,7 +193,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/state/clear-requests"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -217,41 +203,41 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call clearStateValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling clearState(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = clearStateCall(id, progressListener, progressRequestListener);
         return call;
@@ -260,7 +246,7 @@ public class ParameterProvidersApi {
 
     /**
      * Clears the state for a parameter provider
-     * 
+     *
      * @param id The parameter provider id. (required)
      * @return ComponentStateEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -272,21 +258,22 @@ public class ParameterProvidersApi {
 
     /**
      * Clears the state for a parameter provider
-     * 
+     *
      * @param id The parameter provider id. (required)
      * @return ApiResponse&lt;ComponentStateEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ComponentStateEntity> clearStateWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = clearStateValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ComponentStateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentStateEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Clears the state for a parameter provider (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id       The parameter provider id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -313,17 +300,20 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = clearStateValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ComponentStateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentStateEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteApplyParametersRequest
-     * @param providerId The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Apply Parameters Request (required)
+     *
+     * @param providerId                   The ID of the Parameter Provider (required)
+     * @param requestId                    The ID of the Apply Parameters Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -332,59 +322,59 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{providerId}/apply-parameters-requests/{requestId}"
-            .replaceAll("\\{" + "providerId" + "\\}", apiClient.escapeString(providerId.toString()))
-            .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
+                .replaceAll("\\{" + "providerId" + "\\}", apiClient.escapeString(providerId.toString()))
+                .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteApplyParametersRequestValidateBeforeCall(String providerId, String requestId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'providerId' is set
         if (providerId == null) {
             throw new ApiException("Missing the required parameter 'providerId' when calling deleteApplyParametersRequest(Async)");
         }
-        
+
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling deleteApplyParametersRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteApplyParametersRequestCall(providerId, requestId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -394,8 +384,9 @@ public class ParameterProvidersApi {
     /**
      * Deletes the Apply Parameters Request with the given ID
      * Deletes the Apply Parameters Request with the given ID. After a request is created via a POST to /nifi-api/parameter-providers/apply-parameters-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Apply process has completed. If the request is deleted before the request completes, then the Apply Parameters Request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param providerId The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Apply Parameters Request (required)
+     *
+     * @param providerId                   The ID of the Parameter Provider (required)
+     * @param requestId                    The ID of the Apply Parameters Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ParameterProviderApplyParametersRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -408,25 +399,28 @@ public class ParameterProvidersApi {
     /**
      * Deletes the Apply Parameters Request with the given ID
      * Deletes the Apply Parameters Request with the given ID. After a request is created via a POST to /nifi-api/parameter-providers/apply-parameters-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Apply process has completed. If the request is deleted before the request completes, then the Apply Parameters Request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param providerId The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Apply Parameters Request (required)
+     *
+     * @param providerId                   The ID of the Parameter Provider (required)
+     * @param requestId                    The ID of the Apply Parameters Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;ParameterProviderApplyParametersRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderApplyParametersRequestEntity> deleteApplyParametersRequestWithHttpInfo(String providerId, String requestId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteApplyParametersRequestValidateBeforeCall(providerId, requestId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the Apply Parameters Request with the given ID (asynchronously)
      * Deletes the Apply Parameters Request with the given ID. After a request is created via a POST to /nifi-api/parameter-providers/apply-parameters-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Apply process has completed. If the request is deleted before the request completes, then the Apply Parameters Request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param providerId The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Apply Parameters Request (required)
+     *
+     * @param providerId                   The ID of the Parameter Provider (required)
+     * @param requestId                    The ID of the Apply Parameters Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -452,15 +446,18 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = deleteApplyParametersRequestValidateBeforeCall(providerId, requestId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteVerificationRequest
-     * @param id The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Verification Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The ID of the Parameter Provider (required)
+     * @param requestId               The ID of the Verification Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -470,8 +467,8 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/config/verification-requests/{requestId}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -481,46 +478,46 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteVerificationRequestValidateBeforeCall(String id, String requestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteVerificationRequest(Async)");
         }
-        
+
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling deleteVerificationRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteVerificationRequestCall(id, requestId, progressListener, progressRequestListener);
         return call;
@@ -530,7 +527,8 @@ public class ParameterProvidersApi {
     /**
      * Deletes the Verification Request with the given ID
      * Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param id The ID of the Parameter Provider (required)
+     *
+     * @param id        The ID of the Parameter Provider (required)
      * @param requestId The ID of the Verification Request (required)
      * @return VerifyConfigRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -543,23 +541,26 @@ public class ParameterProvidersApi {
     /**
      * Deletes the Verification Request with the given ID
      * Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param id The ID of the Parameter Provider (required)
+     *
+     * @param id        The ID of the Parameter Provider (required)
      * @param requestId The ID of the Verification Request (required)
      * @return ApiResponse&lt;VerifyConfigRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VerifyConfigRequestEntity> deleteVerificationRequestWithHttpInfo(String id, String requestId) throws ApiException {
         com.squareup.okhttp.Call call = deleteVerificationRequestValidateBeforeCall(id, requestId, null, null);
-        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the Verification Request with the given ID (asynchronously)
      * Deletes the Verification Request with the given ID. After a request is created, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Verification process has completed. If the request is deleted before the request completes, then the Verification request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param id The ID of the Parameter Provider (required)
+     *
+     * @param id        The ID of the Parameter Provider (required)
      * @param requestId The ID of the Verification Request (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -585,15 +586,18 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = deleteVerificationRequestValidateBeforeCall(id, requestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for fetchParameters
-     * @param id The parameter provider id. (required)
-     * @param body The parameter fetch request. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param body                    The parameter fetch request. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -603,7 +607,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/parameters/fetch-requests"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -613,46 +617,46 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call fetchParametersValidateBeforeCall(String id, ParameterProviderParameterFetchEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling fetchParameters(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling fetchParameters(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = fetchParametersCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -661,8 +665,8 @@ public class ParameterProvidersApi {
 
     /**
      * Fetches and temporarily caches the parameters for a provider
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id   The parameter provider id. (required)
      * @param body The parameter fetch request. (required)
      * @return ParameterProviderEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -674,23 +678,24 @@ public class ParameterProvidersApi {
 
     /**
      * Fetches and temporarily caches the parameters for a provider
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id   The parameter provider id. (required)
      * @param body The parameter fetch request. (required)
      * @return ApiResponse&lt;ParameterProviderEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderEntity> fetchParametersWithHttpInfo(String id, ParameterProviderParameterFetchEntity body) throws ApiException {
         com.squareup.okhttp.Call call = fetchParametersValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Fetches and temporarily caches the parameters for a provider (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
-     * @param body The parameter fetch request. (required)
+     *
+     * @param id       The parameter provider id. (required)
+     * @param body     The parameter fetch request. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -717,14 +722,17 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = fetchParametersValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getParameterProvider
-     * @param id The parameter provider id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -734,7 +742,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -744,41 +752,41 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParameterProviderValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getParameterProvider(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getParameterProviderCall(id, progressListener, progressRequestListener);
         return call;
@@ -787,7 +795,7 @@ public class ParameterProvidersApi {
 
     /**
      * Gets a parameter provider
-     * 
+     *
      * @param id The parameter provider id. (required)
      * @return ParameterProviderEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -799,21 +807,22 @@ public class ParameterProvidersApi {
 
     /**
      * Gets a parameter provider
-     * 
+     *
      * @param id The parameter provider id. (required)
      * @return ApiResponse&lt;ParameterProviderEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderEntity> getParameterProviderWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getParameterProviderValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a parameter provider (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id       The parameter provider id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -840,15 +849,18 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = getParameterProviderValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getParameterProviderApplyParametersRequest
-     * @param providerId The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Apply Parameters Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param providerId              The ID of the Parameter Provider (required)
+     * @param requestId               The ID of the Apply Parameters Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -858,8 +870,8 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{providerId}/apply-parameters-requests/{requestId}"
-            .replaceAll("\\{" + "providerId" + "\\}", apiClient.escapeString(providerId.toString()))
-            .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
+                .replaceAll("\\{" + "providerId" + "\\}", apiClient.escapeString(providerId.toString()))
+                .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -869,46 +881,46 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParameterProviderApplyParametersRequestValidateBeforeCall(String providerId, String requestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'providerId' is set
         if (providerId == null) {
             throw new ApiException("Missing the required parameter 'providerId' when calling getParameterProviderApplyParametersRequest(Async)");
         }
-        
+
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getParameterProviderApplyParametersRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getParameterProviderApplyParametersRequestCall(providerId, requestId, progressListener, progressRequestListener);
         return call;
@@ -917,9 +929,10 @@ public class ParameterProvidersApi {
 
     /**
      * Returns the Apply Parameters Request with the given ID
-     * Returns the Apply Parameters Request with the given ID. Once an Apply Parameters Request has been created by performing a POST to /nifi-api/parameter-providers, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Apply Parameters Request with the given ID. Once an Apply Parameters Request has been created by performing a POST to /nifi-api/parameter-providers, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param providerId The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Apply Parameters Request (required)
+     * @param requestId  The ID of the Apply Parameters Request (required)
      * @return ParameterProviderApplyParametersRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -930,24 +943,27 @@ public class ParameterProvidersApi {
 
     /**
      * Returns the Apply Parameters Request with the given ID
-     * Returns the Apply Parameters Request with the given ID. Once an Apply Parameters Request has been created by performing a POST to /nifi-api/parameter-providers, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Apply Parameters Request with the given ID. Once an Apply Parameters Request has been created by performing a POST to /nifi-api/parameter-providers, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param providerId The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Apply Parameters Request (required)
+     * @param requestId  The ID of the Apply Parameters Request (required)
      * @return ApiResponse&lt;ParameterProviderApplyParametersRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderApplyParametersRequestEntity> getParameterProviderApplyParametersRequestWithHttpInfo(String providerId, String requestId) throws ApiException {
         com.squareup.okhttp.Call call = getParameterProviderApplyParametersRequestValidateBeforeCall(providerId, requestId, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Returns the Apply Parameters Request with the given ID (asynchronously)
-     * Returns the Apply Parameters Request with the given ID. Once an Apply Parameters Request has been created by performing a POST to /nifi-api/parameter-providers, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Apply Parameters Request with the given ID. Once an Apply Parameters Request has been created by performing a POST to /nifi-api/parameter-providers, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param providerId The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Apply Parameters Request (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param requestId  The ID of the Apply Parameters Request (required)
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -973,14 +989,17 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = getParameterProviderApplyParametersRequestValidateBeforeCall(providerId, requestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getParameterProviderReferences
-     * @param id The parameter provider id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -990,7 +1009,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/references"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1000,41 +1019,41 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParameterProviderReferencesValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getParameterProviderReferences(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getParameterProviderReferencesCall(id, progressListener, progressRequestListener);
         return call;
@@ -1043,7 +1062,7 @@ public class ParameterProvidersApi {
 
     /**
      * Gets all references to a parameter provider
-     * 
+     *
      * @param id The parameter provider id. (required)
      * @return ParameterProviderReferencingComponentsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1055,21 +1074,22 @@ public class ParameterProvidersApi {
 
     /**
      * Gets all references to a parameter provider
-     * 
+     *
      * @param id The parameter provider id. (required)
      * @return ApiResponse&lt;ParameterProviderReferencingComponentsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderReferencingComponentsEntity> getParameterProviderReferencesWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getParameterProviderReferencesValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderReferencingComponentsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderReferencingComponentsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all references to a parameter provider (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id       The parameter provider id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1096,15 +1116,18 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = getParameterProviderReferencesValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderReferencingComponentsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderReferencingComponentsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getPropertyDescriptor
-     * @param id The parameter provider id. (required)
-     * @param propertyName The property name. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param propertyName            The property name. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1114,58 +1137,58 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/descriptors"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (propertyName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("propertyName", propertyName));
+            localVarQueryParams.addAll(apiClient.parameterToPair("propertyName", propertyName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getPropertyDescriptorValidateBeforeCall(String id, String propertyName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getPropertyDescriptor(Async)");
         }
-        
+
         // verify the required parameter 'propertyName' is set
         if (propertyName == null) {
             throw new ApiException("Missing the required parameter 'propertyName' when calling getPropertyDescriptor(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getPropertyDescriptorCall(id, propertyName, progressListener, progressRequestListener);
         return call;
@@ -1174,8 +1197,8 @@ public class ParameterProvidersApi {
 
     /**
      * Gets a parameter provider property descriptor
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id           The parameter provider id. (required)
      * @param propertyName The property name. (required)
      * @return PropertyDescriptorEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1187,24 +1210,25 @@ public class ParameterProvidersApi {
 
     /**
      * Gets a parameter provider property descriptor
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id           The parameter provider id. (required)
      * @param propertyName The property name. (required)
      * @return ApiResponse&lt;PropertyDescriptorEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PropertyDescriptorEntity> getPropertyDescriptorWithHttpInfo(String id, String propertyName) throws ApiException {
         com.squareup.okhttp.Call call = getPropertyDescriptorValidateBeforeCall(id, propertyName, null, null);
-        Type localVarReturnType = new TypeToken<PropertyDescriptorEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PropertyDescriptorEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a parameter provider property descriptor (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id           The parameter provider id. (required)
      * @param propertyName The property name. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1230,14 +1254,17 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = getPropertyDescriptorValidateBeforeCall(id, propertyName, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PropertyDescriptorEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PropertyDescriptorEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getState
-     * @param id The parameter provider id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1247,7 +1274,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/state"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1257,41 +1284,41 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStateValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getState(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getStateCall(id, progressListener, progressRequestListener);
         return call;
@@ -1300,7 +1327,7 @@ public class ParameterProvidersApi {
 
     /**
      * Gets the state for a parameter provider
-     * 
+     *
      * @param id The parameter provider id. (required)
      * @return ComponentStateEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1312,21 +1339,22 @@ public class ParameterProvidersApi {
 
     /**
      * Gets the state for a parameter provider
-     * 
+     *
      * @param id The parameter provider id. (required)
      * @return ApiResponse&lt;ComponentStateEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ComponentStateEntity> getStateWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getStateValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ComponentStateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentStateEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the state for a parameter provider (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id       The parameter provider id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1353,15 +1381,18 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = getStateValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ComponentStateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentStateEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getVerificationRequest
-     * @param id The ID of the Parameter Provider (required)
-     * @param requestId The ID of the Verification Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The ID of the Parameter Provider (required)
+     * @param requestId               The ID of the Verification Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1371,8 +1402,8 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/config/verification-requests/{requestId}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1382,46 +1413,46 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getVerificationRequestValidateBeforeCall(String id, String requestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getVerificationRequest(Async)");
         }
-        
+
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getVerificationRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getVerificationRequestCall(id, requestId, progressListener, progressRequestListener);
         return call;
@@ -1430,8 +1461,9 @@ public class ParameterProvidersApi {
 
     /**
      * Returns the Verification Request with the given ID
-     * Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
-     * @param id The ID of the Parameter Provider (required)
+     * Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
+     * @param id        The ID of the Parameter Provider (required)
      * @param requestId The ID of the Verification Request (required)
      * @return VerifyConfigRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1443,24 +1475,27 @@ public class ParameterProvidersApi {
 
     /**
      * Returns the Verification Request with the given ID
-     * Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
-     * @param id The ID of the Parameter Provider (required)
+     * Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
+     * @param id        The ID of the Parameter Provider (required)
      * @param requestId The ID of the Verification Request (required)
      * @return ApiResponse&lt;VerifyConfigRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VerifyConfigRequestEntity> getVerificationRequestWithHttpInfo(String id, String requestId) throws ApiException {
         com.squareup.okhttp.Call call = getVerificationRequestValidateBeforeCall(id, requestId, null, null);
-        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Returns the Verification Request with the given ID (asynchronously)
-     * Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
-     * @param id The ID of the Parameter Provider (required)
+     * Returns the Verification Request with the given ID. Once an Verification Request has been created, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
+     * @param id        The ID of the Parameter Provider (required)
      * @param requestId The ID of the Verification Request (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1486,18 +1521,21 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = getVerificationRequestValidateBeforeCall(id, requestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for removeParameterProvider
-     * @param id The parameter provider id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The parameter provider id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -1506,57 +1544,57 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (version != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
+            localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeParameterProviderValidateBeforeCall(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling removeParameterProvider(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = removeParameterProviderCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -1565,10 +1603,10 @@ public class ParameterProvidersApi {
 
     /**
      * Deletes a parameter provider
-     * 
-     * @param id The parameter provider id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The parameter provider id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ParameterProviderEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1580,28 +1618,29 @@ public class ParameterProvidersApi {
 
     /**
      * Deletes a parameter provider
-     * 
-     * @param id The parameter provider id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The parameter provider id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;ParameterProviderEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderEntity> removeParameterProviderWithHttpInfo(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = removeParameterProviderValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes a parameter provider (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The parameter provider id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1627,15 +1666,18 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = removeParameterProviderValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for submitApplyParameters
-     * @param providerId  (required)
-     * @param body The apply parameters request. (required)
-     * @param progressListener Progress listener
+     *
+     * @param providerId              (required)
+     * @param body                    The apply parameters request. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1645,7 +1687,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{providerId}/apply-parameters-requests"
-            .replaceAll("\\{" + "providerId" + "\\}", apiClient.escapeString(providerId.toString()));
+                .replaceAll("\\{" + "providerId" + "\\}", apiClient.escapeString(providerId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1655,46 +1697,46 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call submitApplyParametersValidateBeforeCall(String providerId, ParameterProviderParameterApplicationEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'providerId' is set
         if (providerId == null) {
             throw new ApiException("Missing the required parameter 'providerId' when calling submitApplyParameters(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling submitApplyParameters(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = submitApplyParametersCall(providerId, body, progressListener, progressRequestListener);
         return call;
@@ -1704,8 +1746,9 @@ public class ParameterProvidersApi {
     /**
      * Initiate a request to apply the fetched parameters of a Parameter Provider
      * This will initiate the process of applying fetched parameters to all referencing Parameter Contexts. Changing the value of a Parameter may require that one or more components be stopped and restarted, so this action may take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterProviderApplyParametersRequestEntity, and the process of updating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-providers/apply-parameters-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-providers/apply-parameters-requests/{requestId}.
-     * @param providerId  (required)
-     * @param body The apply parameters request. (required)
+     *
+     * @param providerId (required)
+     * @param body       The apply parameters request. (required)
      * @return ParameterProviderApplyParametersRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1717,23 +1760,26 @@ public class ParameterProvidersApi {
     /**
      * Initiate a request to apply the fetched parameters of a Parameter Provider
      * This will initiate the process of applying fetched parameters to all referencing Parameter Contexts. Changing the value of a Parameter may require that one or more components be stopped and restarted, so this action may take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterProviderApplyParametersRequestEntity, and the process of updating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-providers/apply-parameters-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-providers/apply-parameters-requests/{requestId}.
-     * @param providerId  (required)
-     * @param body The apply parameters request. (required)
+     *
+     * @param providerId (required)
+     * @param body       The apply parameters request. (required)
      * @return ApiResponse&lt;ParameterProviderApplyParametersRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderApplyParametersRequestEntity> submitApplyParametersWithHttpInfo(String providerId, ParameterProviderParameterApplicationEntity body) throws ApiException {
         com.squareup.okhttp.Call call = submitApplyParametersValidateBeforeCall(providerId, body, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Initiate a request to apply the fetched parameters of a Parameter Provider (asynchronously)
      * This will initiate the process of applying fetched parameters to all referencing Parameter Contexts. Changing the value of a Parameter may require that one or more components be stopped and restarted, so this action may take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterProviderApplyParametersRequestEntity, and the process of updating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-providers/apply-parameters-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-providers/apply-parameters-requests/{requestId}.
-     * @param providerId  (required)
-     * @param body The apply parameters request. (required)
-     * @param callback The callback to be executed when the API call finishes
+     *
+     * @param providerId (required)
+     * @param body       The apply parameters request. (required)
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1759,15 +1805,18 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = submitApplyParametersValidateBeforeCall(providerId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderApplyParametersRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for submitConfigVerificationRequest
-     * @param id The parameter provider id. (required)
-     * @param body The parameter provider configuration verification request. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param body                    The parameter provider configuration verification request. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1777,7 +1826,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}/config/verification-requests"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1787,46 +1836,46 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call submitConfigVerificationRequestValidateBeforeCall(String id, VerifyConfigRequestEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling submitConfigVerificationRequest(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling submitConfigVerificationRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = submitConfigVerificationRequestCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1836,7 +1885,8 @@ public class ParameterProvidersApi {
     /**
      * Performs verification of the Parameter Provider&#39;s configuration
      * This will initiate the process of verifying a given Parameter Provider configuration. This may be a long-running task. As a result, this endpoint will immediately return a ParameterProviderConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-providers/{serviceId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-providers/{providerId}/verification-requests/{requestId}.
-     * @param id The parameter provider id. (required)
+     *
+     * @param id   The parameter provider id. (required)
      * @param body The parameter provider configuration verification request. (required)
      * @return VerifyConfigRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1849,22 +1899,25 @@ public class ParameterProvidersApi {
     /**
      * Performs verification of the Parameter Provider&#39;s configuration
      * This will initiate the process of verifying a given Parameter Provider configuration. This may be a long-running task. As a result, this endpoint will immediately return a ParameterProviderConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-providers/{serviceId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-providers/{providerId}/verification-requests/{requestId}.
-     * @param id The parameter provider id. (required)
+     *
+     * @param id   The parameter provider id. (required)
      * @param body The parameter provider configuration verification request. (required)
      * @return ApiResponse&lt;VerifyConfigRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VerifyConfigRequestEntity> submitConfigVerificationRequestWithHttpInfo(String id, VerifyConfigRequestEntity body) throws ApiException {
         com.squareup.okhttp.Call call = submitConfigVerificationRequestValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Performs verification of the Parameter Provider&#39;s configuration (asynchronously)
      * This will initiate the process of verifying a given Parameter Provider configuration. This may be a long-running task. As a result, this endpoint will immediately return a ParameterProviderConfigVerificationRequestEntity, and the process of performing the verification will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-providers/{serviceId}/verification-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-providers/{providerId}/verification-requests/{requestId}.
-     * @param id The parameter provider id. (required)
-     * @param body The parameter provider configuration verification request. (required)
+     *
+     * @param id       The parameter provider id. (required)
+     * @param body     The parameter provider configuration verification request. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1891,15 +1944,18 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = submitConfigVerificationRequestValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VerifyConfigRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateParameterProvider
-     * @param id The parameter provider id. (required)
-     * @param body The parameter provider configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The parameter provider id. (required)
+     * @param body                    The parameter provider configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1909,7 +1965,7 @@ public class ParameterProvidersApi {
 
         // create path and map variables
         String localVarPath = "/parameter-providers/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1919,46 +1975,46 @@ public class ParameterProvidersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateParameterProviderValidateBeforeCall(String id, ParameterProviderEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateParameterProvider(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateParameterProvider(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateParameterProviderCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1967,8 +2023,8 @@ public class ParameterProvidersApi {
 
     /**
      * Updates a parameter provider
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id   The parameter provider id. (required)
      * @param body The parameter provider configuration details. (required)
      * @return ParameterProviderEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1980,23 +2036,24 @@ public class ParameterProvidersApi {
 
     /**
      * Updates a parameter provider
-     * 
-     * @param id The parameter provider id. (required)
+     *
+     * @param id   The parameter provider id. (required)
      * @param body The parameter provider configuration details. (required)
      * @return ApiResponse&lt;ParameterProviderEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderEntity> updateParameterProviderWithHttpInfo(String id, ParameterProviderEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateParameterProviderValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates a parameter provider (asynchronously)
-     * 
-     * @param id The parameter provider id. (required)
-     * @param body The parameter provider configuration details. (required)
+     *
+     * @param id       The parameter provider id. (required)
+     * @param body     The parameter provider configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2023,7 +2080,8 @@ public class ParameterProvidersApi {
         }
 
         com.squareup.okhttp.Call call = updateParameterProviderValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

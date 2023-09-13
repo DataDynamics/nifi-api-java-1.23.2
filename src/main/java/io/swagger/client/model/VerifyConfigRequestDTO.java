@@ -13,397 +13,398 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ConfigVerificationResultDTO;
-import io.swagger.client.model.VerifyConfigUpdateStepDTO;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.threeten.bp.OffsetDateTime;
+
+import java.util.*;
 
 /**
  * VerifyConfigRequestDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VerifyConfigRequestDTO {
-  @SerializedName("requestId")
-  private String requestId = null;
+    @SerializedName("requestId")
+    private String requestId = null;
 
-  @SerializedName("uri")
-  private String uri = null;
+    @SerializedName("uri")
+    private String uri = null;
 
-  @SerializedName("submissionTime")
-  private OffsetDateTime submissionTime = null;
+    @SerializedName("submissionTime")
+    private OffsetDateTime submissionTime = null;
 
-  @SerializedName("lastUpdated")
-  private OffsetDateTime lastUpdated = null;
+    @SerializedName("lastUpdated")
+    private OffsetDateTime lastUpdated = null;
 
-  @SerializedName("complete")
-  private Boolean complete = null;
+    @SerializedName("complete")
+    private Boolean complete = null;
 
-  @SerializedName("failureReason")
-  private String failureReason = null;
+    @SerializedName("failureReason")
+    private String failureReason = null;
 
-  @SerializedName("percentCompleted")
-  private Integer percentCompleted = null;
+    @SerializedName("percentCompleted")
+    private Integer percentCompleted = null;
 
-  @SerializedName("state")
-  private String state = null;
+    @SerializedName("state")
+    private String state = null;
 
-  @SerializedName("updateSteps")
-  private List<VerifyConfigUpdateStepDTO> updateSteps = null;
+    @SerializedName("updateSteps")
+    private List<VerifyConfigUpdateStepDTO> updateSteps = null;
 
-  @SerializedName("componentId")
-  private String componentId = null;
+    @SerializedName("componentId")
+    private String componentId = null;
 
-  @SerializedName("properties")
-  private Map<String, String> properties = null;
+    @SerializedName("properties")
+    private Map<String, String> properties = null;
 
-  @SerializedName("attributes")
-  private Map<String, String> attributes = null;
+    @SerializedName("attributes")
+    private Map<String, String> attributes = null;
 
-  @SerializedName("results")
-  private List<ConfigVerificationResultDTO> results = null;
+    @SerializedName("results")
+    private List<ConfigVerificationResultDTO> results = null;
 
-  public VerifyConfigRequestDTO requestId(String requestId) {
-    this.requestId = requestId;
-    return this;
-  }
-
-   /**
-   * The ID of the request
-   * @return requestId
-  **/
-  @ApiModelProperty(value = "The ID of the request")
-  public String getRequestId() {
-    return requestId;
-  }
-
-  public void setRequestId(String requestId) {
-    this.requestId = requestId;
-  }
-
-  public VerifyConfigRequestDTO uri(String uri) {
-    this.uri = uri;
-    return this;
-  }
-
-   /**
-   * The URI for the request
-   * @return uri
-  **/
-  @ApiModelProperty(value = "The URI for the request")
-  public String getUri() {
-    return uri;
-  }
-
-  public void setUri(String uri) {
-    this.uri = uri;
-  }
-
-  public VerifyConfigRequestDTO submissionTime(OffsetDateTime submissionTime) {
-    this.submissionTime = submissionTime;
-    return this;
-  }
-
-   /**
-   * The timestamp of when the request was submitted
-   * @return submissionTime
-  **/
-  @ApiModelProperty(value = "The timestamp of when the request was submitted")
-  public OffsetDateTime getSubmissionTime() {
-    return submissionTime;
-  }
-
-  public void setSubmissionTime(OffsetDateTime submissionTime) {
-    this.submissionTime = submissionTime;
-  }
-
-  public VerifyConfigRequestDTO lastUpdated(OffsetDateTime lastUpdated) {
-    this.lastUpdated = lastUpdated;
-    return this;
-  }
-
-   /**
-   * The timestamp of when the request was last updated
-   * @return lastUpdated
-  **/
-  @ApiModelProperty(value = "The timestamp of when the request was last updated")
-  public OffsetDateTime getLastUpdated() {
-    return lastUpdated;
-  }
-
-  public void setLastUpdated(OffsetDateTime lastUpdated) {
-    this.lastUpdated = lastUpdated;
-  }
-
-  public VerifyConfigRequestDTO complete(Boolean complete) {
-    this.complete = complete;
-    return this;
-  }
-
-   /**
-   * Whether or not the request is completed
-   * @return complete
-  **/
-  @ApiModelProperty(value = "Whether or not the request is completed")
-  public Boolean isComplete() {
-    return complete;
-  }
-
-  public void setComplete(Boolean complete) {
-    this.complete = complete;
-  }
-
-  public VerifyConfigRequestDTO failureReason(String failureReason) {
-    this.failureReason = failureReason;
-    return this;
-  }
-
-   /**
-   * The reason for the request failing, or null if the request has not failed
-   * @return failureReason
-  **/
-  @ApiModelProperty(value = "The reason for the request failing, or null if the request has not failed")
-  public String getFailureReason() {
-    return failureReason;
-  }
-
-  public void setFailureReason(String failureReason) {
-    this.failureReason = failureReason;
-  }
-
-  public VerifyConfigRequestDTO percentCompleted(Integer percentCompleted) {
-    this.percentCompleted = percentCompleted;
-    return this;
-  }
-
-   /**
-   * A value between 0 and 100 (inclusive) indicating how close the request is to completion
-   * @return percentCompleted
-  **/
-  @ApiModelProperty(value = "A value between 0 and 100 (inclusive) indicating how close the request is to completion")
-  public Integer getPercentCompleted() {
-    return percentCompleted;
-  }
-
-  public void setPercentCompleted(Integer percentCompleted) {
-    this.percentCompleted = percentCompleted;
-  }
-
-  public VerifyConfigRequestDTO state(String state) {
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * A description of the current state of the request
-   * @return state
-  **/
-  @ApiModelProperty(value = "A description of the current state of the request")
-  public String getState() {
-    return state;
-  }
-
-  public void setState(String state) {
-    this.state = state;
-  }
-
-  public VerifyConfigRequestDTO updateSteps(List<VerifyConfigUpdateStepDTO> updateSteps) {
-    this.updateSteps = updateSteps;
-    return this;
-  }
-
-  public VerifyConfigRequestDTO addUpdateStepsItem(VerifyConfigUpdateStepDTO updateStepsItem) {
-    if (this.updateSteps == null) {
-      this.updateSteps = new ArrayList<VerifyConfigUpdateStepDTO>();
+    public VerifyConfigRequestDTO requestId(String requestId) {
+        this.requestId = requestId;
+        return this;
     }
-    this.updateSteps.add(updateStepsItem);
-    return this;
-  }
 
-   /**
-   * The steps that are required in order to complete the request, along with the status of each
-   * @return updateSteps
-  **/
-  @ApiModelProperty(value = "The steps that are required in order to complete the request, along with the status of each")
-  public List<VerifyConfigUpdateStepDTO> getUpdateSteps() {
-    return updateSteps;
-  }
-
-  public void setUpdateSteps(List<VerifyConfigUpdateStepDTO> updateSteps) {
-    this.updateSteps = updateSteps;
-  }
-
-  public VerifyConfigRequestDTO componentId(String componentId) {
-    this.componentId = componentId;
-    return this;
-  }
-
-   /**
-   * The ID of the component whose configuration was verified
-   * @return componentId
-  **/
-  @ApiModelProperty(value = "The ID of the component whose configuration was verified")
-  public String getComponentId() {
-    return componentId;
-  }
-
-  public void setComponentId(String componentId) {
-    this.componentId = componentId;
-  }
-
-  public VerifyConfigRequestDTO properties(Map<String, String> properties) {
-    this.properties = properties;
-    return this;
-  }
-
-  public VerifyConfigRequestDTO putPropertiesItem(String key, String propertiesItem) {
-    if (this.properties == null) {
-      this.properties = new HashMap<String, String>();
+    /**
+     * The ID of the request
+     *
+     * @return requestId
+     **/
+    @ApiModelProperty(value = "The ID of the request")
+    public String getRequestId() {
+        return requestId;
     }
-    this.properties.put(key, propertiesItem);
-    return this;
-  }
 
-   /**
-   * The configured component properties
-   * @return properties
-  **/
-  @ApiModelProperty(value = "The configured component properties")
-  public Map<String, String> getProperties() {
-    return properties;
-  }
-
-  public void setProperties(Map<String, String> properties) {
-    this.properties = properties;
-  }
-
-  public VerifyConfigRequestDTO attributes(Map<String, String> attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-  public VerifyConfigRequestDTO putAttributesItem(String key, String attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<String, String>();
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
     }
-    this.attributes.put(key, attributesItem);
-    return this;
-  }
 
-   /**
-   * FlowFile Attributes that should be used to evaluate Expression Language for resolving property values
-   * @return attributes
-  **/
-  @ApiModelProperty(value = "FlowFile Attributes that should be used to evaluate Expression Language for resolving property values")
-  public Map<String, String> getAttributes() {
-    return attributes;
-  }
-
-  public void setAttributes(Map<String, String> attributes) {
-    this.attributes = attributes;
-  }
-
-  public VerifyConfigRequestDTO results(List<ConfigVerificationResultDTO> results) {
-    this.results = results;
-    return this;
-  }
-
-  public VerifyConfigRequestDTO addResultsItem(ConfigVerificationResultDTO resultsItem) {
-    if (this.results == null) {
-      this.results = new ArrayList<ConfigVerificationResultDTO>();
+    public VerifyConfigRequestDTO uri(String uri) {
+        this.uri = uri;
+        return this;
     }
-    this.results.add(resultsItem);
-    return this;
-  }
 
-   /**
-   * The Results of the verification
-   * @return results
-  **/
-  @ApiModelProperty(value = "The Results of the verification")
-  public List<ConfigVerificationResultDTO> getResults() {
-    return results;
-  }
-
-  public void setResults(List<ConfigVerificationResultDTO> results) {
-    this.results = results;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The URI for the request
+     *
+     * @return uri
+     **/
+    @ApiModelProperty(value = "The URI for the request")
+    public String getUri() {
+        return uri;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setUri(String uri) {
+        this.uri = uri;
     }
-    VerifyConfigRequestDTO verifyConfigRequestDTO = (VerifyConfigRequestDTO) o;
-    return Objects.equals(this.requestId, verifyConfigRequestDTO.requestId) &&
-        Objects.equals(this.uri, verifyConfigRequestDTO.uri) &&
-        Objects.equals(this.submissionTime, verifyConfigRequestDTO.submissionTime) &&
-        Objects.equals(this.lastUpdated, verifyConfigRequestDTO.lastUpdated) &&
-        Objects.equals(this.complete, verifyConfigRequestDTO.complete) &&
-        Objects.equals(this.failureReason, verifyConfigRequestDTO.failureReason) &&
-        Objects.equals(this.percentCompleted, verifyConfigRequestDTO.percentCompleted) &&
-        Objects.equals(this.state, verifyConfigRequestDTO.state) &&
-        Objects.equals(this.updateSteps, verifyConfigRequestDTO.updateSteps) &&
-        Objects.equals(this.componentId, verifyConfigRequestDTO.componentId) &&
-        Objects.equals(this.properties, verifyConfigRequestDTO.properties) &&
-        Objects.equals(this.attributes, verifyConfigRequestDTO.attributes) &&
-        Objects.equals(this.results, verifyConfigRequestDTO.results);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(requestId, uri, submissionTime, lastUpdated, complete, failureReason, percentCompleted, state, updateSteps, componentId, properties, attributes, results);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VerifyConfigRequestDTO {\n");
-    
-    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
-    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
-    sb.append("    submissionTime: ").append(toIndentedString(submissionTime)).append("\n");
-    sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
-    sb.append("    complete: ").append(toIndentedString(complete)).append("\n");
-    sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
-    sb.append("    percentCompleted: ").append(toIndentedString(percentCompleted)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    updateSteps: ").append(toIndentedString(updateSteps)).append("\n");
-    sb.append("    componentId: ").append(toIndentedString(componentId)).append("\n");
-    sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
-    sb.append("    results: ").append(toIndentedString(results)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public VerifyConfigRequestDTO submissionTime(OffsetDateTime submissionTime) {
+        this.submissionTime = submissionTime;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The timestamp of when the request was submitted
+     *
+     * @return submissionTime
+     **/
+    @ApiModelProperty(value = "The timestamp of when the request was submitted")
+    public OffsetDateTime getSubmissionTime() {
+        return submissionTime;
+    }
+
+    public void setSubmissionTime(OffsetDateTime submissionTime) {
+        this.submissionTime = submissionTime;
+    }
+
+    public VerifyConfigRequestDTO lastUpdated(OffsetDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+        return this;
+    }
+
+    /**
+     * The timestamp of when the request was last updated
+     *
+     * @return lastUpdated
+     **/
+    @ApiModelProperty(value = "The timestamp of when the request was last updated")
+    public OffsetDateTime getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(OffsetDateTime lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    public VerifyConfigRequestDTO complete(Boolean complete) {
+        this.complete = complete;
+        return this;
+    }
+
+    /**
+     * Whether or not the request is completed
+     *
+     * @return complete
+     **/
+    @ApiModelProperty(value = "Whether or not the request is completed")
+    public Boolean isComplete() {
+        return complete;
+    }
+
+    public void setComplete(Boolean complete) {
+        this.complete = complete;
+    }
+
+    public VerifyConfigRequestDTO failureReason(String failureReason) {
+        this.failureReason = failureReason;
+        return this;
+    }
+
+    /**
+     * The reason for the request failing, or null if the request has not failed
+     *
+     * @return failureReason
+     **/
+    @ApiModelProperty(value = "The reason for the request failing, or null if the request has not failed")
+    public String getFailureReason() {
+        return failureReason;
+    }
+
+    public void setFailureReason(String failureReason) {
+        this.failureReason = failureReason;
+    }
+
+    public VerifyConfigRequestDTO percentCompleted(Integer percentCompleted) {
+        this.percentCompleted = percentCompleted;
+        return this;
+    }
+
+    /**
+     * A value between 0 and 100 (inclusive) indicating how close the request is to completion
+     *
+     * @return percentCompleted
+     **/
+    @ApiModelProperty(value = "A value between 0 and 100 (inclusive) indicating how close the request is to completion")
+    public Integer getPercentCompleted() {
+        return percentCompleted;
+    }
+
+    public void setPercentCompleted(Integer percentCompleted) {
+        this.percentCompleted = percentCompleted;
+    }
+
+    public VerifyConfigRequestDTO state(String state) {
+        this.state = state;
+        return this;
+    }
+
+    /**
+     * A description of the current state of the request
+     *
+     * @return state
+     **/
+    @ApiModelProperty(value = "A description of the current state of the request")
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public VerifyConfigRequestDTO updateSteps(List<VerifyConfigUpdateStepDTO> updateSteps) {
+        this.updateSteps = updateSteps;
+        return this;
+    }
+
+    public VerifyConfigRequestDTO addUpdateStepsItem(VerifyConfigUpdateStepDTO updateStepsItem) {
+        if (this.updateSteps == null) {
+            this.updateSteps = new ArrayList<VerifyConfigUpdateStepDTO>();
+        }
+        this.updateSteps.add(updateStepsItem);
+        return this;
+    }
+
+    /**
+     * The steps that are required in order to complete the request, along with the status of each
+     *
+     * @return updateSteps
+     **/
+    @ApiModelProperty(value = "The steps that are required in order to complete the request, along with the status of each")
+    public List<VerifyConfigUpdateStepDTO> getUpdateSteps() {
+        return updateSteps;
+    }
+
+    public void setUpdateSteps(List<VerifyConfigUpdateStepDTO> updateSteps) {
+        this.updateSteps = updateSteps;
+    }
+
+    public VerifyConfigRequestDTO componentId(String componentId) {
+        this.componentId = componentId;
+        return this;
+    }
+
+    /**
+     * The ID of the component whose configuration was verified
+     *
+     * @return componentId
+     **/
+    @ApiModelProperty(value = "The ID of the component whose configuration was verified")
+    public String getComponentId() {
+        return componentId;
+    }
+
+    public void setComponentId(String componentId) {
+        this.componentId = componentId;
+    }
+
+    public VerifyConfigRequestDTO properties(Map<String, String> properties) {
+        this.properties = properties;
+        return this;
+    }
+
+    public VerifyConfigRequestDTO putPropertiesItem(String key, String propertiesItem) {
+        if (this.properties == null) {
+            this.properties = new HashMap<String, String>();
+        }
+        this.properties.put(key, propertiesItem);
+        return this;
+    }
+
+    /**
+     * The configured component properties
+     *
+     * @return properties
+     **/
+    @ApiModelProperty(value = "The configured component properties")
+    public Map<String, String> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Map<String, String> properties) {
+        this.properties = properties;
+    }
+
+    public VerifyConfigRequestDTO attributes(Map<String, String> attributes) {
+        this.attributes = attributes;
+        return this;
+    }
+
+    public VerifyConfigRequestDTO putAttributesItem(String key, String attributesItem) {
+        if (this.attributes == null) {
+            this.attributes = new HashMap<String, String>();
+        }
+        this.attributes.put(key, attributesItem);
+        return this;
+    }
+
+    /**
+     * FlowFile Attributes that should be used to evaluate Expression Language for resolving property values
+     *
+     * @return attributes
+     **/
+    @ApiModelProperty(value = "FlowFile Attributes that should be used to evaluate Expression Language for resolving property values")
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(Map<String, String> attributes) {
+        this.attributes = attributes;
+    }
+
+    public VerifyConfigRequestDTO results(List<ConfigVerificationResultDTO> results) {
+        this.results = results;
+        return this;
+    }
+
+    public VerifyConfigRequestDTO addResultsItem(ConfigVerificationResultDTO resultsItem) {
+        if (this.results == null) {
+            this.results = new ArrayList<ConfigVerificationResultDTO>();
+        }
+        this.results.add(resultsItem);
+        return this;
+    }
+
+    /**
+     * The Results of the verification
+     *
+     * @return results
+     **/
+    @ApiModelProperty(value = "The Results of the verification")
+    public List<ConfigVerificationResultDTO> getResults() {
+        return results;
+    }
+
+    public void setResults(List<ConfigVerificationResultDTO> results) {
+        this.results = results;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VerifyConfigRequestDTO verifyConfigRequestDTO = (VerifyConfigRequestDTO) o;
+        return Objects.equals(this.requestId, verifyConfigRequestDTO.requestId) &&
+                Objects.equals(this.uri, verifyConfigRequestDTO.uri) &&
+                Objects.equals(this.submissionTime, verifyConfigRequestDTO.submissionTime) &&
+                Objects.equals(this.lastUpdated, verifyConfigRequestDTO.lastUpdated) &&
+                Objects.equals(this.complete, verifyConfigRequestDTO.complete) &&
+                Objects.equals(this.failureReason, verifyConfigRequestDTO.failureReason) &&
+                Objects.equals(this.percentCompleted, verifyConfigRequestDTO.percentCompleted) &&
+                Objects.equals(this.state, verifyConfigRequestDTO.state) &&
+                Objects.equals(this.updateSteps, verifyConfigRequestDTO.updateSteps) &&
+                Objects.equals(this.componentId, verifyConfigRequestDTO.componentId) &&
+                Objects.equals(this.properties, verifyConfigRequestDTO.properties) &&
+                Objects.equals(this.attributes, verifyConfigRequestDTO.attributes) &&
+                Objects.equals(this.results, verifyConfigRequestDTO.results);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(requestId, uri, submissionTime, lastUpdated, complete, failureReason, percentCompleted, state, updateSteps, componentId, properties, attributes, results);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VerifyConfigRequestDTO {\n");
+
+        sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+        sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+        sb.append("    submissionTime: ").append(toIndentedString(submissionTime)).append("\n");
+        sb.append("    lastUpdated: ").append(toIndentedString(lastUpdated)).append("\n");
+        sb.append("    complete: ").append(toIndentedString(complete)).append("\n");
+        sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+        sb.append("    percentCompleted: ").append(toIndentedString(percentCompleted)).append("\n");
+        sb.append("    state: ").append(toIndentedString(state)).append("\n");
+        sb.append("    updateSteps: ").append(toIndentedString(updateSteps)).append("\n");
+        sb.append("    componentId: ").append(toIndentedString(componentId)).append("\n");
+        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+        sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+        sb.append("    results: ").append(toIndentedString(results)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

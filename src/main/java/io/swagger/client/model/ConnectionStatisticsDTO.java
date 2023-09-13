@@ -13,163 +13,159 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ConnectionStatisticsSnapshotDTO;
-import io.swagger.client.model.NodeConnectionStatisticsSnapshotDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ConnectionStatisticsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ConnectionStatisticsDTO {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("statsLastRefreshed")
-  private String statsLastRefreshed = null;
+    @SerializedName("statsLastRefreshed")
+    private String statsLastRefreshed = null;
 
-  @SerializedName("aggregateSnapshot")
-  private ConnectionStatisticsSnapshotDTO aggregateSnapshot = null;
+    @SerializedName("aggregateSnapshot")
+    private ConnectionStatisticsSnapshotDTO aggregateSnapshot = null;
 
-  @SerializedName("nodeSnapshots")
-  private List<NodeConnectionStatisticsSnapshotDTO> nodeSnapshots = null;
+    @SerializedName("nodeSnapshots")
+    private List<NodeConnectionStatisticsSnapshotDTO> nodeSnapshots = null;
 
-  public ConnectionStatisticsDTO id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The ID of the connection
-   * @return id
-  **/
-  @ApiModelProperty(value = "The ID of the connection")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ConnectionStatisticsDTO statsLastRefreshed(String statsLastRefreshed) {
-    this.statsLastRefreshed = statsLastRefreshed;
-    return this;
-  }
-
-   /**
-   * The timestamp of when the stats were last refreshed
-   * @return statsLastRefreshed
-  **/
-  @ApiModelProperty(value = "The timestamp of when the stats were last refreshed")
-  public String getStatsLastRefreshed() {
-    return statsLastRefreshed;
-  }
-
-  public void setStatsLastRefreshed(String statsLastRefreshed) {
-    this.statsLastRefreshed = statsLastRefreshed;
-  }
-
-  public ConnectionStatisticsDTO aggregateSnapshot(ConnectionStatisticsSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-    return this;
-  }
-
-   /**
-   * The status snapshot that represents the aggregate stats of the cluster
-   * @return aggregateSnapshot
-  **/
-  @ApiModelProperty(value = "The status snapshot that represents the aggregate stats of the cluster")
-  public ConnectionStatisticsSnapshotDTO getAggregateSnapshot() {
-    return aggregateSnapshot;
-  }
-
-  public void setAggregateSnapshot(ConnectionStatisticsSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-  }
-
-  public ConnectionStatisticsDTO nodeSnapshots(List<NodeConnectionStatisticsSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-    return this;
-  }
-
-  public ConnectionStatisticsDTO addNodeSnapshotsItem(NodeConnectionStatisticsSnapshotDTO nodeSnapshotsItem) {
-    if (this.nodeSnapshots == null) {
-      this.nodeSnapshots = new ArrayList<NodeConnectionStatisticsSnapshotDTO>();
+    public ConnectionStatisticsDTO id(String id) {
+        this.id = id;
+        return this;
     }
-    this.nodeSnapshots.add(nodeSnapshotsItem);
-    return this;
-  }
 
-   /**
-   * A list of status snapshots for each node
-   * @return nodeSnapshots
-  **/
-  @ApiModelProperty(value = "A list of status snapshots for each node")
-  public List<NodeConnectionStatisticsSnapshotDTO> getNodeSnapshots() {
-    return nodeSnapshots;
-  }
-
-  public void setNodeSnapshots(List<NodeConnectionStatisticsSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The ID of the connection
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The ID of the connection")
+    public String getId() {
+        return id;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setId(String id) {
+        this.id = id;
     }
-    ConnectionStatisticsDTO connectionStatisticsDTO = (ConnectionStatisticsDTO) o;
-    return Objects.equals(this.id, connectionStatisticsDTO.id) &&
-        Objects.equals(this.statsLastRefreshed, connectionStatisticsDTO.statsLastRefreshed) &&
-        Objects.equals(this.aggregateSnapshot, connectionStatisticsDTO.aggregateSnapshot) &&
-        Objects.equals(this.nodeSnapshots, connectionStatisticsDTO.nodeSnapshots);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, statsLastRefreshed, aggregateSnapshot, nodeSnapshots);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ConnectionStatisticsDTO {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    statsLastRefreshed: ").append(toIndentedString(statsLastRefreshed)).append("\n");
-    sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
-    sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public ConnectionStatisticsDTO statsLastRefreshed(String statsLastRefreshed) {
+        this.statsLastRefreshed = statsLastRefreshed;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The timestamp of when the stats were last refreshed
+     *
+     * @return statsLastRefreshed
+     **/
+    @ApiModelProperty(value = "The timestamp of when the stats were last refreshed")
+    public String getStatsLastRefreshed() {
+        return statsLastRefreshed;
+    }
+
+    public void setStatsLastRefreshed(String statsLastRefreshed) {
+        this.statsLastRefreshed = statsLastRefreshed;
+    }
+
+    public ConnectionStatisticsDTO aggregateSnapshot(ConnectionStatisticsSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+        return this;
+    }
+
+    /**
+     * The status snapshot that represents the aggregate stats of the cluster
+     *
+     * @return aggregateSnapshot
+     **/
+    @ApiModelProperty(value = "The status snapshot that represents the aggregate stats of the cluster")
+    public ConnectionStatisticsSnapshotDTO getAggregateSnapshot() {
+        return aggregateSnapshot;
+    }
+
+    public void setAggregateSnapshot(ConnectionStatisticsSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+    }
+
+    public ConnectionStatisticsDTO nodeSnapshots(List<NodeConnectionStatisticsSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+        return this;
+    }
+
+    public ConnectionStatisticsDTO addNodeSnapshotsItem(NodeConnectionStatisticsSnapshotDTO nodeSnapshotsItem) {
+        if (this.nodeSnapshots == null) {
+            this.nodeSnapshots = new ArrayList<NodeConnectionStatisticsSnapshotDTO>();
+        }
+        this.nodeSnapshots.add(nodeSnapshotsItem);
+        return this;
+    }
+
+    /**
+     * A list of status snapshots for each node
+     *
+     * @return nodeSnapshots
+     **/
+    @ApiModelProperty(value = "A list of status snapshots for each node")
+    public List<NodeConnectionStatisticsSnapshotDTO> getNodeSnapshots() {
+        return nodeSnapshots;
+    }
+
+    public void setNodeSnapshots(List<NodeConnectionStatisticsSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ConnectionStatisticsDTO connectionStatisticsDTO = (ConnectionStatisticsDTO) o;
+        return Objects.equals(this.id, connectionStatisticsDTO.id) &&
+                Objects.equals(this.statsLastRefreshed, connectionStatisticsDTO.statsLastRefreshed) &&
+                Objects.equals(this.aggregateSnapshot, connectionStatisticsDTO.aggregateSnapshot) &&
+                Objects.equals(this.nodeSnapshots, connectionStatisticsDTO.nodeSnapshots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, statsLastRefreshed, aggregateSnapshot, nodeSnapshots);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ConnectionStatisticsDTO {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    statsLastRefreshed: ").append(toIndentedString(statsLastRefreshed)).append("\n");
+        sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
+        sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

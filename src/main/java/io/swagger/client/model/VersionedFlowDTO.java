@@ -13,267 +13,270 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * VersionedFlowDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VersionedFlowDTO {
-  @SerializedName("registryId")
-  private String registryId = null;
+    @SerializedName("registryId")
+    private String registryId = null;
 
-  @SerializedName("bucketId")
-  private String bucketId = null;
+    @SerializedName("bucketId")
+    private String bucketId = null;
 
-  @SerializedName("flowId")
-  private String flowId = null;
+    @SerializedName("flowId")
+    private String flowId = null;
 
-  @SerializedName("flowName")
-  private String flowName = null;
+    @SerializedName("flowName")
+    private String flowName = null;
 
-  @SerializedName("description")
-  private String description = null;
+    @SerializedName("description")
+    private String description = null;
 
-  @SerializedName("comments")
-  private String comments = null;
+    @SerializedName("comments")
+    private String comments = null;
+    @SerializedName("action")
+    private ActionEnum action = null;
 
-  /**
-   * The action being performed
-   */
-  @JsonAdapter(ActionEnum.Adapter.class)
-  public enum ActionEnum {
-    COMMIT("COMMIT"),
-    
-    FORCE_COMMIT("FORCE_COMMIT");
-
-    private String value;
-
-    ActionEnum(String value) {
-      this.value = value;
+    public VersionedFlowDTO registryId(String registryId) {
+        this.registryId = registryId;
+        return this;
     }
 
-    public String getValue() {
-      return value;
+    /**
+     * The ID of the registry that the flow is tracked to
+     *
+     * @return registryId
+     **/
+    @ApiModelProperty(value = "The ID of the registry that the flow is tracked to")
+    public String getRegistryId() {
+        return registryId;
+    }
+
+    public void setRegistryId(String registryId) {
+        this.registryId = registryId;
+    }
+
+    public VersionedFlowDTO bucketId(String bucketId) {
+        this.bucketId = bucketId;
+        return this;
+    }
+
+    /**
+     * The ID of the bucket where the flow is stored
+     *
+     * @return bucketId
+     **/
+    @ApiModelProperty(value = "The ID of the bucket where the flow is stored")
+    public String getBucketId() {
+        return bucketId;
+    }
+
+    public void setBucketId(String bucketId) {
+        this.bucketId = bucketId;
+    }
+
+    public VersionedFlowDTO flowId(String flowId) {
+        this.flowId = flowId;
+        return this;
+    }
+
+    /**
+     * The ID of the flow
+     *
+     * @return flowId
+     **/
+    @ApiModelProperty(value = "The ID of the flow")
+    public String getFlowId() {
+        return flowId;
+    }
+
+    public void setFlowId(String flowId) {
+        this.flowId = flowId;
+    }
+
+    public VersionedFlowDTO flowName(String flowName) {
+        this.flowName = flowName;
+        return this;
+    }
+
+    /**
+     * The name of the flow
+     *
+     * @return flowName
+     **/
+    @ApiModelProperty(value = "The name of the flow")
+    public String getFlowName() {
+        return flowName;
+    }
+
+    public void setFlowName(String flowName) {
+        this.flowName = flowName;
+    }
+
+    public VersionedFlowDTO description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * A description of the flow
+     *
+     * @return description
+     **/
+    @ApiModelProperty(value = "A description of the flow")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public VersionedFlowDTO comments(String comments) {
+        this.comments = comments;
+        return this;
+    }
+
+    /**
+     * Comments for the changeset
+     *
+     * @return comments
+     **/
+    @ApiModelProperty(value = "Comments for the changeset")
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public VersionedFlowDTO action(ActionEnum action) {
+        this.action = action;
+        return this;
+    }
+
+    /**
+     * The action being performed
+     *
+     * @return action
+     **/
+    @ApiModelProperty(value = "The action being performed")
+    public ActionEnum getAction() {
+        return action;
+    }
+
+    public void setAction(ActionEnum action) {
+        this.action = action;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VersionedFlowDTO versionedFlowDTO = (VersionedFlowDTO) o;
+        return Objects.equals(this.registryId, versionedFlowDTO.registryId) &&
+                Objects.equals(this.bucketId, versionedFlowDTO.bucketId) &&
+                Objects.equals(this.flowId, versionedFlowDTO.flowId) &&
+                Objects.equals(this.flowName, versionedFlowDTO.flowName) &&
+                Objects.equals(this.description, versionedFlowDTO.description) &&
+                Objects.equals(this.comments, versionedFlowDTO.comments) &&
+                Objects.equals(this.action, versionedFlowDTO.action);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(registryId, bucketId, flowId, flowName, description, comments, action);
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VersionedFlowDTO {\n");
+
+        sb.append("    registryId: ").append(toIndentedString(registryId)).append("\n");
+        sb.append("    bucketId: ").append(toIndentedString(bucketId)).append("\n");
+        sb.append("    flowId: ").append(toIndentedString(flowId)).append("\n");
+        sb.append("    flowName: ").append(toIndentedString(flowName)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+        sb.append("    action: ").append(toIndentedString(action)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
-    public static ActionEnum fromValue(String text) {
-      for (ActionEnum b : ActionEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
         }
-      }
-      return null;
+        return o.toString().replace("\n", "\n    ");
     }
 
-    public static class Adapter extends TypeAdapter<ActionEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+    /**
+     * The action being performed
+     */
+    @JsonAdapter(ActionEnum.Adapter.class)
+    public enum ActionEnum {
+        COMMIT("COMMIT"),
 
-      @Override
-      public ActionEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ActionEnum.fromValue(String.valueOf(value));
-      }
+        FORCE_COMMIT("FORCE_COMMIT");
+
+        private String value;
+
+        ActionEnum(String value) {
+            this.value = value;
+        }
+
+        public static ActionEnum fromValue(String text) {
+            for (ActionEnum b : ActionEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<ActionEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ActionEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ActionEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ActionEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
-  }
-
-  @SerializedName("action")
-  private ActionEnum action = null;
-
-  public VersionedFlowDTO registryId(String registryId) {
-    this.registryId = registryId;
-    return this;
-  }
-
-   /**
-   * The ID of the registry that the flow is tracked to
-   * @return registryId
-  **/
-  @ApiModelProperty(value = "The ID of the registry that the flow is tracked to")
-  public String getRegistryId() {
-    return registryId;
-  }
-
-  public void setRegistryId(String registryId) {
-    this.registryId = registryId;
-  }
-
-  public VersionedFlowDTO bucketId(String bucketId) {
-    this.bucketId = bucketId;
-    return this;
-  }
-
-   /**
-   * The ID of the bucket where the flow is stored
-   * @return bucketId
-  **/
-  @ApiModelProperty(value = "The ID of the bucket where the flow is stored")
-  public String getBucketId() {
-    return bucketId;
-  }
-
-  public void setBucketId(String bucketId) {
-    this.bucketId = bucketId;
-  }
-
-  public VersionedFlowDTO flowId(String flowId) {
-    this.flowId = flowId;
-    return this;
-  }
-
-   /**
-   * The ID of the flow
-   * @return flowId
-  **/
-  @ApiModelProperty(value = "The ID of the flow")
-  public String getFlowId() {
-    return flowId;
-  }
-
-  public void setFlowId(String flowId) {
-    this.flowId = flowId;
-  }
-
-  public VersionedFlowDTO flowName(String flowName) {
-    this.flowName = flowName;
-    return this;
-  }
-
-   /**
-   * The name of the flow
-   * @return flowName
-  **/
-  @ApiModelProperty(value = "The name of the flow")
-  public String getFlowName() {
-    return flowName;
-  }
-
-  public void setFlowName(String flowName) {
-    this.flowName = flowName;
-  }
-
-  public VersionedFlowDTO description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * A description of the flow
-   * @return description
-  **/
-  @ApiModelProperty(value = "A description of the flow")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public VersionedFlowDTO comments(String comments) {
-    this.comments = comments;
-    return this;
-  }
-
-   /**
-   * Comments for the changeset
-   * @return comments
-  **/
-  @ApiModelProperty(value = "Comments for the changeset")
-  public String getComments() {
-    return comments;
-  }
-
-  public void setComments(String comments) {
-    this.comments = comments;
-  }
-
-  public VersionedFlowDTO action(ActionEnum action) {
-    this.action = action;
-    return this;
-  }
-
-   /**
-   * The action being performed
-   * @return action
-  **/
-  @ApiModelProperty(value = "The action being performed")
-  public ActionEnum getAction() {
-    return action;
-  }
-
-  public void setAction(ActionEnum action) {
-    this.action = action;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    VersionedFlowDTO versionedFlowDTO = (VersionedFlowDTO) o;
-    return Objects.equals(this.registryId, versionedFlowDTO.registryId) &&
-        Objects.equals(this.bucketId, versionedFlowDTO.bucketId) &&
-        Objects.equals(this.flowId, versionedFlowDTO.flowId) &&
-        Objects.equals(this.flowName, versionedFlowDTO.flowName) &&
-        Objects.equals(this.description, versionedFlowDTO.description) &&
-        Objects.equals(this.comments, versionedFlowDTO.comments) &&
-        Objects.equals(this.action, versionedFlowDTO.action);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(registryId, bucketId, flowId, flowName, description, comments, action);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VersionedFlowDTO {\n");
-    
-    sb.append("    registryId: ").append(toIndentedString(registryId)).append("\n");
-    sb.append("    bucketId: ").append(toIndentedString(bucketId)).append("\n");
-    sb.append("    flowId: ").append(toIndentedString(flowId)).append("\n");
-    sb.append("    flowName: ").append(toIndentedString(flowName)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
-    sb.append("    action: ").append(toIndentedString(action)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 
 }
 

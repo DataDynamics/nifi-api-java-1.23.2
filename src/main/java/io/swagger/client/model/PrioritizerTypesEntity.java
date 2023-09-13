@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.DocumentedTypeDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * PrioritizerTypesEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class PrioritizerTypesEntity {
-  @SerializedName("prioritizerTypes")
-  private List<DocumentedTypeDTO> prioritizerTypes = null;
+    @SerializedName("prioritizerTypes")
+    private List<DocumentedTypeDTO> prioritizerTypes = null;
 
-  public PrioritizerTypesEntity prioritizerTypes(List<DocumentedTypeDTO> prioritizerTypes) {
-    this.prioritizerTypes = prioritizerTypes;
-    return this;
-  }
-
-  public PrioritizerTypesEntity addPrioritizerTypesItem(DocumentedTypeDTO prioritizerTypesItem) {
-    if (this.prioritizerTypes == null) {
-      this.prioritizerTypes = new ArrayList<DocumentedTypeDTO>();
+    public PrioritizerTypesEntity prioritizerTypes(List<DocumentedTypeDTO> prioritizerTypes) {
+        this.prioritizerTypes = prioritizerTypes;
+        return this;
     }
-    this.prioritizerTypes.add(prioritizerTypesItem);
-    return this;
-  }
 
-   /**
-   * Get prioritizerTypes
-   * @return prioritizerTypes
-  **/
-  @ApiModelProperty(value = "")
-  public List<DocumentedTypeDTO> getPrioritizerTypes() {
-    return prioritizerTypes;
-  }
-
-  public void setPrioritizerTypes(List<DocumentedTypeDTO> prioritizerTypes) {
-    this.prioritizerTypes = prioritizerTypes;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public PrioritizerTypesEntity addPrioritizerTypesItem(DocumentedTypeDTO prioritizerTypesItem) {
+        if (this.prioritizerTypes == null) {
+            this.prioritizerTypes = new ArrayList<DocumentedTypeDTO>();
+        }
+        this.prioritizerTypes.add(prioritizerTypesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get prioritizerTypes
+     *
+     * @return prioritizerTypes
+     **/
+    @ApiModelProperty(value = "")
+    public List<DocumentedTypeDTO> getPrioritizerTypes() {
+        return prioritizerTypes;
     }
-    PrioritizerTypesEntity prioritizerTypesEntity = (PrioritizerTypesEntity) o;
-    return Objects.equals(this.prioritizerTypes, prioritizerTypesEntity.prioritizerTypes);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(prioritizerTypes);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PrioritizerTypesEntity {\n");
-    
-    sb.append("    prioritizerTypes: ").append(toIndentedString(prioritizerTypes)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setPrioritizerTypes(List<DocumentedTypeDTO> prioritizerTypes) {
+        this.prioritizerTypes = prioritizerTypes;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PrioritizerTypesEntity prioritizerTypesEntity = (PrioritizerTypesEntity) o;
+        return Objects.equals(this.prioritizerTypes, prioritizerTypesEntity.prioritizerTypes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(prioritizerTypes);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PrioritizerTypesEntity {\n");
+
+        sb.append("    prioritizerTypes: ").append(toIndentedString(prioritizerTypes)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

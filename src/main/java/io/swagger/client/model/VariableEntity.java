@@ -13,106 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.VariableDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * VariableEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VariableEntity {
-  @SerializedName("variable")
-  private VariableDTO variable = null;
+    @SerializedName("variable")
+    private VariableDTO variable = null;
 
-  @SerializedName("canWrite")
-  private Boolean canWrite = null;
+    @SerializedName("canWrite")
+    private Boolean canWrite = null;
 
-  public VariableEntity variable(VariableDTO variable) {
-    this.variable = variable;
-    return this;
-  }
-
-   /**
-   * The variable information
-   * @return variable
-  **/
-  @ApiModelProperty(value = "The variable information")
-  public VariableDTO getVariable() {
-    return variable;
-  }
-
-  public void setVariable(VariableDTO variable) {
-    this.variable = variable;
-  }
-
-  public VariableEntity canWrite(Boolean canWrite) {
-    this.canWrite = canWrite;
-    return this;
-  }
-
-   /**
-   * Indicates whether the user can write a given resource.
-   * @return canWrite
-  **/
-  @ApiModelProperty(value = "Indicates whether the user can write a given resource.")
-  public Boolean isCanWrite() {
-    return canWrite;
-  }
-
-  public void setCanWrite(Boolean canWrite) {
-    this.canWrite = canWrite;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public VariableEntity variable(VariableDTO variable) {
+        this.variable = variable;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The variable information
+     *
+     * @return variable
+     **/
+    @ApiModelProperty(value = "The variable information")
+    public VariableDTO getVariable() {
+        return variable;
     }
-    VariableEntity variableEntity = (VariableEntity) o;
-    return Objects.equals(this.variable, variableEntity.variable) &&
-        Objects.equals(this.canWrite, variableEntity.canWrite);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(variable, canWrite);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VariableEntity {\n");
-    
-    sb.append("    variable: ").append(toIndentedString(variable)).append("\n");
-    sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setVariable(VariableDTO variable) {
+        this.variable = variable;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public VariableEntity canWrite(Boolean canWrite) {
+        this.canWrite = canWrite;
+        return this;
+    }
+
+    /**
+     * Indicates whether the user can write a given resource.
+     *
+     * @return canWrite
+     **/
+    @ApiModelProperty(value = "Indicates whether the user can write a given resource.")
+    public Boolean isCanWrite() {
+        return canWrite;
+    }
+
+    public void setCanWrite(Boolean canWrite) {
+        this.canWrite = canWrite;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VariableEntity variableEntity = (VariableEntity) o;
+        return Objects.equals(this.variable, variableEntity.variable) &&
+                Objects.equals(this.canWrite, variableEntity.canWrite);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(variable, canWrite);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VariableEntity {\n");
+
+        sb.append("    variable: ").append(toIndentedString(variable)).append("\n");
+        sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

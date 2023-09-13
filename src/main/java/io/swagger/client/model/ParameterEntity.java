@@ -13,106 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ParameterDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ParameterEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ParameterEntity {
-  @SerializedName("canWrite")
-  private Boolean canWrite = null;
+    @SerializedName("canWrite")
+    private Boolean canWrite = null;
 
-  @SerializedName("parameter")
-  private ParameterDTO parameter = null;
+    @SerializedName("parameter")
+    private ParameterDTO parameter = null;
 
-  public ParameterEntity canWrite(Boolean canWrite) {
-    this.canWrite = canWrite;
-    return this;
-  }
-
-   /**
-   * Indicates whether the user can write a given resource.
-   * @return canWrite
-  **/
-  @ApiModelProperty(value = "Indicates whether the user can write a given resource.")
-  public Boolean isCanWrite() {
-    return canWrite;
-  }
-
-  public void setCanWrite(Boolean canWrite) {
-    this.canWrite = canWrite;
-  }
-
-  public ParameterEntity parameter(ParameterDTO parameter) {
-    this.parameter = parameter;
-    return this;
-  }
-
-   /**
-   * The parameter information
-   * @return parameter
-  **/
-  @ApiModelProperty(value = "The parameter information")
-  public ParameterDTO getParameter() {
-    return parameter;
-  }
-
-  public void setParameter(ParameterDTO parameter) {
-    this.parameter = parameter;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ParameterEntity canWrite(Boolean canWrite) {
+        this.canWrite = canWrite;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Indicates whether the user can write a given resource.
+     *
+     * @return canWrite
+     **/
+    @ApiModelProperty(value = "Indicates whether the user can write a given resource.")
+    public Boolean isCanWrite() {
+        return canWrite;
     }
-    ParameterEntity parameterEntity = (ParameterEntity) o;
-    return Objects.equals(this.canWrite, parameterEntity.canWrite) &&
-        Objects.equals(this.parameter, parameterEntity.parameter);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(canWrite, parameter);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterEntity {\n");
-    
-    sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
-    sb.append("    parameter: ").append(toIndentedString(parameter)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setCanWrite(Boolean canWrite) {
+        this.canWrite = canWrite;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ParameterEntity parameter(ParameterDTO parameter) {
+        this.parameter = parameter;
+        return this;
+    }
+
+    /**
+     * The parameter information
+     *
+     * @return parameter
+     **/
+    @ApiModelProperty(value = "The parameter information")
+    public ParameterDTO getParameter() {
+        return parameter;
+    }
+
+    public void setParameter(ParameterDTO parameter) {
+        this.parameter = parameter;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParameterEntity parameterEntity = (ParameterEntity) o;
+        return Objects.equals(this.canWrite, parameterEntity.canWrite) &&
+                Objects.equals(this.parameter, parameterEntity.parameter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(canWrite, parameter);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ParameterEntity {\n");
+
+        sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
+        sb.append("    parameter: ").append(toIndentedString(parameter)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

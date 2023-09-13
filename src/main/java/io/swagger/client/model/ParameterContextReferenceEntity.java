@@ -13,130 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ParameterContextReferenceDTO;
-import io.swagger.client.model.PermissionsDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ParameterContextReferenceEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ParameterContextReferenceEntity {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("permissions")
-  private PermissionsDTO permissions = null;
+    @SerializedName("permissions")
+    private PermissionsDTO permissions = null;
 
-  @SerializedName("component")
-  private ParameterContextReferenceDTO component = null;
+    @SerializedName("component")
+    private ParameterContextReferenceDTO component = null;
 
-  public ParameterContextReferenceEntity id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The id of the component.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The id of the component.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ParameterContextReferenceEntity permissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * The permissions for this component.
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "The permissions for this component.")
-  public PermissionsDTO getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-  }
-
-  public ParameterContextReferenceEntity component(ParameterContextReferenceDTO component) {
-    this.component = component;
-    return this;
-  }
-
-   /**
-   * Get component
-   * @return component
-  **/
-  @ApiModelProperty(value = "")
-  public ParameterContextReferenceDTO getComponent() {
-    return component;
-  }
-
-  public void setComponent(ParameterContextReferenceDTO component) {
-    this.component = component;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ParameterContextReferenceEntity id(String id) {
+        this.id = id;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The id of the component.
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The id of the component.")
+    public String getId() {
+        return id;
     }
-    ParameterContextReferenceEntity parameterContextReferenceEntity = (ParameterContextReferenceEntity) o;
-    return Objects.equals(this.id, parameterContextReferenceEntity.id) &&
-        Objects.equals(this.permissions, parameterContextReferenceEntity.permissions) &&
-        Objects.equals(this.component, parameterContextReferenceEntity.component);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, permissions, component);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterContextReferenceEntity {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    component: ").append(toIndentedString(component)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setId(String id) {
+        this.id = id;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ParameterContextReferenceEntity permissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * The permissions for this component.
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "The permissions for this component.")
+    public PermissionsDTO getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+    }
+
+    public ParameterContextReferenceEntity component(ParameterContextReferenceDTO component) {
+        this.component = component;
+        return this;
+    }
+
+    /**
+     * Get component
+     *
+     * @return component
+     **/
+    @ApiModelProperty(value = "")
+    public ParameterContextReferenceDTO getComponent() {
+        return component;
+    }
+
+    public void setComponent(ParameterContextReferenceDTO component) {
+        this.component = component;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParameterContextReferenceEntity parameterContextReferenceEntity = (ParameterContextReferenceEntity) o;
+        return Objects.equals(this.id, parameterContextReferenceEntity.id) &&
+                Objects.equals(this.permissions, parameterContextReferenceEntity.permissions) &&
+                Objects.equals(this.component, parameterContextReferenceEntity.component);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, permissions, component);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ParameterContextReferenceEntity {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    component: ").append(toIndentedString(component)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

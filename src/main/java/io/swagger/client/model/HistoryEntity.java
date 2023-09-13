@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.HistoryDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * HistoryEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class HistoryEntity {
-  @SerializedName("history")
-  private HistoryDTO history = null;
+    @SerializedName("history")
+    private HistoryDTO history = null;
 
-  public HistoryEntity history(HistoryDTO history) {
-    this.history = history;
-    return this;
-  }
-
-   /**
-   * Get history
-   * @return history
-  **/
-  @ApiModelProperty(value = "")
-  public HistoryDTO getHistory() {
-    return history;
-  }
-
-  public void setHistory(HistoryDTO history) {
-    this.history = history;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public HistoryEntity history(HistoryDTO history) {
+        this.history = history;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get history
+     *
+     * @return history
+     **/
+    @ApiModelProperty(value = "")
+    public HistoryDTO getHistory() {
+        return history;
     }
-    HistoryEntity historyEntity = (HistoryEntity) o;
-    return Objects.equals(this.history, historyEntity.history);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(history);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class HistoryEntity {\n");
-    
-    sb.append("    history: ").append(toIndentedString(history)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setHistory(HistoryDTO history) {
+        this.history = history;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        HistoryEntity historyEntity = (HistoryEntity) o;
+        return Objects.equals(this.history, historyEntity.history);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(history);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class HistoryEntity {\n");
+
+        sb.append("    history: ").append(toIndentedString(history)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

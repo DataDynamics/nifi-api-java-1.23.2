@@ -13,49 +13,12 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
+import io.swagger.client.*;
+import io.swagger.client.model.*;
 
-import java.io.IOException;
-
-
-import io.swagger.client.model.ConnectionEntity;
-import io.swagger.client.model.ConnectionsEntity;
-import io.swagger.client.model.ControllerServiceEntity;
-import io.swagger.client.model.CopySnippetRequestEntity;
-import io.swagger.client.model.CreateTemplateRequestEntity;
-import io.swagger.client.model.DropRequestEntity;
 import java.io.File;
-import io.swagger.client.model.FlowComparisonEntity;
-import io.swagger.client.model.FlowEntity;
-import io.swagger.client.model.FunnelEntity;
-import io.swagger.client.model.FunnelsEntity;
-import io.swagger.client.model.InputPortsEntity;
-import io.swagger.client.model.InstantiateTemplateRequestEntity;
-import io.swagger.client.model.LabelEntity;
-import io.swagger.client.model.LabelsEntity;
-import io.swagger.client.model.OutputPortsEntity;
-import io.swagger.client.model.PortEntity;
-import io.swagger.client.model.ProcessGroupEntity;
-import io.swagger.client.model.ProcessGroupImportEntity;
-import io.swagger.client.model.ProcessGroupReplaceRequestEntity;
-import io.swagger.client.model.ProcessGroupsEntity;
-import io.swagger.client.model.ProcessorEntity;
-import io.swagger.client.model.ProcessorsEntity;
-import io.swagger.client.model.RemoteProcessGroupEntity;
-import io.swagger.client.model.RemoteProcessGroupsEntity;
-import io.swagger.client.model.TemplateEntity;
-import io.swagger.client.model.VariableRegistryEntity;
-import io.swagger.client.model.VariableRegistryUpdateRequestEntity;
-
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,9 +46,10 @@ public class ProcessGroupsApi {
 
     /**
      * Build call for copySnippet
-     * @param id The process group id. (required)
-     * @param body The copy snippet request. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The copy snippet request. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -95,7 +59,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/snippet-instance"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -105,46 +69,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call copySnippetValidateBeforeCall(String id, CopySnippetRequestEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling copySnippet(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling copySnippet(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = copySnippetCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -153,8 +117,8 @@ public class ProcessGroupsApi {
 
     /**
      * Copies a snippet and discards it.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The copy snippet request. (required)
      * @return FlowEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -166,23 +130,24 @@ public class ProcessGroupsApi {
 
     /**
      * Copies a snippet and discards it.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The copy snippet request. (required)
      * @return ApiResponse&lt;FlowEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowEntity> copySnippetWithHttpInfo(String id, CopySnippetRequestEntity body) throws ApiException {
         com.squareup.okhttp.Call call = copySnippetValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<FlowEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Copies a snippet and discards it. (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The copy snippet request. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The copy snippet request. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -209,15 +174,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = copySnippetValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createConnection
-     * @param id The process group id. (required)
-     * @param body The connection configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The connection configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -227,7 +195,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/connections"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -237,46 +205,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createConnectionValidateBeforeCall(String id, ConnectionEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createConnection(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createConnection(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createConnectionCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -285,8 +253,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a connection
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The connection configuration details. (required)
      * @return ConnectionEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -298,23 +266,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a connection
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The connection configuration details. (required)
      * @return ApiResponse&lt;ConnectionEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ConnectionEntity> createConnectionWithHttpInfo(String id, ConnectionEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createConnectionValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ConnectionEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConnectionEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a connection (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The connection configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The connection configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -341,15 +310,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createConnectionValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ConnectionEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConnectionEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createControllerService
-     * @param id The process group id. (required)
-     * @param body The controller service configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The controller service configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -359,7 +331,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/controller-services"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -369,46 +341,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createControllerServiceValidateBeforeCall(String id, ControllerServiceEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createControllerService(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createControllerService(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createControllerServiceCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -417,8 +389,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a new controller service
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The controller service configuration details. (required)
      * @return ControllerServiceEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -430,23 +402,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a new controller service
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The controller service configuration details. (required)
      * @return ApiResponse&lt;ControllerServiceEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerServiceEntity> createControllerServiceWithHttpInfo(String id, ControllerServiceEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createControllerServiceValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ControllerServiceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServiceEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a new controller service (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The controller service configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The controller service configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -473,14 +446,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createControllerServiceValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerServiceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServiceEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createEmptyAllConnectionsRequest
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -490,7 +466,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/empty-all-connections-requests"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -500,41 +476,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createEmptyAllConnectionsRequestValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createEmptyAllConnectionsRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createEmptyAllConnectionsRequestCall(id, progressListener, progressRequestListener);
         return call;
@@ -543,7 +519,7 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a request to drop all flowfiles of all connection queues in this process group.
-     * 
+     *
      * @param id The process group id. (required)
      * @return DropRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -555,21 +531,22 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a request to drop all flowfiles of all connection queues in this process group.
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;DropRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<DropRequestEntity> createEmptyAllConnectionsRequestWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = createEmptyAllConnectionsRequestValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a request to drop all flowfiles of all connection queues in this process group. (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -596,15 +573,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createEmptyAllConnectionsRequestValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createFunnel
-     * @param id The process group id. (required)
-     * @param body The funnel configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The funnel configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -614,7 +594,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/funnels"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -624,46 +604,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createFunnelValidateBeforeCall(String id, FunnelEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createFunnel(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createFunnel(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createFunnelCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -672,8 +652,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a funnel
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The funnel configuration details. (required)
      * @return FunnelEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -685,23 +665,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a funnel
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The funnel configuration details. (required)
      * @return ApiResponse&lt;FunnelEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FunnelEntity> createFunnelWithHttpInfo(String id, FunnelEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createFunnelValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<FunnelEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FunnelEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a funnel (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The funnel configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The funnel configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -728,15 +709,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createFunnelValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FunnelEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FunnelEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createInputPort
-     * @param id The process group id. (required)
-     * @param body The input port configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The input port configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -746,7 +730,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/input-ports"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -756,46 +740,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createInputPortValidateBeforeCall(String id, PortEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createInputPort(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createInputPort(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createInputPortCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -804,8 +788,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates an input port
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The input port configuration details. (required)
      * @return PortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -817,23 +801,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates an input port
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The input port configuration details. (required)
      * @return ApiResponse&lt;PortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PortEntity> createInputPortWithHttpInfo(String id, PortEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createInputPortValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates an input port (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The input port configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The input port configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -860,15 +845,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createInputPortValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createLabel
-     * @param id The process group id. (required)
-     * @param body The label configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The label configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -878,7 +866,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/labels"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -888,46 +876,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createLabelValidateBeforeCall(String id, LabelEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createLabel(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createLabel(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createLabelCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -936,8 +924,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a label
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The label configuration details. (required)
      * @return LabelEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -949,23 +937,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a label
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The label configuration details. (required)
      * @return ApiResponse&lt;LabelEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<LabelEntity> createLabelWithHttpInfo(String id, LabelEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createLabelValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<LabelEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LabelEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a label (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The label configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The label configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -992,15 +981,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createLabelValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<LabelEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LabelEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createOutputPort
-     * @param id The process group id. (required)
-     * @param body The output port configuration. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The output port configuration. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1010,7 +1002,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/output-ports"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1020,46 +1012,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createOutputPortValidateBeforeCall(String id, PortEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createOutputPort(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createOutputPort(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createOutputPortCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1068,8 +1060,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates an output port
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The output port configuration. (required)
      * @return PortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1081,23 +1073,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates an output port
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The output port configuration. (required)
      * @return ApiResponse&lt;PortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PortEntity> createOutputPortWithHttpInfo(String id, PortEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createOutputPortValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates an output port (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The output port configuration. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The output port configuration. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1124,17 +1117,20 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createOutputPortValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createProcessGroup
-     * @param id The process group id. (required)
-     * @param body The process group configuration details. (required)
+     *
+     * @param id                               The process group id. (required)
+     * @param body                             The process group configuration details. (required)
      * @param parameterContextHandlingStrategy Handling Strategy controls whether to keep or replace Parameter Contexts (optional, default to KEEP_EXISTING)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener                 Progress listener
+     * @param progressRequestListener          Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -1143,58 +1139,58 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/process-groups"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (parameterContextHandlingStrategy != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("parameterContextHandlingStrategy", parameterContextHandlingStrategy));
+            localVarQueryParams.addAll(apiClient.parameterToPair("parameterContextHandlingStrategy", parameterContextHandlingStrategy));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createProcessGroupValidateBeforeCall(String id, ProcessGroupEntity body, String parameterContextHandlingStrategy, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createProcessGroupCall(id, body, parameterContextHandlingStrategy, progressListener, progressRequestListener);
         return call;
@@ -1203,9 +1199,9 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a process group
-     * 
-     * @param id The process group id. (required)
-     * @param body The process group configuration details. (required)
+     *
+     * @param id                               The process group id. (required)
+     * @param body                             The process group configuration details. (required)
      * @param parameterContextHandlingStrategy Handling Strategy controls whether to keep or replace Parameter Contexts (optional, default to KEEP_EXISTING)
      * @return ProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1217,26 +1213,27 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a process group
-     * 
-     * @param id The process group id. (required)
-     * @param body The process group configuration details. (required)
+     *
+     * @param id                               The process group id. (required)
+     * @param body                             The process group configuration details. (required)
      * @param parameterContextHandlingStrategy Handling Strategy controls whether to keep or replace Parameter Contexts (optional, default to KEEP_EXISTING)
      * @return ApiResponse&lt;ProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupEntity> createProcessGroupWithHttpInfo(String id, ProcessGroupEntity body, String parameterContextHandlingStrategy) throws ApiException {
         com.squareup.okhttp.Call call = createProcessGroupValidateBeforeCall(id, body, parameterContextHandlingStrategy, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a process group (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The process group configuration details. (required)
+     *
+     * @param id                               The process group id. (required)
+     * @param body                             The process group configuration details. (required)
      * @param parameterContextHandlingStrategy Handling Strategy controls whether to keep or replace Parameter Contexts (optional, default to KEEP_EXISTING)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                         The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1262,15 +1259,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createProcessGroupValidateBeforeCall(id, body, parameterContextHandlingStrategy, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createProcessor
-     * @param id The process group id. (required)
-     * @param body The processor configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The processor configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1280,7 +1280,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/processors"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1290,46 +1290,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createProcessorValidateBeforeCall(String id, ProcessorEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createProcessor(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createProcessor(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createProcessorCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1338,8 +1338,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a new processor
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The processor configuration details. (required)
      * @return ProcessorEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1351,23 +1351,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a new processor
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The processor configuration details. (required)
      * @return ApiResponse&lt;ProcessorEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessorEntity> createProcessorWithHttpInfo(String id, ProcessorEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createProcessorValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ProcessorEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a new processor (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The processor configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The processor configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1394,15 +1395,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createProcessorValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessorEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createRemoteProcessGroup
-     * @param id The process group id. (required)
-     * @param body The remote process group configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The remote process group configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1412,7 +1416,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/remote-process-groups"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1422,46 +1426,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createRemoteProcessGroupValidateBeforeCall(String id, RemoteProcessGroupEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createRemoteProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createRemoteProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createRemoteProcessGroupCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1470,8 +1474,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a new process group
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The remote process group configuration details. (required)
      * @return RemoteProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1483,23 +1487,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a new process group
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The remote process group configuration details. (required)
      * @return ApiResponse&lt;RemoteProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupEntity> createRemoteProcessGroupWithHttpInfo(String id, RemoteProcessGroupEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createRemoteProcessGroupValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a new process group (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The remote process group configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The remote process group configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1526,15 +1531,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createRemoteProcessGroupValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createTemplate
-     * @param id The process group id. (required)
-     * @param body The create template request. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The create template request. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1544,7 +1552,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/templates"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1554,46 +1562,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createTemplateValidateBeforeCall(String id, CreateTemplateRequestEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling createTemplate(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createTemplate(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createTemplateCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1602,8 +1610,8 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a template and discards the specified snippet.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The create template request. (required)
      * @return TemplateEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1615,23 +1623,24 @@ public class ProcessGroupsApi {
 
     /**
      * Creates a template and discards the specified snippet.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The create template request. (required)
      * @return ApiResponse&lt;TemplateEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TemplateEntity> createTemplateWithHttpInfo(String id, CreateTemplateRequestEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createTemplateValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<TemplateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TemplateEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a template and discards the specified snippet. (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The create template request. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The create template request. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1658,16 +1667,19 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = createTemplateValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TemplateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TemplateEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteReplaceProcessGroupRequest
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -1676,53 +1688,53 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/replace-requests/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteReplaceProcessGroupRequestValidateBeforeCall(String id, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteReplaceProcessGroupRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteReplaceProcessGroupRequestCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -1732,7 +1744,8 @@ public class ProcessGroupsApi {
     /**
      * Deletes the Replace Request with the given ID
      * Deletes the Replace Request with the given ID. After a request is created via a POST to /process-groups/{id}/replace-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Replace process has completed. If the request is deleted before the request completes, then the Replace request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ProcessGroupReplaceRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1745,23 +1758,26 @@ public class ProcessGroupsApi {
     /**
      * Deletes the Replace Request with the given ID
      * Deletes the Replace Request with the given ID. After a request is created via a POST to /process-groups/{id}/replace-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Replace process has completed. If the request is deleted before the request completes, then the Replace request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;ProcessGroupReplaceRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupReplaceRequestEntity> deleteReplaceProcessGroupRequestWithHttpInfo(String id, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteReplaceProcessGroupRequestValidateBeforeCall(id, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the Replace Request with the given ID (asynchronously)
      * Deletes the Replace Request with the given ID. After a request is created via a POST to /process-groups/{id}/replace-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Replace process has completed. If the request is deleted before the request completes, then the Replace request will finish the step that it is currently performing and then will cancel any subsequent steps. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Update Request (required)
+     *
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1787,17 +1803,20 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = deleteReplaceProcessGroupRequestValidateBeforeCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteVariableRegistryUpdateRequest
-     * @param groupId The process group id. (required)
-     * @param updateId The ID of the Variable Registry Update Request (required)
+     *
+     * @param groupId                      The process group id. (required)
+     * @param updateId                     The ID of the Variable Registry Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -1806,59 +1825,59 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{groupId}/variable-registry/update-requests/{updateId}"
-            .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()))
-            .replaceAll("\\{" + "updateId" + "\\}", apiClient.escapeString(updateId.toString()));
+                .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()))
+                .replaceAll("\\{" + "updateId" + "\\}", apiClient.escapeString(updateId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteVariableRegistryUpdateRequestValidateBeforeCall(String groupId, String updateId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
             throw new ApiException("Missing the required parameter 'groupId' when calling deleteVariableRegistryUpdateRequest(Async)");
         }
-        
+
         // verify the required parameter 'updateId' is set
         if (updateId == null) {
             throw new ApiException("Missing the required parameter 'updateId' when calling deleteVariableRegistryUpdateRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteVariableRegistryUpdateRequestCall(groupId, updateId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -1868,8 +1887,9 @@ public class ProcessGroupsApi {
     /**
      * Deletes an update request for a process group&#39;s variable registry. If the request is not yet complete, it will automatically be cancelled.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param groupId The process group id. (required)
-     * @param updateId The ID of the Variable Registry Update Request (required)
+     *
+     * @param groupId                      The process group id. (required)
+     * @param updateId                     The ID of the Variable Registry Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return VariableRegistryUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1882,25 +1902,28 @@ public class ProcessGroupsApi {
     /**
      * Deletes an update request for a process group&#39;s variable registry. If the request is not yet complete, it will automatically be cancelled.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param groupId The process group id. (required)
-     * @param updateId The ID of the Variable Registry Update Request (required)
+     *
+     * @param groupId                      The process group id. (required)
+     * @param updateId                     The ID of the Variable Registry Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;VariableRegistryUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VariableRegistryUpdateRequestEntity> deleteVariableRegistryUpdateRequestWithHttpInfo(String groupId, String updateId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteVariableRegistryUpdateRequestValidateBeforeCall(groupId, updateId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes an update request for a process group&#39;s variable registry. If the request is not yet complete, it will automatically be cancelled. (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param groupId The process group id. (required)
-     * @param updateId The ID of the Variable Registry Update Request (required)
+     *
+     * @param groupId                      The process group id. (required)
+     * @param updateId                     The ID of the Variable Registry Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1926,16 +1949,19 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = deleteVariableRegistryUpdateRequestValidateBeforeCall(groupId, updateId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for exportProcessGroup
-     * @param id The process group id. (required)
+     *
+     * @param id                        The process group id. (required)
      * @param includeReferencedServices If referenced services from outside the target group should be included (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener          Progress listener
+     * @param progressRequestListener   Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -1944,53 +1970,53 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/download"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (includeReferencedServices != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("includeReferencedServices", includeReferencedServices));
+            localVarQueryParams.addAll(apiClient.parameterToPair("includeReferencedServices", includeReferencedServices));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call exportProcessGroupValidateBeforeCall(String id, Boolean includeReferencedServices, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling exportProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = exportProcessGroupCall(id, includeReferencedServices, progressListener, progressRequestListener);
         return call;
@@ -1999,8 +2025,8 @@ public class ProcessGroupsApi {
 
     /**
      * Gets a process group for download
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id                        The process group id. (required)
      * @param includeReferencedServices If referenced services from outside the target group should be included (optional, default to false)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2012,24 +2038,25 @@ public class ProcessGroupsApi {
 
     /**
      * Gets a process group for download
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id                        The process group id. (required)
      * @param includeReferencedServices If referenced services from outside the target group should be included (optional, default to false)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<String> exportProcessGroupWithHttpInfo(String id, Boolean includeReferencedServices) throws ApiException {
         com.squareup.okhttp.Call call = exportProcessGroupValidateBeforeCall(id, includeReferencedServices, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a process group for download (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id                        The process group id. (required)
      * @param includeReferencedServices If referenced services from outside the target group should be included (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -2055,14 +2082,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = exportProcessGroupValidateBeforeCall(id, includeReferencedServices, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getConnections
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2072,7 +2102,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/connections"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2082,41 +2112,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getConnectionsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getConnections(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getConnectionsCall(id, progressListener, progressRequestListener);
         return call;
@@ -2125,7 +2155,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all connections
-     * 
+     *
      * @param id The process group id. (required)
      * @return ConnectionsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2137,21 +2167,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all connections
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;ConnectionsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ConnectionsEntity> getConnectionsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getConnectionsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ConnectionsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConnectionsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all connections (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2178,15 +2209,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getConnectionsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ConnectionsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConnectionsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getDropAllFlowfilesRequest
-     * @param id The process group id. (required)
-     * @param dropRequestId The drop request id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param dropRequestId           The drop request id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2196,8 +2230,8 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/empty-all-connections-requests/{drop-request-id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "drop-request-id" + "\\}", apiClient.escapeString(dropRequestId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "drop-request-id" + "\\}", apiClient.escapeString(dropRequestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2207,46 +2241,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDropAllFlowfilesRequestValidateBeforeCall(String id, String dropRequestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getDropAllFlowfilesRequest(Async)");
         }
-        
+
         // verify the required parameter 'dropRequestId' is set
         if (dropRequestId == null) {
             throw new ApiException("Missing the required parameter 'dropRequestId' when calling getDropAllFlowfilesRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getDropAllFlowfilesRequestCall(id, dropRequestId, progressListener, progressRequestListener);
         return call;
@@ -2255,8 +2289,8 @@ public class ProcessGroupsApi {
 
     /**
      * Gets the current status of a drop all flowfiles request.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id            The process group id. (required)
      * @param dropRequestId The drop request id. (required)
      * @return DropRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2268,24 +2302,25 @@ public class ProcessGroupsApi {
 
     /**
      * Gets the current status of a drop all flowfiles request.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id            The process group id. (required)
      * @param dropRequestId The drop request id. (required)
      * @return ApiResponse&lt;DropRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<DropRequestEntity> getDropAllFlowfilesRequestWithHttpInfo(String id, String dropRequestId) throws ApiException {
         com.squareup.okhttp.Call call = getDropAllFlowfilesRequestValidateBeforeCall(id, dropRequestId, null, null);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the current status of a drop all flowfiles request. (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id            The process group id. (required)
      * @param dropRequestId The drop request id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -2311,14 +2346,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getDropAllFlowfilesRequestValidateBeforeCall(id, dropRequestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getFunnels
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2328,7 +2366,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/funnels"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2338,41 +2376,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFunnelsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getFunnels(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getFunnelsCall(id, progressListener, progressRequestListener);
         return call;
@@ -2381,7 +2419,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all funnels
-     * 
+     *
      * @param id The process group id. (required)
      * @return FunnelsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2393,21 +2431,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all funnels
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;FunnelsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FunnelsEntity> getFunnelsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getFunnelsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<FunnelsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FunnelsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all funnels (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2434,14 +2473,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getFunnelsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FunnelsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FunnelsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getInputPorts
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2451,7 +2493,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/input-ports"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2461,41 +2503,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getInputPortsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getInputPorts(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getInputPortsCall(id, progressListener, progressRequestListener);
         return call;
@@ -2504,7 +2546,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all input ports
-     * 
+     *
      * @param id The process group id. (required)
      * @return InputPortsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2516,21 +2558,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all input ports
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;InputPortsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<InputPortsEntity> getInputPortsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getInputPortsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<InputPortsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<InputPortsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all input ports (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2557,14 +2600,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getInputPortsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<InputPortsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<InputPortsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getLabels
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2574,7 +2620,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/labels"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2584,41 +2630,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getLabelsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getLabels(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getLabelsCall(id, progressListener, progressRequestListener);
         return call;
@@ -2627,7 +2673,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all labels
-     * 
+     *
      * @param id The process group id. (required)
      * @return LabelsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2639,21 +2685,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all labels
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;LabelsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<LabelsEntity> getLabelsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getLabelsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<LabelsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LabelsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all labels (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2680,14 +2727,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getLabelsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<LabelsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LabelsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getLocalModifications
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2697,7 +2747,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/local-modifications"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2707,41 +2757,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getLocalModificationsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getLocalModifications(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getLocalModificationsCall(id, progressListener, progressRequestListener);
         return call;
@@ -2750,7 +2800,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets a list of local modifications to the Process Group since it was last synchronized with the Flow Registry
-     * 
+     *
      * @param id The process group id. (required)
      * @return FlowComparisonEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2762,21 +2812,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets a list of local modifications to the Process Group since it was last synchronized with the Flow Registry
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;FlowComparisonEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowComparisonEntity> getLocalModificationsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getLocalModificationsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<FlowComparisonEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowComparisonEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a list of local modifications to the Process Group since it was last synchronized with the Flow Registry (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2803,14 +2854,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getLocalModificationsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowComparisonEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowComparisonEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getOutputPorts
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2820,7 +2874,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/output-ports"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2830,41 +2884,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getOutputPortsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getOutputPorts(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getOutputPortsCall(id, progressListener, progressRequestListener);
         return call;
@@ -2873,7 +2927,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all output ports
-     * 
+     *
      * @param id The process group id. (required)
      * @return OutputPortsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2885,21 +2939,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all output ports
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;OutputPortsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<OutputPortsEntity> getOutputPortsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getOutputPortsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<OutputPortsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<OutputPortsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all output ports (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2926,14 +2981,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getOutputPortsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<OutputPortsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<OutputPortsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProcessGroup
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2943,7 +3001,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2953,41 +3011,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProcessGroupValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getProcessGroupCall(id, progressListener, progressRequestListener);
         return call;
@@ -2996,7 +3054,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets a process group
-     * 
+     *
      * @param id The process group id. (required)
      * @return ProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3008,21 +3066,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets a process group
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;ProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupEntity> getProcessGroupWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getProcessGroupValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a process group (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3049,14 +3108,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getProcessGroupValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProcessGroups
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3066,7 +3128,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/process-groups"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3076,41 +3138,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProcessGroupsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProcessGroups(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getProcessGroupsCall(id, progressListener, progressRequestListener);
         return call;
@@ -3119,7 +3181,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all process groups
-     * 
+     *
      * @param id The process group id. (required)
      * @return ProcessGroupsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3131,21 +3193,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all process groups
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;ProcessGroupsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupsEntity> getProcessGroupsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getProcessGroupsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all process groups (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3172,15 +3235,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getProcessGroupsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProcessors
-     * @param id The process group id. (required)
+     *
+     * @param id                      The process group id. (required)
      * @param includeDescendantGroups Whether or not to include processors from descendant process groups (optional, default to false)
-     * @param progressListener Progress listener
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3190,53 +3256,53 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/processors"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (includeDescendantGroups != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("includeDescendantGroups", includeDescendantGroups));
+            localVarQueryParams.addAll(apiClient.parameterToPair("includeDescendantGroups", includeDescendantGroups));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProcessorsValidateBeforeCall(String id, Boolean includeDescendantGroups, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProcessors(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getProcessorsCall(id, includeDescendantGroups, progressListener, progressRequestListener);
         return call;
@@ -3245,8 +3311,8 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all processors
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id                      The process group id. (required)
      * @param includeDescendantGroups Whether or not to include processors from descendant process groups (optional, default to false)
      * @return ProcessorsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3258,24 +3324,25 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all processors
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id                      The process group id. (required)
      * @param includeDescendantGroups Whether or not to include processors from descendant process groups (optional, default to false)
      * @return ApiResponse&lt;ProcessorsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessorsEntity> getProcessorsWithHttpInfo(String id, Boolean includeDescendantGroups) throws ApiException {
         com.squareup.okhttp.Call call = getProcessorsValidateBeforeCall(id, includeDescendantGroups, null, null);
-        Type localVarReturnType = new TypeToken<ProcessorsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all processors (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id                      The process group id. (required)
      * @param includeDescendantGroups Whether or not to include processors from descendant process groups (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -3301,14 +3368,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getProcessorsValidateBeforeCall(id, includeDescendantGroups, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessorsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getRemoteProcessGroups
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3318,7 +3388,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/remote-process-groups"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3328,41 +3398,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRemoteProcessGroupsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getRemoteProcessGroups(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getRemoteProcessGroupsCall(id, progressListener, progressRequestListener);
         return call;
@@ -3371,7 +3441,7 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all remote process groups
-     * 
+     *
      * @param id The process group id. (required)
      * @return RemoteProcessGroupsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3383,21 +3453,22 @@ public class ProcessGroupsApi {
 
     /**
      * Gets all remote process groups
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;RemoteProcessGroupsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupsEntity> getRemoteProcessGroupsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getRemoteProcessGroupsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all remote process groups (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3424,14 +3495,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getRemoteProcessGroupsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getReplaceProcessGroupRequest
-     * @param id The ID of the Replace Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The ID of the Replace Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3441,7 +3515,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/replace-requests/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3451,41 +3525,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getReplaceProcessGroupRequestValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getReplaceProcessGroupRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getReplaceProcessGroupRequestCall(id, progressListener, progressRequestListener);
         return call;
@@ -3495,6 +3569,7 @@ public class ProcessGroupsApi {
     /**
      * Returns the Replace Request with the given ID
      * Returns the Replace Request with the given ID. Once a Replace Request has been created by performing a POST to /process-groups/{id}/replace-requests, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The ID of the Replace Request (required)
      * @return ProcessGroupReplaceRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3507,20 +3582,23 @@ public class ProcessGroupsApi {
     /**
      * Returns the Replace Request with the given ID
      * Returns the Replace Request with the given ID. Once a Replace Request has been created by performing a POST to /process-groups/{id}/replace-requests, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The ID of the Replace Request (required)
      * @return ApiResponse&lt;ProcessGroupReplaceRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupReplaceRequestEntity> getReplaceProcessGroupRequestWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getReplaceProcessGroupRequestValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Returns the Replace Request with the given ID (asynchronously)
      * Returns the Replace Request with the given ID. Once a Replace Request has been created by performing a POST to /process-groups/{id}/replace-requests, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The ID of the Replace Request (required)
+     *
+     * @param id       The ID of the Replace Request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3547,15 +3625,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getReplaceProcessGroupRequestValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getVariableRegistry
-     * @param id The process group id. (required)
-     * @param includeAncestorGroups Whether or not to include ancestor groups (optional, default to true)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param includeAncestorGroups   Whether or not to include ancestor groups (optional, default to true)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3565,53 +3646,53 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/variable-registry"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (includeAncestorGroups != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("includeAncestorGroups", includeAncestorGroups));
+            localVarQueryParams.addAll(apiClient.parameterToPair("includeAncestorGroups", includeAncestorGroups));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getVariableRegistryValidateBeforeCall(String id, Boolean includeAncestorGroups, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getVariableRegistry(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getVariableRegistryCall(id, includeAncestorGroups, progressListener, progressRequestListener);
         return call;
@@ -3621,7 +3702,8 @@ public class ProcessGroupsApi {
     /**
      * Gets a process group&#39;s variable registry
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id                    The process group id. (required)
      * @param includeAncestorGroups Whether or not to include ancestor groups (optional, default to true)
      * @return VariableRegistryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3634,23 +3716,26 @@ public class ProcessGroupsApi {
     /**
      * Gets a process group&#39;s variable registry
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id                    The process group id. (required)
      * @param includeAncestorGroups Whether or not to include ancestor groups (optional, default to true)
      * @return ApiResponse&lt;VariableRegistryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VariableRegistryEntity> getVariableRegistryWithHttpInfo(String id, Boolean includeAncestorGroups) throws ApiException {
         com.squareup.okhttp.Call call = getVariableRegistryValidateBeforeCall(id, includeAncestorGroups, null, null);
-        Type localVarReturnType = new TypeToken<VariableRegistryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a process group&#39;s variable registry (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id                    The process group id. (required)
      * @param includeAncestorGroups Whether or not to include ancestor groups (optional, default to true)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback              The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -3676,15 +3761,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getVariableRegistryValidateBeforeCall(id, includeAncestorGroups, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VariableRegistryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getVariableRegistryUpdateRequest
-     * @param groupId The process group id. (required)
-     * @param updateId The ID of the Variable Registry Update Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param groupId                 The process group id. (required)
+     * @param updateId                The ID of the Variable Registry Update Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3694,8 +3782,8 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{groupId}/variable-registry/update-requests/{updateId}"
-            .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()))
-            .replaceAll("\\{" + "updateId" + "\\}", apiClient.escapeString(updateId.toString()));
+                .replaceAll("\\{" + "groupId" + "\\}", apiClient.escapeString(groupId.toString()))
+                .replaceAll("\\{" + "updateId" + "\\}", apiClient.escapeString(updateId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3705,46 +3793,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getVariableRegistryUpdateRequestValidateBeforeCall(String groupId, String updateId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
             throw new ApiException("Missing the required parameter 'groupId' when calling getVariableRegistryUpdateRequest(Async)");
         }
-        
+
         // verify the required parameter 'updateId' is set
         if (updateId == null) {
             throw new ApiException("Missing the required parameter 'updateId' when calling getVariableRegistryUpdateRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getVariableRegistryUpdateRequestCall(groupId, updateId, progressListener, progressRequestListener);
         return call;
@@ -3754,7 +3842,8 @@ public class ProcessGroupsApi {
     /**
      * Gets a process group&#39;s variable registry
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param groupId The process group id. (required)
+     *
+     * @param groupId  The process group id. (required)
      * @param updateId The ID of the Variable Registry Update Request (required)
      * @return VariableRegistryUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3767,21 +3856,24 @@ public class ProcessGroupsApi {
     /**
      * Gets a process group&#39;s variable registry
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param groupId The process group id. (required)
+     *
+     * @param groupId  The process group id. (required)
      * @param updateId The ID of the Variable Registry Update Request (required)
      * @return ApiResponse&lt;VariableRegistryUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VariableRegistryUpdateRequestEntity> getVariableRegistryUpdateRequestWithHttpInfo(String groupId, String updateId) throws ApiException {
         com.squareup.okhttp.Call call = getVariableRegistryUpdateRequestValidateBeforeCall(groupId, updateId, null, null);
-        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a process group&#39;s variable registry (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param groupId The process group id. (required)
+     *
+     * @param groupId  The process group id. (required)
      * @param updateId The ID of the Variable Registry Update Request (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3809,14 +3901,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getVariableRegistryUpdateRequestValidateBeforeCall(groupId, updateId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for importProcessGroup
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3826,7 +3921,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/process-groups/import"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3836,41 +3931,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call importProcessGroupValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling importProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = importProcessGroupCall(id, progressListener, progressRequestListener);
         return call;
@@ -3879,7 +3974,7 @@ public class ProcessGroupsApi {
 
     /**
      * Imports a specified process group
-     * 
+     *
      * @param id The process group id. (required)
      * @return ProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3891,21 +3986,22 @@ public class ProcessGroupsApi {
 
     /**
      * Imports a specified process group
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;ProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupEntity> importProcessGroupWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = importProcessGroupValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Imports a specified process group (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3932,14 +4028,17 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = importProcessGroupValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for importTemplate
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3949,7 +4048,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/templates/import"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3959,41 +4058,41 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/xml"
+                "application/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/xml"
+                "application/xml"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call importTemplateValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling importTemplate(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = importTemplateCall(id, progressListener, progressRequestListener);
         return call;
@@ -4002,7 +4101,7 @@ public class ProcessGroupsApi {
 
     /**
      * Imports a template
-     * 
+     *
      * @param id The process group id. (required)
      * @return TemplateEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4014,21 +4113,22 @@ public class ProcessGroupsApi {
 
     /**
      * Imports a template
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;TemplateEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TemplateEntity> importTemplateWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = importTemplateValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<TemplateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TemplateEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Imports a template (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4055,15 +4155,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = importTemplateValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TemplateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TemplateEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for initiateReplaceProcessGroup
-     * @param id The process group id. (required)
-     * @param body The process group replace request entity (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The process group replace request entity (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4073,7 +4176,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/replace-requests"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4083,46 +4186,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call initiateReplaceProcessGroupValidateBeforeCall(String id, ProcessGroupImportEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling initiateReplaceProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling initiateReplaceProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = initiateReplaceProcessGroupCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -4132,7 +4235,8 @@ public class ProcessGroupsApi {
     /**
      * Initiate the Replace Request of a Process Group with the given ID
      * This will initiate the action of replacing a process group with the given process group. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a ProcessGroupReplaceRequestEntity, and the process of replacing the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /process-groups/replace-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /process-groups/replace-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The process group replace request entity (required)
      * @return ProcessGroupReplaceRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4145,22 +4249,25 @@ public class ProcessGroupsApi {
     /**
      * Initiate the Replace Request of a Process Group with the given ID
      * This will initiate the action of replacing a process group with the given process group. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a ProcessGroupReplaceRequestEntity, and the process of replacing the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /process-groups/replace-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /process-groups/replace-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The process group replace request entity (required)
      * @return ApiResponse&lt;ProcessGroupReplaceRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupReplaceRequestEntity> initiateReplaceProcessGroupWithHttpInfo(String id, ProcessGroupImportEntity body) throws ApiException {
         com.squareup.okhttp.Call call = initiateReplaceProcessGroupValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Initiate the Replace Request of a Process Group with the given ID (asynchronously)
      * This will initiate the action of replacing a process group with the given process group. This can be a lengthy process, as it will stop any Processors and disable any Controller Services necessary to perform the action and then restart them. As a result, the endpoint will immediately return a ProcessGroupReplaceRequestEntity, and the process of replacing the flow will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /process-groups/replace-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /process-groups/replace-requests/{requestId}. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param body The process group replace request entity (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The process group replace request entity (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4187,15 +4294,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = initiateReplaceProcessGroupValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupReplaceRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for instantiateTemplate
-     * @param id The process group id. (required)
-     * @param body The instantiate template request. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The instantiate template request. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4205,7 +4315,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/template-instance"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4215,46 +4325,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call instantiateTemplateValidateBeforeCall(String id, InstantiateTemplateRequestEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling instantiateTemplate(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling instantiateTemplate(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = instantiateTemplateCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -4263,8 +4373,8 @@ public class ProcessGroupsApi {
 
     /**
      * Instantiates a template
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The instantiate template request. (required)
      * @return FlowEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4276,23 +4386,24 @@ public class ProcessGroupsApi {
 
     /**
      * Instantiates a template
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The instantiate template request. (required)
      * @return ApiResponse&lt;FlowEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowEntity> instantiateTemplateWithHttpInfo(String id, InstantiateTemplateRequestEntity body) throws ApiException {
         com.squareup.okhttp.Call call = instantiateTemplateValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<FlowEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Instantiates a template (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The instantiate template request. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The instantiate template request. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4319,15 +4430,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = instantiateTemplateValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for removeDropRequest
-     * @param id The process group id. (required)
-     * @param dropRequestId The drop request id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param dropRequestId           The drop request id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4337,8 +4451,8 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/empty-all-connections-requests/{drop-request-id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "drop-request-id" + "\\}", apiClient.escapeString(dropRequestId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "drop-request-id" + "\\}", apiClient.escapeString(dropRequestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4348,46 +4462,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeDropRequestValidateBeforeCall(String id, String dropRequestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling removeDropRequest(Async)");
         }
-        
+
         // verify the required parameter 'dropRequestId' is set
         if (dropRequestId == null) {
             throw new ApiException("Missing the required parameter 'dropRequestId' when calling removeDropRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = removeDropRequestCall(id, dropRequestId, progressListener, progressRequestListener);
         return call;
@@ -4396,8 +4510,8 @@ public class ProcessGroupsApi {
 
     /**
      * Cancels and/or removes a request to drop all flowfiles.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id            The process group id. (required)
      * @param dropRequestId The drop request id. (required)
      * @return DropRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4409,24 +4523,25 @@ public class ProcessGroupsApi {
 
     /**
      * Cancels and/or removes a request to drop all flowfiles.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id            The process group id. (required)
      * @param dropRequestId The drop request id. (required)
      * @return ApiResponse&lt;DropRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<DropRequestEntity> removeDropRequestWithHttpInfo(String id, String dropRequestId) throws ApiException {
         com.squareup.okhttp.Call call = removeDropRequestValidateBeforeCall(id, dropRequestId, null, null);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Cancels and/or removes a request to drop all flowfiles. (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id            The process group id. (required)
      * @param dropRequestId The drop request id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -4452,18 +4567,21 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = removeDropRequestValidateBeforeCall(id, dropRequestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<DropRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<DropRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for removeProcessGroup
-     * @param id The process group id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The process group id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -4472,57 +4590,57 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (version != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
+            localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeProcessGroupValidateBeforeCall(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling removeProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = removeProcessGroupCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -4531,10 +4649,10 @@ public class ProcessGroupsApi {
 
     /**
      * Deletes a process group
-     * 
-     * @param id The process group id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The process group id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4546,28 +4664,29 @@ public class ProcessGroupsApi {
 
     /**
      * Deletes a process group
-     * 
-     * @param id The process group id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The process group id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;ProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupEntity> removeProcessGroupWithHttpInfo(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = removeProcessGroupValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes a process group (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The process group id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -4593,15 +4712,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = removeProcessGroupValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for replaceProcessGroup
-     * @param id The process group id. (required)
-     * @param body The process group replace request entity. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The process group replace request entity. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4611,7 +4733,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/flow-contents"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4621,46 +4743,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call replaceProcessGroupValidateBeforeCall(String id, ProcessGroupImportEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling replaceProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling replaceProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = replaceProcessGroupCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -4670,7 +4792,8 @@ public class ProcessGroupsApi {
     /**
      * Replace Process Group contents with the given ID with the specified Process Group contents
      * This endpoint is used for replication within a cluster, when replacing a flow with a new flow. It expects that the flow beingreplaced is not under version control and that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The process group replace request entity. (required)
      * @return ProcessGroupImportEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4683,22 +4806,25 @@ public class ProcessGroupsApi {
     /**
      * Replace Process Group contents with the given ID with the specified Process Group contents
      * This endpoint is used for replication within a cluster, when replacing a flow with a new flow. It expects that the flow beingreplaced is not under version control and that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The process group replace request entity. (required)
      * @return ApiResponse&lt;ProcessGroupImportEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupImportEntity> replaceProcessGroupWithHttpInfo(String id, ProcessGroupImportEntity body) throws ApiException {
         com.squareup.okhttp.Call call = replaceProcessGroupValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupImportEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupImportEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Replace Process Group contents with the given ID with the specified Process Group contents (asynchronously)
      * This endpoint is used for replication within a cluster, when replacing a flow with a new flow. It expects that the flow beingreplaced is not under version control and that the given snapshot will not modify any Processor that is currently running or any Controller Service that is enabled. Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param body The process group replace request entity. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The process group replace request entity. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4725,15 +4851,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = replaceProcessGroupValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupImportEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupImportEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for submitUpdateVariableRegistryRequest
-     * @param id The process group id. (required)
-     * @param body The variable registry configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The variable registry configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4743,7 +4872,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/variable-registry/update-requests"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4753,46 +4882,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call submitUpdateVariableRegistryRequestValidateBeforeCall(String id, VariableRegistryEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling submitUpdateVariableRegistryRequest(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling submitUpdateVariableRegistryRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = submitUpdateVariableRegistryRequestCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -4802,7 +4931,8 @@ public class ProcessGroupsApi {
     /**
      * Submits a request to update a process group&#39;s variable registry
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The variable registry configuration details. (required)
      * @return VariableRegistryUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4815,22 +4945,25 @@ public class ProcessGroupsApi {
     /**
      * Submits a request to update a process group&#39;s variable registry
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The variable registry configuration details. (required)
      * @return ApiResponse&lt;VariableRegistryUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VariableRegistryUpdateRequestEntity> submitUpdateVariableRegistryRequestWithHttpInfo(String id, VariableRegistryEntity body) throws ApiException {
         com.squareup.okhttp.Call call = submitUpdateVariableRegistryRequestValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Submits a request to update a process group&#39;s variable registry (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param body The variable registry configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The variable registry configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4857,15 +4990,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = submitUpdateVariableRegistryRequestValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateProcessGroup
-     * @param id The process group id. (required)
-     * @param body The process group configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The process group configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4875,7 +5011,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4885,46 +5021,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateProcessGroupValidateBeforeCall(String id, ProcessGroupEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateProcessGroupCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -4933,8 +5069,8 @@ public class ProcessGroupsApi {
 
     /**
      * Updates a process group
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The process group configuration details. (required)
      * @return ProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4946,23 +5082,24 @@ public class ProcessGroupsApi {
 
     /**
      * Updates a process group
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The process group configuration details. (required)
      * @return ApiResponse&lt;ProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupEntity> updateProcessGroupWithHttpInfo(String id, ProcessGroupEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateProcessGroupValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates a process group (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The process group configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The process group configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4989,15 +5126,18 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateProcessGroupValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateVariableRegistry
-     * @param id The process group id. (required)
-     * @param body The variable registry configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The variable registry configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5007,7 +5147,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/variable-registry"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5017,46 +5157,46 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateVariableRegistryValidateBeforeCall(String id, VariableRegistryEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateVariableRegistry(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateVariableRegistry(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateVariableRegistryCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -5066,7 +5206,8 @@ public class ProcessGroupsApi {
     /**
      * Updates the contents of a Process Group&#39;s variable Registry
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The variable registry configuration details. (required)
      * @return VariableRegistryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5079,22 +5220,25 @@ public class ProcessGroupsApi {
     /**
      * Updates the contents of a Process Group&#39;s variable Registry
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The variable registry configuration details. (required)
      * @return ApiResponse&lt;VariableRegistryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VariableRegistryEntity> updateVariableRegistryWithHttpInfo(String id, VariableRegistryEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateVariableRegistryValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<VariableRegistryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates the contents of a Process Group&#39;s variable Registry (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The process group id. (required)
-     * @param body The variable registry configuration details. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The variable registry configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5121,19 +5265,22 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateVariableRegistryValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VariableRegistryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VariableRegistryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for uploadProcessGroup
-     * @param id The process group id. (required)
-     * @param body The process group name. (required)
-     * @param body2 The process group X position. (required)
-     * @param body3 The process group Y position. (required)
-     * @param body4 The client id. (required)
-     * @param body5 Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The process group name. (required)
+     * @param body2                   The process group X position. (required)
+     * @param body3                   The process group Y position. (required)
+     * @param body4                   The client id. (required)
+     * @param body5                   Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5143,7 +5290,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/process-groups/upload"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5153,61 +5300,61 @@ public class ProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+                "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call uploadProcessGroupValidateBeforeCall(String id, String body, Double body2, Double body3, String body4, Boolean body5, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling uploadProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling uploadProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body2' is set
         if (body2 == null) {
             throw new ApiException("Missing the required parameter 'body2' when calling uploadProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body3' is set
         if (body3 == null) {
             throw new ApiException("Missing the required parameter 'body3' when calling uploadProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body4' is set
         if (body4 == null) {
             throw new ApiException("Missing the required parameter 'body4' when calling uploadProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = uploadProcessGroupCall(id, body, body2, body3, body4, body5, progressListener, progressRequestListener);
         return call;
@@ -5216,9 +5363,9 @@ public class ProcessGroupsApi {
 
     /**
      * Uploads a versioned flow definition and creates a process group
-     * 
-     * @param id The process group id. (required)
-     * @param body The process group name. (required)
+     *
+     * @param id    The process group id. (required)
+     * @param body  The process group name. (required)
      * @param body2 The process group X position. (required)
      * @param body3 The process group Y position. (required)
      * @param body4 The client id. (required)
@@ -5233,9 +5380,9 @@ public class ProcessGroupsApi {
 
     /**
      * Uploads a versioned flow definition and creates a process group
-     * 
-     * @param id The process group id. (required)
-     * @param body The process group name. (required)
+     *
+     * @param id    The process group id. (required)
+     * @param body  The process group name. (required)
      * @param body2 The process group X position. (required)
      * @param body3 The process group Y position. (required)
      * @param body4 The client id. (required)
@@ -5245,19 +5392,20 @@ public class ProcessGroupsApi {
      */
     public ApiResponse<ProcessGroupEntity> uploadProcessGroupWithHttpInfo(String id, String body, Double body2, Double body3, String body4, Boolean body5) throws ApiException {
         com.squareup.okhttp.Call call = uploadProcessGroupValidateBeforeCall(id, body, body2, body3, body4, body5, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Uploads a versioned flow definition and creates a process group (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The process group name. (required)
-     * @param body2 The process group X position. (required)
-     * @param body3 The process group Y position. (required)
-     * @param body4 The client id. (required)
-     * @param body5 Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The process group name. (required)
+     * @param body2    The process group X position. (required)
+     * @param body3    The process group Y position. (required)
+     * @param body4    The client id. (required)
+     * @param body5    Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5284,16 +5432,19 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = uploadProcessGroupValidateBeforeCall(id, body, body2, body3, body4, body5, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for uploadTemplate
-     * @param id The process group id. (required)
-     * @param template The binary content of the template file being uploaded. (required)
-     * @param body Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param template                The binary content of the template file being uploaded. (required)
+     * @param body                    Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5303,7 +5454,7 @@ public class ProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/process-groups/{id}/templates/upload"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5312,49 +5463,49 @@ public class ProcessGroupsApi {
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (template != null)
-        localVarFormParams.put("template", template);
+            localVarFormParams.put("template", template);
 
         final String[] localVarAccepts = {
-            "application/xml"
+                "application/xml"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "multipart/form-data"
+                "multipart/form-data"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call uploadTemplateValidateBeforeCall(String id, File template, Boolean body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling uploadTemplate(Async)");
         }
-        
+
         // verify the required parameter 'template' is set
         if (template == null) {
             throw new ApiException("Missing the required parameter 'template' when calling uploadTemplate(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = uploadTemplateCall(id, template, body, progressListener, progressRequestListener);
         return call;
@@ -5363,10 +5514,10 @@ public class ProcessGroupsApi {
 
     /**
      * Uploads a template
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param template The binary content of the template file being uploaded. (required)
-     * @param body Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
+     * @param body     Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
      * @return TemplateEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5377,25 +5528,26 @@ public class ProcessGroupsApi {
 
     /**
      * Uploads a template
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param template The binary content of the template file being uploaded. (required)
-     * @param body Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
+     * @param body     Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
      * @return ApiResponse&lt;TemplateEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TemplateEntity> uploadTemplateWithHttpInfo(String id, File template, Boolean body) throws ApiException {
         com.squareup.okhttp.Call call = uploadTemplateValidateBeforeCall(id, template, body, null, null);
-        Type localVarReturnType = new TypeToken<TemplateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TemplateEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Uploads a template (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param template The binary content of the template file being uploaded. (required)
-     * @param body Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
+     * @param body     Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5422,7 +5574,8 @@ public class ProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = uploadTemplateValidateBeforeCall(id, template, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TemplateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TemplateEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

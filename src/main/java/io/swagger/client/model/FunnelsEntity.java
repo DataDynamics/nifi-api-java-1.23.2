@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FunnelEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * FunnelsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FunnelsEntity {
-  @SerializedName("funnels")
-  private List<FunnelEntity> funnels = null;
+    @SerializedName("funnels")
+    private List<FunnelEntity> funnels = null;
 
-  public FunnelsEntity funnels(List<FunnelEntity> funnels) {
-    this.funnels = funnels;
-    return this;
-  }
-
-  public FunnelsEntity addFunnelsItem(FunnelEntity funnelsItem) {
-    if (this.funnels == null) {
-      this.funnels = new ArrayList<FunnelEntity>();
+    public FunnelsEntity funnels(List<FunnelEntity> funnels) {
+        this.funnels = funnels;
+        return this;
     }
-    this.funnels.add(funnelsItem);
-    return this;
-  }
 
-   /**
-   * Get funnels
-   * @return funnels
-  **/
-  @ApiModelProperty(value = "")
-  public List<FunnelEntity> getFunnels() {
-    return funnels;
-  }
-
-  public void setFunnels(List<FunnelEntity> funnels) {
-    this.funnels = funnels;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FunnelsEntity addFunnelsItem(FunnelEntity funnelsItem) {
+        if (this.funnels == null) {
+            this.funnels = new ArrayList<FunnelEntity>();
+        }
+        this.funnels.add(funnelsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get funnels
+     *
+     * @return funnels
+     **/
+    @ApiModelProperty(value = "")
+    public List<FunnelEntity> getFunnels() {
+        return funnels;
     }
-    FunnelsEntity funnelsEntity = (FunnelsEntity) o;
-    return Objects.equals(this.funnels, funnelsEntity.funnels);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(funnels);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FunnelsEntity {\n");
-    
-    sb.append("    funnels: ").append(toIndentedString(funnels)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setFunnels(List<FunnelEntity> funnels) {
+        this.funnels = funnels;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FunnelsEntity funnelsEntity = (FunnelsEntity) o;
+        return Objects.equals(this.funnels, funnelsEntity.funnels);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(funnels);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FunnelsEntity {\n");
+
+        sb.append("    funnels: ").append(toIndentedString(funnels)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

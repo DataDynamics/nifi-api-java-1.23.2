@@ -13,82 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * AccessConfigurationDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class AccessConfigurationDTO {
-  @SerializedName("supportsLogin")
-  private Boolean supportsLogin = null;
+    @SerializedName("supportsLogin")
+    private Boolean supportsLogin = null;
 
-  public AccessConfigurationDTO supportsLogin(Boolean supportsLogin) {
-    this.supportsLogin = supportsLogin;
-    return this;
-  }
-
-   /**
-   * Indicates whether or not this NiFi supports user login.
-   * @return supportsLogin
-  **/
-  @ApiModelProperty(value = "Indicates whether or not this NiFi supports user login.")
-  public Boolean isSupportsLogin() {
-    return supportsLogin;
-  }
-
-  public void setSupportsLogin(Boolean supportsLogin) {
-    this.supportsLogin = supportsLogin;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public AccessConfigurationDTO supportsLogin(Boolean supportsLogin) {
+        this.supportsLogin = supportsLogin;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Indicates whether or not this NiFi supports user login.
+     *
+     * @return supportsLogin
+     **/
+    @ApiModelProperty(value = "Indicates whether or not this NiFi supports user login.")
+    public Boolean isSupportsLogin() {
+        return supportsLogin;
     }
-    AccessConfigurationDTO accessConfigurationDTO = (AccessConfigurationDTO) o;
-    return Objects.equals(this.supportsLogin, accessConfigurationDTO.supportsLogin);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(supportsLogin);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AccessConfigurationDTO {\n");
-    
-    sb.append("    supportsLogin: ").append(toIndentedString(supportsLogin)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setSupportsLogin(Boolean supportsLogin) {
+        this.supportsLogin = supportsLogin;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AccessConfigurationDTO accessConfigurationDTO = (AccessConfigurationDTO) o;
+        return Objects.equals(this.supportsLogin, accessConfigurationDTO.supportsLogin);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(supportsLogin);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccessConfigurationDTO {\n");
+
+        sb.append("    supportsLogin: ").append(toIndentedString(supportsLogin)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

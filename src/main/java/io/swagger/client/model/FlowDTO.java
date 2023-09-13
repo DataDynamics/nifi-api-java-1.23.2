@@ -13,316 +13,311 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ConnectionEntity;
-import io.swagger.client.model.FunnelEntity;
-import io.swagger.client.model.LabelEntity;
-import io.swagger.client.model.PortEntity;
-import io.swagger.client.model.ProcessGroupEntity;
-import io.swagger.client.model.ProcessorEntity;
-import io.swagger.client.model.RemoteProcessGroupEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * FlowDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowDTO {
-  @SerializedName("processGroups")
-  private List<ProcessGroupEntity> processGroups = null;
+    @SerializedName("processGroups")
+    private List<ProcessGroupEntity> processGroups = null;
 
-  @SerializedName("remoteProcessGroups")
-  private List<RemoteProcessGroupEntity> remoteProcessGroups = null;
+    @SerializedName("remoteProcessGroups")
+    private List<RemoteProcessGroupEntity> remoteProcessGroups = null;
 
-  @SerializedName("processors")
-  private List<ProcessorEntity> processors = null;
+    @SerializedName("processors")
+    private List<ProcessorEntity> processors = null;
 
-  @SerializedName("inputPorts")
-  private List<PortEntity> inputPorts = null;
+    @SerializedName("inputPorts")
+    private List<PortEntity> inputPorts = null;
 
-  @SerializedName("outputPorts")
-  private List<PortEntity> outputPorts = null;
+    @SerializedName("outputPorts")
+    private List<PortEntity> outputPorts = null;
 
-  @SerializedName("connections")
-  private List<ConnectionEntity> connections = null;
+    @SerializedName("connections")
+    private List<ConnectionEntity> connections = null;
 
-  @SerializedName("labels")
-  private List<LabelEntity> labels = null;
+    @SerializedName("labels")
+    private List<LabelEntity> labels = null;
 
-  @SerializedName("funnels")
-  private List<FunnelEntity> funnels = null;
+    @SerializedName("funnels")
+    private List<FunnelEntity> funnels = null;
 
-  public FlowDTO processGroups(List<ProcessGroupEntity> processGroups) {
-    this.processGroups = processGroups;
-    return this;
-  }
-
-  public FlowDTO addProcessGroupsItem(ProcessGroupEntity processGroupsItem) {
-    if (this.processGroups == null) {
-      this.processGroups = new ArrayList<ProcessGroupEntity>();
+    public FlowDTO processGroups(List<ProcessGroupEntity> processGroups) {
+        this.processGroups = processGroups;
+        return this;
     }
-    this.processGroups.add(processGroupsItem);
-    return this;
-  }
 
-   /**
-   * The process groups in this flow.
-   * @return processGroups
-  **/
-  @ApiModelProperty(value = "The process groups in this flow.")
-  public List<ProcessGroupEntity> getProcessGroups() {
-    return processGroups;
-  }
-
-  public void setProcessGroups(List<ProcessGroupEntity> processGroups) {
-    this.processGroups = processGroups;
-  }
-
-  public FlowDTO remoteProcessGroups(List<RemoteProcessGroupEntity> remoteProcessGroups) {
-    this.remoteProcessGroups = remoteProcessGroups;
-    return this;
-  }
-
-  public FlowDTO addRemoteProcessGroupsItem(RemoteProcessGroupEntity remoteProcessGroupsItem) {
-    if (this.remoteProcessGroups == null) {
-      this.remoteProcessGroups = new ArrayList<RemoteProcessGroupEntity>();
+    public FlowDTO addProcessGroupsItem(ProcessGroupEntity processGroupsItem) {
+        if (this.processGroups == null) {
+            this.processGroups = new ArrayList<ProcessGroupEntity>();
+        }
+        this.processGroups.add(processGroupsItem);
+        return this;
     }
-    this.remoteProcessGroups.add(remoteProcessGroupsItem);
-    return this;
-  }
 
-   /**
-   * The remote process groups in this flow.
-   * @return remoteProcessGroups
-  **/
-  @ApiModelProperty(value = "The remote process groups in this flow.")
-  public List<RemoteProcessGroupEntity> getRemoteProcessGroups() {
-    return remoteProcessGroups;
-  }
-
-  public void setRemoteProcessGroups(List<RemoteProcessGroupEntity> remoteProcessGroups) {
-    this.remoteProcessGroups = remoteProcessGroups;
-  }
-
-  public FlowDTO processors(List<ProcessorEntity> processors) {
-    this.processors = processors;
-    return this;
-  }
-
-  public FlowDTO addProcessorsItem(ProcessorEntity processorsItem) {
-    if (this.processors == null) {
-      this.processors = new ArrayList<ProcessorEntity>();
+    /**
+     * The process groups in this flow.
+     *
+     * @return processGroups
+     **/
+    @ApiModelProperty(value = "The process groups in this flow.")
+    public List<ProcessGroupEntity> getProcessGroups() {
+        return processGroups;
     }
-    this.processors.add(processorsItem);
-    return this;
-  }
 
-   /**
-   * The processors in this flow.
-   * @return processors
-  **/
-  @ApiModelProperty(value = "The processors in this flow.")
-  public List<ProcessorEntity> getProcessors() {
-    return processors;
-  }
-
-  public void setProcessors(List<ProcessorEntity> processors) {
-    this.processors = processors;
-  }
-
-  public FlowDTO inputPorts(List<PortEntity> inputPorts) {
-    this.inputPorts = inputPorts;
-    return this;
-  }
-
-  public FlowDTO addInputPortsItem(PortEntity inputPortsItem) {
-    if (this.inputPorts == null) {
-      this.inputPorts = new ArrayList<PortEntity>();
+    public void setProcessGroups(List<ProcessGroupEntity> processGroups) {
+        this.processGroups = processGroups;
     }
-    this.inputPorts.add(inputPortsItem);
-    return this;
-  }
 
-   /**
-   * The input ports in this flow.
-   * @return inputPorts
-  **/
-  @ApiModelProperty(value = "The input ports in this flow.")
-  public List<PortEntity> getInputPorts() {
-    return inputPorts;
-  }
-
-  public void setInputPorts(List<PortEntity> inputPorts) {
-    this.inputPorts = inputPorts;
-  }
-
-  public FlowDTO outputPorts(List<PortEntity> outputPorts) {
-    this.outputPorts = outputPorts;
-    return this;
-  }
-
-  public FlowDTO addOutputPortsItem(PortEntity outputPortsItem) {
-    if (this.outputPorts == null) {
-      this.outputPorts = new ArrayList<PortEntity>();
+    public FlowDTO remoteProcessGroups(List<RemoteProcessGroupEntity> remoteProcessGroups) {
+        this.remoteProcessGroups = remoteProcessGroups;
+        return this;
     }
-    this.outputPorts.add(outputPortsItem);
-    return this;
-  }
 
-   /**
-   * The output ports in this flow.
-   * @return outputPorts
-  **/
-  @ApiModelProperty(value = "The output ports in this flow.")
-  public List<PortEntity> getOutputPorts() {
-    return outputPorts;
-  }
-
-  public void setOutputPorts(List<PortEntity> outputPorts) {
-    this.outputPorts = outputPorts;
-  }
-
-  public FlowDTO connections(List<ConnectionEntity> connections) {
-    this.connections = connections;
-    return this;
-  }
-
-  public FlowDTO addConnectionsItem(ConnectionEntity connectionsItem) {
-    if (this.connections == null) {
-      this.connections = new ArrayList<ConnectionEntity>();
+    public FlowDTO addRemoteProcessGroupsItem(RemoteProcessGroupEntity remoteProcessGroupsItem) {
+        if (this.remoteProcessGroups == null) {
+            this.remoteProcessGroups = new ArrayList<RemoteProcessGroupEntity>();
+        }
+        this.remoteProcessGroups.add(remoteProcessGroupsItem);
+        return this;
     }
-    this.connections.add(connectionsItem);
-    return this;
-  }
 
-   /**
-   * The connections in this flow.
-   * @return connections
-  **/
-  @ApiModelProperty(value = "The connections in this flow.")
-  public List<ConnectionEntity> getConnections() {
-    return connections;
-  }
-
-  public void setConnections(List<ConnectionEntity> connections) {
-    this.connections = connections;
-  }
-
-  public FlowDTO labels(List<LabelEntity> labels) {
-    this.labels = labels;
-    return this;
-  }
-
-  public FlowDTO addLabelsItem(LabelEntity labelsItem) {
-    if (this.labels == null) {
-      this.labels = new ArrayList<LabelEntity>();
+    /**
+     * The remote process groups in this flow.
+     *
+     * @return remoteProcessGroups
+     **/
+    @ApiModelProperty(value = "The remote process groups in this flow.")
+    public List<RemoteProcessGroupEntity> getRemoteProcessGroups() {
+        return remoteProcessGroups;
     }
-    this.labels.add(labelsItem);
-    return this;
-  }
 
-   /**
-   * The labels in this flow.
-   * @return labels
-  **/
-  @ApiModelProperty(value = "The labels in this flow.")
-  public List<LabelEntity> getLabels() {
-    return labels;
-  }
-
-  public void setLabels(List<LabelEntity> labels) {
-    this.labels = labels;
-  }
-
-  public FlowDTO funnels(List<FunnelEntity> funnels) {
-    this.funnels = funnels;
-    return this;
-  }
-
-  public FlowDTO addFunnelsItem(FunnelEntity funnelsItem) {
-    if (this.funnels == null) {
-      this.funnels = new ArrayList<FunnelEntity>();
+    public void setRemoteProcessGroups(List<RemoteProcessGroupEntity> remoteProcessGroups) {
+        this.remoteProcessGroups = remoteProcessGroups;
     }
-    this.funnels.add(funnelsItem);
-    return this;
-  }
 
-   /**
-   * The funnels in this flow.
-   * @return funnels
-  **/
-  @ApiModelProperty(value = "The funnels in this flow.")
-  public List<FunnelEntity> getFunnels() {
-    return funnels;
-  }
-
-  public void setFunnels(List<FunnelEntity> funnels) {
-    this.funnels = funnels;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FlowDTO processors(List<ProcessorEntity> processors) {
+        this.processors = processors;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public FlowDTO addProcessorsItem(ProcessorEntity processorsItem) {
+        if (this.processors == null) {
+            this.processors = new ArrayList<ProcessorEntity>();
+        }
+        this.processors.add(processorsItem);
+        return this;
     }
-    FlowDTO flowDTO = (FlowDTO) o;
-    return Objects.equals(this.processGroups, flowDTO.processGroups) &&
-        Objects.equals(this.remoteProcessGroups, flowDTO.remoteProcessGroups) &&
-        Objects.equals(this.processors, flowDTO.processors) &&
-        Objects.equals(this.inputPorts, flowDTO.inputPorts) &&
-        Objects.equals(this.outputPorts, flowDTO.outputPorts) &&
-        Objects.equals(this.connections, flowDTO.connections) &&
-        Objects.equals(this.labels, flowDTO.labels) &&
-        Objects.equals(this.funnels, flowDTO.funnels);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(processGroups, remoteProcessGroups, processors, inputPorts, outputPorts, connections, labels, funnels);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowDTO {\n");
-    
-    sb.append("    processGroups: ").append(toIndentedString(processGroups)).append("\n");
-    sb.append("    remoteProcessGroups: ").append(toIndentedString(remoteProcessGroups)).append("\n");
-    sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
-    sb.append("    inputPorts: ").append(toIndentedString(inputPorts)).append("\n");
-    sb.append("    outputPorts: ").append(toIndentedString(outputPorts)).append("\n");
-    sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
-    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-    sb.append("    funnels: ").append(toIndentedString(funnels)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * The processors in this flow.
+     *
+     * @return processors
+     **/
+    @ApiModelProperty(value = "The processors in this flow.")
+    public List<ProcessorEntity> getProcessors() {
+        return processors;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setProcessors(List<ProcessorEntity> processors) {
+        this.processors = processors;
+    }
+
+    public FlowDTO inputPorts(List<PortEntity> inputPorts) {
+        this.inputPorts = inputPorts;
+        return this;
+    }
+
+    public FlowDTO addInputPortsItem(PortEntity inputPortsItem) {
+        if (this.inputPorts == null) {
+            this.inputPorts = new ArrayList<PortEntity>();
+        }
+        this.inputPorts.add(inputPortsItem);
+        return this;
+    }
+
+    /**
+     * The input ports in this flow.
+     *
+     * @return inputPorts
+     **/
+    @ApiModelProperty(value = "The input ports in this flow.")
+    public List<PortEntity> getInputPorts() {
+        return inputPorts;
+    }
+
+    public void setInputPorts(List<PortEntity> inputPorts) {
+        this.inputPorts = inputPorts;
+    }
+
+    public FlowDTO outputPorts(List<PortEntity> outputPorts) {
+        this.outputPorts = outputPorts;
+        return this;
+    }
+
+    public FlowDTO addOutputPortsItem(PortEntity outputPortsItem) {
+        if (this.outputPorts == null) {
+            this.outputPorts = new ArrayList<PortEntity>();
+        }
+        this.outputPorts.add(outputPortsItem);
+        return this;
+    }
+
+    /**
+     * The output ports in this flow.
+     *
+     * @return outputPorts
+     **/
+    @ApiModelProperty(value = "The output ports in this flow.")
+    public List<PortEntity> getOutputPorts() {
+        return outputPorts;
+    }
+
+    public void setOutputPorts(List<PortEntity> outputPorts) {
+        this.outputPorts = outputPorts;
+    }
+
+    public FlowDTO connections(List<ConnectionEntity> connections) {
+        this.connections = connections;
+        return this;
+    }
+
+    public FlowDTO addConnectionsItem(ConnectionEntity connectionsItem) {
+        if (this.connections == null) {
+            this.connections = new ArrayList<ConnectionEntity>();
+        }
+        this.connections.add(connectionsItem);
+        return this;
+    }
+
+    /**
+     * The connections in this flow.
+     *
+     * @return connections
+     **/
+    @ApiModelProperty(value = "The connections in this flow.")
+    public List<ConnectionEntity> getConnections() {
+        return connections;
+    }
+
+    public void setConnections(List<ConnectionEntity> connections) {
+        this.connections = connections;
+    }
+
+    public FlowDTO labels(List<LabelEntity> labels) {
+        this.labels = labels;
+        return this;
+    }
+
+    public FlowDTO addLabelsItem(LabelEntity labelsItem) {
+        if (this.labels == null) {
+            this.labels = new ArrayList<LabelEntity>();
+        }
+        this.labels.add(labelsItem);
+        return this;
+    }
+
+    /**
+     * The labels in this flow.
+     *
+     * @return labels
+     **/
+    @ApiModelProperty(value = "The labels in this flow.")
+    public List<LabelEntity> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<LabelEntity> labels) {
+        this.labels = labels;
+    }
+
+    public FlowDTO funnels(List<FunnelEntity> funnels) {
+        this.funnels = funnels;
+        return this;
+    }
+
+    public FlowDTO addFunnelsItem(FunnelEntity funnelsItem) {
+        if (this.funnels == null) {
+            this.funnels = new ArrayList<FunnelEntity>();
+        }
+        this.funnels.add(funnelsItem);
+        return this;
+    }
+
+    /**
+     * The funnels in this flow.
+     *
+     * @return funnels
+     **/
+    @ApiModelProperty(value = "The funnels in this flow.")
+    public List<FunnelEntity> getFunnels() {
+        return funnels;
+    }
+
+    public void setFunnels(List<FunnelEntity> funnels) {
+        this.funnels = funnels;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowDTO flowDTO = (FlowDTO) o;
+        return Objects.equals(this.processGroups, flowDTO.processGroups) &&
+                Objects.equals(this.remoteProcessGroups, flowDTO.remoteProcessGroups) &&
+                Objects.equals(this.processors, flowDTO.processors) &&
+                Objects.equals(this.inputPorts, flowDTO.inputPorts) &&
+                Objects.equals(this.outputPorts, flowDTO.outputPorts) &&
+                Objects.equals(this.connections, flowDTO.connections) &&
+                Objects.equals(this.labels, flowDTO.labels) &&
+                Objects.equals(this.funnels, flowDTO.funnels);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processGroups, remoteProcessGroups, processors, inputPorts, outputPorts, connections, labels, funnels);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowDTO {\n");
+
+        sb.append("    processGroups: ").append(toIndentedString(processGroups)).append("\n");
+        sb.append("    remoteProcessGroups: ").append(toIndentedString(remoteProcessGroups)).append("\n");
+        sb.append("    processors: ").append(toIndentedString(processors)).append("\n");
+        sb.append("    inputPorts: ").append(toIndentedString(inputPorts)).append("\n");
+        sb.append("    outputPorts: ").append(toIndentedString(outputPorts)).append("\n");
+        sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
+        sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+        sb.append("    funnels: ").append(toIndentedString(funnels)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

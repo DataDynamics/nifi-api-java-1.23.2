@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.VersionedFlowEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * VersionedFlowsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VersionedFlowsEntity {
-  @SerializedName("versionedFlows")
-  private List<VersionedFlowEntity> versionedFlows = null;
+    @SerializedName("versionedFlows")
+    private List<VersionedFlowEntity> versionedFlows = null;
 
-  public VersionedFlowsEntity versionedFlows(List<VersionedFlowEntity> versionedFlows) {
-    this.versionedFlows = versionedFlows;
-    return this;
-  }
-
-  public VersionedFlowsEntity addVersionedFlowsItem(VersionedFlowEntity versionedFlowsItem) {
-    if (this.versionedFlows == null) {
-      this.versionedFlows = new ArrayList<VersionedFlowEntity>();
+    public VersionedFlowsEntity versionedFlows(List<VersionedFlowEntity> versionedFlows) {
+        this.versionedFlows = versionedFlows;
+        return this;
     }
-    this.versionedFlows.add(versionedFlowsItem);
-    return this;
-  }
 
-   /**
-   * Get versionedFlows
-   * @return versionedFlows
-  **/
-  @ApiModelProperty(value = "")
-  public List<VersionedFlowEntity> getVersionedFlows() {
-    return versionedFlows;
-  }
-
-  public void setVersionedFlows(List<VersionedFlowEntity> versionedFlows) {
-    this.versionedFlows = versionedFlows;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public VersionedFlowsEntity addVersionedFlowsItem(VersionedFlowEntity versionedFlowsItem) {
+        if (this.versionedFlows == null) {
+            this.versionedFlows = new ArrayList<VersionedFlowEntity>();
+        }
+        this.versionedFlows.add(versionedFlowsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get versionedFlows
+     *
+     * @return versionedFlows
+     **/
+    @ApiModelProperty(value = "")
+    public List<VersionedFlowEntity> getVersionedFlows() {
+        return versionedFlows;
     }
-    VersionedFlowsEntity versionedFlowsEntity = (VersionedFlowsEntity) o;
-    return Objects.equals(this.versionedFlows, versionedFlowsEntity.versionedFlows);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(versionedFlows);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VersionedFlowsEntity {\n");
-    
-    sb.append("    versionedFlows: ").append(toIndentedString(versionedFlows)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setVersionedFlows(List<VersionedFlowEntity> versionedFlows) {
+        this.versionedFlows = versionedFlows;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VersionedFlowsEntity versionedFlowsEntity = (VersionedFlowsEntity) o;
+        return Objects.equals(this.versionedFlows, versionedFlowsEntity.versionedFlows);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(versionedFlows);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VersionedFlowsEntity {\n");
+
+        sb.append("    versionedFlows: ").append(toIndentedString(versionedFlows)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

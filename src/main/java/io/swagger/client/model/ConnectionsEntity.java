@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ConnectionEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ConnectionsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ConnectionsEntity {
-  @SerializedName("connections")
-  private List<ConnectionEntity> connections = null;
+    @SerializedName("connections")
+    private List<ConnectionEntity> connections = null;
 
-  public ConnectionsEntity connections(List<ConnectionEntity> connections) {
-    this.connections = connections;
-    return this;
-  }
-
-  public ConnectionsEntity addConnectionsItem(ConnectionEntity connectionsItem) {
-    if (this.connections == null) {
-      this.connections = new ArrayList<ConnectionEntity>();
+    public ConnectionsEntity connections(List<ConnectionEntity> connections) {
+        this.connections = connections;
+        return this;
     }
-    this.connections.add(connectionsItem);
-    return this;
-  }
 
-   /**
-   * Get connections
-   * @return connections
-  **/
-  @ApiModelProperty(value = "")
-  public List<ConnectionEntity> getConnections() {
-    return connections;
-  }
-
-  public void setConnections(List<ConnectionEntity> connections) {
-    this.connections = connections;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ConnectionsEntity addConnectionsItem(ConnectionEntity connectionsItem) {
+        if (this.connections == null) {
+            this.connections = new ArrayList<ConnectionEntity>();
+        }
+        this.connections.add(connectionsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get connections
+     *
+     * @return connections
+     **/
+    @ApiModelProperty(value = "")
+    public List<ConnectionEntity> getConnections() {
+        return connections;
     }
-    ConnectionsEntity connectionsEntity = (ConnectionsEntity) o;
-    return Objects.equals(this.connections, connectionsEntity.connections);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(connections);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ConnectionsEntity {\n");
-    
-    sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setConnections(List<ConnectionEntity> connections) {
+        this.connections = connections;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ConnectionsEntity connectionsEntity = (ConnectionsEntity) o;
+        return Objects.equals(this.connections, connectionsEntity.connections);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(connections);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ConnectionsEntity {\n");
+
+        sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,106 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.AllowableValueDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * AllowableValueEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class AllowableValueEntity {
-  @SerializedName("allowableValue")
-  private AllowableValueDTO allowableValue = null;
+    @SerializedName("allowableValue")
+    private AllowableValueDTO allowableValue = null;
 
-  @SerializedName("canRead")
-  private Boolean canRead = null;
+    @SerializedName("canRead")
+    private Boolean canRead = null;
 
-  public AllowableValueEntity allowableValue(AllowableValueDTO allowableValue) {
-    this.allowableValue = allowableValue;
-    return this;
-  }
-
-   /**
-   * Get allowableValue
-   * @return allowableValue
-  **/
-  @ApiModelProperty(value = "")
-  public AllowableValueDTO getAllowableValue() {
-    return allowableValue;
-  }
-
-  public void setAllowableValue(AllowableValueDTO allowableValue) {
-    this.allowableValue = allowableValue;
-  }
-
-  public AllowableValueEntity canRead(Boolean canRead) {
-    this.canRead = canRead;
-    return this;
-  }
-
-   /**
-   * Indicates whether the user can read a given resource.
-   * @return canRead
-  **/
-  @ApiModelProperty(value = "Indicates whether the user can read a given resource.")
-  public Boolean isCanRead() {
-    return canRead;
-  }
-
-  public void setCanRead(Boolean canRead) {
-    this.canRead = canRead;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public AllowableValueEntity allowableValue(AllowableValueDTO allowableValue) {
+        this.allowableValue = allowableValue;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get allowableValue
+     *
+     * @return allowableValue
+     **/
+    @ApiModelProperty(value = "")
+    public AllowableValueDTO getAllowableValue() {
+        return allowableValue;
     }
-    AllowableValueEntity allowableValueEntity = (AllowableValueEntity) o;
-    return Objects.equals(this.allowableValue, allowableValueEntity.allowableValue) &&
-        Objects.equals(this.canRead, allowableValueEntity.canRead);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(allowableValue, canRead);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AllowableValueEntity {\n");
-    
-    sb.append("    allowableValue: ").append(toIndentedString(allowableValue)).append("\n");
-    sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setAllowableValue(AllowableValueDTO allowableValue) {
+        this.allowableValue = allowableValue;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public AllowableValueEntity canRead(Boolean canRead) {
+        this.canRead = canRead;
+        return this;
+    }
+
+    /**
+     * Indicates whether the user can read a given resource.
+     *
+     * @return canRead
+     **/
+    @ApiModelProperty(value = "Indicates whether the user can read a given resource.")
+    public Boolean isCanRead() {
+        return canRead;
+    }
+
+    public void setCanRead(Boolean canRead) {
+        this.canRead = canRead;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AllowableValueEntity allowableValueEntity = (AllowableValueEntity) o;
+        return Objects.equals(this.allowableValue, allowableValueEntity.allowableValue) &&
+                Objects.equals(this.canRead, allowableValueEntity.canRead);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(allowableValue, canRead);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AllowableValueEntity {\n");
+
+        sb.append("    allowableValue: ").append(toIndentedString(allowableValue)).append("\n");
+        sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

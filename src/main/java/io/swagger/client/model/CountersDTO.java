@@ -13,117 +13,111 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.CountersSnapshotDTO;
-import io.swagger.client.model.NodeCountersSnapshotDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * CountersDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class CountersDTO {
-  @SerializedName("aggregateSnapshot")
-  private CountersSnapshotDTO aggregateSnapshot = null;
+    @SerializedName("aggregateSnapshot")
+    private CountersSnapshotDTO aggregateSnapshot = null;
 
-  @SerializedName("nodeSnapshots")
-  private List<NodeCountersSnapshotDTO> nodeSnapshots = null;
+    @SerializedName("nodeSnapshots")
+    private List<NodeCountersSnapshotDTO> nodeSnapshots = null;
 
-  public CountersDTO aggregateSnapshot(CountersSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-    return this;
-  }
-
-   /**
-   * A Counters snapshot that represents the aggregate values of all nodes in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this represents the stats of the single instance.
-   * @return aggregateSnapshot
-  **/
-  @ApiModelProperty(value = "A Counters snapshot that represents the aggregate values of all nodes in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this represents the stats of the single instance.")
-  public CountersSnapshotDTO getAggregateSnapshot() {
-    return aggregateSnapshot;
-  }
-
-  public void setAggregateSnapshot(CountersSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-  }
-
-  public CountersDTO nodeSnapshots(List<NodeCountersSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-    return this;
-  }
-
-  public CountersDTO addNodeSnapshotsItem(NodeCountersSnapshotDTO nodeSnapshotsItem) {
-    if (this.nodeSnapshots == null) {
-      this.nodeSnapshots = new ArrayList<NodeCountersSnapshotDTO>();
+    public CountersDTO aggregateSnapshot(CountersSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+        return this;
     }
-    this.nodeSnapshots.add(nodeSnapshotsItem);
-    return this;
-  }
 
-   /**
-   * A Counters snapshot for each node in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this may be null.
-   * @return nodeSnapshots
-  **/
-  @ApiModelProperty(value = "A Counters snapshot for each node in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this may be null.")
-  public List<NodeCountersSnapshotDTO> getNodeSnapshots() {
-    return nodeSnapshots;
-  }
-
-  public void setNodeSnapshots(List<NodeCountersSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * A Counters snapshot that represents the aggregate values of all nodes in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this represents the stats of the single instance.
+     *
+     * @return aggregateSnapshot
+     **/
+    @ApiModelProperty(value = "A Counters snapshot that represents the aggregate values of all nodes in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this represents the stats of the single instance.")
+    public CountersSnapshotDTO getAggregateSnapshot() {
+        return aggregateSnapshot;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setAggregateSnapshot(CountersSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
     }
-    CountersDTO countersDTO = (CountersDTO) o;
-    return Objects.equals(this.aggregateSnapshot, countersDTO.aggregateSnapshot) &&
-        Objects.equals(this.nodeSnapshots, countersDTO.nodeSnapshots);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(aggregateSnapshot, nodeSnapshots);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CountersDTO {\n");
-    
-    sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
-    sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public CountersDTO nodeSnapshots(List<NodeCountersSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public CountersDTO addNodeSnapshotsItem(NodeCountersSnapshotDTO nodeSnapshotsItem) {
+        if (this.nodeSnapshots == null) {
+            this.nodeSnapshots = new ArrayList<NodeCountersSnapshotDTO>();
+        }
+        this.nodeSnapshots.add(nodeSnapshotsItem);
+        return this;
+    }
+
+    /**
+     * A Counters snapshot for each node in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this may be null.
+     *
+     * @return nodeSnapshots
+     **/
+    @ApiModelProperty(value = "A Counters snapshot for each node in the cluster. If the NiFi instance is a standalone instance, rather than a cluster, this may be null.")
+    public List<NodeCountersSnapshotDTO> getNodeSnapshots() {
+        return nodeSnapshots;
+    }
+
+    public void setNodeSnapshots(List<NodeCountersSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CountersDTO countersDTO = (CountersDTO) o;
+        return Objects.equals(this.aggregateSnapshot, countersDTO.aggregateSnapshot) &&
+                Objects.equals(this.nodeSnapshots, countersDTO.nodeSnapshots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(aggregateSnapshot, nodeSnapshots);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CountersDTO {\n");
+
+        sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
+        sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

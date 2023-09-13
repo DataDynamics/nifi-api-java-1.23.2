@@ -13,210 +13,206 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.NodeReplayLastEventSnapshotDTO;
-import io.swagger.client.model.ReplayLastEventSnapshotDTO;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ReplayLastEventResponseEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ReplayLastEventResponseEntity {
-  @SerializedName("componentId")
-  private String componentId = null;
+    @SerializedName("componentId")
+    private String componentId = null;
+    @SerializedName("nodes")
+    private NodesEnum nodes = null;
+    @SerializedName("aggregateSnapshot")
+    private ReplayLastEventSnapshotDTO aggregateSnapshot = null;
+    @SerializedName("nodeSnapshots")
+    private List<NodeReplayLastEventSnapshotDTO> nodeSnapshots = null;
 
-  /**
-   * Which nodes were requested to replay their last provenance event.
-   */
-  @JsonAdapter(NodesEnum.Adapter.class)
-  public enum NodesEnum {
-    ALL("ALL"),
-    
-    PRIMARY("PRIMARY");
-
-    private String value;
-
-    NodesEnum(String value) {
-      this.value = value;
+    public ReplayLastEventResponseEntity componentId(String componentId) {
+        this.componentId = componentId;
+        return this;
     }
 
-    public String getValue() {
-      return value;
+    /**
+     * The UUID of the component whose last event should be replayed.
+     *
+     * @return componentId
+     **/
+    @ApiModelProperty(value = "The UUID of the component whose last event should be replayed.")
+    public String getComponentId() {
+        return componentId;
+    }
+
+    public void setComponentId(String componentId) {
+        this.componentId = componentId;
+    }
+
+    public ReplayLastEventResponseEntity nodes(NodesEnum nodes) {
+        this.nodes = nodes;
+        return this;
+    }
+
+    /**
+     * Which nodes were requested to replay their last provenance event.
+     *
+     * @return nodes
+     **/
+    @ApiModelProperty(value = "Which nodes were requested to replay their last provenance event.")
+    public NodesEnum getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(NodesEnum nodes) {
+        this.nodes = nodes;
+    }
+
+    public ReplayLastEventResponseEntity aggregateSnapshot(ReplayLastEventSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+        return this;
+    }
+
+    /**
+     * The aggregate result of all nodes&#39; responses
+     *
+     * @return aggregateSnapshot
+     **/
+    @ApiModelProperty(value = "The aggregate result of all nodes' responses")
+    public ReplayLastEventSnapshotDTO getAggregateSnapshot() {
+        return aggregateSnapshot;
+    }
+
+    public void setAggregateSnapshot(ReplayLastEventSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+    }
+
+    public ReplayLastEventResponseEntity nodeSnapshots(List<NodeReplayLastEventSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+        return this;
+    }
+
+    public ReplayLastEventResponseEntity addNodeSnapshotsItem(NodeReplayLastEventSnapshotDTO nodeSnapshotsItem) {
+        if (this.nodeSnapshots == null) {
+            this.nodeSnapshots = new ArrayList<NodeReplayLastEventSnapshotDTO>();
+        }
+        this.nodeSnapshots.add(nodeSnapshotsItem);
+        return this;
+    }
+
+    /**
+     * The node-wise results
+     *
+     * @return nodeSnapshots
+     **/
+    @ApiModelProperty(value = "The node-wise results")
+    public List<NodeReplayLastEventSnapshotDTO> getNodeSnapshots() {
+        return nodeSnapshots;
+    }
+
+    public void setNodeSnapshots(List<NodeReplayLastEventSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ReplayLastEventResponseEntity replayLastEventResponseEntity = (ReplayLastEventResponseEntity) o;
+        return Objects.equals(this.componentId, replayLastEventResponseEntity.componentId) &&
+                Objects.equals(this.nodes, replayLastEventResponseEntity.nodes) &&
+                Objects.equals(this.aggregateSnapshot, replayLastEventResponseEntity.aggregateSnapshot) &&
+                Objects.equals(this.nodeSnapshots, replayLastEventResponseEntity.nodeSnapshots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(componentId, nodes, aggregateSnapshot, nodeSnapshots);
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ReplayLastEventResponseEntity {\n");
+
+        sb.append("    componentId: ").append(toIndentedString(componentId)).append("\n");
+        sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+        sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
+        sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
-    public static NodesEnum fromValue(String text) {
-      for (NodesEnum b : NodesEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
         }
-      }
-      return null;
+        return o.toString().replace("\n", "\n    ");
     }
 
-    public static class Adapter extends TypeAdapter<NodesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final NodesEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+    /**
+     * Which nodes were requested to replay their last provenance event.
+     */
+    @JsonAdapter(NodesEnum.Adapter.class)
+    public enum NodesEnum {
+        ALL("ALL"),
 
-      @Override
-      public NodesEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return NodesEnum.fromValue(String.valueOf(value));
-      }
+        PRIMARY("PRIMARY");
+
+        private String value;
+
+        NodesEnum(String value) {
+            this.value = value;
+        }
+
+        public static NodesEnum fromValue(String text) {
+            for (NodesEnum b : NodesEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<NodesEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final NodesEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public NodesEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return NodesEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
-  }
-
-  @SerializedName("nodes")
-  private NodesEnum nodes = null;
-
-  @SerializedName("aggregateSnapshot")
-  private ReplayLastEventSnapshotDTO aggregateSnapshot = null;
-
-  @SerializedName("nodeSnapshots")
-  private List<NodeReplayLastEventSnapshotDTO> nodeSnapshots = null;
-
-  public ReplayLastEventResponseEntity componentId(String componentId) {
-    this.componentId = componentId;
-    return this;
-  }
-
-   /**
-   * The UUID of the component whose last event should be replayed.
-   * @return componentId
-  **/
-  @ApiModelProperty(value = "The UUID of the component whose last event should be replayed.")
-  public String getComponentId() {
-    return componentId;
-  }
-
-  public void setComponentId(String componentId) {
-    this.componentId = componentId;
-  }
-
-  public ReplayLastEventResponseEntity nodes(NodesEnum nodes) {
-    this.nodes = nodes;
-    return this;
-  }
-
-   /**
-   * Which nodes were requested to replay their last provenance event.
-   * @return nodes
-  **/
-  @ApiModelProperty(value = "Which nodes were requested to replay their last provenance event.")
-  public NodesEnum getNodes() {
-    return nodes;
-  }
-
-  public void setNodes(NodesEnum nodes) {
-    this.nodes = nodes;
-  }
-
-  public ReplayLastEventResponseEntity aggregateSnapshot(ReplayLastEventSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-    return this;
-  }
-
-   /**
-   * The aggregate result of all nodes&#39; responses
-   * @return aggregateSnapshot
-  **/
-  @ApiModelProperty(value = "The aggregate result of all nodes' responses")
-  public ReplayLastEventSnapshotDTO getAggregateSnapshot() {
-    return aggregateSnapshot;
-  }
-
-  public void setAggregateSnapshot(ReplayLastEventSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-  }
-
-  public ReplayLastEventResponseEntity nodeSnapshots(List<NodeReplayLastEventSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-    return this;
-  }
-
-  public ReplayLastEventResponseEntity addNodeSnapshotsItem(NodeReplayLastEventSnapshotDTO nodeSnapshotsItem) {
-    if (this.nodeSnapshots == null) {
-      this.nodeSnapshots = new ArrayList<NodeReplayLastEventSnapshotDTO>();
-    }
-    this.nodeSnapshots.add(nodeSnapshotsItem);
-    return this;
-  }
-
-   /**
-   * The node-wise results
-   * @return nodeSnapshots
-  **/
-  @ApiModelProperty(value = "The node-wise results")
-  public List<NodeReplayLastEventSnapshotDTO> getNodeSnapshots() {
-    return nodeSnapshots;
-  }
-
-  public void setNodeSnapshots(List<NodeReplayLastEventSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ReplayLastEventResponseEntity replayLastEventResponseEntity = (ReplayLastEventResponseEntity) o;
-    return Objects.equals(this.componentId, replayLastEventResponseEntity.componentId) &&
-        Objects.equals(this.nodes, replayLastEventResponseEntity.nodes) &&
-        Objects.equals(this.aggregateSnapshot, replayLastEventResponseEntity.aggregateSnapshot) &&
-        Objects.equals(this.nodeSnapshots, replayLastEventResponseEntity.nodeSnapshots);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(componentId, nodes, aggregateSnapshot, nodeSnapshots);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ReplayLastEventResponseEntity {\n");
-    
-    sb.append("    componentId: ").append(toIndentedString(componentId)).append("\n");
-    sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
-    sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
-    sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 
 }
 

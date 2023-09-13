@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.CounterDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * CounterEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class CounterEntity {
-  @SerializedName("counter")
-  private CounterDTO counter = null;
+    @SerializedName("counter")
+    private CounterDTO counter = null;
 
-  public CounterEntity counter(CounterDTO counter) {
-    this.counter = counter;
-    return this;
-  }
-
-   /**
-   * Get counter
-   * @return counter
-  **/
-  @ApiModelProperty(value = "")
-  public CounterDTO getCounter() {
-    return counter;
-  }
-
-  public void setCounter(CounterDTO counter) {
-    this.counter = counter;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public CounterEntity counter(CounterDTO counter) {
+        this.counter = counter;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get counter
+     *
+     * @return counter
+     **/
+    @ApiModelProperty(value = "")
+    public CounterDTO getCounter() {
+        return counter;
     }
-    CounterEntity counterEntity = (CounterEntity) o;
-    return Objects.equals(this.counter, counterEntity.counter);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(counter);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CounterEntity {\n");
-    
-    sb.append("    counter: ").append(toIndentedString(counter)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setCounter(CounterDTO counter) {
+        this.counter = counter;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CounterEntity counterEntity = (CounterEntity) o;
+        return Objects.equals(this.counter, counterEntity.counter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(counter);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CounterEntity {\n");
+
+        sb.append("    counter: ").append(toIndentedString(counter)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

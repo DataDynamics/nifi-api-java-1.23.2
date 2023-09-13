@@ -13,152 +13,149 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.StateMapDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ComponentStateDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ComponentStateDTO {
-  @SerializedName("componentId")
-  private String componentId = null;
+    @SerializedName("componentId")
+    private String componentId = null;
 
-  @SerializedName("stateDescription")
-  private String stateDescription = null;
+    @SerializedName("stateDescription")
+    private String stateDescription = null;
 
-  @SerializedName("clusterState")
-  private StateMapDTO clusterState = null;
+    @SerializedName("clusterState")
+    private StateMapDTO clusterState = null;
 
-  @SerializedName("localState")
-  private StateMapDTO localState = null;
+    @SerializedName("localState")
+    private StateMapDTO localState = null;
 
-  public ComponentStateDTO componentId(String componentId) {
-    this.componentId = componentId;
-    return this;
-  }
-
-   /**
-   * The component identifier.
-   * @return componentId
-  **/
-  @ApiModelProperty(value = "The component identifier.")
-  public String getComponentId() {
-    return componentId;
-  }
-
-  public void setComponentId(String componentId) {
-    this.componentId = componentId;
-  }
-
-  public ComponentStateDTO stateDescription(String stateDescription) {
-    this.stateDescription = stateDescription;
-    return this;
-  }
-
-   /**
-   * Description of the state this component persists.
-   * @return stateDescription
-  **/
-  @ApiModelProperty(value = "Description of the state this component persists.")
-  public String getStateDescription() {
-    return stateDescription;
-  }
-
-  public void setStateDescription(String stateDescription) {
-    this.stateDescription = stateDescription;
-  }
-
-  public ComponentStateDTO clusterState(StateMapDTO clusterState) {
-    this.clusterState = clusterState;
-    return this;
-  }
-
-   /**
-   * The cluster state for this component, or null if this NiFi is a standalone instance.
-   * @return clusterState
-  **/
-  @ApiModelProperty(value = "The cluster state for this component, or null if this NiFi is a standalone instance.")
-  public StateMapDTO getClusterState() {
-    return clusterState;
-  }
-
-  public void setClusterState(StateMapDTO clusterState) {
-    this.clusterState = clusterState;
-  }
-
-  public ComponentStateDTO localState(StateMapDTO localState) {
-    this.localState = localState;
-    return this;
-  }
-
-   /**
-   * The local state for this component.
-   * @return localState
-  **/
-  @ApiModelProperty(value = "The local state for this component.")
-  public StateMapDTO getLocalState() {
-    return localState;
-  }
-
-  public void setLocalState(StateMapDTO localState) {
-    this.localState = localState;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ComponentStateDTO componentId(String componentId) {
+        this.componentId = componentId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The component identifier.
+     *
+     * @return componentId
+     **/
+    @ApiModelProperty(value = "The component identifier.")
+    public String getComponentId() {
+        return componentId;
     }
-    ComponentStateDTO componentStateDTO = (ComponentStateDTO) o;
-    return Objects.equals(this.componentId, componentStateDTO.componentId) &&
-        Objects.equals(this.stateDescription, componentStateDTO.stateDescription) &&
-        Objects.equals(this.clusterState, componentStateDTO.clusterState) &&
-        Objects.equals(this.localState, componentStateDTO.localState);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(componentId, stateDescription, clusterState, localState);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ComponentStateDTO {\n");
-    
-    sb.append("    componentId: ").append(toIndentedString(componentId)).append("\n");
-    sb.append("    stateDescription: ").append(toIndentedString(stateDescription)).append("\n");
-    sb.append("    clusterState: ").append(toIndentedString(clusterState)).append("\n");
-    sb.append("    localState: ").append(toIndentedString(localState)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setComponentId(String componentId) {
+        this.componentId = componentId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ComponentStateDTO stateDescription(String stateDescription) {
+        this.stateDescription = stateDescription;
+        return this;
+    }
+
+    /**
+     * Description of the state this component persists.
+     *
+     * @return stateDescription
+     **/
+    @ApiModelProperty(value = "Description of the state this component persists.")
+    public String getStateDescription() {
+        return stateDescription;
+    }
+
+    public void setStateDescription(String stateDescription) {
+        this.stateDescription = stateDescription;
+    }
+
+    public ComponentStateDTO clusterState(StateMapDTO clusterState) {
+        this.clusterState = clusterState;
+        return this;
+    }
+
+    /**
+     * The cluster state for this component, or null if this NiFi is a standalone instance.
+     *
+     * @return clusterState
+     **/
+    @ApiModelProperty(value = "The cluster state for this component, or null if this NiFi is a standalone instance.")
+    public StateMapDTO getClusterState() {
+        return clusterState;
+    }
+
+    public void setClusterState(StateMapDTO clusterState) {
+        this.clusterState = clusterState;
+    }
+
+    public ComponentStateDTO localState(StateMapDTO localState) {
+        this.localState = localState;
+        return this;
+    }
+
+    /**
+     * The local state for this component.
+     *
+     * @return localState
+     **/
+    @ApiModelProperty(value = "The local state for this component.")
+    public StateMapDTO getLocalState() {
+        return localState;
+    }
+
+    public void setLocalState(StateMapDTO localState) {
+        this.localState = localState;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ComponentStateDTO componentStateDTO = (ComponentStateDTO) o;
+        return Objects.equals(this.componentId, componentStateDTO.componentId) &&
+                Objects.equals(this.stateDescription, componentStateDTO.stateDescription) &&
+                Objects.equals(this.clusterState, componentStateDTO.clusterState) &&
+                Objects.equals(this.localState, componentStateDTO.localState);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(componentId, stateDescription, clusterState, localState);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ComponentStateDTO {\n");
+
+        sb.append("    componentId: ").append(toIndentedString(componentId)).append("\n");
+        sb.append("    stateDescription: ").append(toIndentedString(stateDescription)).append("\n");
+        sb.append("    clusterState: ").append(toIndentedString(clusterState)).append("\n");
+        sb.append("    localState: ").append(toIndentedString(localState)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

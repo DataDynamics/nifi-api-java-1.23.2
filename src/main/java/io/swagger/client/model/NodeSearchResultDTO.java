@@ -13,105 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * NodeSearchResultDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class NodeSearchResultDTO {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("address")
-  private String address = null;
+    @SerializedName("address")
+    private String address = null;
 
-  public NodeSearchResultDTO id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The id of the node that matched the search.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The id of the node that matched the search.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public NodeSearchResultDTO address(String address) {
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * The address of the node that matched the search.
-   * @return address
-  **/
-  @ApiModelProperty(value = "The address of the node that matched the search.")
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public NodeSearchResultDTO id(String id) {
+        this.id = id;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The id of the node that matched the search.
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The id of the node that matched the search.")
+    public String getId() {
+        return id;
     }
-    NodeSearchResultDTO nodeSearchResultDTO = (NodeSearchResultDTO) o;
-    return Objects.equals(this.id, nodeSearchResultDTO.id) &&
-        Objects.equals(this.address, nodeSearchResultDTO.address);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, address);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class NodeSearchResultDTO {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setId(String id) {
+        this.id = id;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public NodeSearchResultDTO address(String address) {
+        this.address = address;
+        return this;
+    }
+
+    /**
+     * The address of the node that matched the search.
+     *
+     * @return address
+     **/
+    @ApiModelProperty(value = "The address of the node that matched the search.")
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        NodeSearchResultDTO nodeSearchResultDTO = (NodeSearchResultDTO) o;
+        return Objects.equals(this.id, nodeSearchResultDTO.id) &&
+                Objects.equals(this.address, nodeSearchResultDTO.address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, address);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class NodeSearchResultDTO {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    address: ").append(toIndentedString(address)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

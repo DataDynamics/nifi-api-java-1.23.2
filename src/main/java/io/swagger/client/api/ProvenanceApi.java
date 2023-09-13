@@ -13,24 +13,13 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.LineageEntity;
 import io.swagger.client.model.ProvenanceEntity;
 import io.swagger.client.model.ProvenanceOptionsEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,9 +47,10 @@ public class ProvenanceApi {
 
     /**
      * Build call for deleteLineage
-     * @param id The id of the lineage query. (required)
-     * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The id of the lineage query. (required)
+     * @param clusterNodeId           The id of the node where this query exists if clustered. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -70,53 +60,53 @@ public class ProvenanceApi {
 
         // create path and map variables
         String localVarPath = "/provenance/lineage/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteLineageValidateBeforeCall(String id, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteLineage(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteLineageCall(id, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -125,8 +115,8 @@ public class ProvenanceApi {
 
     /**
      * Deletes a lineage query
-     * 
-     * @param id The id of the lineage query. (required)
+     *
+     * @param id            The id of the lineage query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
      * @return LineageEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -138,24 +128,25 @@ public class ProvenanceApi {
 
     /**
      * Deletes a lineage query
-     * 
-     * @param id The id of the lineage query. (required)
+     *
+     * @param id            The id of the lineage query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
      * @return ApiResponse&lt;LineageEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<LineageEntity> deleteLineageWithHttpInfo(String id, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = deleteLineageValidateBeforeCall(id, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<LineageEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LineageEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes a lineage query (asynchronously)
-     * 
-     * @param id The id of the lineage query. (required)
+     *
+     * @param id            The id of the lineage query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -181,15 +172,18 @@ public class ProvenanceApi {
         }
 
         com.squareup.okhttp.Call call = deleteLineageValidateBeforeCall(id, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<LineageEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LineageEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteProvenance
-     * @param id The id of the provenance query. (required)
-     * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The id of the provenance query. (required)
+     * @param clusterNodeId           The id of the node where this query exists if clustered. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -199,53 +193,53 @@ public class ProvenanceApi {
 
         // create path and map variables
         String localVarPath = "/provenance/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteProvenanceValidateBeforeCall(String id, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteProvenance(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteProvenanceCall(id, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -254,8 +248,8 @@ public class ProvenanceApi {
 
     /**
      * Deletes a provenance query
-     * 
-     * @param id The id of the provenance query. (required)
+     *
+     * @param id            The id of the provenance query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
      * @return ProvenanceEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -267,24 +261,25 @@ public class ProvenanceApi {
 
     /**
      * Deletes a provenance query
-     * 
-     * @param id The id of the provenance query. (required)
+     *
+     * @param id            The id of the provenance query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
      * @return ApiResponse&lt;ProvenanceEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProvenanceEntity> deleteProvenanceWithHttpInfo(String id, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = deleteProvenanceValidateBeforeCall(id, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<ProvenanceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProvenanceEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes a provenance query (asynchronously)
-     * 
-     * @param id The id of the provenance query. (required)
+     *
+     * @param id            The id of the provenance query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -310,15 +305,18 @@ public class ProvenanceApi {
         }
 
         com.squareup.okhttp.Call call = deleteProvenanceValidateBeforeCall(id, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProvenanceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProvenanceEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getLineage
-     * @param id The id of the lineage query. (required)
-     * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The id of the lineage query. (required)
+     * @param clusterNodeId           The id of the node where this query exists if clustered. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -328,53 +326,53 @@ public class ProvenanceApi {
 
         // create path and map variables
         String localVarPath = "/provenance/lineage/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getLineageValidateBeforeCall(String id, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getLineage(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getLineageCall(id, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -383,8 +381,8 @@ public class ProvenanceApi {
 
     /**
      * Gets a lineage query
-     * 
-     * @param id The id of the lineage query. (required)
+     *
+     * @param id            The id of the lineage query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
      * @return LineageEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -396,24 +394,25 @@ public class ProvenanceApi {
 
     /**
      * Gets a lineage query
-     * 
-     * @param id The id of the lineage query. (required)
+     *
+     * @param id            The id of the lineage query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
      * @return ApiResponse&lt;LineageEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<LineageEntity> getLineageWithHttpInfo(String id, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getLineageValidateBeforeCall(id, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<LineageEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LineageEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a lineage query (asynchronously)
-     * 
-     * @param id The id of the lineage query. (required)
+     *
+     * @param id            The id of the lineage query. (required)
      * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -439,17 +438,20 @@ public class ProvenanceApi {
         }
 
         com.squareup.okhttp.Call call = getLineageValidateBeforeCall(id, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<LineageEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LineageEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProvenance
-     * @param id The id of the provenance query. (required)
-     * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param summarize Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. (optional, default to false)
-     * @param incrementalResults Whether or not to summarize provenance events returned. This property is false by default. (optional, default to true)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The id of the provenance query. (required)
+     * @param clusterNodeId           The id of the node where this query exists if clustered. (optional)
+     * @param summarize               Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. (optional, default to false)
+     * @param incrementalResults      Whether or not to summarize provenance events returned. This property is false by default. (optional, default to true)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -459,57 +461,57 @@ public class ProvenanceApi {
 
         // create path and map variables
         String localVarPath = "/provenance/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
         if (summarize != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("summarize", summarize));
+            localVarQueryParams.addAll(apiClient.parameterToPair("summarize", summarize));
         if (incrementalResults != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("incrementalResults", incrementalResults));
+            localVarQueryParams.addAll(apiClient.parameterToPair("incrementalResults", incrementalResults));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProvenanceValidateBeforeCall(String id, String clusterNodeId, Boolean summarize, Boolean incrementalResults, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProvenance(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getProvenanceCall(id, clusterNodeId, summarize, incrementalResults, progressListener, progressRequestListener);
         return call;
@@ -518,10 +520,10 @@ public class ProvenanceApi {
 
     /**
      * Gets a provenance query
-     * 
-     * @param id The id of the provenance query. (required)
-     * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param summarize Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. (optional, default to false)
+     *
+     * @param id                 The id of the provenance query. (required)
+     * @param clusterNodeId      The id of the node where this query exists if clustered. (optional)
+     * @param summarize          Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. (optional, default to false)
      * @param incrementalResults Whether or not to summarize provenance events returned. This property is false by default. (optional, default to true)
      * @return ProvenanceEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -533,28 +535,29 @@ public class ProvenanceApi {
 
     /**
      * Gets a provenance query
-     * 
-     * @param id The id of the provenance query. (required)
-     * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param summarize Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. (optional, default to false)
+     *
+     * @param id                 The id of the provenance query. (required)
+     * @param clusterNodeId      The id of the node where this query exists if clustered. (optional)
+     * @param summarize          Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. (optional, default to false)
      * @param incrementalResults Whether or not to summarize provenance events returned. This property is false by default. (optional, default to true)
      * @return ApiResponse&lt;ProvenanceEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProvenanceEntity> getProvenanceWithHttpInfo(String id, String clusterNodeId, Boolean summarize, Boolean incrementalResults) throws ApiException {
         com.squareup.okhttp.Call call = getProvenanceValidateBeforeCall(id, clusterNodeId, summarize, incrementalResults, null, null);
-        Type localVarReturnType = new TypeToken<ProvenanceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProvenanceEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a provenance query (asynchronously)
-     * 
-     * @param id The id of the provenance query. (required)
-     * @param clusterNodeId The id of the node where this query exists if clustered. (optional)
-     * @param summarize Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. (optional, default to false)
+     *
+     * @param id                 The id of the provenance query. (required)
+     * @param clusterNodeId      The id of the node where this query exists if clustered. (optional)
+     * @param summarize          Whether or not incremental results are returned. If false, provenance events are only returned once the query completes. This property is true by default. (optional, default to false)
      * @param incrementalResults Whether or not to summarize provenance events returned. This property is false by default. (optional, default to true)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback           The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -580,13 +583,16 @@ public class ProvenanceApi {
         }
 
         com.squareup.okhttp.Call call = getProvenanceValidateBeforeCall(id, clusterNodeId, summarize, incrementalResults, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProvenanceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProvenanceEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getSearchOptions
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -605,36 +611,36 @@ public class ProvenanceApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getSearchOptionsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getSearchOptionsCall(progressListener, progressRequestListener);
         return call;
@@ -643,7 +649,7 @@ public class ProvenanceApi {
 
     /**
      * Gets the searchable attributes for provenance events
-     * 
+     *
      * @return ProvenanceOptionsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -654,19 +660,20 @@ public class ProvenanceApi {
 
     /**
      * Gets the searchable attributes for provenance events
-     * 
+     *
      * @return ApiResponse&lt;ProvenanceOptionsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProvenanceOptionsEntity> getSearchOptionsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getSearchOptionsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ProvenanceOptionsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProvenanceOptionsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the searchable attributes for provenance events (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -693,14 +700,17 @@ public class ProvenanceApi {
         }
 
         com.squareup.okhttp.Call call = getSearchOptionsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProvenanceOptionsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProvenanceOptionsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for submitLineageRequest
-     * @param body The lineage query details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The lineage query details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -719,41 +729,41 @@ public class ProvenanceApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call submitLineageRequestValidateBeforeCall(LineageEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling submitLineageRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = submitLineageRequestCall(body, progressListener, progressRequestListener);
         return call;
@@ -763,6 +773,7 @@ public class ProvenanceApi {
     /**
      * Submits a lineage query
      * Lineage queries may be long running so this endpoint submits a request. The response will include the current state of the query. If the request is not completed the URI in the response can be used at a later time to get the updated state of the query. Once the query has completed the lineage request should be deleted by the client who originally submitted it.
+     *
      * @param body The lineage query details. (required)
      * @return LineageEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -775,20 +786,23 @@ public class ProvenanceApi {
     /**
      * Submits a lineage query
      * Lineage queries may be long running so this endpoint submits a request. The response will include the current state of the query. If the request is not completed the URI in the response can be used at a later time to get the updated state of the query. Once the query has completed the lineage request should be deleted by the client who originally submitted it.
+     *
      * @param body The lineage query details. (required)
      * @return ApiResponse&lt;LineageEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<LineageEntity> submitLineageRequestWithHttpInfo(LineageEntity body) throws ApiException {
         com.squareup.okhttp.Call call = submitLineageRequestValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<LineageEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LineageEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Submits a lineage query (asynchronously)
      * Lineage queries may be long running so this endpoint submits a request. The response will include the current state of the query. If the request is not completed the URI in the response can be used at a later time to get the updated state of the query. Once the query has completed the lineage request should be deleted by the client who originally submitted it.
-     * @param body The lineage query details. (required)
+     *
+     * @param body     The lineage query details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -815,14 +829,17 @@ public class ProvenanceApi {
         }
 
         com.squareup.okhttp.Call call = submitLineageRequestValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<LineageEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<LineageEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for submitProvenanceRequest
-     * @param body The provenance query details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The provenance query details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -841,41 +858,41 @@ public class ProvenanceApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call submitProvenanceRequestValidateBeforeCall(ProvenanceEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling submitProvenanceRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = submitProvenanceRequestCall(body, progressListener, progressRequestListener);
         return call;
@@ -885,6 +902,7 @@ public class ProvenanceApi {
     /**
      * Submits a provenance query
      * Provenance queries may be long running so this endpoint submits a request. The response will include the current state of the query. If the request is not completed the URI in the response can be used at a later time to get the updated state of the query. Once the query has completed the provenance request should be deleted by the client who originally submitted it.
+     *
      * @param body The provenance query details. (required)
      * @return ProvenanceEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -897,20 +915,23 @@ public class ProvenanceApi {
     /**
      * Submits a provenance query
      * Provenance queries may be long running so this endpoint submits a request. The response will include the current state of the query. If the request is not completed the URI in the response can be used at a later time to get the updated state of the query. Once the query has completed the provenance request should be deleted by the client who originally submitted it.
+     *
      * @param body The provenance query details. (required)
      * @return ApiResponse&lt;ProvenanceEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProvenanceEntity> submitProvenanceRequestWithHttpInfo(ProvenanceEntity body) throws ApiException {
         com.squareup.okhttp.Call call = submitProvenanceRequestValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ProvenanceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProvenanceEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Submits a provenance query (asynchronously)
      * Provenance queries may be long running so this endpoint submits a request. The response will include the current state of the query. If the request is not completed the URI in the response can be used at a later time to get the updated state of the query. Once the query has completed the provenance request should be deleted by the client who originally submitted it.
-     * @param body The provenance query details. (required)
+     *
+     * @param body     The provenance query details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -937,7 +958,8 @@ public class ProvenanceApi {
         }
 
         com.squareup.okhttp.Call call = submitProvenanceRequestValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProvenanceEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProvenanceEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

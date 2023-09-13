@@ -13,107 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.PermissionsDTO;
-import io.swagger.client.model.ProcessGroupFlowDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ProcessGroupFlowEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProcessGroupFlowEntity {
-  @SerializedName("permissions")
-  private PermissionsDTO permissions = null;
+    @SerializedName("permissions")
+    private PermissionsDTO permissions = null;
 
-  @SerializedName("processGroupFlow")
-  private ProcessGroupFlowDTO processGroupFlow = null;
+    @SerializedName("processGroupFlow")
+    private ProcessGroupFlowDTO processGroupFlow = null;
 
-  public ProcessGroupFlowEntity permissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * The access policy for this process group.
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "The access policy for this process group.")
-  public PermissionsDTO getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-  }
-
-  public ProcessGroupFlowEntity processGroupFlow(ProcessGroupFlowDTO processGroupFlow) {
-    this.processGroupFlow = processGroupFlow;
-    return this;
-  }
-
-   /**
-   * Get processGroupFlow
-   * @return processGroupFlow
-  **/
-  @ApiModelProperty(value = "")
-  public ProcessGroupFlowDTO getProcessGroupFlow() {
-    return processGroupFlow;
-  }
-
-  public void setProcessGroupFlow(ProcessGroupFlowDTO processGroupFlow) {
-    this.processGroupFlow = processGroupFlow;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ProcessGroupFlowEntity permissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The access policy for this process group.
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "The access policy for this process group.")
+    public PermissionsDTO getPermissions() {
+        return permissions;
     }
-    ProcessGroupFlowEntity processGroupFlowEntity = (ProcessGroupFlowEntity) o;
-    return Objects.equals(this.permissions, processGroupFlowEntity.permissions) &&
-        Objects.equals(this.processGroupFlow, processGroupFlowEntity.processGroupFlow);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(permissions, processGroupFlow);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessGroupFlowEntity {\n");
-    
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    processGroupFlow: ").append(toIndentedString(processGroupFlow)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setPermissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ProcessGroupFlowEntity processGroupFlow(ProcessGroupFlowDTO processGroupFlow) {
+        this.processGroupFlow = processGroupFlow;
+        return this;
+    }
+
+    /**
+     * Get processGroupFlow
+     *
+     * @return processGroupFlow
+     **/
+    @ApiModelProperty(value = "")
+    public ProcessGroupFlowDTO getProcessGroupFlow() {
+        return processGroupFlow;
+    }
+
+    public void setProcessGroupFlow(ProcessGroupFlowDTO processGroupFlow) {
+        this.processGroupFlow = processGroupFlow;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessGroupFlowEntity processGroupFlowEntity = (ProcessGroupFlowEntity) o;
+        return Objects.equals(this.permissions, processGroupFlowEntity.permissions) &&
+                Objects.equals(this.processGroupFlow, processGroupFlowEntity.processGroupFlow);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(permissions, processGroupFlow);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessGroupFlowEntity {\n");
+
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    processGroupFlow: ").append(toIndentedString(processGroupFlow)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

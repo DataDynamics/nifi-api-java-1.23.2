@@ -13,107 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.PermissionsDTO;
-import io.swagger.client.model.RequiredPermissionDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ComponentRestrictionPermissionDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ComponentRestrictionPermissionDTO {
-  @SerializedName("requiredPermission")
-  private RequiredPermissionDTO requiredPermission = null;
+    @SerializedName("requiredPermission")
+    private RequiredPermissionDTO requiredPermission = null;
 
-  @SerializedName("permissions")
-  private PermissionsDTO permissions = null;
+    @SerializedName("permissions")
+    private PermissionsDTO permissions = null;
 
-  public ComponentRestrictionPermissionDTO requiredPermission(RequiredPermissionDTO requiredPermission) {
-    this.requiredPermission = requiredPermission;
-    return this;
-  }
-
-   /**
-   * The required permission necessary for this restriction.
-   * @return requiredPermission
-  **/
-  @ApiModelProperty(value = "The required permission necessary for this restriction.")
-  public RequiredPermissionDTO getRequiredPermission() {
-    return requiredPermission;
-  }
-
-  public void setRequiredPermission(RequiredPermissionDTO requiredPermission) {
-    this.requiredPermission = requiredPermission;
-  }
-
-  public ComponentRestrictionPermissionDTO permissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * The permissions for this component restriction. Note: the read permission are not used and will always be false.
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "The permissions for this component restriction. Note: the read permission are not used and will always be false.")
-  public PermissionsDTO getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ComponentRestrictionPermissionDTO requiredPermission(RequiredPermissionDTO requiredPermission) {
+        this.requiredPermission = requiredPermission;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The required permission necessary for this restriction.
+     *
+     * @return requiredPermission
+     **/
+    @ApiModelProperty(value = "The required permission necessary for this restriction.")
+    public RequiredPermissionDTO getRequiredPermission() {
+        return requiredPermission;
     }
-    ComponentRestrictionPermissionDTO componentRestrictionPermissionDTO = (ComponentRestrictionPermissionDTO) o;
-    return Objects.equals(this.requiredPermission, componentRestrictionPermissionDTO.requiredPermission) &&
-        Objects.equals(this.permissions, componentRestrictionPermissionDTO.permissions);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(requiredPermission, permissions);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ComponentRestrictionPermissionDTO {\n");
-    
-    sb.append("    requiredPermission: ").append(toIndentedString(requiredPermission)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setRequiredPermission(RequiredPermissionDTO requiredPermission) {
+        this.requiredPermission = requiredPermission;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ComponentRestrictionPermissionDTO permissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * The permissions for this component restriction. Note: the read permission are not used and will always be false.
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "The permissions for this component restriction. Note: the read permission are not used and will always be false.")
+    public PermissionsDTO getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ComponentRestrictionPermissionDTO componentRestrictionPermissionDTO = (ComponentRestrictionPermissionDTO) o;
+        return Objects.equals(this.requiredPermission, componentRestrictionPermissionDTO.requiredPermission) &&
+                Objects.equals(this.permissions, componentRestrictionPermissionDTO.permissions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(requiredPermission, permissions);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ComponentRestrictionPermissionDTO {\n");
+
+        sb.append("    requiredPermission: ").append(toIndentedString(requiredPermission)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

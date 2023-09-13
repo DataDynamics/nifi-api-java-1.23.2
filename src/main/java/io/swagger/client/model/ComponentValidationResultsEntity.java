@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ComponentValidationResultEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ComponentValidationResultsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ComponentValidationResultsEntity {
-  @SerializedName("validationResults")
-  private List<ComponentValidationResultEntity> validationResults = null;
+    @SerializedName("validationResults")
+    private List<ComponentValidationResultEntity> validationResults = null;
 
-  public ComponentValidationResultsEntity validationResults(List<ComponentValidationResultEntity> validationResults) {
-    this.validationResults = validationResults;
-    return this;
-  }
-
-  public ComponentValidationResultsEntity addValidationResultsItem(ComponentValidationResultEntity validationResultsItem) {
-    if (this.validationResults == null) {
-      this.validationResults = new ArrayList<ComponentValidationResultEntity>();
+    public ComponentValidationResultsEntity validationResults(List<ComponentValidationResultEntity> validationResults) {
+        this.validationResults = validationResults;
+        return this;
     }
-    this.validationResults.add(validationResultsItem);
-    return this;
-  }
 
-   /**
-   * A List of ComponentValidationResultEntity, one for each component that is validated
-   * @return validationResults
-  **/
-  @ApiModelProperty(value = "A List of ComponentValidationResultEntity, one for each component that is validated")
-  public List<ComponentValidationResultEntity> getValidationResults() {
-    return validationResults;
-  }
-
-  public void setValidationResults(List<ComponentValidationResultEntity> validationResults) {
-    this.validationResults = validationResults;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ComponentValidationResultsEntity addValidationResultsItem(ComponentValidationResultEntity validationResultsItem) {
+        if (this.validationResults == null) {
+            this.validationResults = new ArrayList<ComponentValidationResultEntity>();
+        }
+        this.validationResults.add(validationResultsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * A List of ComponentValidationResultEntity, one for each component that is validated
+     *
+     * @return validationResults
+     **/
+    @ApiModelProperty(value = "A List of ComponentValidationResultEntity, one for each component that is validated")
+    public List<ComponentValidationResultEntity> getValidationResults() {
+        return validationResults;
     }
-    ComponentValidationResultsEntity componentValidationResultsEntity = (ComponentValidationResultsEntity) o;
-    return Objects.equals(this.validationResults, componentValidationResultsEntity.validationResults);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(validationResults);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ComponentValidationResultsEntity {\n");
-    
-    sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setValidationResults(List<ComponentValidationResultEntity> validationResults) {
+        this.validationResults = validationResults;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ComponentValidationResultsEntity componentValidationResultsEntity = (ComponentValidationResultsEntity) o;
+        return Objects.equals(this.validationResults, componentValidationResultsEntity.validationResults);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(validationResults);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ComponentValidationResultsEntity {\n");
+
+        sb.append("    validationResults: ").append(toIndentedString(validationResults)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.DropRequestDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * DropRequestEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class DropRequestEntity {
-  @SerializedName("dropRequest")
-  private DropRequestDTO dropRequest = null;
+    @SerializedName("dropRequest")
+    private DropRequestDTO dropRequest = null;
 
-  public DropRequestEntity dropRequest(DropRequestDTO dropRequest) {
-    this.dropRequest = dropRequest;
-    return this;
-  }
-
-   /**
-   * Get dropRequest
-   * @return dropRequest
-  **/
-  @ApiModelProperty(value = "")
-  public DropRequestDTO getDropRequest() {
-    return dropRequest;
-  }
-
-  public void setDropRequest(DropRequestDTO dropRequest) {
-    this.dropRequest = dropRequest;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public DropRequestEntity dropRequest(DropRequestDTO dropRequest) {
+        this.dropRequest = dropRequest;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get dropRequest
+     *
+     * @return dropRequest
+     **/
+    @ApiModelProperty(value = "")
+    public DropRequestDTO getDropRequest() {
+        return dropRequest;
     }
-    DropRequestEntity dropRequestEntity = (DropRequestEntity) o;
-    return Objects.equals(this.dropRequest, dropRequestEntity.dropRequest);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(dropRequest);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DropRequestEntity {\n");
-    
-    sb.append("    dropRequest: ").append(toIndentedString(dropRequest)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setDropRequest(DropRequestDTO dropRequest) {
+        this.dropRequest = dropRequest;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        DropRequestEntity dropRequestEntity = (DropRequestEntity) o;
+        return Objects.equals(this.dropRequest, dropRequestEntity.dropRequest);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dropRequest);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class DropRequestEntity {\n");
+
+        sb.append("    dropRequest: ").append(toIndentedString(dropRequest)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

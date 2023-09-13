@@ -13,22 +13,11 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.SnippetEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,8 +45,9 @@ public class SnippetsApi {
 
     /**
      * Build call for createSnippet
-     * @param body The snippet configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The snippet configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -76,41 +66,41 @@ public class SnippetsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createSnippetValidateBeforeCall(SnippetEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createSnippet(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createSnippetCall(body, progressListener, progressRequestListener);
         return call;
@@ -119,7 +109,7 @@ public class SnippetsApi {
 
     /**
      * Creates a snippet. The snippet will be automatically discarded if not used in a subsequent request after 1 minute.
-     * 
+     *
      * @param body The snippet configuration details. (required)
      * @return SnippetEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -131,21 +121,22 @@ public class SnippetsApi {
 
     /**
      * Creates a snippet. The snippet will be automatically discarded if not used in a subsequent request after 1 minute.
-     * 
+     *
      * @param body The snippet configuration details. (required)
      * @return ApiResponse&lt;SnippetEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<SnippetEntity> createSnippetWithHttpInfo(SnippetEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createSnippetValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<SnippetEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<SnippetEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a snippet. The snippet will be automatically discarded if not used in a subsequent request after 1 minute. (asynchronously)
-     * 
-     * @param body The snippet configuration details. (required)
+     *
+     * @param body     The snippet configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -172,16 +163,19 @@ public class SnippetsApi {
         }
 
         com.squareup.okhttp.Call call = createSnippetValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SnippetEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<SnippetEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteSnippet
-     * @param id The snippet id. (required)
+     *
+     * @param id                           The snippet id. (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -190,53 +184,53 @@ public class SnippetsApi {
 
         // create path and map variables
         String localVarPath = "/snippets/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteSnippetValidateBeforeCall(String id, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteSnippet(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteSnippetCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -245,8 +239,8 @@ public class SnippetsApi {
 
     /**
      * Deletes the components in a snippet and discards the snippet
-     * 
-     * @param id The snippet id. (required)
+     *
+     * @param id                           The snippet id. (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return SnippetEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -258,24 +252,25 @@ public class SnippetsApi {
 
     /**
      * Deletes the components in a snippet and discards the snippet
-     * 
-     * @param id The snippet id. (required)
+     *
+     * @param id                           The snippet id. (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;SnippetEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<SnippetEntity> deleteSnippetWithHttpInfo(String id, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteSnippetValidateBeforeCall(id, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<SnippetEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<SnippetEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the components in a snippet and discards the snippet (asynchronously)
-     * 
-     * @param id The snippet id. (required)
+     *
+     * @param id                           The snippet id. (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -301,15 +296,18 @@ public class SnippetsApi {
         }
 
         com.squareup.okhttp.Call call = deleteSnippetValidateBeforeCall(id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SnippetEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<SnippetEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateSnippet
-     * @param id The snippet id. (required)
-     * @param body The snippet configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The snippet id. (required)
+     * @param body                    The snippet configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -319,7 +317,7 @@ public class SnippetsApi {
 
         // create path and map variables
         String localVarPath = "/snippets/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -329,46 +327,46 @@ public class SnippetsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateSnippetValidateBeforeCall(String id, SnippetEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateSnippet(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateSnippet(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateSnippetCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -377,8 +375,8 @@ public class SnippetsApi {
 
     /**
      * Move&#39;s the components in this Snippet into a new Process Group and discards the snippet
-     * 
-     * @param id The snippet id. (required)
+     *
+     * @param id   The snippet id. (required)
      * @param body The snippet configuration details. (required)
      * @return SnippetEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -390,23 +388,24 @@ public class SnippetsApi {
 
     /**
      * Move&#39;s the components in this Snippet into a new Process Group and discards the snippet
-     * 
-     * @param id The snippet id. (required)
+     *
+     * @param id   The snippet id. (required)
      * @param body The snippet configuration details. (required)
      * @return ApiResponse&lt;SnippetEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<SnippetEntity> updateSnippetWithHttpInfo(String id, SnippetEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateSnippetValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<SnippetEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<SnippetEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Move&#39;s the components in this Snippet into a new Process Group and discards the snippet (asynchronously)
-     * 
-     * @param id The snippet id. (required)
-     * @param body The snippet configuration details. (required)
+     *
+     * @param id       The snippet id. (required)
+     * @param body     The snippet configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -433,7 +432,8 @@ public class SnippetsApi {
         }
 
         com.squareup.okhttp.Call call = updateSnippetValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SnippetEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<SnippetEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

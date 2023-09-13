@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FlowConfigurationDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * FlowConfigurationEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowConfigurationEntity {
-  @SerializedName("flowConfiguration")
-  private FlowConfigurationDTO flowConfiguration = null;
+    @SerializedName("flowConfiguration")
+    private FlowConfigurationDTO flowConfiguration = null;
 
-  public FlowConfigurationEntity flowConfiguration(FlowConfigurationDTO flowConfiguration) {
-    this.flowConfiguration = flowConfiguration;
-    return this;
-  }
-
-   /**
-   * The controller configuration.
-   * @return flowConfiguration
-  **/
-  @ApiModelProperty(value = "The controller configuration.")
-  public FlowConfigurationDTO getFlowConfiguration() {
-    return flowConfiguration;
-  }
-
-  public void setFlowConfiguration(FlowConfigurationDTO flowConfiguration) {
-    this.flowConfiguration = flowConfiguration;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FlowConfigurationEntity flowConfiguration(FlowConfigurationDTO flowConfiguration) {
+        this.flowConfiguration = flowConfiguration;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The controller configuration.
+     *
+     * @return flowConfiguration
+     **/
+    @ApiModelProperty(value = "The controller configuration.")
+    public FlowConfigurationDTO getFlowConfiguration() {
+        return flowConfiguration;
     }
-    FlowConfigurationEntity flowConfigurationEntity = (FlowConfigurationEntity) o;
-    return Objects.equals(this.flowConfiguration, flowConfigurationEntity.flowConfiguration);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(flowConfiguration);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowConfigurationEntity {\n");
-    
-    sb.append("    flowConfiguration: ").append(toIndentedString(flowConfiguration)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setFlowConfiguration(FlowConfigurationDTO flowConfiguration) {
+        this.flowConfiguration = flowConfiguration;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowConfigurationEntity flowConfigurationEntity = (FlowConfigurationEntity) o;
+        return Objects.equals(this.flowConfiguration, flowConfigurationEntity.flowConfiguration);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flowConfiguration);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowConfigurationEntity {\n");
+
+        sb.append("    flowConfiguration: ").append(toIndentedString(flowConfiguration)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

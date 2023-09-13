@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ParameterProviderApplyParametersRequestDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ParameterProviderApplyParametersRequestEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ParameterProviderApplyParametersRequestEntity {
-  @SerializedName("request")
-  private ParameterProviderApplyParametersRequestDTO request = null;
+    @SerializedName("request")
+    private ParameterProviderApplyParametersRequestDTO request = null;
 
-  public ParameterProviderApplyParametersRequestEntity request(ParameterProviderApplyParametersRequestDTO request) {
-    this.request = request;
-    return this;
-  }
-
-   /**
-   * The Apply Parameters Request
-   * @return request
-  **/
-  @ApiModelProperty(value = "The Apply Parameters Request")
-  public ParameterProviderApplyParametersRequestDTO getRequest() {
-    return request;
-  }
-
-  public void setRequest(ParameterProviderApplyParametersRequestDTO request) {
-    this.request = request;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ParameterProviderApplyParametersRequestEntity request(ParameterProviderApplyParametersRequestDTO request) {
+        this.request = request;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The Apply Parameters Request
+     *
+     * @return request
+     **/
+    @ApiModelProperty(value = "The Apply Parameters Request")
+    public ParameterProviderApplyParametersRequestDTO getRequest() {
+        return request;
     }
-    ParameterProviderApplyParametersRequestEntity parameterProviderApplyParametersRequestEntity = (ParameterProviderApplyParametersRequestEntity) o;
-    return Objects.equals(this.request, parameterProviderApplyParametersRequestEntity.request);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(request);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterProviderApplyParametersRequestEntity {\n");
-    
-    sb.append("    request: ").append(toIndentedString(request)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setRequest(ParameterProviderApplyParametersRequestDTO request) {
+        this.request = request;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParameterProviderApplyParametersRequestEntity parameterProviderApplyParametersRequestEntity = (ParameterProviderApplyParametersRequestEntity) o;
+        return Objects.equals(this.request, parameterProviderApplyParametersRequestEntity.request);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(request);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ParameterProviderApplyParametersRequestEntity {\n");
+
+        sb.append("    request: ").append(toIndentedString(request)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

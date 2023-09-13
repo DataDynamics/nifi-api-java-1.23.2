@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ProvenanceEventDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ProvenanceEventEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProvenanceEventEntity {
-  @SerializedName("provenanceEvent")
-  private ProvenanceEventDTO provenanceEvent = null;
+    @SerializedName("provenanceEvent")
+    private ProvenanceEventDTO provenanceEvent = null;
 
-  public ProvenanceEventEntity provenanceEvent(ProvenanceEventDTO provenanceEvent) {
-    this.provenanceEvent = provenanceEvent;
-    return this;
-  }
-
-   /**
-   * Get provenanceEvent
-   * @return provenanceEvent
-  **/
-  @ApiModelProperty(value = "")
-  public ProvenanceEventDTO getProvenanceEvent() {
-    return provenanceEvent;
-  }
-
-  public void setProvenanceEvent(ProvenanceEventDTO provenanceEvent) {
-    this.provenanceEvent = provenanceEvent;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ProvenanceEventEntity provenanceEvent(ProvenanceEventDTO provenanceEvent) {
+        this.provenanceEvent = provenanceEvent;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get provenanceEvent
+     *
+     * @return provenanceEvent
+     **/
+    @ApiModelProperty(value = "")
+    public ProvenanceEventDTO getProvenanceEvent() {
+        return provenanceEvent;
     }
-    ProvenanceEventEntity provenanceEventEntity = (ProvenanceEventEntity) o;
-    return Objects.equals(this.provenanceEvent, provenanceEventEntity.provenanceEvent);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(provenanceEvent);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProvenanceEventEntity {\n");
-    
-    sb.append("    provenanceEvent: ").append(toIndentedString(provenanceEvent)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setProvenanceEvent(ProvenanceEventDTO provenanceEvent) {
+        this.provenanceEvent = provenanceEvent;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProvenanceEventEntity provenanceEventEntity = (ProvenanceEventEntity) o;
+        return Objects.equals(this.provenanceEvent, provenanceEventEntity.provenanceEvent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(provenanceEvent);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProvenanceEventEntity {\n");
+
+        sb.append("    provenanceEvent: ").append(toIndentedString(provenanceEvent)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

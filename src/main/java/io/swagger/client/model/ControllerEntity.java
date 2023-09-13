@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ControllerDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ControllerEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerEntity {
-  @SerializedName("controller")
-  private ControllerDTO controller = null;
+    @SerializedName("controller")
+    private ControllerDTO controller = null;
 
-  public ControllerEntity controller(ControllerDTO controller) {
-    this.controller = controller;
-    return this;
-  }
-
-   /**
-   * Get controller
-   * @return controller
-  **/
-  @ApiModelProperty(value = "")
-  public ControllerDTO getController() {
-    return controller;
-  }
-
-  public void setController(ControllerDTO controller) {
-    this.controller = controller;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ControllerEntity controller(ControllerDTO controller) {
+        this.controller = controller;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get controller
+     *
+     * @return controller
+     **/
+    @ApiModelProperty(value = "")
+    public ControllerDTO getController() {
+        return controller;
     }
-    ControllerEntity controllerEntity = (ControllerEntity) o;
-    return Objects.equals(this.controller, controllerEntity.controller);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(controller);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerEntity {\n");
-    
-    sb.append("    controller: ").append(toIndentedString(controller)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setController(ControllerDTO controller) {
+        this.controller = controller;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerEntity controllerEntity = (ControllerEntity) o;
+        return Objects.equals(this.controller, controllerEntity.controller);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(controller);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerEntity {\n");
+
+        sb.append("    controller: ").append(toIndentedString(controller)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

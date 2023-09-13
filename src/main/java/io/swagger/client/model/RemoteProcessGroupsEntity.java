@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.RemoteProcessGroupEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * RemoteProcessGroupsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class RemoteProcessGroupsEntity {
-  @SerializedName("remoteProcessGroups")
-  private List<RemoteProcessGroupEntity> remoteProcessGroups = null;
+    @SerializedName("remoteProcessGroups")
+    private List<RemoteProcessGroupEntity> remoteProcessGroups = null;
 
-  public RemoteProcessGroupsEntity remoteProcessGroups(List<RemoteProcessGroupEntity> remoteProcessGroups) {
-    this.remoteProcessGroups = remoteProcessGroups;
-    return this;
-  }
-
-  public RemoteProcessGroupsEntity addRemoteProcessGroupsItem(RemoteProcessGroupEntity remoteProcessGroupsItem) {
-    if (this.remoteProcessGroups == null) {
-      this.remoteProcessGroups = new ArrayList<RemoteProcessGroupEntity>();
+    public RemoteProcessGroupsEntity remoteProcessGroups(List<RemoteProcessGroupEntity> remoteProcessGroups) {
+        this.remoteProcessGroups = remoteProcessGroups;
+        return this;
     }
-    this.remoteProcessGroups.add(remoteProcessGroupsItem);
-    return this;
-  }
 
-   /**
-   * Get remoteProcessGroups
-   * @return remoteProcessGroups
-  **/
-  @ApiModelProperty(value = "")
-  public List<RemoteProcessGroupEntity> getRemoteProcessGroups() {
-    return remoteProcessGroups;
-  }
-
-  public void setRemoteProcessGroups(List<RemoteProcessGroupEntity> remoteProcessGroups) {
-    this.remoteProcessGroups = remoteProcessGroups;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public RemoteProcessGroupsEntity addRemoteProcessGroupsItem(RemoteProcessGroupEntity remoteProcessGroupsItem) {
+        if (this.remoteProcessGroups == null) {
+            this.remoteProcessGroups = new ArrayList<RemoteProcessGroupEntity>();
+        }
+        this.remoteProcessGroups.add(remoteProcessGroupsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get remoteProcessGroups
+     *
+     * @return remoteProcessGroups
+     **/
+    @ApiModelProperty(value = "")
+    public List<RemoteProcessGroupEntity> getRemoteProcessGroups() {
+        return remoteProcessGroups;
     }
-    RemoteProcessGroupsEntity remoteProcessGroupsEntity = (RemoteProcessGroupsEntity) o;
-    return Objects.equals(this.remoteProcessGroups, remoteProcessGroupsEntity.remoteProcessGroups);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(remoteProcessGroups);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RemoteProcessGroupsEntity {\n");
-    
-    sb.append("    remoteProcessGroups: ").append(toIndentedString(remoteProcessGroups)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setRemoteProcessGroups(List<RemoteProcessGroupEntity> remoteProcessGroups) {
+        this.remoteProcessGroups = remoteProcessGroups;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RemoteProcessGroupsEntity remoteProcessGroupsEntity = (RemoteProcessGroupsEntity) o;
+        return Objects.equals(this.remoteProcessGroups, remoteProcessGroupsEntity.remoteProcessGroups);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(remoteProcessGroups);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class RemoteProcessGroupsEntity {\n");
+
+        sb.append("    remoteProcessGroups: ").append(toIndentedString(remoteProcessGroups)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

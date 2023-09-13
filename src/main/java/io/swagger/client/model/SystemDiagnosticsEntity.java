@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.SystemDiagnosticsDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * SystemDiagnosticsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class SystemDiagnosticsEntity {
-  @SerializedName("systemDiagnostics")
-  private SystemDiagnosticsDTO systemDiagnostics = null;
+    @SerializedName("systemDiagnostics")
+    private SystemDiagnosticsDTO systemDiagnostics = null;
 
-  public SystemDiagnosticsEntity systemDiagnostics(SystemDiagnosticsDTO systemDiagnostics) {
-    this.systemDiagnostics = systemDiagnostics;
-    return this;
-  }
-
-   /**
-   * Get systemDiagnostics
-   * @return systemDiagnostics
-  **/
-  @ApiModelProperty(value = "")
-  public SystemDiagnosticsDTO getSystemDiagnostics() {
-    return systemDiagnostics;
-  }
-
-  public void setSystemDiagnostics(SystemDiagnosticsDTO systemDiagnostics) {
-    this.systemDiagnostics = systemDiagnostics;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public SystemDiagnosticsEntity systemDiagnostics(SystemDiagnosticsDTO systemDiagnostics) {
+        this.systemDiagnostics = systemDiagnostics;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get systemDiagnostics
+     *
+     * @return systemDiagnostics
+     **/
+    @ApiModelProperty(value = "")
+    public SystemDiagnosticsDTO getSystemDiagnostics() {
+        return systemDiagnostics;
     }
-    SystemDiagnosticsEntity systemDiagnosticsEntity = (SystemDiagnosticsEntity) o;
-    return Objects.equals(this.systemDiagnostics, systemDiagnosticsEntity.systemDiagnostics);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(systemDiagnostics);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class SystemDiagnosticsEntity {\n");
-    
-    sb.append("    systemDiagnostics: ").append(toIndentedString(systemDiagnostics)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setSystemDiagnostics(SystemDiagnosticsDTO systemDiagnostics) {
+        this.systemDiagnostics = systemDiagnostics;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        SystemDiagnosticsEntity systemDiagnosticsEntity = (SystemDiagnosticsEntity) o;
+        return Objects.equals(this.systemDiagnostics, systemDiagnosticsEntity.systemDiagnostics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(systemDiagnostics);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class SystemDiagnosticsEntity {\n");
+
+        sb.append("    systemDiagnostics: ").append(toIndentedString(systemDiagnostics)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

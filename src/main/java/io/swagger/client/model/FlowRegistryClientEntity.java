@@ -13,304 +13,303 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.BulletinEntity;
-import io.swagger.client.model.FlowRegistryClientDTO;
-import io.swagger.client.model.PermissionsDTO;
-import io.swagger.client.model.PositionDTO;
-import io.swagger.client.model.RevisionDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * FlowRegistryClientEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowRegistryClientEntity {
-  @SerializedName("revision")
-  private RevisionDTO revision = null;
+    @SerializedName("revision")
+    private RevisionDTO revision = null;
 
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("uri")
-  private String uri = null;
+    @SerializedName("uri")
+    private String uri = null;
 
-  @SerializedName("position")
-  private PositionDTO position = null;
+    @SerializedName("position")
+    private PositionDTO position = null;
 
-  @SerializedName("permissions")
-  private PermissionsDTO permissions = null;
+    @SerializedName("permissions")
+    private PermissionsDTO permissions = null;
 
-  @SerializedName("bulletins")
-  private List<BulletinEntity> bulletins = null;
+    @SerializedName("bulletins")
+    private List<BulletinEntity> bulletins = null;
 
-  @SerializedName("disconnectedNodeAcknowledged")
-  private Boolean disconnectedNodeAcknowledged = null;
+    @SerializedName("disconnectedNodeAcknowledged")
+    private Boolean disconnectedNodeAcknowledged = null;
 
-  @SerializedName("registry")
-  private FlowRegistryClientDTO registry = null;
+    @SerializedName("registry")
+    private FlowRegistryClientDTO registry = null;
 
-  @SerializedName("operatePermissions")
-  private PermissionsDTO operatePermissions = null;
+    @SerializedName("operatePermissions")
+    private PermissionsDTO operatePermissions = null;
 
-  @SerializedName("component")
-  private FlowRegistryClientDTO component = null;
+    @SerializedName("component")
+    private FlowRegistryClientDTO component = null;
 
-  public FlowRegistryClientEntity revision(RevisionDTO revision) {
-    this.revision = revision;
-    return this;
-  }
-
-   /**
-   * The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.
-   * @return revision
-  **/
-  @ApiModelProperty(value = "The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.")
-  public RevisionDTO getRevision() {
-    return revision;
-  }
-
-  public void setRevision(RevisionDTO revision) {
-    this.revision = revision;
-  }
-
-  public FlowRegistryClientEntity id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The id of the component.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The id of the component.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FlowRegistryClientEntity uri(String uri) {
-    this.uri = uri;
-    return this;
-  }
-
-   /**
-   * The URI for futures requests to the component.
-   * @return uri
-  **/
-  @ApiModelProperty(value = "The URI for futures requests to the component.")
-  public String getUri() {
-    return uri;
-  }
-
-  public void setUri(String uri) {
-    this.uri = uri;
-  }
-
-  public FlowRegistryClientEntity position(PositionDTO position) {
-    this.position = position;
-    return this;
-  }
-
-   /**
-   * The position of this component in the UI if applicable.
-   * @return position
-  **/
-  @ApiModelProperty(value = "The position of this component in the UI if applicable.")
-  public PositionDTO getPosition() {
-    return position;
-  }
-
-  public void setPosition(PositionDTO position) {
-    this.position = position;
-  }
-
-  public FlowRegistryClientEntity permissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * The permissions for this component.
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "The permissions for this component.")
-  public PermissionsDTO getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-  }
-
-  public FlowRegistryClientEntity bulletins(List<BulletinEntity> bulletins) {
-    this.bulletins = bulletins;
-    return this;
-  }
-
-  public FlowRegistryClientEntity addBulletinsItem(BulletinEntity bulletinsItem) {
-    if (this.bulletins == null) {
-      this.bulletins = new ArrayList<BulletinEntity>();
+    public FlowRegistryClientEntity revision(RevisionDTO revision) {
+        this.revision = revision;
+        return this;
     }
-    this.bulletins.add(bulletinsItem);
-    return this;
-  }
 
-   /**
-   * The bulletins for this component.
-   * @return bulletins
-  **/
-  @ApiModelProperty(value = "The bulletins for this component.")
-  public List<BulletinEntity> getBulletins() {
-    return bulletins;
-  }
-
-  public void setBulletins(List<BulletinEntity> bulletins) {
-    this.bulletins = bulletins;
-  }
-
-  public FlowRegistryClientEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-    return this;
-  }
-
-   /**
-   * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
-   * @return disconnectedNodeAcknowledged
-  **/
-  @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
-  public Boolean isDisconnectedNodeAcknowledged() {
-    return disconnectedNodeAcknowledged;
-  }
-
-  public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-  }
-
-  public FlowRegistryClientEntity registry(FlowRegistryClientDTO registry) {
-    this.registry = registry;
-    return this;
-  }
-
-   /**
-   * Get registry
-   * @return registry
-  **/
-  @ApiModelProperty(value = "")
-  public FlowRegistryClientDTO getRegistry() {
-    return registry;
-  }
-
-  public void setRegistry(FlowRegistryClientDTO registry) {
-    this.registry = registry;
-  }
-
-  public FlowRegistryClientEntity operatePermissions(PermissionsDTO operatePermissions) {
-    this.operatePermissions = operatePermissions;
-    return this;
-  }
-
-   /**
-   * Get operatePermissions
-   * @return operatePermissions
-  **/
-  @ApiModelProperty(value = "")
-  public PermissionsDTO getOperatePermissions() {
-    return operatePermissions;
-  }
-
-  public void setOperatePermissions(PermissionsDTO operatePermissions) {
-    this.operatePermissions = operatePermissions;
-  }
-
-  public FlowRegistryClientEntity component(FlowRegistryClientDTO component) {
-    this.component = component;
-    return this;
-  }
-
-   /**
-   * Get component
-   * @return component
-  **/
-  @ApiModelProperty(value = "")
-  public FlowRegistryClientDTO getComponent() {
-    return component;
-  }
-
-  public void setComponent(FlowRegistryClientDTO component) {
-    this.component = component;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.
+     *
+     * @return revision
+     **/
+    @ApiModelProperty(value = "The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.")
+    public RevisionDTO getRevision() {
+        return revision;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setRevision(RevisionDTO revision) {
+        this.revision = revision;
     }
-    FlowRegistryClientEntity flowRegistryClientEntity = (FlowRegistryClientEntity) o;
-    return Objects.equals(this.revision, flowRegistryClientEntity.revision) &&
-        Objects.equals(this.id, flowRegistryClientEntity.id) &&
-        Objects.equals(this.uri, flowRegistryClientEntity.uri) &&
-        Objects.equals(this.position, flowRegistryClientEntity.position) &&
-        Objects.equals(this.permissions, flowRegistryClientEntity.permissions) &&
-        Objects.equals(this.bulletins, flowRegistryClientEntity.bulletins) &&
-        Objects.equals(this.disconnectedNodeAcknowledged, flowRegistryClientEntity.disconnectedNodeAcknowledged) &&
-        Objects.equals(this.registry, flowRegistryClientEntity.registry) &&
-        Objects.equals(this.operatePermissions, flowRegistryClientEntity.operatePermissions) &&
-        Objects.equals(this.component, flowRegistryClientEntity.component);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(revision, id, uri, position, permissions, bulletins, disconnectedNodeAcknowledged, registry, operatePermissions, component);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowRegistryClientEntity {\n");
-    
-    sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    bulletins: ").append(toIndentedString(bulletins)).append("\n");
-    sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
-    sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
-    sb.append("    operatePermissions: ").append(toIndentedString(operatePermissions)).append("\n");
-    sb.append("    component: ").append(toIndentedString(component)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public FlowRegistryClientEntity id(String id) {
+        this.id = id;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The id of the component.
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The id of the component.")
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public FlowRegistryClientEntity uri(String uri) {
+        this.uri = uri;
+        return this;
+    }
+
+    /**
+     * The URI for futures requests to the component.
+     *
+     * @return uri
+     **/
+    @ApiModelProperty(value = "The URI for futures requests to the component.")
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public FlowRegistryClientEntity position(PositionDTO position) {
+        this.position = position;
+        return this;
+    }
+
+    /**
+     * The position of this component in the UI if applicable.
+     *
+     * @return position
+     **/
+    @ApiModelProperty(value = "The position of this component in the UI if applicable.")
+    public PositionDTO getPosition() {
+        return position;
+    }
+
+    public void setPosition(PositionDTO position) {
+        this.position = position;
+    }
+
+    public FlowRegistryClientEntity permissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * The permissions for this component.
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "The permissions for this component.")
+    public PermissionsDTO getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+    }
+
+    public FlowRegistryClientEntity bulletins(List<BulletinEntity> bulletins) {
+        this.bulletins = bulletins;
+        return this;
+    }
+
+    public FlowRegistryClientEntity addBulletinsItem(BulletinEntity bulletinsItem) {
+        if (this.bulletins == null) {
+            this.bulletins = new ArrayList<BulletinEntity>();
+        }
+        this.bulletins.add(bulletinsItem);
+        return this;
+    }
+
+    /**
+     * The bulletins for this component.
+     *
+     * @return bulletins
+     **/
+    @ApiModelProperty(value = "The bulletins for this component.")
+    public List<BulletinEntity> getBulletins() {
+        return bulletins;
+    }
+
+    public void setBulletins(List<BulletinEntity> bulletins) {
+        this.bulletins = bulletins;
+    }
+
+    public FlowRegistryClientEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+        return this;
+    }
+
+    /**
+     * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
+     *
+     * @return disconnectedNodeAcknowledged
+     **/
+    @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
+    public Boolean isDisconnectedNodeAcknowledged() {
+        return disconnectedNodeAcknowledged;
+    }
+
+    public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+    }
+
+    public FlowRegistryClientEntity registry(FlowRegistryClientDTO registry) {
+        this.registry = registry;
+        return this;
+    }
+
+    /**
+     * Get registry
+     *
+     * @return registry
+     **/
+    @ApiModelProperty(value = "")
+    public FlowRegistryClientDTO getRegistry() {
+        return registry;
+    }
+
+    public void setRegistry(FlowRegistryClientDTO registry) {
+        this.registry = registry;
+    }
+
+    public FlowRegistryClientEntity operatePermissions(PermissionsDTO operatePermissions) {
+        this.operatePermissions = operatePermissions;
+        return this;
+    }
+
+    /**
+     * Get operatePermissions
+     *
+     * @return operatePermissions
+     **/
+    @ApiModelProperty(value = "")
+    public PermissionsDTO getOperatePermissions() {
+        return operatePermissions;
+    }
+
+    public void setOperatePermissions(PermissionsDTO operatePermissions) {
+        this.operatePermissions = operatePermissions;
+    }
+
+    public FlowRegistryClientEntity component(FlowRegistryClientDTO component) {
+        this.component = component;
+        return this;
+    }
+
+    /**
+     * Get component
+     *
+     * @return component
+     **/
+    @ApiModelProperty(value = "")
+    public FlowRegistryClientDTO getComponent() {
+        return component;
+    }
+
+    public void setComponent(FlowRegistryClientDTO component) {
+        this.component = component;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowRegistryClientEntity flowRegistryClientEntity = (FlowRegistryClientEntity) o;
+        return Objects.equals(this.revision, flowRegistryClientEntity.revision) &&
+                Objects.equals(this.id, flowRegistryClientEntity.id) &&
+                Objects.equals(this.uri, flowRegistryClientEntity.uri) &&
+                Objects.equals(this.position, flowRegistryClientEntity.position) &&
+                Objects.equals(this.permissions, flowRegistryClientEntity.permissions) &&
+                Objects.equals(this.bulletins, flowRegistryClientEntity.bulletins) &&
+                Objects.equals(this.disconnectedNodeAcknowledged, flowRegistryClientEntity.disconnectedNodeAcknowledged) &&
+                Objects.equals(this.registry, flowRegistryClientEntity.registry) &&
+                Objects.equals(this.operatePermissions, flowRegistryClientEntity.operatePermissions) &&
+                Objects.equals(this.component, flowRegistryClientEntity.component);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(revision, id, uri, position, permissions, bulletins, disconnectedNodeAcknowledged, registry, operatePermissions, component);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowRegistryClientEntity {\n");
+
+        sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+        sb.append("    position: ").append(toIndentedString(position)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    bulletins: ").append(toIndentedString(bulletins)).append("\n");
+        sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
+        sb.append("    registry: ").append(toIndentedString(registry)).append("\n");
+        sb.append("    operatePermissions: ").append(toIndentedString(operatePermissions)).append("\n");
+        sb.append("    component: ").append(toIndentedString(component)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

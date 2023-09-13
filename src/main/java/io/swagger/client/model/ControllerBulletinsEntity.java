@@ -13,217 +13,215 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.BulletinEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ControllerBulletinsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerBulletinsEntity {
-  @SerializedName("bulletins")
-  private List<BulletinEntity> bulletins = null;
+    @SerializedName("bulletins")
+    private List<BulletinEntity> bulletins = null;
 
-  @SerializedName("controllerServiceBulletins")
-  private List<BulletinEntity> controllerServiceBulletins = null;
+    @SerializedName("controllerServiceBulletins")
+    private List<BulletinEntity> controllerServiceBulletins = null;
 
-  @SerializedName("reportingTaskBulletins")
-  private List<BulletinEntity> reportingTaskBulletins = null;
+    @SerializedName("reportingTaskBulletins")
+    private List<BulletinEntity> reportingTaskBulletins = null;
 
-  @SerializedName("parameterProviderBulletins")
-  private List<BulletinEntity> parameterProviderBulletins = null;
+    @SerializedName("parameterProviderBulletins")
+    private List<BulletinEntity> parameterProviderBulletins = null;
 
-  @SerializedName("flowRegistryClientBulletins")
-  private List<BulletinEntity> flowRegistryClientBulletins = null;
+    @SerializedName("flowRegistryClientBulletins")
+    private List<BulletinEntity> flowRegistryClientBulletins = null;
 
-  public ControllerBulletinsEntity bulletins(List<BulletinEntity> bulletins) {
-    this.bulletins = bulletins;
-    return this;
-  }
-
-  public ControllerBulletinsEntity addBulletinsItem(BulletinEntity bulletinsItem) {
-    if (this.bulletins == null) {
-      this.bulletins = new ArrayList<BulletinEntity>();
+    public ControllerBulletinsEntity bulletins(List<BulletinEntity> bulletins) {
+        this.bulletins = bulletins;
+        return this;
     }
-    this.bulletins.add(bulletinsItem);
-    return this;
-  }
 
-   /**
-   * System level bulletins to be reported to the user.
-   * @return bulletins
-  **/
-  @ApiModelProperty(value = "System level bulletins to be reported to the user.")
-  public List<BulletinEntity> getBulletins() {
-    return bulletins;
-  }
-
-  public void setBulletins(List<BulletinEntity> bulletins) {
-    this.bulletins = bulletins;
-  }
-
-  public ControllerBulletinsEntity controllerServiceBulletins(List<BulletinEntity> controllerServiceBulletins) {
-    this.controllerServiceBulletins = controllerServiceBulletins;
-    return this;
-  }
-
-  public ControllerBulletinsEntity addControllerServiceBulletinsItem(BulletinEntity controllerServiceBulletinsItem) {
-    if (this.controllerServiceBulletins == null) {
-      this.controllerServiceBulletins = new ArrayList<BulletinEntity>();
+    public ControllerBulletinsEntity addBulletinsItem(BulletinEntity bulletinsItem) {
+        if (this.bulletins == null) {
+            this.bulletins = new ArrayList<BulletinEntity>();
+        }
+        this.bulletins.add(bulletinsItem);
+        return this;
     }
-    this.controllerServiceBulletins.add(controllerServiceBulletinsItem);
-    return this;
-  }
 
-   /**
-   * Controller service bulletins to be reported to the user.
-   * @return controllerServiceBulletins
-  **/
-  @ApiModelProperty(value = "Controller service bulletins to be reported to the user.")
-  public List<BulletinEntity> getControllerServiceBulletins() {
-    return controllerServiceBulletins;
-  }
-
-  public void setControllerServiceBulletins(List<BulletinEntity> controllerServiceBulletins) {
-    this.controllerServiceBulletins = controllerServiceBulletins;
-  }
-
-  public ControllerBulletinsEntity reportingTaskBulletins(List<BulletinEntity> reportingTaskBulletins) {
-    this.reportingTaskBulletins = reportingTaskBulletins;
-    return this;
-  }
-
-  public ControllerBulletinsEntity addReportingTaskBulletinsItem(BulletinEntity reportingTaskBulletinsItem) {
-    if (this.reportingTaskBulletins == null) {
-      this.reportingTaskBulletins = new ArrayList<BulletinEntity>();
+    /**
+     * System level bulletins to be reported to the user.
+     *
+     * @return bulletins
+     **/
+    @ApiModelProperty(value = "System level bulletins to be reported to the user.")
+    public List<BulletinEntity> getBulletins() {
+        return bulletins;
     }
-    this.reportingTaskBulletins.add(reportingTaskBulletinsItem);
-    return this;
-  }
 
-   /**
-   * Reporting task bulletins to be reported to the user.
-   * @return reportingTaskBulletins
-  **/
-  @ApiModelProperty(value = "Reporting task bulletins to be reported to the user.")
-  public List<BulletinEntity> getReportingTaskBulletins() {
-    return reportingTaskBulletins;
-  }
-
-  public void setReportingTaskBulletins(List<BulletinEntity> reportingTaskBulletins) {
-    this.reportingTaskBulletins = reportingTaskBulletins;
-  }
-
-  public ControllerBulletinsEntity parameterProviderBulletins(List<BulletinEntity> parameterProviderBulletins) {
-    this.parameterProviderBulletins = parameterProviderBulletins;
-    return this;
-  }
-
-  public ControllerBulletinsEntity addParameterProviderBulletinsItem(BulletinEntity parameterProviderBulletinsItem) {
-    if (this.parameterProviderBulletins == null) {
-      this.parameterProviderBulletins = new ArrayList<BulletinEntity>();
+    public void setBulletins(List<BulletinEntity> bulletins) {
+        this.bulletins = bulletins;
     }
-    this.parameterProviderBulletins.add(parameterProviderBulletinsItem);
-    return this;
-  }
 
-   /**
-   * Parameter provider bulletins to be reported to the user.
-   * @return parameterProviderBulletins
-  **/
-  @ApiModelProperty(value = "Parameter provider bulletins to be reported to the user.")
-  public List<BulletinEntity> getParameterProviderBulletins() {
-    return parameterProviderBulletins;
-  }
-
-  public void setParameterProviderBulletins(List<BulletinEntity> parameterProviderBulletins) {
-    this.parameterProviderBulletins = parameterProviderBulletins;
-  }
-
-  public ControllerBulletinsEntity flowRegistryClientBulletins(List<BulletinEntity> flowRegistryClientBulletins) {
-    this.flowRegistryClientBulletins = flowRegistryClientBulletins;
-    return this;
-  }
-
-  public ControllerBulletinsEntity addFlowRegistryClientBulletinsItem(BulletinEntity flowRegistryClientBulletinsItem) {
-    if (this.flowRegistryClientBulletins == null) {
-      this.flowRegistryClientBulletins = new ArrayList<BulletinEntity>();
+    public ControllerBulletinsEntity controllerServiceBulletins(List<BulletinEntity> controllerServiceBulletins) {
+        this.controllerServiceBulletins = controllerServiceBulletins;
+        return this;
     }
-    this.flowRegistryClientBulletins.add(flowRegistryClientBulletinsItem);
-    return this;
-  }
 
-   /**
-   * Flow registry client bulletins to be reported to the user.
-   * @return flowRegistryClientBulletins
-  **/
-  @ApiModelProperty(value = "Flow registry client bulletins to be reported to the user.")
-  public List<BulletinEntity> getFlowRegistryClientBulletins() {
-    return flowRegistryClientBulletins;
-  }
-
-  public void setFlowRegistryClientBulletins(List<BulletinEntity> flowRegistryClientBulletins) {
-    this.flowRegistryClientBulletins = flowRegistryClientBulletins;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ControllerBulletinsEntity addControllerServiceBulletinsItem(BulletinEntity controllerServiceBulletinsItem) {
+        if (this.controllerServiceBulletins == null) {
+            this.controllerServiceBulletins = new ArrayList<BulletinEntity>();
+        }
+        this.controllerServiceBulletins.add(controllerServiceBulletinsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Controller service bulletins to be reported to the user.
+     *
+     * @return controllerServiceBulletins
+     **/
+    @ApiModelProperty(value = "Controller service bulletins to be reported to the user.")
+    public List<BulletinEntity> getControllerServiceBulletins() {
+        return controllerServiceBulletins;
     }
-    ControllerBulletinsEntity controllerBulletinsEntity = (ControllerBulletinsEntity) o;
-    return Objects.equals(this.bulletins, controllerBulletinsEntity.bulletins) &&
-        Objects.equals(this.controllerServiceBulletins, controllerBulletinsEntity.controllerServiceBulletins) &&
-        Objects.equals(this.reportingTaskBulletins, controllerBulletinsEntity.reportingTaskBulletins) &&
-        Objects.equals(this.parameterProviderBulletins, controllerBulletinsEntity.parameterProviderBulletins) &&
-        Objects.equals(this.flowRegistryClientBulletins, controllerBulletinsEntity.flowRegistryClientBulletins);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(bulletins, controllerServiceBulletins, reportingTaskBulletins, parameterProviderBulletins, flowRegistryClientBulletins);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerBulletinsEntity {\n");
-    
-    sb.append("    bulletins: ").append(toIndentedString(bulletins)).append("\n");
-    sb.append("    controllerServiceBulletins: ").append(toIndentedString(controllerServiceBulletins)).append("\n");
-    sb.append("    reportingTaskBulletins: ").append(toIndentedString(reportingTaskBulletins)).append("\n");
-    sb.append("    parameterProviderBulletins: ").append(toIndentedString(parameterProviderBulletins)).append("\n");
-    sb.append("    flowRegistryClientBulletins: ").append(toIndentedString(flowRegistryClientBulletins)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setControllerServiceBulletins(List<BulletinEntity> controllerServiceBulletins) {
+        this.controllerServiceBulletins = controllerServiceBulletins;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ControllerBulletinsEntity reportingTaskBulletins(List<BulletinEntity> reportingTaskBulletins) {
+        this.reportingTaskBulletins = reportingTaskBulletins;
+        return this;
+    }
+
+    public ControllerBulletinsEntity addReportingTaskBulletinsItem(BulletinEntity reportingTaskBulletinsItem) {
+        if (this.reportingTaskBulletins == null) {
+            this.reportingTaskBulletins = new ArrayList<BulletinEntity>();
+        }
+        this.reportingTaskBulletins.add(reportingTaskBulletinsItem);
+        return this;
+    }
+
+    /**
+     * Reporting task bulletins to be reported to the user.
+     *
+     * @return reportingTaskBulletins
+     **/
+    @ApiModelProperty(value = "Reporting task bulletins to be reported to the user.")
+    public List<BulletinEntity> getReportingTaskBulletins() {
+        return reportingTaskBulletins;
+    }
+
+    public void setReportingTaskBulletins(List<BulletinEntity> reportingTaskBulletins) {
+        this.reportingTaskBulletins = reportingTaskBulletins;
+    }
+
+    public ControllerBulletinsEntity parameterProviderBulletins(List<BulletinEntity> parameterProviderBulletins) {
+        this.parameterProviderBulletins = parameterProviderBulletins;
+        return this;
+    }
+
+    public ControllerBulletinsEntity addParameterProviderBulletinsItem(BulletinEntity parameterProviderBulletinsItem) {
+        if (this.parameterProviderBulletins == null) {
+            this.parameterProviderBulletins = new ArrayList<BulletinEntity>();
+        }
+        this.parameterProviderBulletins.add(parameterProviderBulletinsItem);
+        return this;
+    }
+
+    /**
+     * Parameter provider bulletins to be reported to the user.
+     *
+     * @return parameterProviderBulletins
+     **/
+    @ApiModelProperty(value = "Parameter provider bulletins to be reported to the user.")
+    public List<BulletinEntity> getParameterProviderBulletins() {
+        return parameterProviderBulletins;
+    }
+
+    public void setParameterProviderBulletins(List<BulletinEntity> parameterProviderBulletins) {
+        this.parameterProviderBulletins = parameterProviderBulletins;
+    }
+
+    public ControllerBulletinsEntity flowRegistryClientBulletins(List<BulletinEntity> flowRegistryClientBulletins) {
+        this.flowRegistryClientBulletins = flowRegistryClientBulletins;
+        return this;
+    }
+
+    public ControllerBulletinsEntity addFlowRegistryClientBulletinsItem(BulletinEntity flowRegistryClientBulletinsItem) {
+        if (this.flowRegistryClientBulletins == null) {
+            this.flowRegistryClientBulletins = new ArrayList<BulletinEntity>();
+        }
+        this.flowRegistryClientBulletins.add(flowRegistryClientBulletinsItem);
+        return this;
+    }
+
+    /**
+     * Flow registry client bulletins to be reported to the user.
+     *
+     * @return flowRegistryClientBulletins
+     **/
+    @ApiModelProperty(value = "Flow registry client bulletins to be reported to the user.")
+    public List<BulletinEntity> getFlowRegistryClientBulletins() {
+        return flowRegistryClientBulletins;
+    }
+
+    public void setFlowRegistryClientBulletins(List<BulletinEntity> flowRegistryClientBulletins) {
+        this.flowRegistryClientBulletins = flowRegistryClientBulletins;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerBulletinsEntity controllerBulletinsEntity = (ControllerBulletinsEntity) o;
+        return Objects.equals(this.bulletins, controllerBulletinsEntity.bulletins) &&
+                Objects.equals(this.controllerServiceBulletins, controllerBulletinsEntity.controllerServiceBulletins) &&
+                Objects.equals(this.reportingTaskBulletins, controllerBulletinsEntity.reportingTaskBulletins) &&
+                Objects.equals(this.parameterProviderBulletins, controllerBulletinsEntity.parameterProviderBulletins) &&
+                Objects.equals(this.flowRegistryClientBulletins, controllerBulletinsEntity.flowRegistryClientBulletins);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bulletins, controllerServiceBulletins, reportingTaskBulletins, parameterProviderBulletins, flowRegistryClientBulletins);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerBulletinsEntity {\n");
+
+        sb.append("    bulletins: ").append(toIndentedString(bulletins)).append("\n");
+        sb.append("    controllerServiceBulletins: ").append(toIndentedString(controllerServiceBulletins)).append("\n");
+        sb.append("    reportingTaskBulletins: ").append(toIndentedString(reportingTaskBulletins)).append("\n");
+        sb.append("    parameterProviderBulletins: ").append(toIndentedString(parameterProviderBulletins)).append("\n");
+        sb.append("    flowRegistryClientBulletins: ").append(toIndentedString(flowRegistryClientBulletins)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

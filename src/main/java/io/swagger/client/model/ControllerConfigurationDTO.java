@@ -13,105 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ControllerConfigurationDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerConfigurationDTO {
-  @SerializedName("maxTimerDrivenThreadCount")
-  private Integer maxTimerDrivenThreadCount = null;
+    @SerializedName("maxTimerDrivenThreadCount")
+    private Integer maxTimerDrivenThreadCount = null;
 
-  @SerializedName("maxEventDrivenThreadCount")
-  private Integer maxEventDrivenThreadCount = null;
+    @SerializedName("maxEventDrivenThreadCount")
+    private Integer maxEventDrivenThreadCount = null;
 
-  public ControllerConfigurationDTO maxTimerDrivenThreadCount(Integer maxTimerDrivenThreadCount) {
-    this.maxTimerDrivenThreadCount = maxTimerDrivenThreadCount;
-    return this;
-  }
-
-   /**
-   * The maximum number of timer driven threads the NiFi has available.
-   * @return maxTimerDrivenThreadCount
-  **/
-  @ApiModelProperty(value = "The maximum number of timer driven threads the NiFi has available.")
-  public Integer getMaxTimerDrivenThreadCount() {
-    return maxTimerDrivenThreadCount;
-  }
-
-  public void setMaxTimerDrivenThreadCount(Integer maxTimerDrivenThreadCount) {
-    this.maxTimerDrivenThreadCount = maxTimerDrivenThreadCount;
-  }
-
-  public ControllerConfigurationDTO maxEventDrivenThreadCount(Integer maxEventDrivenThreadCount) {
-    this.maxEventDrivenThreadCount = maxEventDrivenThreadCount;
-    return this;
-  }
-
-   /**
-   * The maximum number of event driven threads the NiFi has available.
-   * @return maxEventDrivenThreadCount
-  **/
-  @ApiModelProperty(value = "The maximum number of event driven threads the NiFi has available.")
-  public Integer getMaxEventDrivenThreadCount() {
-    return maxEventDrivenThreadCount;
-  }
-
-  public void setMaxEventDrivenThreadCount(Integer maxEventDrivenThreadCount) {
-    this.maxEventDrivenThreadCount = maxEventDrivenThreadCount;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ControllerConfigurationDTO maxTimerDrivenThreadCount(Integer maxTimerDrivenThreadCount) {
+        this.maxTimerDrivenThreadCount = maxTimerDrivenThreadCount;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The maximum number of timer driven threads the NiFi has available.
+     *
+     * @return maxTimerDrivenThreadCount
+     **/
+    @ApiModelProperty(value = "The maximum number of timer driven threads the NiFi has available.")
+    public Integer getMaxTimerDrivenThreadCount() {
+        return maxTimerDrivenThreadCount;
     }
-    ControllerConfigurationDTO controllerConfigurationDTO = (ControllerConfigurationDTO) o;
-    return Objects.equals(this.maxTimerDrivenThreadCount, controllerConfigurationDTO.maxTimerDrivenThreadCount) &&
-        Objects.equals(this.maxEventDrivenThreadCount, controllerConfigurationDTO.maxEventDrivenThreadCount);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(maxTimerDrivenThreadCount, maxEventDrivenThreadCount);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerConfigurationDTO {\n");
-    
-    sb.append("    maxTimerDrivenThreadCount: ").append(toIndentedString(maxTimerDrivenThreadCount)).append("\n");
-    sb.append("    maxEventDrivenThreadCount: ").append(toIndentedString(maxEventDrivenThreadCount)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setMaxTimerDrivenThreadCount(Integer maxTimerDrivenThreadCount) {
+        this.maxTimerDrivenThreadCount = maxTimerDrivenThreadCount;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ControllerConfigurationDTO maxEventDrivenThreadCount(Integer maxEventDrivenThreadCount) {
+        this.maxEventDrivenThreadCount = maxEventDrivenThreadCount;
+        return this;
+    }
+
+    /**
+     * The maximum number of event driven threads the NiFi has available.
+     *
+     * @return maxEventDrivenThreadCount
+     **/
+    @ApiModelProperty(value = "The maximum number of event driven threads the NiFi has available.")
+    public Integer getMaxEventDrivenThreadCount() {
+        return maxEventDrivenThreadCount;
+    }
+
+    public void setMaxEventDrivenThreadCount(Integer maxEventDrivenThreadCount) {
+        this.maxEventDrivenThreadCount = maxEventDrivenThreadCount;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerConfigurationDTO controllerConfigurationDTO = (ControllerConfigurationDTO) o;
+        return Objects.equals(this.maxTimerDrivenThreadCount, controllerConfigurationDTO.maxTimerDrivenThreadCount) &&
+                Objects.equals(this.maxEventDrivenThreadCount, controllerConfigurationDTO.maxEventDrivenThreadCount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(maxTimerDrivenThreadCount, maxEventDrivenThreadCount);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerConfigurationDTO {\n");
+
+        sb.append("    maxTimerDrivenThreadCount: ").append(toIndentedString(maxTimerDrivenThreadCount)).append("\n");
+        sb.append("    maxEventDrivenThreadCount: ").append(toIndentedString(maxEventDrivenThreadCount)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

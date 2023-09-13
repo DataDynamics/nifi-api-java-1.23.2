@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.AccessTokenExpirationDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * AccessTokenExpirationEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class AccessTokenExpirationEntity {
-  @SerializedName("accessTokenExpiration")
-  private AccessTokenExpirationDTO accessTokenExpiration = null;
+    @SerializedName("accessTokenExpiration")
+    private AccessTokenExpirationDTO accessTokenExpiration = null;
 
-  public AccessTokenExpirationEntity accessTokenExpiration(AccessTokenExpirationDTO accessTokenExpiration) {
-    this.accessTokenExpiration = accessTokenExpiration;
-    return this;
-  }
-
-   /**
-   * Get accessTokenExpiration
-   * @return accessTokenExpiration
-  **/
-  @ApiModelProperty(value = "")
-  public AccessTokenExpirationDTO getAccessTokenExpiration() {
-    return accessTokenExpiration;
-  }
-
-  public void setAccessTokenExpiration(AccessTokenExpirationDTO accessTokenExpiration) {
-    this.accessTokenExpiration = accessTokenExpiration;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public AccessTokenExpirationEntity accessTokenExpiration(AccessTokenExpirationDTO accessTokenExpiration) {
+        this.accessTokenExpiration = accessTokenExpiration;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get accessTokenExpiration
+     *
+     * @return accessTokenExpiration
+     **/
+    @ApiModelProperty(value = "")
+    public AccessTokenExpirationDTO getAccessTokenExpiration() {
+        return accessTokenExpiration;
     }
-    AccessTokenExpirationEntity accessTokenExpirationEntity = (AccessTokenExpirationEntity) o;
-    return Objects.equals(this.accessTokenExpiration, accessTokenExpirationEntity.accessTokenExpiration);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(accessTokenExpiration);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AccessTokenExpirationEntity {\n");
-    
-    sb.append("    accessTokenExpiration: ").append(toIndentedString(accessTokenExpiration)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setAccessTokenExpiration(AccessTokenExpirationDTO accessTokenExpiration) {
+        this.accessTokenExpiration = accessTokenExpiration;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AccessTokenExpirationEntity accessTokenExpirationEntity = (AccessTokenExpirationEntity) o;
+        return Objects.equals(this.accessTokenExpiration, accessTokenExpirationEntity.accessTokenExpiration);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(accessTokenExpiration);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AccessTokenExpirationEntity {\n");
+
+        sb.append("    accessTokenExpiration: ").append(toIndentedString(accessTokenExpiration)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

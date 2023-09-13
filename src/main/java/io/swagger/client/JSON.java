@@ -13,408 +13,15 @@
 
 package io.swagger.client;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
+import com.google.gson.*;
 import com.google.gson.internal.bind.util.ISO8601Utils;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
-import io.gsonfire.TypeSelector;
+import okio.ByteString;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.OffsetDateTime;
 import org.threeten.bp.format.DateTimeFormatter;
-
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import io.swagger.client.model.*;
-import okio.ByteString;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -424,7 +31,6 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.Date;
 import java.util.Map;
-import java.util.HashMap;
 
 public class JSON {
     private Gson gson;
@@ -435,16 +41,25 @@ public class JSON {
     private LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
     private ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
 
+    public JSON() {
+        gson = createGson()
+                .registerTypeAdapter(Date.class, dateTypeAdapter)
+                .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
+                .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
+                .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
+                .registerTypeAdapter(byte[].class, byteArrayAdapter)
+                .create();
+    }
+
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder()
-        ;
+        GsonFireBuilder fireBuilder = new GsonFireBuilder();
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;
     }
 
     private static String getDiscriminatorValue(JsonElement readElement, String discriminatorField) {
         JsonElement element = readElement.getAsJsonObject().get(discriminatorField);
-        if(null == element) {
+        if (null == element) {
             throw new IllegalArgumentException("missing discriminator field: <" + discriminatorField + ">");
         }
         return element.getAsString();
@@ -452,20 +67,10 @@ public class JSON {
 
     private static Class getClassByDiscriminator(Map classByDiscriminatorValue, String discriminatorValue) {
         Class clazz = (Class) classByDiscriminatorValue.get(discriminatorValue.toUpperCase());
-        if(null == clazz) {
+        if (null == clazz) {
             throw new IllegalArgumentException("cannot determine model class of name: <" + discriminatorValue + ">");
         }
         return clazz;
-    }
-
-    public JSON() {
-        gson = createGson()
-            .registerTypeAdapter(Date.class, dateTypeAdapter)
-            .registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter)
-            .registerTypeAdapter(OffsetDateTime.class, offsetDateTimeTypeAdapter)
-            .registerTypeAdapter(LocalDate.class, localDateTypeAdapter)
-            .registerTypeAdapter(byte[].class, byteArrayAdapter)
-            .create();
     }
 
     /**
@@ -531,32 +136,24 @@ public class JSON {
         }
     }
 
-    /**
-     * Gson TypeAdapter for Byte Array type
-     */
-    public class ByteArrayAdapter extends TypeAdapter<byte[]> {
+    public JSON setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
+        offsetDateTimeTypeAdapter.setFormat(dateFormat);
+        return this;
+    }
 
-        @Override
-        public void write(JsonWriter out, byte[] value) throws IOException {
-            if (value == null) {
-                out.nullValue();
-            } else {
-                out.value(ByteString.of(value).base64());
-            }
-        }
+    public JSON setLocalDateFormat(DateTimeFormatter dateFormat) {
+        localDateTypeAdapter.setFormat(dateFormat);
+        return this;
+    }
 
-        @Override
-        public byte[] read(JsonReader in) throws IOException {
-            switch (in.peek()) {
-                case NULL:
-                    in.nextNull();
-                    return null;
-                default:
-                    String bytesAsBase64 = in.nextString();
-                    ByteString byteString = ByteString.decodeBase64(bytesAsBase64);
-                    return byteString.toByteArray();
-            }
-        }
+    public JSON setDateFormat(DateFormat dateFormat) {
+        dateTypeAdapter.setFormat(dateFormat);
+        return this;
+    }
+
+    public JSON setSqlDateFormat(DateFormat dateFormat) {
+        sqlDateTypeAdapter.setFormat(dateFormat);
+        return this;
     }
 
     /**
@@ -596,62 +193,11 @@ public class JSON {
                 default:
                     String date = in.nextString();
                     if (date.endsWith("+0000")) {
-                        date = date.substring(0, date.length()-5) + "Z";
+                        date = date.substring(0, date.length() - 5) + "Z";
                     }
                     return OffsetDateTime.parse(date, formatter);
             }
         }
-    }
-
-    /**
-     * Gson TypeAdapter for JSR310 LocalDate type
-     */
-    public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
-
-        private DateTimeFormatter formatter;
-
-        public LocalDateTypeAdapter() {
-            this(DateTimeFormatter.ISO_LOCAL_DATE);
-        }
-
-        public LocalDateTypeAdapter(DateTimeFormatter formatter) {
-            this.formatter = formatter;
-        }
-
-        public void setFormat(DateTimeFormatter dateFormat) {
-            this.formatter = dateFormat;
-        }
-
-        @Override
-        public void write(JsonWriter out, LocalDate date) throws IOException {
-            if (date == null) {
-                out.nullValue();
-            } else {
-                out.value(formatter.format(date));
-            }
-        }
-
-        @Override
-        public LocalDate read(JsonReader in) throws IOException {
-            switch (in.peek()) {
-                case NULL:
-                    in.nextNull();
-                    return null;
-                default:
-                    String date = in.nextString();
-                    return LocalDate.parse(date, formatter);
-            }
-        }
-    }
-
-    public JSON setOffsetDateTimeFormat(DateTimeFormatter dateFormat) {
-        offsetDateTimeTypeAdapter.setFormat(dateFormat);
-        return this;
-    }
-
-    public JSON setLocalDateFormat(DateTimeFormatter dateFormat) {
-        localDateTypeAdapter.setFormat(dateFormat);
-        return this;
     }
 
     /**
@@ -767,14 +313,73 @@ public class JSON {
         }
     }
 
-    public JSON setDateFormat(DateFormat dateFormat) {
-        dateTypeAdapter.setFormat(dateFormat);
-        return this;
+    /**
+     * Gson TypeAdapter for Byte Array type
+     */
+    public class ByteArrayAdapter extends TypeAdapter<byte[]> {
+
+        @Override
+        public void write(JsonWriter out, byte[] value) throws IOException {
+            if (value == null) {
+                out.nullValue();
+            } else {
+                out.value(ByteString.of(value).base64());
+            }
+        }
+
+        @Override
+        public byte[] read(JsonReader in) throws IOException {
+            switch (in.peek()) {
+                case NULL:
+                    in.nextNull();
+                    return null;
+                default:
+                    String bytesAsBase64 = in.nextString();
+                    ByteString byteString = ByteString.decodeBase64(bytesAsBase64);
+                    return byteString.toByteArray();
+            }
+        }
     }
 
-    public JSON setSqlDateFormat(DateFormat dateFormat) {
-        sqlDateTypeAdapter.setFormat(dateFormat);
-        return this;
+    /**
+     * Gson TypeAdapter for JSR310 LocalDate type
+     */
+    public class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
+
+        private DateTimeFormatter formatter;
+
+        public LocalDateTypeAdapter() {
+            this(DateTimeFormatter.ISO_LOCAL_DATE);
+        }
+
+        public LocalDateTypeAdapter(DateTimeFormatter formatter) {
+            this.formatter = formatter;
+        }
+
+        public void setFormat(DateTimeFormatter dateFormat) {
+            this.formatter = dateFormat;
+        }
+
+        @Override
+        public void write(JsonWriter out, LocalDate date) throws IOException {
+            if (date == null) {
+                out.nullValue();
+            } else {
+                out.value(formatter.format(date));
+            }
+        }
+
+        @Override
+        public LocalDate read(JsonReader in) throws IOException {
+            switch (in.peek()) {
+                case NULL:
+                    in.nextNull();
+                    return null;
+                default:
+                    String date = in.nextString();
+                    return LocalDate.parse(date, formatter);
+            }
+        }
     }
 
 }

@@ -13,116 +13,111 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.CounterDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * CountersSnapshotDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class CountersSnapshotDTO {
-  @SerializedName("generated")
-  private String generated = null;
+    @SerializedName("generated")
+    private String generated = null;
 
-  @SerializedName("counters")
-  private List<CounterDTO> counters = null;
+    @SerializedName("counters")
+    private List<CounterDTO> counters = null;
 
-  public CountersSnapshotDTO generated(String generated) {
-    this.generated = generated;
-    return this;
-  }
-
-   /**
-   * The timestamp when the report was generated.
-   * @return generated
-  **/
-  @ApiModelProperty(value = "The timestamp when the report was generated.")
-  public String getGenerated() {
-    return generated;
-  }
-
-  public void setGenerated(String generated) {
-    this.generated = generated;
-  }
-
-  public CountersSnapshotDTO counters(List<CounterDTO> counters) {
-    this.counters = counters;
-    return this;
-  }
-
-  public CountersSnapshotDTO addCountersItem(CounterDTO countersItem) {
-    if (this.counters == null) {
-      this.counters = new ArrayList<CounterDTO>();
+    public CountersSnapshotDTO generated(String generated) {
+        this.generated = generated;
+        return this;
     }
-    this.counters.add(countersItem);
-    return this;
-  }
 
-   /**
-   * All counters in the NiFi.
-   * @return counters
-  **/
-  @ApiModelProperty(value = "All counters in the NiFi.")
-  public List<CounterDTO> getCounters() {
-    return counters;
-  }
-
-  public void setCounters(List<CounterDTO> counters) {
-    this.counters = counters;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The timestamp when the report was generated.
+     *
+     * @return generated
+     **/
+    @ApiModelProperty(value = "The timestamp when the report was generated.")
+    public String getGenerated() {
+        return generated;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setGenerated(String generated) {
+        this.generated = generated;
     }
-    CountersSnapshotDTO countersSnapshotDTO = (CountersSnapshotDTO) o;
-    return Objects.equals(this.generated, countersSnapshotDTO.generated) &&
-        Objects.equals(this.counters, countersSnapshotDTO.counters);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(generated, counters);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CountersSnapshotDTO {\n");
-    
-    sb.append("    generated: ").append(toIndentedString(generated)).append("\n");
-    sb.append("    counters: ").append(toIndentedString(counters)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public CountersSnapshotDTO counters(List<CounterDTO> counters) {
+        this.counters = counters;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public CountersSnapshotDTO addCountersItem(CounterDTO countersItem) {
+        if (this.counters == null) {
+            this.counters = new ArrayList<CounterDTO>();
+        }
+        this.counters.add(countersItem);
+        return this;
+    }
+
+    /**
+     * All counters in the NiFi.
+     *
+     * @return counters
+     **/
+    @ApiModelProperty(value = "All counters in the NiFi.")
+    public List<CounterDTO> getCounters() {
+        return counters;
+    }
+
+    public void setCounters(List<CounterDTO> counters) {
+        this.counters = counters;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CountersSnapshotDTO countersSnapshotDTO = (CountersSnapshotDTO) o;
+        return Objects.equals(this.generated, countersSnapshotDTO.generated) &&
+                Objects.equals(this.counters, countersSnapshotDTO.counters);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(generated, counters);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CountersSnapshotDTO {\n");
+
+        sb.append("    generated: ").append(toIndentedString(generated)).append("\n");
+        sb.append("    counters: ").append(toIndentedString(counters)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

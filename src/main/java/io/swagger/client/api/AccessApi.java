@@ -13,24 +13,13 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.AccessConfigurationEntity;
 import io.swagger.client.model.AccessStatusEntity;
 import io.swagger.client.model.AccessTokenExpirationEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,9 +47,10 @@ public class AccessApi {
 
     /**
      * Build call for createAccessToken
-     * @param username  (optional)
-     * @param password  (optional)
-     * @param progressListener Progress listener
+     *
+     * @param username                (optional)
+     * @param password                (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -78,41 +68,41 @@ public class AccessApi {
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         if (username != null)
-        localVarFormParams.put("username", username);
+            localVarFormParams.put("username", username);
         if (password != null)
-        localVarFormParams.put("password", password);
+            localVarFormParams.put("password", password);
 
         final String[] localVarAccepts = {
-            "text/plain"
+                "text/plain"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/x-www-form-urlencoded"
+                "application/x-www-form-urlencoded"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createAccessTokenValidateBeforeCall(String username, String password, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = createAccessTokenCall(username, password, progressListener, progressRequestListener);
         return call;
@@ -122,8 +112,9 @@ public class AccessApi {
     /**
      * Creates a token for accessing the REST API via username/password
      * The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. It is stored in the browser as a cookie, but also returned inthe response body to be stored/used by third party client scripts.
-     * @param username  (optional)
-     * @param password  (optional)
+     *
+     * @param username (optional)
+     * @param password (optional)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -135,22 +126,25 @@ public class AccessApi {
     /**
      * Creates a token for accessing the REST API via username/password
      * The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. It is stored in the browser as a cookie, but also returned inthe response body to be stored/used by third party client scripts.
-     * @param username  (optional)
-     * @param password  (optional)
+     *
+     * @param username (optional)
+     * @param password (optional)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<String> createAccessTokenWithHttpInfo(String username, String password) throws ApiException {
         com.squareup.okhttp.Call call = createAccessTokenValidateBeforeCall(username, password, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a token for accessing the REST API via username/password (asynchronously)
      * The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. It is stored in the browser as a cookie, but also returned inthe response body to be stored/used by third party client scripts.
-     * @param username  (optional)
-     * @param password  (optional)
+     *
+     * @param username (optional)
+     * @param password (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -177,13 +171,16 @@ public class AccessApi {
         }
 
         com.squareup.okhttp.Call call = createAccessTokenValidateBeforeCall(username, password, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createAccessTokenFromTicket
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -202,36 +199,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "text/plain"
+                "text/plain"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "text/plain"
+                "text/plain"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createAccessTokenFromTicketValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = createAccessTokenFromTicketCall(progressListener, progressRequestListener);
         return call;
@@ -241,6 +238,7 @@ public class AccessApi {
     /**
      * Creates a token for accessing the REST API via Kerberos ticket exchange / SPNEGO negotiation
      * The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. The token can be used in the Authorization header in the format &#39;Authorization: Bearer &lt;token&gt;&#39;. It is also stored in the browser as a cookie.
+     *
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -252,18 +250,21 @@ public class AccessApi {
     /**
      * Creates a token for accessing the REST API via Kerberos ticket exchange / SPNEGO negotiation
      * The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. The token can be used in the Authorization header in the format &#39;Authorization: Bearer &lt;token&gt;&#39;. It is also stored in the browser as a cookie.
+     *
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<String> createAccessTokenFromTicketWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = createAccessTokenFromTicketValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates a token for accessing the REST API via Kerberos ticket exchange / SPNEGO negotiation (asynchronously)
      * The token returned is formatted as a JSON Web Token (JWT). The token is base64 encoded and comprised of three parts. The header, the body, and the signature. The expiration of the token is a contained within the body. The token can be used in the Authorization header in the format &#39;Authorization: Bearer &lt;token&gt;&#39;. It is also stored in the browser as a cookie.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -290,13 +291,16 @@ public class AccessApi {
         }
 
         com.squareup.okhttp.Call call = createAccessTokenFromTicketValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getAccessStatus
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -315,36 +319,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAccessStatusValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getAccessStatusCall(progressListener, progressRequestListener);
         return call;
@@ -354,6 +358,7 @@ public class AccessApi {
     /**
      * Gets the status the client&#39;s access
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return AccessStatusEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -365,18 +370,21 @@ public class AccessApi {
     /**
      * Gets the status the client&#39;s access
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;AccessStatusEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AccessStatusEntity> getAccessStatusWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getAccessStatusValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<AccessStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessStatusEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the status the client&#39;s access (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -403,13 +411,16 @@ public class AccessApi {
         }
 
         com.squareup.okhttp.Call call = getAccessStatusValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AccessStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessStatusEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getAccessTokenExpiration
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -428,36 +439,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAccessTokenExpirationValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getAccessTokenExpirationCall(progressListener, progressRequestListener);
         return call;
@@ -467,6 +478,7 @@ public class AccessApi {
     /**
      * Get expiration for current Access Token
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return AccessTokenExpirationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -478,18 +490,21 @@ public class AccessApi {
     /**
      * Get expiration for current Access Token
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;AccessTokenExpirationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AccessTokenExpirationEntity> getAccessTokenExpirationWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getAccessTokenExpirationValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<AccessTokenExpirationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessTokenExpirationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Get expiration for current Access Token (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -516,13 +531,16 @@ public class AccessApi {
         }
 
         com.squareup.okhttp.Call call = getAccessTokenExpirationValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AccessTokenExpirationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessTokenExpirationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getLoginConfig
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -541,36 +559,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getLoginConfigValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getLoginConfigCall(progressListener, progressRequestListener);
         return call;
@@ -579,7 +597,7 @@ public class AccessApi {
 
     /**
      * Retrieves the access configuration for this NiFi
-     * 
+     *
      * @return AccessConfigurationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -590,19 +608,20 @@ public class AccessApi {
 
     /**
      * Retrieves the access configuration for this NiFi
-     * 
+     *
      * @return ApiResponse&lt;AccessConfigurationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AccessConfigurationEntity> getLoginConfigWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getLoginConfigValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<AccessConfigurationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessConfigurationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the access configuration for this NiFi (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -629,13 +648,16 @@ public class AccessApi {
         }
 
         com.squareup.okhttp.Call call = getLoginConfigValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AccessConfigurationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessConfigurationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for knoxCallback
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -654,36 +676,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
+                "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call knoxCallbackValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = knoxCallbackCall(progressListener, progressRequestListener);
         return call;
@@ -693,6 +715,7 @@ public class AccessApi {
     /**
      * Redirect/callback URI for processing the result of the Apache Knox login sequence.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void knoxCallback() throws ApiException {
@@ -702,6 +725,7 @@ public class AccessApi {
     /**
      * Redirect/callback URI for processing the result of the Apache Knox login sequence.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -713,6 +737,7 @@ public class AccessApi {
     /**
      * Redirect/callback URI for processing the result of the Apache Knox login sequence. (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -742,9 +767,11 @@ public class AccessApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
+
     /**
      * Build call for knoxLogout
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -763,36 +790,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
+                "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call knoxLogoutValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = knoxLogoutCall(progressListener, progressRequestListener);
         return call;
@@ -802,6 +829,7 @@ public class AccessApi {
     /**
      * Performs a logout in the Apache Knox.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void knoxLogout() throws ApiException {
@@ -811,6 +839,7 @@ public class AccessApi {
     /**
      * Performs a logout in the Apache Knox.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -822,6 +851,7 @@ public class AccessApi {
     /**
      * Performs a logout in the Apache Knox. (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -851,9 +881,11 @@ public class AccessApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
+
     /**
      * Build call for knoxRequest
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -872,36 +904,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
+                "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call knoxRequestValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = knoxRequestCall(progressListener, progressRequestListener);
         return call;
@@ -911,6 +943,7 @@ public class AccessApi {
     /**
      * Initiates a request to authenticate through Apache Knox.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void knoxRequest() throws ApiException {
@@ -920,6 +953,7 @@ public class AccessApi {
     /**
      * Initiates a request to authenticate through Apache Knox.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -931,6 +965,7 @@ public class AccessApi {
     /**
      * Initiates a request to authenticate through Apache Knox. (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -960,9 +995,11 @@ public class AccessApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
+
     /**
      * Build call for logOut
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -981,36 +1018,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
+                "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call logOutValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = logOutCall(progressListener, progressRequestListener);
         return call;
@@ -1020,6 +1057,7 @@ public class AccessApi {
     /**
      * Performs a logout for other providers that have been issued a JWT.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void logOut() throws ApiException {
@@ -1029,6 +1067,7 @@ public class AccessApi {
     /**
      * Performs a logout for other providers that have been issued a JWT.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1040,6 +1079,7 @@ public class AccessApi {
     /**
      * Performs a logout for other providers that have been issued a JWT. (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1069,9 +1109,11 @@ public class AccessApi {
         apiClient.executeAsync(call, callback);
         return call;
     }
+
     /**
      * Build call for logOutComplete
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1090,36 +1132,36 @@ public class AccessApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
+                "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call logOutCompleteValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = logOutCompleteCall(progressListener, progressRequestListener);
         return call;
@@ -1129,6 +1171,7 @@ public class AccessApi {
     /**
      * Completes the logout sequence by removing the cached Logout Request and Cookie if they existed and redirects to /nifi/login.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public void logOutComplete() throws ApiException {
@@ -1138,6 +1181,7 @@ public class AccessApi {
     /**
      * Completes the logout sequence by removing the cached Logout Request and Cookie if they existed and redirects to /nifi/login.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1149,6 +1193,7 @@ public class AccessApi {
     /**
      * Completes the logout sequence by removing the cached Logout Request and Cookie if they existed and redirects to /nifi/login. (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

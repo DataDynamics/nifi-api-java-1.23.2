@@ -13,764 +13,761 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.BundleDTO;
-import io.swagger.client.model.PositionDTO;
-import io.swagger.client.model.ProcessorConfigDTO;
-import io.swagger.client.model.RelationshipDTO;
+
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * ProcessorDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProcessorDTO {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("versionedComponentId")
-  private String versionedComponentId = null;
+    @SerializedName("versionedComponentId")
+    private String versionedComponentId = null;
 
-  @SerializedName("parentGroupId")
-  private String parentGroupId = null;
+    @SerializedName("parentGroupId")
+    private String parentGroupId = null;
 
-  @SerializedName("position")
-  private PositionDTO position = null;
+    @SerializedName("position")
+    private PositionDTO position = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("type")
-  private String type = null;
+    @SerializedName("type")
+    private String type = null;
 
-  @SerializedName("bundle")
-  private BundleDTO bundle = null;
+    @SerializedName("bundle")
+    private BundleDTO bundle = null;
+    @SerializedName("state")
+    private StateEnum state = null;
+    @SerializedName("style")
+    private Map<String, String> style = null;
+    @SerializedName("relationships")
+    private List<RelationshipDTO> relationships = null;
+    @SerializedName("description")
+    private String description = null;
+    @SerializedName("supportsParallelProcessing")
+    private Boolean supportsParallelProcessing = null;
+    @SerializedName("supportsEventDriven")
+    private Boolean supportsEventDriven = null;
+    @SerializedName("supportsBatching")
+    private Boolean supportsBatching = null;
+    @SerializedName("supportsSensitiveDynamicProperties")
+    private Boolean supportsSensitiveDynamicProperties = null;
+    @SerializedName("persistsState")
+    private Boolean persistsState = null;
+    @SerializedName("restricted")
+    private Boolean restricted = null;
+    @SerializedName("deprecated")
+    private Boolean deprecated = null;
+    @SerializedName("executionNodeRestricted")
+    private Boolean executionNodeRestricted = null;
+    @SerializedName("multipleVersionsAvailable")
+    private Boolean multipleVersionsAvailable = null;
+    @SerializedName("inputRequirement")
+    private String inputRequirement = null;
+    @SerializedName("config")
+    private ProcessorConfigDTO config = null;
+    @SerializedName("validationErrors")
+    private List<String> validationErrors = null;
+    @SerializedName("validationStatus")
+    private ValidationStatusEnum validationStatus = null;
+    @SerializedName("extensionMissing")
+    private Boolean extensionMissing = null;
 
-  /**
-   * The state of the processor
-   */
-  @JsonAdapter(StateEnum.Adapter.class)
-  public enum StateEnum {
-    RUNNING("RUNNING"),
-    
-    STOPPED("STOPPED"),
-    
-    DISABLED("DISABLED");
-
-    private String value;
-
-    StateEnum(String value) {
-      this.value = value;
+    public ProcessorDTO id(String id) {
+        this.id = id;
+        return this;
     }
 
-    public String getValue() {
-      return value;
+    /**
+     * The id of the component.
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The id of the component.")
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public ProcessorDTO versionedComponentId(String versionedComponentId) {
+        this.versionedComponentId = versionedComponentId;
+        return this;
+    }
+
+    /**
+     * The ID of the corresponding component that is under version control
+     *
+     * @return versionedComponentId
+     **/
+    @ApiModelProperty(value = "The ID of the corresponding component that is under version control")
+    public String getVersionedComponentId() {
+        return versionedComponentId;
+    }
+
+    public void setVersionedComponentId(String versionedComponentId) {
+        this.versionedComponentId = versionedComponentId;
+    }
+
+    public ProcessorDTO parentGroupId(String parentGroupId) {
+        this.parentGroupId = parentGroupId;
+        return this;
+    }
+
+    /**
+     * The id of parent process group of this component if applicable.
+     *
+     * @return parentGroupId
+     **/
+    @ApiModelProperty(value = "The id of parent process group of this component if applicable.")
+    public String getParentGroupId() {
+        return parentGroupId;
+    }
+
+    public void setParentGroupId(String parentGroupId) {
+        this.parentGroupId = parentGroupId;
+    }
+
+    public ProcessorDTO position(PositionDTO position) {
+        this.position = position;
+        return this;
+    }
+
+    /**
+     * The position of this component in the UI if applicable.
+     *
+     * @return position
+     **/
+    @ApiModelProperty(value = "The position of this component in the UI if applicable.")
+    public PositionDTO getPosition() {
+        return position;
+    }
+
+    public void setPosition(PositionDTO position) {
+        this.position = position;
+    }
+
+    public ProcessorDTO name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * The name of the processor.
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "The name of the processor.")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ProcessorDTO type(String type) {
+        this.type = type;
+        return this;
+    }
+
+    /**
+     * The type of the processor.
+     *
+     * @return type
+     **/
+    @ApiModelProperty(value = "The type of the processor.")
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public ProcessorDTO bundle(BundleDTO bundle) {
+        this.bundle = bundle;
+        return this;
+    }
+
+    /**
+     * The details of the artifact that bundled this processor type.
+     *
+     * @return bundle
+     **/
+    @ApiModelProperty(value = "The details of the artifact that bundled this processor type.")
+    public BundleDTO getBundle() {
+        return bundle;
+    }
+
+    public void setBundle(BundleDTO bundle) {
+        this.bundle = bundle;
+    }
+
+    public ProcessorDTO state(StateEnum state) {
+        this.state = state;
+        return this;
+    }
+
+    /**
+     * The state of the processor
+     *
+     * @return state
+     **/
+    @ApiModelProperty(value = "The state of the processor")
+    public StateEnum getState() {
+        return state;
+    }
+
+    public void setState(StateEnum state) {
+        this.state = state;
+    }
+
+    public ProcessorDTO style(Map<String, String> style) {
+        this.style = style;
+        return this;
+    }
+
+    public ProcessorDTO putStyleItem(String key, String styleItem) {
+        if (this.style == null) {
+            this.style = new HashMap<String, String>();
+        }
+        this.style.put(key, styleItem);
+        return this;
+    }
+
+    /**
+     * Styles for the processor (background-color : #eee).
+     *
+     * @return style
+     **/
+    @ApiModelProperty(value = "Styles for the processor (background-color : #eee).")
+    public Map<String, String> getStyle() {
+        return style;
+    }
+
+    public void setStyle(Map<String, String> style) {
+        this.style = style;
+    }
+
+    public ProcessorDTO relationships(List<RelationshipDTO> relationships) {
+        this.relationships = relationships;
+        return this;
+    }
+
+    public ProcessorDTO addRelationshipsItem(RelationshipDTO relationshipsItem) {
+        if (this.relationships == null) {
+            this.relationships = new ArrayList<RelationshipDTO>();
+        }
+        this.relationships.add(relationshipsItem);
+        return this;
+    }
+
+    /**
+     * The available relationships that the processor currently supports.
+     *
+     * @return relationships
+     **/
+    @ApiModelProperty(value = "The available relationships that the processor currently supports.")
+    public List<RelationshipDTO> getRelationships() {
+        return relationships;
+    }
+
+    public void setRelationships(List<RelationshipDTO> relationships) {
+        this.relationships = relationships;
+    }
+
+    public ProcessorDTO description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * The description of the processor.
+     *
+     * @return description
+     **/
+    @ApiModelProperty(value = "The description of the processor.")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ProcessorDTO supportsParallelProcessing(Boolean supportsParallelProcessing) {
+        this.supportsParallelProcessing = supportsParallelProcessing;
+        return this;
+    }
+
+    /**
+     * Whether the processor supports parallel processing.
+     *
+     * @return supportsParallelProcessing
+     **/
+    @ApiModelProperty(value = "Whether the processor supports parallel processing.")
+    public Boolean isSupportsParallelProcessing() {
+        return supportsParallelProcessing;
+    }
+
+    public void setSupportsParallelProcessing(Boolean supportsParallelProcessing) {
+        this.supportsParallelProcessing = supportsParallelProcessing;
+    }
+
+    public ProcessorDTO supportsEventDriven(Boolean supportsEventDriven) {
+        this.supportsEventDriven = supportsEventDriven;
+        return this;
+    }
+
+    /**
+     * Whether the processor supports event driven scheduling.
+     *
+     * @return supportsEventDriven
+     **/
+    @ApiModelProperty(value = "Whether the processor supports event driven scheduling.")
+    public Boolean isSupportsEventDriven() {
+        return supportsEventDriven;
+    }
+
+    public void setSupportsEventDriven(Boolean supportsEventDriven) {
+        this.supportsEventDriven = supportsEventDriven;
+    }
+
+    public ProcessorDTO supportsBatching(Boolean supportsBatching) {
+        this.supportsBatching = supportsBatching;
+        return this;
+    }
+
+    /**
+     * Whether the processor supports batching. This makes the run duration settings available.
+     *
+     * @return supportsBatching
+     **/
+    @ApiModelProperty(value = "Whether the processor supports batching. This makes the run duration settings available.")
+    public Boolean isSupportsBatching() {
+        return supportsBatching;
+    }
+
+    public void setSupportsBatching(Boolean supportsBatching) {
+        this.supportsBatching = supportsBatching;
+    }
+
+    public ProcessorDTO supportsSensitiveDynamicProperties(Boolean supportsSensitiveDynamicProperties) {
+        this.supportsSensitiveDynamicProperties = supportsSensitiveDynamicProperties;
+        return this;
+    }
+
+    /**
+     * Whether the processor supports sensitive dynamic properties.
+     *
+     * @return supportsSensitiveDynamicProperties
+     **/
+    @ApiModelProperty(value = "Whether the processor supports sensitive dynamic properties.")
+    public Boolean isSupportsSensitiveDynamicProperties() {
+        return supportsSensitiveDynamicProperties;
+    }
+
+    public void setSupportsSensitiveDynamicProperties(Boolean supportsSensitiveDynamicProperties) {
+        this.supportsSensitiveDynamicProperties = supportsSensitiveDynamicProperties;
+    }
+
+    public ProcessorDTO persistsState(Boolean persistsState) {
+        this.persistsState = persistsState;
+        return this;
+    }
+
+    /**
+     * Whether the processor persists state.
+     *
+     * @return persistsState
+     **/
+    @ApiModelProperty(value = "Whether the processor persists state.")
+    public Boolean isPersistsState() {
+        return persistsState;
+    }
+
+    public void setPersistsState(Boolean persistsState) {
+        this.persistsState = persistsState;
+    }
+
+    public ProcessorDTO restricted(Boolean restricted) {
+        this.restricted = restricted;
+        return this;
+    }
+
+    /**
+     * Whether the processor requires elevated privileges.
+     *
+     * @return restricted
+     **/
+    @ApiModelProperty(value = "Whether the processor requires elevated privileges.")
+    public Boolean isRestricted() {
+        return restricted;
+    }
+
+    public void setRestricted(Boolean restricted) {
+        this.restricted = restricted;
+    }
+
+    public ProcessorDTO deprecated(Boolean deprecated) {
+        this.deprecated = deprecated;
+        return this;
+    }
+
+    /**
+     * Whether the processor has been deprecated.
+     *
+     * @return deprecated
+     **/
+    @ApiModelProperty(value = "Whether the processor has been deprecated.")
+    public Boolean isDeprecated() {
+        return deprecated;
+    }
+
+    public void setDeprecated(Boolean deprecated) {
+        this.deprecated = deprecated;
+    }
+
+    public ProcessorDTO executionNodeRestricted(Boolean executionNodeRestricted) {
+        this.executionNodeRestricted = executionNodeRestricted;
+        return this;
+    }
+
+    /**
+     * Indicates if the execution node of a processor is restricted to run only on the primary node
+     *
+     * @return executionNodeRestricted
+     **/
+    @ApiModelProperty(value = "Indicates if the execution node of a processor is restricted to run only on the primary node")
+    public Boolean isExecutionNodeRestricted() {
+        return executionNodeRestricted;
+    }
+
+    public void setExecutionNodeRestricted(Boolean executionNodeRestricted) {
+        this.executionNodeRestricted = executionNodeRestricted;
+    }
+
+    public ProcessorDTO multipleVersionsAvailable(Boolean multipleVersionsAvailable) {
+        this.multipleVersionsAvailable = multipleVersionsAvailable;
+        return this;
+    }
+
+    /**
+     * Whether the processor has multiple versions available.
+     *
+     * @return multipleVersionsAvailable
+     **/
+    @ApiModelProperty(value = "Whether the processor has multiple versions available.")
+    public Boolean isMultipleVersionsAvailable() {
+        return multipleVersionsAvailable;
+    }
+
+    public void setMultipleVersionsAvailable(Boolean multipleVersionsAvailable) {
+        this.multipleVersionsAvailable = multipleVersionsAvailable;
+    }
+
+    public ProcessorDTO inputRequirement(String inputRequirement) {
+        this.inputRequirement = inputRequirement;
+        return this;
+    }
+
+    /**
+     * The input requirement for this processor.
+     *
+     * @return inputRequirement
+     **/
+    @ApiModelProperty(value = "The input requirement for this processor.")
+    public String getInputRequirement() {
+        return inputRequirement;
+    }
+
+    public void setInputRequirement(String inputRequirement) {
+        this.inputRequirement = inputRequirement;
+    }
+
+    public ProcessorDTO config(ProcessorConfigDTO config) {
+        this.config = config;
+        return this;
+    }
+
+    /**
+     * The configuration details for the processor. These details will be included in a response if the verbose flag is included in a request.
+     *
+     * @return config
+     **/
+    @ApiModelProperty(value = "The configuration details for the processor. These details will be included in a response if the verbose flag is included in a request.")
+    public ProcessorConfigDTO getConfig() {
+        return config;
+    }
+
+    public void setConfig(ProcessorConfigDTO config) {
+        this.config = config;
+    }
+
+    public ProcessorDTO validationErrors(List<String> validationErrors) {
+        this.validationErrors = validationErrors;
+        return this;
+    }
+
+    public ProcessorDTO addValidationErrorsItem(String validationErrorsItem) {
+        if (this.validationErrors == null) {
+            this.validationErrors = new ArrayList<String>();
+        }
+        this.validationErrors.add(validationErrorsItem);
+        return this;
+    }
+
+    /**
+     * The validation errors for the processor. These validation errors represent the problems with the processor that must be resolved before it can be started.
+     *
+     * @return validationErrors
+     **/
+    @ApiModelProperty(value = "The validation errors for the processor. These validation errors represent the problems with the processor that must be resolved before it can be started.")
+    public List<String> getValidationErrors() {
+        return validationErrors;
+    }
+
+    public void setValidationErrors(List<String> validationErrors) {
+        this.validationErrors = validationErrors;
+    }
+
+    public ProcessorDTO validationStatus(ValidationStatusEnum validationStatus) {
+        this.validationStatus = validationStatus;
+        return this;
+    }
+
+    /**
+     * Indicates whether the Processor is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the Processor is valid)
+     *
+     * @return validationStatus
+     **/
+    @ApiModelProperty(value = "Indicates whether the Processor is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the Processor is valid)")
+    public ValidationStatusEnum getValidationStatus() {
+        return validationStatus;
+    }
+
+    public void setValidationStatus(ValidationStatusEnum validationStatus) {
+        this.validationStatus = validationStatus;
+    }
+
+    public ProcessorDTO extensionMissing(Boolean extensionMissing) {
+        this.extensionMissing = extensionMissing;
+        return this;
+    }
+
+    /**
+     * Whether the underlying extension is missing.
+     *
+     * @return extensionMissing
+     **/
+    @ApiModelProperty(value = "Whether the underlying extension is missing.")
+    public Boolean isExtensionMissing() {
+        return extensionMissing;
+    }
+
+    public void setExtensionMissing(Boolean extensionMissing) {
+        this.extensionMissing = extensionMissing;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessorDTO processorDTO = (ProcessorDTO) o;
+        return Objects.equals(this.id, processorDTO.id) &&
+                Objects.equals(this.versionedComponentId, processorDTO.versionedComponentId) &&
+                Objects.equals(this.parentGroupId, processorDTO.parentGroupId) &&
+                Objects.equals(this.position, processorDTO.position) &&
+                Objects.equals(this.name, processorDTO.name) &&
+                Objects.equals(this.type, processorDTO.type) &&
+                Objects.equals(this.bundle, processorDTO.bundle) &&
+                Objects.equals(this.state, processorDTO.state) &&
+                Objects.equals(this.style, processorDTO.style) &&
+                Objects.equals(this.relationships, processorDTO.relationships) &&
+                Objects.equals(this.description, processorDTO.description) &&
+                Objects.equals(this.supportsParallelProcessing, processorDTO.supportsParallelProcessing) &&
+                Objects.equals(this.supportsEventDriven, processorDTO.supportsEventDriven) &&
+                Objects.equals(this.supportsBatching, processorDTO.supportsBatching) &&
+                Objects.equals(this.supportsSensitiveDynamicProperties, processorDTO.supportsSensitiveDynamicProperties) &&
+                Objects.equals(this.persistsState, processorDTO.persistsState) &&
+                Objects.equals(this.restricted, processorDTO.restricted) &&
+                Objects.equals(this.deprecated, processorDTO.deprecated) &&
+                Objects.equals(this.executionNodeRestricted, processorDTO.executionNodeRestricted) &&
+                Objects.equals(this.multipleVersionsAvailable, processorDTO.multipleVersionsAvailable) &&
+                Objects.equals(this.inputRequirement, processorDTO.inputRequirement) &&
+                Objects.equals(this.config, processorDTO.config) &&
+                Objects.equals(this.validationErrors, processorDTO.validationErrors) &&
+                Objects.equals(this.validationStatus, processorDTO.validationStatus) &&
+                Objects.equals(this.extensionMissing, processorDTO.extensionMissing);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, versionedComponentId, parentGroupId, position, name, type, bundle, state, style, relationships, description, supportsParallelProcessing, supportsEventDriven, supportsBatching, supportsSensitiveDynamicProperties, persistsState, restricted, deprecated, executionNodeRestricted, multipleVersionsAvailable, inputRequirement, config, validationErrors, validationStatus, extensionMissing);
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessorDTO {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    versionedComponentId: ").append(toIndentedString(versionedComponentId)).append("\n");
+        sb.append("    parentGroupId: ").append(toIndentedString(parentGroupId)).append("\n");
+        sb.append("    position: ").append(toIndentedString(position)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    bundle: ").append(toIndentedString(bundle)).append("\n");
+        sb.append("    state: ").append(toIndentedString(state)).append("\n");
+        sb.append("    style: ").append(toIndentedString(style)).append("\n");
+        sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    supportsParallelProcessing: ").append(toIndentedString(supportsParallelProcessing)).append("\n");
+        sb.append("    supportsEventDriven: ").append(toIndentedString(supportsEventDriven)).append("\n");
+        sb.append("    supportsBatching: ").append(toIndentedString(supportsBatching)).append("\n");
+        sb.append("    supportsSensitiveDynamicProperties: ").append(toIndentedString(supportsSensitiveDynamicProperties)).append("\n");
+        sb.append("    persistsState: ").append(toIndentedString(persistsState)).append("\n");
+        sb.append("    restricted: ").append(toIndentedString(restricted)).append("\n");
+        sb.append("    deprecated: ").append(toIndentedString(deprecated)).append("\n");
+        sb.append("    executionNodeRestricted: ").append(toIndentedString(executionNodeRestricted)).append("\n");
+        sb.append("    multipleVersionsAvailable: ").append(toIndentedString(multipleVersionsAvailable)).append("\n");
+        sb.append("    inputRequirement: ").append(toIndentedString(inputRequirement)).append("\n");
+        sb.append("    config: ").append(toIndentedString(config)).append("\n");
+        sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
+        sb.append("    validationStatus: ").append(toIndentedString(validationStatus)).append("\n");
+        sb.append("    extensionMissing: ").append(toIndentedString(extensionMissing)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
-    public static StateEnum fromValue(String text) {
-      for (StateEnum b : StateEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
         }
-      }
-      return null;
+        return o.toString().replace("\n", "\n    ");
     }
 
-    public static class Adapter extends TypeAdapter<StateEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
 
-      @Override
-      public StateEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return StateEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+    /**
+     * The state of the processor
+     */
+    @JsonAdapter(StateEnum.Adapter.class)
+    public enum StateEnum {
+        RUNNING("RUNNING"),
 
-  @SerializedName("state")
-  private StateEnum state = null;
+        STOPPED("STOPPED"),
 
-  @SerializedName("style")
-  private Map<String, String> style = null;
+        DISABLED("DISABLED");
 
-  @SerializedName("relationships")
-  private List<RelationshipDTO> relationships = null;
+        private String value;
 
-  @SerializedName("description")
-  private String description = null;
-
-  @SerializedName("supportsParallelProcessing")
-  private Boolean supportsParallelProcessing = null;
-
-  @SerializedName("supportsEventDriven")
-  private Boolean supportsEventDriven = null;
-
-  @SerializedName("supportsBatching")
-  private Boolean supportsBatching = null;
-
-  @SerializedName("supportsSensitiveDynamicProperties")
-  private Boolean supportsSensitiveDynamicProperties = null;
-
-  @SerializedName("persistsState")
-  private Boolean persistsState = null;
-
-  @SerializedName("restricted")
-  private Boolean restricted = null;
-
-  @SerializedName("deprecated")
-  private Boolean deprecated = null;
-
-  @SerializedName("executionNodeRestricted")
-  private Boolean executionNodeRestricted = null;
-
-  @SerializedName("multipleVersionsAvailable")
-  private Boolean multipleVersionsAvailable = null;
-
-  @SerializedName("inputRequirement")
-  private String inputRequirement = null;
-
-  @SerializedName("config")
-  private ProcessorConfigDTO config = null;
-
-  @SerializedName("validationErrors")
-  private List<String> validationErrors = null;
-
-  /**
-   * Indicates whether the Processor is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the Processor is valid)
-   */
-  @JsonAdapter(ValidationStatusEnum.Adapter.class)
-  public enum ValidationStatusEnum {
-    VALID("VALID"),
-    
-    INVALID("INVALID"),
-    
-    VALIDATING("VALIDATING");
-
-    private String value;
-
-    ValidationStatusEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ValidationStatusEnum fromValue(String text) {
-      for (ValidationStatusEnum b : ValidationStatusEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+        StateEnum(String value) {
+            this.value = value;
         }
-      }
-      return null;
+
+        public static StateEnum fromValue(String text) {
+            for (StateEnum b : StateEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<StateEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StateEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StateEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public static class Adapter extends TypeAdapter<ValidationStatusEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ValidationStatusEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+    /**
+     * Indicates whether the Processor is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the Processor is valid)
+     */
+    @JsonAdapter(ValidationStatusEnum.Adapter.class)
+    public enum ValidationStatusEnum {
+        VALID("VALID"),
 
-      @Override
-      public ValidationStatusEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ValidationStatusEnum.fromValue(String.valueOf(value));
-      }
+        INVALID("INVALID"),
+
+        VALIDATING("VALIDATING");
+
+        private String value;
+
+        ValidationStatusEnum(String value) {
+            this.value = value;
+        }
+
+        public static ValidationStatusEnum fromValue(String text) {
+            for (ValidationStatusEnum b : ValidationStatusEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<ValidationStatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ValidationStatusEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ValidationStatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ValidationStatusEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
-  }
-
-  @SerializedName("validationStatus")
-  private ValidationStatusEnum validationStatus = null;
-
-  @SerializedName("extensionMissing")
-  private Boolean extensionMissing = null;
-
-  public ProcessorDTO id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The id of the component.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The id of the component.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ProcessorDTO versionedComponentId(String versionedComponentId) {
-    this.versionedComponentId = versionedComponentId;
-    return this;
-  }
-
-   /**
-   * The ID of the corresponding component that is under version control
-   * @return versionedComponentId
-  **/
-  @ApiModelProperty(value = "The ID of the corresponding component that is under version control")
-  public String getVersionedComponentId() {
-    return versionedComponentId;
-  }
-
-  public void setVersionedComponentId(String versionedComponentId) {
-    this.versionedComponentId = versionedComponentId;
-  }
-
-  public ProcessorDTO parentGroupId(String parentGroupId) {
-    this.parentGroupId = parentGroupId;
-    return this;
-  }
-
-   /**
-   * The id of parent process group of this component if applicable.
-   * @return parentGroupId
-  **/
-  @ApiModelProperty(value = "The id of parent process group of this component if applicable.")
-  public String getParentGroupId() {
-    return parentGroupId;
-  }
-
-  public void setParentGroupId(String parentGroupId) {
-    this.parentGroupId = parentGroupId;
-  }
-
-  public ProcessorDTO position(PositionDTO position) {
-    this.position = position;
-    return this;
-  }
-
-   /**
-   * The position of this component in the UI if applicable.
-   * @return position
-  **/
-  @ApiModelProperty(value = "The position of this component in the UI if applicable.")
-  public PositionDTO getPosition() {
-    return position;
-  }
-
-  public void setPosition(PositionDTO position) {
-    this.position = position;
-  }
-
-  public ProcessorDTO name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The name of the processor.
-   * @return name
-  **/
-  @ApiModelProperty(value = "The name of the processor.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ProcessorDTO type(String type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * The type of the processor.
-   * @return type
-  **/
-  @ApiModelProperty(value = "The type of the processor.")
-  public String getType() {
-    return type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public ProcessorDTO bundle(BundleDTO bundle) {
-    this.bundle = bundle;
-    return this;
-  }
-
-   /**
-   * The details of the artifact that bundled this processor type.
-   * @return bundle
-  **/
-  @ApiModelProperty(value = "The details of the artifact that bundled this processor type.")
-  public BundleDTO getBundle() {
-    return bundle;
-  }
-
-  public void setBundle(BundleDTO bundle) {
-    this.bundle = bundle;
-  }
-
-  public ProcessorDTO state(StateEnum state) {
-    this.state = state;
-    return this;
-  }
-
-   /**
-   * The state of the processor
-   * @return state
-  **/
-  @ApiModelProperty(value = "The state of the processor")
-  public StateEnum getState() {
-    return state;
-  }
-
-  public void setState(StateEnum state) {
-    this.state = state;
-  }
-
-  public ProcessorDTO style(Map<String, String> style) {
-    this.style = style;
-    return this;
-  }
-
-  public ProcessorDTO putStyleItem(String key, String styleItem) {
-    if (this.style == null) {
-      this.style = new HashMap<String, String>();
-    }
-    this.style.put(key, styleItem);
-    return this;
-  }
-
-   /**
-   * Styles for the processor (background-color : #eee).
-   * @return style
-  **/
-  @ApiModelProperty(value = "Styles for the processor (background-color : #eee).")
-  public Map<String, String> getStyle() {
-    return style;
-  }
-
-  public void setStyle(Map<String, String> style) {
-    this.style = style;
-  }
-
-  public ProcessorDTO relationships(List<RelationshipDTO> relationships) {
-    this.relationships = relationships;
-    return this;
-  }
-
-  public ProcessorDTO addRelationshipsItem(RelationshipDTO relationshipsItem) {
-    if (this.relationships == null) {
-      this.relationships = new ArrayList<RelationshipDTO>();
-    }
-    this.relationships.add(relationshipsItem);
-    return this;
-  }
-
-   /**
-   * The available relationships that the processor currently supports.
-   * @return relationships
-  **/
-  @ApiModelProperty(value = "The available relationships that the processor currently supports.")
-  public List<RelationshipDTO> getRelationships() {
-    return relationships;
-  }
-
-  public void setRelationships(List<RelationshipDTO> relationships) {
-    this.relationships = relationships;
-  }
-
-  public ProcessorDTO description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * The description of the processor.
-   * @return description
-  **/
-  @ApiModelProperty(value = "The description of the processor.")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public ProcessorDTO supportsParallelProcessing(Boolean supportsParallelProcessing) {
-    this.supportsParallelProcessing = supportsParallelProcessing;
-    return this;
-  }
-
-   /**
-   * Whether the processor supports parallel processing.
-   * @return supportsParallelProcessing
-  **/
-  @ApiModelProperty(value = "Whether the processor supports parallel processing.")
-  public Boolean isSupportsParallelProcessing() {
-    return supportsParallelProcessing;
-  }
-
-  public void setSupportsParallelProcessing(Boolean supportsParallelProcessing) {
-    this.supportsParallelProcessing = supportsParallelProcessing;
-  }
-
-  public ProcessorDTO supportsEventDriven(Boolean supportsEventDriven) {
-    this.supportsEventDriven = supportsEventDriven;
-    return this;
-  }
-
-   /**
-   * Whether the processor supports event driven scheduling.
-   * @return supportsEventDriven
-  **/
-  @ApiModelProperty(value = "Whether the processor supports event driven scheduling.")
-  public Boolean isSupportsEventDriven() {
-    return supportsEventDriven;
-  }
-
-  public void setSupportsEventDriven(Boolean supportsEventDriven) {
-    this.supportsEventDriven = supportsEventDriven;
-  }
-
-  public ProcessorDTO supportsBatching(Boolean supportsBatching) {
-    this.supportsBatching = supportsBatching;
-    return this;
-  }
-
-   /**
-   * Whether the processor supports batching. This makes the run duration settings available.
-   * @return supportsBatching
-  **/
-  @ApiModelProperty(value = "Whether the processor supports batching. This makes the run duration settings available.")
-  public Boolean isSupportsBatching() {
-    return supportsBatching;
-  }
-
-  public void setSupportsBatching(Boolean supportsBatching) {
-    this.supportsBatching = supportsBatching;
-  }
-
-  public ProcessorDTO supportsSensitiveDynamicProperties(Boolean supportsSensitiveDynamicProperties) {
-    this.supportsSensitiveDynamicProperties = supportsSensitiveDynamicProperties;
-    return this;
-  }
-
-   /**
-   * Whether the processor supports sensitive dynamic properties.
-   * @return supportsSensitiveDynamicProperties
-  **/
-  @ApiModelProperty(value = "Whether the processor supports sensitive dynamic properties.")
-  public Boolean isSupportsSensitiveDynamicProperties() {
-    return supportsSensitiveDynamicProperties;
-  }
-
-  public void setSupportsSensitiveDynamicProperties(Boolean supportsSensitiveDynamicProperties) {
-    this.supportsSensitiveDynamicProperties = supportsSensitiveDynamicProperties;
-  }
-
-  public ProcessorDTO persistsState(Boolean persistsState) {
-    this.persistsState = persistsState;
-    return this;
-  }
-
-   /**
-   * Whether the processor persists state.
-   * @return persistsState
-  **/
-  @ApiModelProperty(value = "Whether the processor persists state.")
-  public Boolean isPersistsState() {
-    return persistsState;
-  }
-
-  public void setPersistsState(Boolean persistsState) {
-    this.persistsState = persistsState;
-  }
-
-  public ProcessorDTO restricted(Boolean restricted) {
-    this.restricted = restricted;
-    return this;
-  }
-
-   /**
-   * Whether the processor requires elevated privileges.
-   * @return restricted
-  **/
-  @ApiModelProperty(value = "Whether the processor requires elevated privileges.")
-  public Boolean isRestricted() {
-    return restricted;
-  }
-
-  public void setRestricted(Boolean restricted) {
-    this.restricted = restricted;
-  }
-
-  public ProcessorDTO deprecated(Boolean deprecated) {
-    this.deprecated = deprecated;
-    return this;
-  }
-
-   /**
-   * Whether the processor has been deprecated.
-   * @return deprecated
-  **/
-  @ApiModelProperty(value = "Whether the processor has been deprecated.")
-  public Boolean isDeprecated() {
-    return deprecated;
-  }
-
-  public void setDeprecated(Boolean deprecated) {
-    this.deprecated = deprecated;
-  }
-
-  public ProcessorDTO executionNodeRestricted(Boolean executionNodeRestricted) {
-    this.executionNodeRestricted = executionNodeRestricted;
-    return this;
-  }
-
-   /**
-   * Indicates if the execution node of a processor is restricted to run only on the primary node
-   * @return executionNodeRestricted
-  **/
-  @ApiModelProperty(value = "Indicates if the execution node of a processor is restricted to run only on the primary node")
-  public Boolean isExecutionNodeRestricted() {
-    return executionNodeRestricted;
-  }
-
-  public void setExecutionNodeRestricted(Boolean executionNodeRestricted) {
-    this.executionNodeRestricted = executionNodeRestricted;
-  }
-
-  public ProcessorDTO multipleVersionsAvailable(Boolean multipleVersionsAvailable) {
-    this.multipleVersionsAvailable = multipleVersionsAvailable;
-    return this;
-  }
-
-   /**
-   * Whether the processor has multiple versions available.
-   * @return multipleVersionsAvailable
-  **/
-  @ApiModelProperty(value = "Whether the processor has multiple versions available.")
-  public Boolean isMultipleVersionsAvailable() {
-    return multipleVersionsAvailable;
-  }
-
-  public void setMultipleVersionsAvailable(Boolean multipleVersionsAvailable) {
-    this.multipleVersionsAvailable = multipleVersionsAvailable;
-  }
-
-  public ProcessorDTO inputRequirement(String inputRequirement) {
-    this.inputRequirement = inputRequirement;
-    return this;
-  }
-
-   /**
-   * The input requirement for this processor.
-   * @return inputRequirement
-  **/
-  @ApiModelProperty(value = "The input requirement for this processor.")
-  public String getInputRequirement() {
-    return inputRequirement;
-  }
-
-  public void setInputRequirement(String inputRequirement) {
-    this.inputRequirement = inputRequirement;
-  }
-
-  public ProcessorDTO config(ProcessorConfigDTO config) {
-    this.config = config;
-    return this;
-  }
-
-   /**
-   * The configuration details for the processor. These details will be included in a response if the verbose flag is included in a request.
-   * @return config
-  **/
-  @ApiModelProperty(value = "The configuration details for the processor. These details will be included in a response if the verbose flag is included in a request.")
-  public ProcessorConfigDTO getConfig() {
-    return config;
-  }
-
-  public void setConfig(ProcessorConfigDTO config) {
-    this.config = config;
-  }
-
-  public ProcessorDTO validationErrors(List<String> validationErrors) {
-    this.validationErrors = validationErrors;
-    return this;
-  }
-
-  public ProcessorDTO addValidationErrorsItem(String validationErrorsItem) {
-    if (this.validationErrors == null) {
-      this.validationErrors = new ArrayList<String>();
-    }
-    this.validationErrors.add(validationErrorsItem);
-    return this;
-  }
-
-   /**
-   * The validation errors for the processor. These validation errors represent the problems with the processor that must be resolved before it can be started.
-   * @return validationErrors
-  **/
-  @ApiModelProperty(value = "The validation errors for the processor. These validation errors represent the problems with the processor that must be resolved before it can be started.")
-  public List<String> getValidationErrors() {
-    return validationErrors;
-  }
-
-  public void setValidationErrors(List<String> validationErrors) {
-    this.validationErrors = validationErrors;
-  }
-
-  public ProcessorDTO validationStatus(ValidationStatusEnum validationStatus) {
-    this.validationStatus = validationStatus;
-    return this;
-  }
-
-   /**
-   * Indicates whether the Processor is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the Processor is valid)
-   * @return validationStatus
-  **/
-  @ApiModelProperty(value = "Indicates whether the Processor is valid, invalid, or still in the process of validating (i.e., it is unknown whether or not the Processor is valid)")
-  public ValidationStatusEnum getValidationStatus() {
-    return validationStatus;
-  }
-
-  public void setValidationStatus(ValidationStatusEnum validationStatus) {
-    this.validationStatus = validationStatus;
-  }
-
-  public ProcessorDTO extensionMissing(Boolean extensionMissing) {
-    this.extensionMissing = extensionMissing;
-    return this;
-  }
-
-   /**
-   * Whether the underlying extension is missing.
-   * @return extensionMissing
-  **/
-  @ApiModelProperty(value = "Whether the underlying extension is missing.")
-  public Boolean isExtensionMissing() {
-    return extensionMissing;
-  }
-
-  public void setExtensionMissing(Boolean extensionMissing) {
-    this.extensionMissing = extensionMissing;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    ProcessorDTO processorDTO = (ProcessorDTO) o;
-    return Objects.equals(this.id, processorDTO.id) &&
-        Objects.equals(this.versionedComponentId, processorDTO.versionedComponentId) &&
-        Objects.equals(this.parentGroupId, processorDTO.parentGroupId) &&
-        Objects.equals(this.position, processorDTO.position) &&
-        Objects.equals(this.name, processorDTO.name) &&
-        Objects.equals(this.type, processorDTO.type) &&
-        Objects.equals(this.bundle, processorDTO.bundle) &&
-        Objects.equals(this.state, processorDTO.state) &&
-        Objects.equals(this.style, processorDTO.style) &&
-        Objects.equals(this.relationships, processorDTO.relationships) &&
-        Objects.equals(this.description, processorDTO.description) &&
-        Objects.equals(this.supportsParallelProcessing, processorDTO.supportsParallelProcessing) &&
-        Objects.equals(this.supportsEventDriven, processorDTO.supportsEventDriven) &&
-        Objects.equals(this.supportsBatching, processorDTO.supportsBatching) &&
-        Objects.equals(this.supportsSensitiveDynamicProperties, processorDTO.supportsSensitiveDynamicProperties) &&
-        Objects.equals(this.persistsState, processorDTO.persistsState) &&
-        Objects.equals(this.restricted, processorDTO.restricted) &&
-        Objects.equals(this.deprecated, processorDTO.deprecated) &&
-        Objects.equals(this.executionNodeRestricted, processorDTO.executionNodeRestricted) &&
-        Objects.equals(this.multipleVersionsAvailable, processorDTO.multipleVersionsAvailable) &&
-        Objects.equals(this.inputRequirement, processorDTO.inputRequirement) &&
-        Objects.equals(this.config, processorDTO.config) &&
-        Objects.equals(this.validationErrors, processorDTO.validationErrors) &&
-        Objects.equals(this.validationStatus, processorDTO.validationStatus) &&
-        Objects.equals(this.extensionMissing, processorDTO.extensionMissing);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, versionedComponentId, parentGroupId, position, name, type, bundle, state, style, relationships, description, supportsParallelProcessing, supportsEventDriven, supportsBatching, supportsSensitiveDynamicProperties, persistsState, restricted, deprecated, executionNodeRestricted, multipleVersionsAvailable, inputRequirement, config, validationErrors, validationStatus, extensionMissing);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessorDTO {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    versionedComponentId: ").append(toIndentedString(versionedComponentId)).append("\n");
-    sb.append("    parentGroupId: ").append(toIndentedString(parentGroupId)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    bundle: ").append(toIndentedString(bundle)).append("\n");
-    sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    style: ").append(toIndentedString(style)).append("\n");
-    sb.append("    relationships: ").append(toIndentedString(relationships)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    supportsParallelProcessing: ").append(toIndentedString(supportsParallelProcessing)).append("\n");
-    sb.append("    supportsEventDriven: ").append(toIndentedString(supportsEventDriven)).append("\n");
-    sb.append("    supportsBatching: ").append(toIndentedString(supportsBatching)).append("\n");
-    sb.append("    supportsSensitiveDynamicProperties: ").append(toIndentedString(supportsSensitiveDynamicProperties)).append("\n");
-    sb.append("    persistsState: ").append(toIndentedString(persistsState)).append("\n");
-    sb.append("    restricted: ").append(toIndentedString(restricted)).append("\n");
-    sb.append("    deprecated: ").append(toIndentedString(deprecated)).append("\n");
-    sb.append("    executionNodeRestricted: ").append(toIndentedString(executionNodeRestricted)).append("\n");
-    sb.append("    multipleVersionsAvailable: ").append(toIndentedString(multipleVersionsAvailable)).append("\n");
-    sb.append("    inputRequirement: ").append(toIndentedString(inputRequirement)).append("\n");
-    sb.append("    config: ").append(toIndentedString(config)).append("\n");
-    sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
-    sb.append("    validationStatus: ").append(toIndentedString(validationStatus)).append("\n");
-    sb.append("    extensionMissing: ").append(toIndentedString(extensionMissing)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 
 }
 

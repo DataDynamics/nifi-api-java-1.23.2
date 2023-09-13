@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ClusterSummaryDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ClusteSummaryEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ClusteSummaryEntity {
-  @SerializedName("clusterSummary")
-  private ClusterSummaryDTO clusterSummary = null;
+    @SerializedName("clusterSummary")
+    private ClusterSummaryDTO clusterSummary = null;
 
-  public ClusteSummaryEntity clusterSummary(ClusterSummaryDTO clusterSummary) {
-    this.clusterSummary = clusterSummary;
-    return this;
-  }
-
-   /**
-   * Get clusterSummary
-   * @return clusterSummary
-  **/
-  @ApiModelProperty(value = "")
-  public ClusterSummaryDTO getClusterSummary() {
-    return clusterSummary;
-  }
-
-  public void setClusterSummary(ClusterSummaryDTO clusterSummary) {
-    this.clusterSummary = clusterSummary;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ClusteSummaryEntity clusterSummary(ClusterSummaryDTO clusterSummary) {
+        this.clusterSummary = clusterSummary;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get clusterSummary
+     *
+     * @return clusterSummary
+     **/
+    @ApiModelProperty(value = "")
+    public ClusterSummaryDTO getClusterSummary() {
+        return clusterSummary;
     }
-    ClusteSummaryEntity clusteSummaryEntity = (ClusteSummaryEntity) o;
-    return Objects.equals(this.clusterSummary, clusteSummaryEntity.clusterSummary);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(clusterSummary);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ClusteSummaryEntity {\n");
-    
-    sb.append("    clusterSummary: ").append(toIndentedString(clusterSummary)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setClusterSummary(ClusterSummaryDTO clusterSummary) {
+        this.clusterSummary = clusterSummary;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ClusteSummaryEntity clusteSummaryEntity = (ClusteSummaryEntity) o;
+        return Objects.equals(this.clusterSummary, clusteSummaryEntity.clusterSummary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clusterSummary);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ClusteSummaryEntity {\n");
+
+        sb.append("    clusterSummary: ").append(toIndentedString(clusterSummary)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

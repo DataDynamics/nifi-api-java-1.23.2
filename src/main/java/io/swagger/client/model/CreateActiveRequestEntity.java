@@ -13,105 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * CreateActiveRequestEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class CreateActiveRequestEntity {
-  @SerializedName("processGroupId")
-  private String processGroupId = null;
+    @SerializedName("processGroupId")
+    private String processGroupId = null;
 
-  @SerializedName("disconnectedNodeAcknowledged")
-  private Boolean disconnectedNodeAcknowledged = null;
+    @SerializedName("disconnectedNodeAcknowledged")
+    private Boolean disconnectedNodeAcknowledged = null;
 
-  public CreateActiveRequestEntity processGroupId(String processGroupId) {
-    this.processGroupId = processGroupId;
-    return this;
-  }
-
-   /**
-   * The Process Group ID that this active request will update
-   * @return processGroupId
-  **/
-  @ApiModelProperty(value = "The Process Group ID that this active request will update")
-  public String getProcessGroupId() {
-    return processGroupId;
-  }
-
-  public void setProcessGroupId(String processGroupId) {
-    this.processGroupId = processGroupId;
-  }
-
-  public CreateActiveRequestEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-    return this;
-  }
-
-   /**
-   * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
-   * @return disconnectedNodeAcknowledged
-  **/
-  @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
-  public Boolean isDisconnectedNodeAcknowledged() {
-    return disconnectedNodeAcknowledged;
-  }
-
-  public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public CreateActiveRequestEntity processGroupId(String processGroupId) {
+        this.processGroupId = processGroupId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The Process Group ID that this active request will update
+     *
+     * @return processGroupId
+     **/
+    @ApiModelProperty(value = "The Process Group ID that this active request will update")
+    public String getProcessGroupId() {
+        return processGroupId;
     }
-    CreateActiveRequestEntity createActiveRequestEntity = (CreateActiveRequestEntity) o;
-    return Objects.equals(this.processGroupId, createActiveRequestEntity.processGroupId) &&
-        Objects.equals(this.disconnectedNodeAcknowledged, createActiveRequestEntity.disconnectedNodeAcknowledged);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(processGroupId, disconnectedNodeAcknowledged);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class CreateActiveRequestEntity {\n");
-    
-    sb.append("    processGroupId: ").append(toIndentedString(processGroupId)).append("\n");
-    sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setProcessGroupId(String processGroupId) {
+        this.processGroupId = processGroupId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public CreateActiveRequestEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+        return this;
+    }
+
+    /**
+     * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
+     *
+     * @return disconnectedNodeAcknowledged
+     **/
+    @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
+    public Boolean isDisconnectedNodeAcknowledged() {
+        return disconnectedNodeAcknowledged;
+    }
+
+    public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CreateActiveRequestEntity createActiveRequestEntity = (CreateActiveRequestEntity) o;
+        return Objects.equals(this.processGroupId, createActiveRequestEntity.processGroupId) &&
+                Objects.equals(this.disconnectedNodeAcknowledged, createActiveRequestEntity.disconnectedNodeAcknowledged);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processGroupId, disconnectedNodeAcknowledged);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class CreateActiveRequestEntity {\n");
+
+        sb.append("    processGroupId: ").append(toIndentedString(processGroupId)).append("\n");
+        sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

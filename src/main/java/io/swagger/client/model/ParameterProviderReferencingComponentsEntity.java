@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ParameterProviderReferencingComponentEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ParameterProviderReferencingComponentsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ParameterProviderReferencingComponentsEntity {
-  @SerializedName("parameterProviderReferencingComponents")
-  private List<ParameterProviderReferencingComponentEntity> parameterProviderReferencingComponents = null;
+    @SerializedName("parameterProviderReferencingComponents")
+    private List<ParameterProviderReferencingComponentEntity> parameterProviderReferencingComponents = null;
 
-  public ParameterProviderReferencingComponentsEntity parameterProviderReferencingComponents(List<ParameterProviderReferencingComponentEntity> parameterProviderReferencingComponents) {
-    this.parameterProviderReferencingComponents = parameterProviderReferencingComponents;
-    return this;
-  }
-
-  public ParameterProviderReferencingComponentsEntity addParameterProviderReferencingComponentsItem(ParameterProviderReferencingComponentEntity parameterProviderReferencingComponentsItem) {
-    if (this.parameterProviderReferencingComponents == null) {
-      this.parameterProviderReferencingComponents = new ArrayList<ParameterProviderReferencingComponentEntity>();
+    public ParameterProviderReferencingComponentsEntity parameterProviderReferencingComponents(List<ParameterProviderReferencingComponentEntity> parameterProviderReferencingComponents) {
+        this.parameterProviderReferencingComponents = parameterProviderReferencingComponents;
+        return this;
     }
-    this.parameterProviderReferencingComponents.add(parameterProviderReferencingComponentsItem);
-    return this;
-  }
 
-   /**
-   * Get parameterProviderReferencingComponents
-   * @return parameterProviderReferencingComponents
-  **/
-  @ApiModelProperty(value = "")
-  public List<ParameterProviderReferencingComponentEntity> getParameterProviderReferencingComponents() {
-    return parameterProviderReferencingComponents;
-  }
-
-  public void setParameterProviderReferencingComponents(List<ParameterProviderReferencingComponentEntity> parameterProviderReferencingComponents) {
-    this.parameterProviderReferencingComponents = parameterProviderReferencingComponents;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ParameterProviderReferencingComponentsEntity addParameterProviderReferencingComponentsItem(ParameterProviderReferencingComponentEntity parameterProviderReferencingComponentsItem) {
+        if (this.parameterProviderReferencingComponents == null) {
+            this.parameterProviderReferencingComponents = new ArrayList<ParameterProviderReferencingComponentEntity>();
+        }
+        this.parameterProviderReferencingComponents.add(parameterProviderReferencingComponentsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get parameterProviderReferencingComponents
+     *
+     * @return parameterProviderReferencingComponents
+     **/
+    @ApiModelProperty(value = "")
+    public List<ParameterProviderReferencingComponentEntity> getParameterProviderReferencingComponents() {
+        return parameterProviderReferencingComponents;
     }
-    ParameterProviderReferencingComponentsEntity parameterProviderReferencingComponentsEntity = (ParameterProviderReferencingComponentsEntity) o;
-    return Objects.equals(this.parameterProviderReferencingComponents, parameterProviderReferencingComponentsEntity.parameterProviderReferencingComponents);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(parameterProviderReferencingComponents);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ParameterProviderReferencingComponentsEntity {\n");
-    
-    sb.append("    parameterProviderReferencingComponents: ").append(toIndentedString(parameterProviderReferencingComponents)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setParameterProviderReferencingComponents(List<ParameterProviderReferencingComponentEntity> parameterProviderReferencingComponents) {
+        this.parameterProviderReferencingComponents = parameterProviderReferencingComponents;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParameterProviderReferencingComponentsEntity parameterProviderReferencingComponentsEntity = (ParameterProviderReferencingComponentsEntity) o;
+        return Objects.equals(this.parameterProviderReferencingComponents, parameterProviderReferencingComponentsEntity.parameterProviderReferencingComponents);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(parameterProviderReferencingComponents);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ParameterProviderReferencingComponentsEntity {\n");
+
+        sb.append("    parameterProviderReferencingComponents: ").append(toIndentedString(parameterProviderReferencingComponents)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

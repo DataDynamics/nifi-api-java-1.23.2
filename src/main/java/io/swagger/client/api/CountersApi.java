@@ -13,23 +13,12 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.CounterEntity;
 import io.swagger.client.model.CountersEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,9 +46,10 @@ public class CountersApi {
 
     /**
      * Build call for getCounters
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
-     * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param nodewise                Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     * @param clusterNodeId           The id of the node where to get the status. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -73,45 +63,45 @@ public class CountersApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (nodewise != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
+            localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCountersValidateBeforeCall(Boolean nodewise, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getCountersCall(nodewise, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -121,7 +111,8 @@ public class CountersApi {
     /**
      * Gets the current counters for this NiFi
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return CountersEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -134,23 +125,26 @@ public class CountersApi {
     /**
      * Gets the current counters for this NiFi
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ApiResponse&lt;CountersEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CountersEntity> getCountersWithHttpInfo(Boolean nodewise, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getCountersValidateBeforeCall(nodewise, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<CountersEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<CountersEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the current counters for this NiFi (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -176,14 +170,17 @@ public class CountersApi {
         }
 
         com.squareup.okhttp.Call call = getCountersValidateBeforeCall(nodewise, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CountersEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<CountersEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateCounter
-     * @param id The id of the counter. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The id of the counter. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -193,7 +190,7 @@ public class CountersApi {
 
         // create path and map variables
         String localVarPath = "/counters/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -203,41 +200,41 @@ public class CountersApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateCounterValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateCounter(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateCounterCall(id, progressListener, progressRequestListener);
         return call;
@@ -247,6 +244,7 @@ public class CountersApi {
     /**
      * Updates the specified counter. This will reset the counter value to 0
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The id of the counter. (required)
      * @return CounterEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -259,20 +257,23 @@ public class CountersApi {
     /**
      * Updates the specified counter. This will reset the counter value to 0
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The id of the counter. (required)
      * @return ApiResponse&lt;CounterEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CounterEntity> updateCounterWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = updateCounterValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<CounterEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<CounterEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates the specified counter. This will reset the counter value to 0 (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The id of the counter. (required)
+     *
+     * @param id       The id of the counter. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -299,7 +300,8 @@ public class CountersApi {
         }
 
         com.squareup.okhttp.Call call = updateCounterValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CounterEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<CounterEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

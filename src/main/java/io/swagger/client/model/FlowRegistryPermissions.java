@@ -13,128 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * FlowRegistryPermissions
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowRegistryPermissions {
-  @SerializedName("canRead")
-  private Boolean canRead = null;
+    @SerializedName("canRead")
+    private Boolean canRead = null;
 
-  @SerializedName("canWrite")
-  private Boolean canWrite = null;
+    @SerializedName("canWrite")
+    private Boolean canWrite = null;
 
-  @SerializedName("canDelete")
-  private Boolean canDelete = null;
+    @SerializedName("canDelete")
+    private Boolean canDelete = null;
 
-  public FlowRegistryPermissions canRead(Boolean canRead) {
-    this.canRead = canRead;
-    return this;
-  }
-
-   /**
-   * Get canRead
-   * @return canRead
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isCanRead() {
-    return canRead;
-  }
-
-  public void setCanRead(Boolean canRead) {
-    this.canRead = canRead;
-  }
-
-  public FlowRegistryPermissions canWrite(Boolean canWrite) {
-    this.canWrite = canWrite;
-    return this;
-  }
-
-   /**
-   * Get canWrite
-   * @return canWrite
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isCanWrite() {
-    return canWrite;
-  }
-
-  public void setCanWrite(Boolean canWrite) {
-    this.canWrite = canWrite;
-  }
-
-  public FlowRegistryPermissions canDelete(Boolean canDelete) {
-    this.canDelete = canDelete;
-    return this;
-  }
-
-   /**
-   * Get canDelete
-   * @return canDelete
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean isCanDelete() {
-    return canDelete;
-  }
-
-  public void setCanDelete(Boolean canDelete) {
-    this.canDelete = canDelete;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FlowRegistryPermissions canRead(Boolean canRead) {
+        this.canRead = canRead;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get canRead
+     *
+     * @return canRead
+     **/
+    @ApiModelProperty(value = "")
+    public Boolean isCanRead() {
+        return canRead;
     }
-    FlowRegistryPermissions flowRegistryPermissions = (FlowRegistryPermissions) o;
-    return Objects.equals(this.canRead, flowRegistryPermissions.canRead) &&
-        Objects.equals(this.canWrite, flowRegistryPermissions.canWrite) &&
-        Objects.equals(this.canDelete, flowRegistryPermissions.canDelete);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(canRead, canWrite, canDelete);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowRegistryPermissions {\n");
-    
-    sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
-    sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
-    sb.append("    canDelete: ").append(toIndentedString(canDelete)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setCanRead(Boolean canRead) {
+        this.canRead = canRead;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public FlowRegistryPermissions canWrite(Boolean canWrite) {
+        this.canWrite = canWrite;
+        return this;
+    }
+
+    /**
+     * Get canWrite
+     *
+     * @return canWrite
+     **/
+    @ApiModelProperty(value = "")
+    public Boolean isCanWrite() {
+        return canWrite;
+    }
+
+    public void setCanWrite(Boolean canWrite) {
+        this.canWrite = canWrite;
+    }
+
+    public FlowRegistryPermissions canDelete(Boolean canDelete) {
+        this.canDelete = canDelete;
+        return this;
+    }
+
+    /**
+     * Get canDelete
+     *
+     * @return canDelete
+     **/
+    @ApiModelProperty(value = "")
+    public Boolean isCanDelete() {
+        return canDelete;
+    }
+
+    public void setCanDelete(Boolean canDelete) {
+        this.canDelete = canDelete;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowRegistryPermissions flowRegistryPermissions = (FlowRegistryPermissions) o;
+        return Objects.equals(this.canRead, flowRegistryPermissions.canRead) &&
+                Objects.equals(this.canWrite, flowRegistryPermissions.canWrite) &&
+                Objects.equals(this.canDelete, flowRegistryPermissions.canDelete);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(canRead, canWrite, canDelete);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowRegistryPermissions {\n");
+
+        sb.append("    canRead: ").append(toIndentedString(canRead)).append("\n");
+        sb.append("    canWrite: ").append(toIndentedString(canWrite)).append("\n");
+        sb.append("    canDelete: ").append(toIndentedString(canDelete)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

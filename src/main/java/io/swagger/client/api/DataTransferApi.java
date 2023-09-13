@@ -13,23 +13,12 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.StreamingOutput;
 import io.swagger.client.model.TransactionResultEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -57,10 +46,11 @@ public class DataTransferApi {
 
     /**
      * Build call for commitInputPortTransaction
-     * @param responseCode The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
-     * @param portId The input port id. (required)
-     * @param transactionId The transaction id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param responseCode            The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
+     * @param portId                  The input port id. (required)
+     * @param transactionId           The transaction id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -70,64 +60,64 @@ public class DataTransferApi {
 
         // create path and map variables
         String localVarPath = "/data-transfer/input-ports/{portId}/transactions/{transactionId}"
-            .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
-            .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+                .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
+                .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (responseCode != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("responseCode", responseCode));
+            localVarQueryParams.addAll(apiClient.parameterToPair("responseCode", responseCode));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/octet-stream"
+                "application/octet-stream"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call commitInputPortTransactionValidateBeforeCall(Integer responseCode, String portId, String transactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'responseCode' is set
         if (responseCode == null) {
             throw new ApiException("Missing the required parameter 'responseCode' when calling commitInputPortTransaction(Async)");
         }
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling commitInputPortTransaction(Async)");
         }
-        
+
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling commitInputPortTransaction(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = commitInputPortTransactionCall(responseCode, portId, transactionId, progressListener, progressRequestListener);
         return call;
@@ -136,9 +126,9 @@ public class DataTransferApi {
 
     /**
      * Commit or cancel the specified transaction
-     * 
-     * @param responseCode The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
-     * @param portId The input port id. (required)
+     *
+     * @param responseCode  The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
+     * @param portId        The input port id. (required)
      * @param transactionId The transaction id. (required)
      * @return TransactionResultEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -150,26 +140,27 @@ public class DataTransferApi {
 
     /**
      * Commit or cancel the specified transaction
-     * 
-     * @param responseCode The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
-     * @param portId The input port id. (required)
+     *
+     * @param responseCode  The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
+     * @param portId        The input port id. (required)
      * @param transactionId The transaction id. (required)
      * @return ApiResponse&lt;TransactionResultEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TransactionResultEntity> commitInputPortTransactionWithHttpInfo(Integer responseCode, String portId, String transactionId) throws ApiException {
         com.squareup.okhttp.Call call = commitInputPortTransactionValidateBeforeCall(responseCode, portId, transactionId, null, null);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Commit or cancel the specified transaction (asynchronously)
-     * 
-     * @param responseCode The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
-     * @param portId The input port id. (required)
+     *
+     * @param responseCode  The response code. Available values are BAD_CHECKSUM(19), CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
+     * @param portId        The input port id. (required)
      * @param transactionId The transaction id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -195,17 +186,20 @@ public class DataTransferApi {
         }
 
         com.squareup.okhttp.Call call = commitInputPortTransactionValidateBeforeCall(responseCode, portId, transactionId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for commitOutputPortTransaction
-     * @param responseCode The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
-     * @param checksum A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. (required)
-     * @param portId The output port id. (required)
-     * @param transactionId The transaction id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param responseCode            The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
+     * @param checksum                A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. (required)
+     * @param portId                  The output port id. (required)
+     * @param transactionId           The transaction id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -215,71 +209,71 @@ public class DataTransferApi {
 
         // create path and map variables
         String localVarPath = "/data-transfer/output-ports/{portId}/transactions/{transactionId}"
-            .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
-            .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+                .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
+                .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (responseCode != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("responseCode", responseCode));
+            localVarQueryParams.addAll(apiClient.parameterToPair("responseCode", responseCode));
         if (checksum != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("checksum", checksum));
+            localVarQueryParams.addAll(apiClient.parameterToPair("checksum", checksum));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/octet-stream"
+                "application/octet-stream"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call commitOutputPortTransactionValidateBeforeCall(Integer responseCode, String checksum, String portId, String transactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'responseCode' is set
         if (responseCode == null) {
             throw new ApiException("Missing the required parameter 'responseCode' when calling commitOutputPortTransaction(Async)");
         }
-        
+
         // verify the required parameter 'checksum' is set
         if (checksum == null) {
             throw new ApiException("Missing the required parameter 'checksum' when calling commitOutputPortTransaction(Async)");
         }
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling commitOutputPortTransaction(Async)");
         }
-        
+
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling commitOutputPortTransaction(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = commitOutputPortTransactionCall(responseCode, checksum, portId, transactionId, progressListener, progressRequestListener);
         return call;
@@ -288,10 +282,10 @@ public class DataTransferApi {
 
     /**
      * Commit or cancel the specified transaction
-     * 
-     * @param responseCode The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
-     * @param checksum A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. (required)
-     * @param portId The output port id. (required)
+     *
+     * @param responseCode  The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
+     * @param checksum      A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. (required)
+     * @param portId        The output port id. (required)
      * @param transactionId The transaction id. (required)
      * @return TransactionResultEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -303,28 +297,29 @@ public class DataTransferApi {
 
     /**
      * Commit or cancel the specified transaction
-     * 
-     * @param responseCode The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
-     * @param checksum A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. (required)
-     * @param portId The output port id. (required)
+     *
+     * @param responseCode  The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
+     * @param checksum      A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. (required)
+     * @param portId        The output port id. (required)
      * @param transactionId The transaction id. (required)
      * @return ApiResponse&lt;TransactionResultEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TransactionResultEntity> commitOutputPortTransactionWithHttpInfo(Integer responseCode, String checksum, String portId, String transactionId) throws ApiException {
         com.squareup.okhttp.Call call = commitOutputPortTransactionValidateBeforeCall(responseCode, checksum, portId, transactionId, null, null);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Commit or cancel the specified transaction (asynchronously)
-     * 
-     * @param responseCode The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
-     * @param checksum A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. (required)
-     * @param portId The output port id. (required)
+     *
+     * @param responseCode  The response code. Available values are CONFIRM_TRANSACTION(12) or CANCEL_TRANSACTION(15). (required)
+     * @param checksum      A checksum calculated at client side using CRC32 to check flow file content integrity. It must match with the value calculated at server side. (required)
+     * @param portId        The output port id. (required)
      * @param transactionId The transaction id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -350,15 +345,18 @@ public class DataTransferApi {
         }
 
         com.squareup.okhttp.Call call = commitOutputPortTransactionValidateBeforeCall(responseCode, checksum, portId, transactionId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for createPortTransaction
-     * @param portType The port type. (required)
-     * @param portId  (required)
-     * @param progressListener Progress listener
+     *
+     * @param portType                The port type. (required)
+     * @param portId                  (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -368,8 +366,8 @@ public class DataTransferApi {
 
         // create path and map variables
         String localVarPath = "/data-transfer/{portType}/{portId}/transactions"
-            .replaceAll("\\{" + "portType" + "\\}", apiClient.escapeString(portType.toString()))
-            .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()));
+                .replaceAll("\\{" + "portType" + "\\}", apiClient.escapeString(portType.toString()))
+                .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -379,46 +377,46 @@ public class DataTransferApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            
+
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createPortTransactionValidateBeforeCall(String portType, String portId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'portType' is set
         if (portType == null) {
             throw new ApiException("Missing the required parameter 'portType' when calling createPortTransaction(Async)");
         }
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling createPortTransaction(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createPortTransactionCall(portType, portId, progressListener, progressRequestListener);
         return call;
@@ -427,9 +425,9 @@ public class DataTransferApi {
 
     /**
      * Create a transaction to the specified output port or input port
-     * 
+     *
      * @param portType The port type. (required)
-     * @param portId  (required)
+     * @param portId   (required)
      * @return TransactionResultEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -440,23 +438,24 @@ public class DataTransferApi {
 
     /**
      * Create a transaction to the specified output port or input port
-     * 
+     *
      * @param portType The port type. (required)
-     * @param portId  (required)
+     * @param portId   (required)
      * @return ApiResponse&lt;TransactionResultEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TransactionResultEntity> createPortTransactionWithHttpInfo(String portType, String portId) throws ApiException {
         com.squareup.okhttp.Call call = createPortTransactionValidateBeforeCall(portType, portId, null, null);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create a transaction to the specified output port or input port (asynchronously)
-     * 
+     *
      * @param portType The port type. (required)
-     * @param portId  (required)
+     * @param portId   (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -483,15 +482,18 @@ public class DataTransferApi {
         }
 
         com.squareup.okhttp.Call call = createPortTransactionValidateBeforeCall(portType, portId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for extendInputPortTransactionTTL
-     * @param portId  (required)
-     * @param transactionId  (required)
-     * @param progressListener Progress listener
+     *
+     * @param portId                  (required)
+     * @param transactionId           (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -501,8 +503,8 @@ public class DataTransferApi {
 
         // create path and map variables
         String localVarPath = "/data-transfer/input-ports/{portId}/transactions/{transactionId}"
-            .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
-            .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+                .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
+                .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -512,46 +514,46 @@ public class DataTransferApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call extendInputPortTransactionTTLValidateBeforeCall(String portId, String transactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling extendInputPortTransactionTTL(Async)");
         }
-        
+
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling extendInputPortTransactionTTL(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = extendInputPortTransactionTTLCall(portId, transactionId, progressListener, progressRequestListener);
         return call;
@@ -560,9 +562,9 @@ public class DataTransferApi {
 
     /**
      * Extend transaction TTL
-     * 
-     * @param portId  (required)
-     * @param transactionId  (required)
+     *
+     * @param portId        (required)
+     * @param transactionId (required)
      * @return TransactionResultEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -573,24 +575,25 @@ public class DataTransferApi {
 
     /**
      * Extend transaction TTL
-     * 
-     * @param portId  (required)
-     * @param transactionId  (required)
+     *
+     * @param portId        (required)
+     * @param transactionId (required)
      * @return ApiResponse&lt;TransactionResultEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TransactionResultEntity> extendInputPortTransactionTTLWithHttpInfo(String portId, String transactionId) throws ApiException {
         com.squareup.okhttp.Call call = extendInputPortTransactionTTLValidateBeforeCall(portId, transactionId, null, null);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Extend transaction TTL (asynchronously)
-     * 
-     * @param portId  (required)
-     * @param transactionId  (required)
-     * @param callback The callback to be executed when the API call finishes
+     *
+     * @param portId        (required)
+     * @param transactionId (required)
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -616,15 +619,18 @@ public class DataTransferApi {
         }
 
         com.squareup.okhttp.Call call = extendInputPortTransactionTTLValidateBeforeCall(portId, transactionId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for extendOutputPortTransactionTTL
-     * @param portId  (required)
-     * @param transactionId  (required)
-     * @param progressListener Progress listener
+     *
+     * @param portId                  (required)
+     * @param transactionId           (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -634,8 +640,8 @@ public class DataTransferApi {
 
         // create path and map variables
         String localVarPath = "/data-transfer/output-ports/{portId}/transactions/{transactionId}"
-            .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
-            .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+                .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
+                .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -645,46 +651,46 @@ public class DataTransferApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call extendOutputPortTransactionTTLValidateBeforeCall(String portId, String transactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling extendOutputPortTransactionTTL(Async)");
         }
-        
+
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling extendOutputPortTransactionTTL(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = extendOutputPortTransactionTTLCall(portId, transactionId, progressListener, progressRequestListener);
         return call;
@@ -693,9 +699,9 @@ public class DataTransferApi {
 
     /**
      * Extend transaction TTL
-     * 
-     * @param portId  (required)
-     * @param transactionId  (required)
+     *
+     * @param portId        (required)
+     * @param transactionId (required)
      * @return TransactionResultEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -706,24 +712,25 @@ public class DataTransferApi {
 
     /**
      * Extend transaction TTL
-     * 
-     * @param portId  (required)
-     * @param transactionId  (required)
+     *
+     * @param portId        (required)
+     * @param transactionId (required)
      * @return ApiResponse&lt;TransactionResultEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TransactionResultEntity> extendOutputPortTransactionTTLWithHttpInfo(String portId, String transactionId) throws ApiException {
         com.squareup.okhttp.Call call = extendOutputPortTransactionTTLValidateBeforeCall(portId, transactionId, null, null);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Extend transaction TTL (asynchronously)
-     * 
-     * @param portId  (required)
-     * @param transactionId  (required)
-     * @param callback The callback to be executed when the API call finishes
+     *
+     * @param portId        (required)
+     * @param transactionId (required)
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -749,15 +756,18 @@ public class DataTransferApi {
         }
 
         com.squareup.okhttp.Call call = extendOutputPortTransactionTTLValidateBeforeCall(portId, transactionId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TransactionResultEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TransactionResultEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for receiveFlowFiles
-     * @param portId The input port id. (required)
-     * @param transactionId  (required)
-     * @param progressListener Progress listener
+     *
+     * @param portId                  The input port id. (required)
+     * @param transactionId           (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -767,8 +777,8 @@ public class DataTransferApi {
 
         // create path and map variables
         String localVarPath = "/data-transfer/input-ports/{portId}/transactions/{transactionId}/flow-files"
-            .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
-            .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+                .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
+                .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -778,46 +788,46 @@ public class DataTransferApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "text/plain"
+                "text/plain"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/octet-stream"
+                "application/octet-stream"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call receiveFlowFilesValidateBeforeCall(String portId, String transactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling receiveFlowFiles(Async)");
         }
-        
+
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling receiveFlowFiles(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = receiveFlowFilesCall(portId, transactionId, progressListener, progressRequestListener);
         return call;
@@ -826,9 +836,9 @@ public class DataTransferApi {
 
     /**
      * Transfer flow files to the input port
-     * 
-     * @param portId The input port id. (required)
-     * @param transactionId  (required)
+     *
+     * @param portId        The input port id. (required)
+     * @param transactionId (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -839,24 +849,25 @@ public class DataTransferApi {
 
     /**
      * Transfer flow files to the input port
-     * 
-     * @param portId The input port id. (required)
-     * @param transactionId  (required)
+     *
+     * @param portId        The input port id. (required)
+     * @param transactionId (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<String> receiveFlowFilesWithHttpInfo(String portId, String transactionId) throws ApiException {
         com.squareup.okhttp.Call call = receiveFlowFilesValidateBeforeCall(portId, transactionId, null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Transfer flow files to the input port (asynchronously)
-     * 
-     * @param portId The input port id. (required)
-     * @param transactionId  (required)
-     * @param callback The callback to be executed when the API call finishes
+     *
+     * @param portId        The input port id. (required)
+     * @param transactionId (required)
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -882,15 +893,18 @@ public class DataTransferApi {
         }
 
         com.squareup.okhttp.Call call = receiveFlowFilesValidateBeforeCall(portId, transactionId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for transferFlowFiles
-     * @param portId The output port id. (required)
-     * @param transactionId  (required)
-     * @param progressListener Progress listener
+     *
+     * @param portId                  The output port id. (required)
+     * @param transactionId           (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -900,8 +914,8 @@ public class DataTransferApi {
 
         // create path and map variables
         String localVarPath = "/data-transfer/output-ports/{portId}/transactions/{transactionId}/flow-files"
-            .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
-            .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
+                .replaceAll("\\{" + "portId" + "\\}", apiClient.escapeString(portId.toString()))
+                .replaceAll("\\{" + "transactionId" + "\\}", apiClient.escapeString(transactionId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -911,46 +925,46 @@ public class DataTransferApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/octet-stream"
+                "application/octet-stream"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call transferFlowFilesValidateBeforeCall(String portId, String transactionId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling transferFlowFiles(Async)");
         }
-        
+
         // verify the required parameter 'transactionId' is set
         if (transactionId == null) {
             throw new ApiException("Missing the required parameter 'transactionId' when calling transferFlowFiles(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = transferFlowFilesCall(portId, transactionId, progressListener, progressRequestListener);
         return call;
@@ -959,9 +973,9 @@ public class DataTransferApi {
 
     /**
      * Transfer flow files from the output port
-     * 
-     * @param portId The output port id. (required)
-     * @param transactionId  (required)
+     *
+     * @param portId        The output port id. (required)
+     * @param transactionId (required)
      * @return StreamingOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -972,24 +986,25 @@ public class DataTransferApi {
 
     /**
      * Transfer flow files from the output port
-     * 
-     * @param portId The output port id. (required)
-     * @param transactionId  (required)
+     *
+     * @param portId        The output port id. (required)
+     * @param transactionId (required)
      * @return ApiResponse&lt;StreamingOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<StreamingOutput> transferFlowFilesWithHttpInfo(String portId, String transactionId) throws ApiException {
         com.squareup.okhttp.Call call = transferFlowFilesValidateBeforeCall(portId, transactionId, null, null);
-        Type localVarReturnType = new TypeToken<StreamingOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamingOutput>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Transfer flow files from the output port (asynchronously)
-     * 
-     * @param portId The output port id. (required)
-     * @param transactionId  (required)
-     * @param callback The callback to be executed when the API call finishes
+     *
+     * @param portId        The output port id. (required)
+     * @param transactionId (required)
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1015,7 +1030,8 @@ public class DataTransferApi {
         }
 
         com.squareup.okhttp.Call call = transferFlowFilesValidateBeforeCall(portId, transactionId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StreamingOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamingOutput>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

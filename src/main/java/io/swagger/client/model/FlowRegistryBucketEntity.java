@@ -13,130 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FlowRegistryBucketDTO;
-import io.swagger.client.model.PermissionsDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * FlowRegistryBucketEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowRegistryBucketEntity {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("bucket")
-  private FlowRegistryBucketDTO bucket = null;
+    @SerializedName("bucket")
+    private FlowRegistryBucketDTO bucket = null;
 
-  @SerializedName("permissions")
-  private PermissionsDTO permissions = null;
+    @SerializedName("permissions")
+    private PermissionsDTO permissions = null;
 
-  public FlowRegistryBucketEntity id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public FlowRegistryBucketEntity bucket(FlowRegistryBucketDTO bucket) {
-    this.bucket = bucket;
-    return this;
-  }
-
-   /**
-   * Get bucket
-   * @return bucket
-  **/
-  @ApiModelProperty(value = "")
-  public FlowRegistryBucketDTO getBucket() {
-    return bucket;
-  }
-
-  public void setBucket(FlowRegistryBucketDTO bucket) {
-    this.bucket = bucket;
-  }
-
-  public FlowRegistryBucketEntity permissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * Get permissions
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "")
-  public PermissionsDTO getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FlowRegistryBucketEntity id(String id) {
+        this.id = id;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get id
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "")
+    public String getId() {
+        return id;
     }
-    FlowRegistryBucketEntity flowRegistryBucketEntity = (FlowRegistryBucketEntity) o;
-    return Objects.equals(this.id, flowRegistryBucketEntity.id) &&
-        Objects.equals(this.bucket, flowRegistryBucketEntity.bucket) &&
-        Objects.equals(this.permissions, flowRegistryBucketEntity.permissions);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, bucket, permissions);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowRegistryBucketEntity {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setId(String id) {
+        this.id = id;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public FlowRegistryBucketEntity bucket(FlowRegistryBucketDTO bucket) {
+        this.bucket = bucket;
+        return this;
+    }
+
+    /**
+     * Get bucket
+     *
+     * @return bucket
+     **/
+    @ApiModelProperty(value = "")
+    public FlowRegistryBucketDTO getBucket() {
+        return bucket;
+    }
+
+    public void setBucket(FlowRegistryBucketDTO bucket) {
+        this.bucket = bucket;
+    }
+
+    public FlowRegistryBucketEntity permissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "")
+    public PermissionsDTO getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowRegistryBucketEntity flowRegistryBucketEntity = (FlowRegistryBucketEntity) o;
+        return Objects.equals(this.id, flowRegistryBucketEntity.id) &&
+                Objects.equals(this.bucket, flowRegistryBucketEntity.bucket) &&
+                Objects.equals(this.permissions, flowRegistryBucketEntity.permissions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, bucket, permissions);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowRegistryBucketEntity {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

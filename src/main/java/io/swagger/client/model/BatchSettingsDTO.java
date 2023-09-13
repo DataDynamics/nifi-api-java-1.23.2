@@ -13,128 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * BatchSettingsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class BatchSettingsDTO {
-  @SerializedName("count")
-  private Integer count = null;
+    @SerializedName("count")
+    private Integer count = null;
 
-  @SerializedName("size")
-  private String size = null;
+    @SerializedName("size")
+    private String size = null;
 
-  @SerializedName("duration")
-  private String duration = null;
+    @SerializedName("duration")
+    private String duration = null;
 
-  public BatchSettingsDTO count(Integer count) {
-    this.count = count;
-    return this;
-  }
-
-   /**
-   * Preferred number of flow files to include in a transaction.
-   * @return count
-  **/
-  @ApiModelProperty(value = "Preferred number of flow files to include in a transaction.")
-  public Integer getCount() {
-    return count;
-  }
-
-  public void setCount(Integer count) {
-    this.count = count;
-  }
-
-  public BatchSettingsDTO size(String size) {
-    this.size = size;
-    return this;
-  }
-
-   /**
-   * Preferred number of bytes to include in a transaction.
-   * @return size
-  **/
-  @ApiModelProperty(value = "Preferred number of bytes to include in a transaction.")
-  public String getSize() {
-    return size;
-  }
-
-  public void setSize(String size) {
-    this.size = size;
-  }
-
-  public BatchSettingsDTO duration(String duration) {
-    this.duration = duration;
-    return this;
-  }
-
-   /**
-   * Preferred amount of time that a transaction should span.
-   * @return duration
-  **/
-  @ApiModelProperty(value = "Preferred amount of time that a transaction should span.")
-  public String getDuration() {
-    return duration;
-  }
-
-  public void setDuration(String duration) {
-    this.duration = duration;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public BatchSettingsDTO count(Integer count) {
+        this.count = count;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Preferred number of flow files to include in a transaction.
+     *
+     * @return count
+     **/
+    @ApiModelProperty(value = "Preferred number of flow files to include in a transaction.")
+    public Integer getCount() {
+        return count;
     }
-    BatchSettingsDTO batchSettingsDTO = (BatchSettingsDTO) o;
-    return Objects.equals(this.count, batchSettingsDTO.count) &&
-        Objects.equals(this.size, batchSettingsDTO.size) &&
-        Objects.equals(this.duration, batchSettingsDTO.duration);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(count, size, duration);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class BatchSettingsDTO {\n");
-    
-    sb.append("    count: ").append(toIndentedString(count)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setCount(Integer count) {
+        this.count = count;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public BatchSettingsDTO size(String size) {
+        this.size = size;
+        return this;
+    }
+
+    /**
+     * Preferred number of bytes to include in a transaction.
+     *
+     * @return size
+     **/
+    @ApiModelProperty(value = "Preferred number of bytes to include in a transaction.")
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public BatchSettingsDTO duration(String duration) {
+        this.duration = duration;
+        return this;
+    }
+
+    /**
+     * Preferred amount of time that a transaction should span.
+     *
+     * @return duration
+     **/
+    @ApiModelProperty(value = "Preferred amount of time that a transaction should span.")
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        BatchSettingsDTO batchSettingsDTO = (BatchSettingsDTO) o;
+        return Objects.equals(this.count, batchSettingsDTO.count) &&
+                Objects.equals(this.size, batchSettingsDTO.size) &&
+                Objects.equals(this.duration, batchSettingsDTO.duration);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(count, size, duration);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class BatchSettingsDTO {\n");
+
+        sb.append("    count: ").append(toIndentedString(count)).append("\n");
+        sb.append("    size: ").append(toIndentedString(size)).append("\n");
+        sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

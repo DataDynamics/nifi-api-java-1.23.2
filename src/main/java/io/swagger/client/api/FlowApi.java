@@ -13,61 +13,11 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
+import io.swagger.client.*;
+import io.swagger.client.model.*;
 
 import java.io.IOException;
-
-
-import io.swagger.client.model.AboutEntity;
-import io.swagger.client.model.ActionEntity;
-import io.swagger.client.model.ActivateControllerServicesEntity;
-import io.swagger.client.model.BannerEntity;
-import io.swagger.client.model.BulletinBoardEntity;
-import io.swagger.client.model.ClusteSummaryEntity;
-import io.swagger.client.model.ClusterSearchResultsEntity;
-import io.swagger.client.model.ComponentHistoryEntity;
-import io.swagger.client.model.ConnectionStatisticsEntity;
-import io.swagger.client.model.ConnectionStatusEntity;
-import io.swagger.client.model.ControllerBulletinsEntity;
-import io.swagger.client.model.ControllerServiceTypesEntity;
-import io.swagger.client.model.ControllerServicesEntity;
-import io.swagger.client.model.ControllerStatusEntity;
-import io.swagger.client.model.CurrentUserEntity;
-import io.swagger.client.model.FlowConfigurationEntity;
-import io.swagger.client.model.FlowRegistryBucketsEntity;
-import io.swagger.client.model.FlowRegistryClientsEntity;
-import io.swagger.client.model.HistoryEntity;
-import io.swagger.client.model.ParameterContextsEntity;
-import io.swagger.client.model.ParameterProviderTypesEntity;
-import io.swagger.client.model.ParameterProvidersEntity;
-import io.swagger.client.model.PortStatusEntity;
-import io.swagger.client.model.PrioritizerTypesEntity;
-import io.swagger.client.model.ProcessGroupFlowEntity;
-import io.swagger.client.model.ProcessGroupStatusEntity;
-import io.swagger.client.model.ProcessorStatusEntity;
-import io.swagger.client.model.ProcessorTypesEntity;
-import io.swagger.client.model.RemoteProcessGroupStatusEntity;
-import io.swagger.client.model.ReportingTaskTypesEntity;
-import io.swagger.client.model.ReportingTasksEntity;
-import io.swagger.client.model.RuntimeManifestEntity;
-import io.swagger.client.model.ScheduleComponentsEntity;
-import io.swagger.client.model.SearchResultsEntity;
-import io.swagger.client.model.StatusHistoryEntity;
-import io.swagger.client.model.StreamingOutput;
-import io.swagger.client.model.TemplatesEntity;
-import io.swagger.client.model.VersionedFlowEntity;
-import io.swagger.client.model.VersionedFlowSnapshotMetadataSetEntity;
-import io.swagger.client.model.VersionedFlowsEntity;
-
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -95,9 +45,10 @@ public class FlowApi {
 
     /**
      * Build call for activateControllerServices
-     * @param id The process group id. (required)
-     * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -107,7 +58,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/process-groups/{id}/controller-services"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -117,46 +68,46 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call activateControllerServicesValidateBeforeCall(String id, ActivateControllerServicesEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling activateControllerServices(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling activateControllerServices(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = activateControllerServicesCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -165,8 +116,8 @@ public class FlowApi {
 
     /**
      * Enable or disable Controller Services in the specified Process Group.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
      * @return ActivateControllerServicesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -178,23 +129,24 @@ public class FlowApi {
 
     /**
      * Enable or disable Controller Services in the specified Process Group.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
      * @return ApiResponse&lt;ActivateControllerServicesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ActivateControllerServicesEntity> activateControllerServicesWithHttpInfo(String id, ActivateControllerServicesEntity body) throws ApiException {
         com.squareup.okhttp.Call call = activateControllerServicesValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ActivateControllerServicesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ActivateControllerServicesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Enable or disable Controller Services in the specified Process Group. (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -221,13 +173,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = activateControllerServicesValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ActivateControllerServicesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ActivateControllerServicesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for generateClientId
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -246,36 +201,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "text/plain"
+                "text/plain"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call generateClientIdValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = generateClientIdCall(progressListener, progressRequestListener);
         return call;
@@ -284,7 +239,7 @@ public class FlowApi {
 
     /**
      * Generates a client id.
-     * 
+     *
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -295,19 +250,20 @@ public class FlowApi {
 
     /**
      * Generates a client id.
-     * 
+     *
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<String> generateClientIdWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = generateClientIdValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Generates a client id. (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -334,13 +290,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = generateClientIdValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<String>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getAboutInfo
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -359,36 +318,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAboutInfoValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getAboutInfoCall(progressListener, progressRequestListener);
         return call;
@@ -397,7 +356,7 @@ public class FlowApi {
 
     /**
      * Retrieves details about this NiFi to put in the About dialog
-     * 
+     *
      * @return AboutEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -408,19 +367,20 @@ public class FlowApi {
 
     /**
      * Retrieves details about this NiFi to put in the About dialog
-     * 
+     *
      * @return ApiResponse&lt;AboutEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AboutEntity> getAboutInfoWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getAboutInfoValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<AboutEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AboutEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves details about this NiFi to put in the About dialog (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -447,14 +407,17 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getAboutInfoValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AboutEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AboutEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getAction
-     * @param id The action id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The action id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -464,7 +427,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/history/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -474,41 +437,41 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getActionValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getAction(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getActionCall(id, progressListener, progressRequestListener);
         return call;
@@ -518,6 +481,7 @@ public class FlowApi {
     /**
      * Gets an action
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The action id. (required)
      * @return ActionEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -530,20 +494,23 @@ public class FlowApi {
     /**
      * Gets an action
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param id The action id. (required)
      * @return ApiResponse&lt;ActionEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ActionEntity> getActionWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getActionValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ActionEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ActionEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets an action (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The action id. (required)
+     *
+     * @param id       The action id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -570,13 +537,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getActionValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ActionEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ActionEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getBanners
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -595,36 +565,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBannersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getBannersCall(progressListener, progressRequestListener);
         return call;
@@ -633,7 +603,7 @@ public class FlowApi {
 
     /**
      * Retrieves the banners for this NiFi
-     * 
+     *
      * @return BannerEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -644,19 +614,20 @@ public class FlowApi {
 
     /**
      * Retrieves the banners for this NiFi
-     * 
+     *
      * @return ApiResponse&lt;BannerEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<BannerEntity> getBannersWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getBannersValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<BannerEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<BannerEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the banners for this NiFi (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -683,14 +654,17 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getBannersValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<BannerEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<BannerEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getBuckets
-     * @param id The registry id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The registry id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -700,7 +674,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/registries/{id}/buckets"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -710,41 +684,41 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBucketsValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getBuckets(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getBucketsCall(id, progressListener, progressRequestListener);
         return call;
@@ -753,7 +727,7 @@ public class FlowApi {
 
     /**
      * Gets the buckets from the specified registry for the current user
-     * 
+     *
      * @param id The registry id. (required)
      * @return FlowRegistryBucketsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -765,21 +739,22 @@ public class FlowApi {
 
     /**
      * Gets the buckets from the specified registry for the current user
-     * 
+     *
      * @param id The registry id. (required)
      * @return ApiResponse&lt;FlowRegistryBucketsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowRegistryBucketsEntity> getBucketsWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getBucketsValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<FlowRegistryBucketsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryBucketsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the buckets from the specified registry for the current user (asynchronously)
-     * 
-     * @param id The registry id. (required)
+     *
+     * @param id       The registry id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -806,19 +781,22 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getBucketsValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowRegistryBucketsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryBucketsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getBulletinBoard
-     * @param after Includes bulletins with an id after this value. (optional)
-     * @param sourceName Includes bulletins originating from this sources whose name match this regular expression. (optional)
-     * @param message Includes bulletins whose message that match this regular expression. (optional)
-     * @param sourceId Includes bulletins originating from this sources whose id match this regular expression. (optional)
-     * @param groupId Includes bulletins originating from this sources whose group id match this regular expression. (optional)
-     * @param limit The number of bulletins to limit the response to. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param after                   Includes bulletins with an id after this value. (optional)
+     * @param sourceName              Includes bulletins originating from this sources whose name match this regular expression. (optional)
+     * @param message                 Includes bulletins whose message that match this regular expression. (optional)
+     * @param sourceId                Includes bulletins originating from this sources whose id match this regular expression. (optional)
+     * @param groupId                 Includes bulletins originating from this sources whose group id match this regular expression. (optional)
+     * @param limit                   The number of bulletins to limit the response to. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -832,53 +810,53 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (after != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("after", after));
+            localVarQueryParams.addAll(apiClient.parameterToPair("after", after));
         if (sourceName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sourceName", sourceName));
+            localVarQueryParams.addAll(apiClient.parameterToPair("sourceName", sourceName));
         if (message != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("message", message));
+            localVarQueryParams.addAll(apiClient.parameterToPair("message", message));
         if (sourceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sourceId", sourceId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("sourceId", sourceId));
         if (groupId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("groupId", groupId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("groupId", groupId));
         if (limit != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
+            localVarQueryParams.addAll(apiClient.parameterToPair("limit", limit));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBulletinBoardValidateBeforeCall(String after, String sourceName, String message, String sourceId, String groupId, String limit, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getBulletinBoardCall(after, sourceName, message, sourceId, groupId, limit, progressListener, progressRequestListener);
         return call;
@@ -887,13 +865,13 @@ public class FlowApi {
 
     /**
      * Gets current bulletins
-     * 
-     * @param after Includes bulletins with an id after this value. (optional)
+     *
+     * @param after      Includes bulletins with an id after this value. (optional)
      * @param sourceName Includes bulletins originating from this sources whose name match this regular expression. (optional)
-     * @param message Includes bulletins whose message that match this regular expression. (optional)
-     * @param sourceId Includes bulletins originating from this sources whose id match this regular expression. (optional)
-     * @param groupId Includes bulletins originating from this sources whose group id match this regular expression. (optional)
-     * @param limit The number of bulletins to limit the response to. (optional)
+     * @param message    Includes bulletins whose message that match this regular expression. (optional)
+     * @param sourceId   Includes bulletins originating from this sources whose id match this regular expression. (optional)
+     * @param groupId    Includes bulletins originating from this sources whose group id match this regular expression. (optional)
+     * @param limit      The number of bulletins to limit the response to. (optional)
      * @return BulletinBoardEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -904,32 +882,33 @@ public class FlowApi {
 
     /**
      * Gets current bulletins
-     * 
-     * @param after Includes bulletins with an id after this value. (optional)
+     *
+     * @param after      Includes bulletins with an id after this value. (optional)
      * @param sourceName Includes bulletins originating from this sources whose name match this regular expression. (optional)
-     * @param message Includes bulletins whose message that match this regular expression. (optional)
-     * @param sourceId Includes bulletins originating from this sources whose id match this regular expression. (optional)
-     * @param groupId Includes bulletins originating from this sources whose group id match this regular expression. (optional)
-     * @param limit The number of bulletins to limit the response to. (optional)
+     * @param message    Includes bulletins whose message that match this regular expression. (optional)
+     * @param sourceId   Includes bulletins originating from this sources whose id match this regular expression. (optional)
+     * @param groupId    Includes bulletins originating from this sources whose group id match this regular expression. (optional)
+     * @param limit      The number of bulletins to limit the response to. (optional)
      * @return ApiResponse&lt;BulletinBoardEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<BulletinBoardEntity> getBulletinBoardWithHttpInfo(String after, String sourceName, String message, String sourceId, String groupId, String limit) throws ApiException {
         com.squareup.okhttp.Call call = getBulletinBoardValidateBeforeCall(after, sourceName, message, sourceId, groupId, limit, null, null);
-        Type localVarReturnType = new TypeToken<BulletinBoardEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<BulletinBoardEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets current bulletins (asynchronously)
-     * 
-     * @param after Includes bulletins with an id after this value. (optional)
+     *
+     * @param after      Includes bulletins with an id after this value. (optional)
      * @param sourceName Includes bulletins originating from this sources whose name match this regular expression. (optional)
-     * @param message Includes bulletins whose message that match this regular expression. (optional)
-     * @param sourceId Includes bulletins originating from this sources whose id match this regular expression. (optional)
-     * @param groupId Includes bulletins originating from this sources whose group id match this regular expression. (optional)
-     * @param limit The number of bulletins to limit the response to. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param message    Includes bulletins whose message that match this regular expression. (optional)
+     * @param sourceId   Includes bulletins originating from this sources whose id match this regular expression. (optional)
+     * @param groupId    Includes bulletins originating from this sources whose group id match this regular expression. (optional)
+     * @param limit      The number of bulletins to limit the response to. (optional)
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -955,13 +934,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getBulletinBoardValidateBeforeCall(after, sourceName, message, sourceId, groupId, limit, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<BulletinBoardEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<BulletinBoardEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getBulletins
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -980,36 +962,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getBulletinsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getBulletinsCall(progressListener, progressRequestListener);
         return call;
@@ -1018,7 +1000,7 @@ public class FlowApi {
 
     /**
      * Retrieves Controller level bulletins
-     * 
+     *
      * @return ControllerBulletinsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1029,19 +1011,20 @@ public class FlowApi {
 
     /**
      * Retrieves Controller level bulletins
-     * 
+     *
      * @return ApiResponse&lt;ControllerBulletinsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerBulletinsEntity> getBulletinsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getBulletinsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ControllerBulletinsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerBulletinsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves Controller level bulletins (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1068,13 +1051,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getBulletinsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerBulletinsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerBulletinsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getClusterSummary
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1093,36 +1079,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getClusterSummaryValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getClusterSummaryCall(progressListener, progressRequestListener);
         return call;
@@ -1131,7 +1117,7 @@ public class FlowApi {
 
     /**
      * The cluster summary for this NiFi
-     * 
+     *
      * @return ClusteSummaryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1142,19 +1128,20 @@ public class FlowApi {
 
     /**
      * The cluster summary for this NiFi
-     * 
+     *
      * @return ApiResponse&lt;ClusteSummaryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ClusteSummaryEntity> getClusterSummaryWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getClusterSummaryValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ClusteSummaryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusteSummaryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * The cluster summary for this NiFi (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1181,14 +1168,17 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getClusterSummaryValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ClusteSummaryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusteSummaryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getComponentHistory
-     * @param componentId The component id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param componentId             The component id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1198,7 +1188,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/history/components/{componentId}"
-            .replaceAll("\\{" + "componentId" + "\\}", apiClient.escapeString(componentId.toString()));
+                .replaceAll("\\{" + "componentId" + "\\}", apiClient.escapeString(componentId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1208,41 +1198,41 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getComponentHistoryValidateBeforeCall(String componentId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'componentId' is set
         if (componentId == null) {
             throw new ApiException("Missing the required parameter 'componentId' when calling getComponentHistory(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getComponentHistoryCall(componentId, progressListener, progressRequestListener);
         return call;
@@ -1252,6 +1242,7 @@ public class FlowApi {
     /**
      * Gets configuration history for a component
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param componentId The component id. (required)
      * @return ComponentHistoryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1264,21 +1255,24 @@ public class FlowApi {
     /**
      * Gets configuration history for a component
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param componentId The component id. (required)
      * @return ApiResponse&lt;ComponentHistoryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ComponentHistoryEntity> getComponentHistoryWithHttpInfo(String componentId) throws ApiException {
         com.squareup.okhttp.Call call = getComponentHistoryValidateBeforeCall(componentId, null, null);
-        Type localVarReturnType = new TypeToken<ComponentHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentHistoryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets configuration history for a component (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param componentId The component id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback    The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1304,16 +1298,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getComponentHistoryValidateBeforeCall(componentId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ComponentHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentHistoryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getConnectionStatistics
-     * @param id The connection id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
-     * @param clusterNodeId The id of the node where to get the statistics. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param nodewise                Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     * @param clusterNodeId           The id of the node where to get the statistics. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1323,55 +1320,55 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/connections/{id}/statistics"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (nodewise != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
+            localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getConnectionStatisticsValidateBeforeCall(String id, Boolean nodewise, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getConnectionStatistics(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getConnectionStatisticsCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -1380,9 +1377,9 @@ public class FlowApi {
 
     /**
      * Gets statistics for a connection
-     * 
-     * @param id The connection id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The connection id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the statistics. (optional)
      * @return ConnectionStatisticsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1394,26 +1391,27 @@ public class FlowApi {
 
     /**
      * Gets statistics for a connection
-     * 
-     * @param id The connection id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The connection id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the statistics. (optional)
      * @return ApiResponse&lt;ConnectionStatisticsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ConnectionStatisticsEntity> getConnectionStatisticsWithHttpInfo(String id, Boolean nodewise, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getConnectionStatisticsValidateBeforeCall(id, nodewise, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<ConnectionStatisticsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConnectionStatisticsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets statistics for a connection (asynchronously)
-     * 
-     * @param id The connection id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The connection id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the statistics. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1439,16 +1437,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getConnectionStatisticsValidateBeforeCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ConnectionStatisticsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConnectionStatisticsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getConnectionStatus
-     * @param id The connection id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
-     * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param nodewise                Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     * @param clusterNodeId           The id of the node where to get the status. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1458,55 +1459,55 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/connections/{id}/status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (nodewise != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
+            localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getConnectionStatusValidateBeforeCall(String id, Boolean nodewise, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getConnectionStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getConnectionStatusCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -1515,9 +1516,9 @@ public class FlowApi {
 
     /**
      * Gets status for a connection
-     * 
-     * @param id The connection id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The connection id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ConnectionStatusEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1529,26 +1530,27 @@ public class FlowApi {
 
     /**
      * Gets status for a connection
-     * 
-     * @param id The connection id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The connection id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ApiResponse&lt;ConnectionStatusEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ConnectionStatusEntity> getConnectionStatusWithHttpInfo(String id, Boolean nodewise, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getConnectionStatusValidateBeforeCall(id, nodewise, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<ConnectionStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConnectionStatusEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets status for a connection (asynchronously)
-     * 
-     * @param id The connection id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The connection id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1574,14 +1576,17 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getConnectionStatusValidateBeforeCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ConnectionStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConnectionStatusEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getConnectionStatusHistory
-     * @param id The connection id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The connection id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1591,7 +1596,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/connections/{id}/status/history"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1601,41 +1606,41 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getConnectionStatusHistoryValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getConnectionStatusHistory(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getConnectionStatusHistoryCall(id, progressListener, progressRequestListener);
         return call;
@@ -1644,7 +1649,7 @@ public class FlowApi {
 
     /**
      * Gets the status history for a connection
-     * 
+     *
      * @param id The connection id. (required)
      * @return StatusHistoryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1656,21 +1661,22 @@ public class FlowApi {
 
     /**
      * Gets the status history for a connection
-     * 
+     *
      * @param id The connection id. (required)
      * @return ApiResponse&lt;StatusHistoryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<StatusHistoryEntity> getConnectionStatusHistoryWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getConnectionStatusHistoryValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<StatusHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusHistoryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the status history for a connection (asynchronously)
-     * 
-     * @param id The connection id. (required)
+     *
+     * @param id       The connection id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1697,20 +1703,23 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getConnectionStatusHistoryValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StatusHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusHistoryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getControllerServiceTypes
-     * @param serviceType If specified, will only return controller services that are compatible with this type of service. (optional)
-     * @param serviceBundleGroup If serviceType specified, is the bundle group of the serviceType. (optional)
-     * @param serviceBundleArtifact If serviceType specified, is the bundle artifact of the serviceType. (optional)
-     * @param serviceBundleVersion If serviceType specified, is the bundle version of the serviceType. (optional)
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
-     * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param typeFilter If specified, will only return types whose fully qualified classname matches. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param serviceType             If specified, will only return controller services that are compatible with this type of service. (optional)
+     * @param serviceBundleGroup      If serviceType specified, is the bundle group of the serviceType. (optional)
+     * @param serviceBundleArtifact   If serviceType specified, is the bundle artifact of the serviceType. (optional)
+     * @param serviceBundleVersion    If serviceType specified, is the bundle version of the serviceType. (optional)
+     * @param bundleGroupFilter       If specified, will only return types that are a member of this bundle group. (optional)
+     * @param bundleArtifactFilter    If specified, will only return types that are a member of this bundle artifact. (optional)
+     * @param typeFilter              If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1724,55 +1733,55 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (serviceType != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("serviceType", serviceType));
+            localVarQueryParams.addAll(apiClient.parameterToPair("serviceType", serviceType));
         if (serviceBundleGroup != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("serviceBundleGroup", serviceBundleGroup));
+            localVarQueryParams.addAll(apiClient.parameterToPair("serviceBundleGroup", serviceBundleGroup));
         if (serviceBundleArtifact != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("serviceBundleArtifact", serviceBundleArtifact));
+            localVarQueryParams.addAll(apiClient.parameterToPair("serviceBundleArtifact", serviceBundleArtifact));
         if (serviceBundleVersion != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("serviceBundleVersion", serviceBundleVersion));
+            localVarQueryParams.addAll(apiClient.parameterToPair("serviceBundleVersion", serviceBundleVersion));
         if (bundleGroupFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("bundleGroupFilter", bundleGroupFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("bundleGroupFilter", bundleGroupFilter));
         if (bundleArtifactFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("bundleArtifactFilter", bundleArtifactFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("bundleArtifactFilter", bundleArtifactFilter));
         if (typeFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("typeFilter", typeFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("typeFilter", typeFilter));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getControllerServiceTypesValidateBeforeCall(String serviceType, String serviceBundleGroup, String serviceBundleArtifact, String serviceBundleVersion, String bundleGroupFilter, String bundleArtifactFilter, String typeFilter, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getControllerServiceTypesCall(serviceType, serviceBundleGroup, serviceBundleArtifact, serviceBundleVersion, bundleGroupFilter, bundleArtifactFilter, typeFilter, progressListener, progressRequestListener);
         return call;
@@ -1782,13 +1791,14 @@ public class FlowApi {
     /**
      * Retrieves the types of controller services that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param serviceType If specified, will only return controller services that are compatible with this type of service. (optional)
-     * @param serviceBundleGroup If serviceType specified, is the bundle group of the serviceType. (optional)
+     *
+     * @param serviceType           If specified, will only return controller services that are compatible with this type of service. (optional)
+     * @param serviceBundleGroup    If serviceType specified, is the bundle group of the serviceType. (optional)
      * @param serviceBundleArtifact If serviceType specified, is the bundle artifact of the serviceType. (optional)
-     * @param serviceBundleVersion If serviceType specified, is the bundle version of the serviceType. (optional)
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
-     * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param typeFilter If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param serviceBundleVersion  If serviceType specified, is the bundle version of the serviceType. (optional)
+     * @param bundleGroupFilter     If specified, will only return types that are a member of this bundle group. (optional)
+     * @param bundleArtifactFilter  If specified, will only return types that are a member of this bundle artifact. (optional)
+     * @param typeFilter            If specified, will only return types whose fully qualified classname matches. (optional)
      * @return ControllerServiceTypesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1800,33 +1810,36 @@ public class FlowApi {
     /**
      * Retrieves the types of controller services that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param serviceType If specified, will only return controller services that are compatible with this type of service. (optional)
-     * @param serviceBundleGroup If serviceType specified, is the bundle group of the serviceType. (optional)
+     *
+     * @param serviceType           If specified, will only return controller services that are compatible with this type of service. (optional)
+     * @param serviceBundleGroup    If serviceType specified, is the bundle group of the serviceType. (optional)
      * @param serviceBundleArtifact If serviceType specified, is the bundle artifact of the serviceType. (optional)
-     * @param serviceBundleVersion If serviceType specified, is the bundle version of the serviceType. (optional)
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
-     * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param typeFilter If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param serviceBundleVersion  If serviceType specified, is the bundle version of the serviceType. (optional)
+     * @param bundleGroupFilter     If specified, will only return types that are a member of this bundle group. (optional)
+     * @param bundleArtifactFilter  If specified, will only return types that are a member of this bundle artifact. (optional)
+     * @param typeFilter            If specified, will only return types whose fully qualified classname matches. (optional)
      * @return ApiResponse&lt;ControllerServiceTypesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerServiceTypesEntity> getControllerServiceTypesWithHttpInfo(String serviceType, String serviceBundleGroup, String serviceBundleArtifact, String serviceBundleVersion, String bundleGroupFilter, String bundleArtifactFilter, String typeFilter) throws ApiException {
         com.squareup.okhttp.Call call = getControllerServiceTypesValidateBeforeCall(serviceType, serviceBundleGroup, serviceBundleArtifact, serviceBundleVersion, bundleGroupFilter, bundleArtifactFilter, typeFilter, null, null);
-        Type localVarReturnType = new TypeToken<ControllerServiceTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServiceTypesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the types of controller services that this NiFi supports (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param serviceType If specified, will only return controller services that are compatible with this type of service. (optional)
-     * @param serviceBundleGroup If serviceType specified, is the bundle group of the serviceType. (optional)
+     *
+     * @param serviceType           If specified, will only return controller services that are compatible with this type of service. (optional)
+     * @param serviceBundleGroup    If serviceType specified, is the bundle group of the serviceType. (optional)
      * @param serviceBundleArtifact If serviceType specified, is the bundle artifact of the serviceType. (optional)
-     * @param serviceBundleVersion If serviceType specified, is the bundle version of the serviceType. (optional)
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
-     * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param typeFilter If specified, will only return types whose fully qualified classname matches. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param serviceBundleVersion  If serviceType specified, is the bundle version of the serviceType. (optional)
+     * @param bundleGroupFilter     If specified, will only return types that are a member of this bundle group. (optional)
+     * @param bundleArtifactFilter  If specified, will only return types that are a member of this bundle artifact. (optional)
+     * @param typeFilter            If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param callback              The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1852,16 +1865,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getControllerServiceTypesValidateBeforeCall(serviceType, serviceBundleGroup, serviceBundleArtifact, serviceBundleVersion, bundleGroupFilter, bundleArtifactFilter, typeFilter, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerServiceTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServiceTypesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getControllerServicesFromController
-     * @param uiOnly  (optional, default to false)
+     *
+     * @param uiOnly                       (optional, default to false)
      * @param includeReferencingComponents Whether or not to include services&#39; referencing components in the response (optional, default to true)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -1874,45 +1890,45 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (uiOnly != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("uiOnly", uiOnly));
+            localVarQueryParams.addAll(apiClient.parameterToPair("uiOnly", uiOnly));
         if (includeReferencingComponents != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("includeReferencingComponents", includeReferencingComponents));
+            localVarQueryParams.addAll(apiClient.parameterToPair("includeReferencingComponents", includeReferencingComponents));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getControllerServicesFromControllerValidateBeforeCall(Boolean uiOnly, Boolean includeReferencingComponents, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getControllerServicesFromControllerCall(uiOnly, includeReferencingComponents, progressListener, progressRequestListener);
         return call;
@@ -1922,7 +1938,8 @@ public class FlowApi {
     /**
      * Gets controller services for reporting tasks
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param uiOnly  (optional, default to false)
+     *
+     * @param uiOnly                       (optional, default to false)
      * @param includeReferencingComponents Whether or not to include services&#39; referencing components in the response (optional, default to true)
      * @return ControllerServicesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1935,23 +1952,26 @@ public class FlowApi {
     /**
      * Gets controller services for reporting tasks
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param uiOnly  (optional, default to false)
+     *
+     * @param uiOnly                       (optional, default to false)
      * @param includeReferencingComponents Whether or not to include services&#39; referencing components in the response (optional, default to true)
      * @return ApiResponse&lt;ControllerServicesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerServicesEntity> getControllerServicesFromControllerWithHttpInfo(Boolean uiOnly, Boolean includeReferencingComponents) throws ApiException {
         com.squareup.okhttp.Call call = getControllerServicesFromControllerValidateBeforeCall(uiOnly, includeReferencingComponents, null, null);
-        Type localVarReturnType = new TypeToken<ControllerServicesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServicesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets controller services for reporting tasks (asynchronously)
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param uiOnly  (optional, default to false)
+     *
+     * @param uiOnly                       (optional, default to false)
      * @param includeReferencingComponents Whether or not to include services&#39; referencing components in the response (optional, default to true)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1977,19 +1997,22 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getControllerServicesFromControllerValidateBeforeCall(uiOnly, includeReferencingComponents, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerServicesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServicesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getControllerServicesFromGroup
-     * @param id The process group id. (required)
-     * @param includeAncestorGroups Whether or not to include parent/ancestor process groups (optional, default to true)
-     * @param includeDescendantGroups Whether or not to include descendant process groups (optional, default to false)
+     *
+     * @param id                           The process group id. (required)
+     * @param includeAncestorGroups        Whether or not to include parent/ancestor process groups (optional, default to true)
+     * @param includeDescendantGroups      Whether or not to include descendant process groups (optional, default to false)
      * @param includeReferencingComponents Whether or not to include services&#39; referencing components in the response (optional, default to true)
-     * @param uiOnly  (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param uiOnly                       (optional, default to false)
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -1998,59 +2021,59 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/process-groups/{id}/controller-services"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (includeAncestorGroups != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("includeAncestorGroups", includeAncestorGroups));
+            localVarQueryParams.addAll(apiClient.parameterToPair("includeAncestorGroups", includeAncestorGroups));
         if (includeDescendantGroups != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("includeDescendantGroups", includeDescendantGroups));
+            localVarQueryParams.addAll(apiClient.parameterToPair("includeDescendantGroups", includeDescendantGroups));
         if (includeReferencingComponents != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("includeReferencingComponents", includeReferencingComponents));
+            localVarQueryParams.addAll(apiClient.parameterToPair("includeReferencingComponents", includeReferencingComponents));
         if (uiOnly != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("uiOnly", uiOnly));
+            localVarQueryParams.addAll(apiClient.parameterToPair("uiOnly", uiOnly));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getControllerServicesFromGroupValidateBeforeCall(String id, Boolean includeAncestorGroups, Boolean includeDescendantGroups, Boolean includeReferencingComponents, Boolean uiOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getControllerServicesFromGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getControllerServicesFromGroupCall(id, includeAncestorGroups, includeDescendantGroups, includeReferencingComponents, uiOnly, progressListener, progressRequestListener);
         return call;
@@ -2060,11 +2083,12 @@ public class FlowApi {
     /**
      * Gets all controller services
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param id The process group id. (required)
-     * @param includeAncestorGroups Whether or not to include parent/ancestor process groups (optional, default to true)
-     * @param includeDescendantGroups Whether or not to include descendant process groups (optional, default to false)
+     *
+     * @param id                           The process group id. (required)
+     * @param includeAncestorGroups        Whether or not to include parent/ancestor process groups (optional, default to true)
+     * @param includeDescendantGroups      Whether or not to include descendant process groups (optional, default to false)
      * @param includeReferencingComponents Whether or not to include services&#39; referencing components in the response (optional, default to true)
-     * @param uiOnly  (optional, default to false)
+     * @param uiOnly                       (optional, default to false)
      * @return ControllerServicesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2076,29 +2100,32 @@ public class FlowApi {
     /**
      * Gets all controller services
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param id The process group id. (required)
-     * @param includeAncestorGroups Whether or not to include parent/ancestor process groups (optional, default to true)
-     * @param includeDescendantGroups Whether or not to include descendant process groups (optional, default to false)
+     *
+     * @param id                           The process group id. (required)
+     * @param includeAncestorGroups        Whether or not to include parent/ancestor process groups (optional, default to true)
+     * @param includeDescendantGroups      Whether or not to include descendant process groups (optional, default to false)
      * @param includeReferencingComponents Whether or not to include services&#39; referencing components in the response (optional, default to true)
-     * @param uiOnly  (optional, default to false)
+     * @param uiOnly                       (optional, default to false)
      * @return ApiResponse&lt;ControllerServicesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerServicesEntity> getControllerServicesFromGroupWithHttpInfo(String id, Boolean includeAncestorGroups, Boolean includeDescendantGroups, Boolean includeReferencingComponents, Boolean uiOnly) throws ApiException {
         com.squareup.okhttp.Call call = getControllerServicesFromGroupValidateBeforeCall(id, includeAncestorGroups, includeDescendantGroups, includeReferencingComponents, uiOnly, null, null);
-        Type localVarReturnType = new TypeToken<ControllerServicesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServicesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all controller services (asynchronously)
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param id The process group id. (required)
-     * @param includeAncestorGroups Whether or not to include parent/ancestor process groups (optional, default to true)
-     * @param includeDescendantGroups Whether or not to include descendant process groups (optional, default to false)
+     *
+     * @param id                           The process group id. (required)
+     * @param includeAncestorGroups        Whether or not to include parent/ancestor process groups (optional, default to true)
+     * @param includeDescendantGroups      Whether or not to include descendant process groups (optional, default to false)
      * @param includeReferencingComponents Whether or not to include services&#39; referencing components in the response (optional, default to true)
-     * @param uiOnly  (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param uiOnly                       (optional, default to false)
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -2124,13 +2151,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getControllerServicesFromGroupValidateBeforeCall(id, includeAncestorGroups, includeDescendantGroups, includeReferencingComponents, uiOnly, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerServicesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerServicesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getControllerStatus
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2149,36 +2179,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getControllerStatusValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getControllerStatusCall(progressListener, progressRequestListener);
         return call;
@@ -2187,7 +2217,7 @@ public class FlowApi {
 
     /**
      * Gets the current status of this NiFi
-     * 
+     *
      * @return ControllerStatusEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2198,19 +2228,20 @@ public class FlowApi {
 
     /**
      * Gets the current status of this NiFi
-     * 
+     *
      * @return ApiResponse&lt;ControllerStatusEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ControllerStatusEntity> getControllerStatusWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getControllerStatusValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ControllerStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerStatusEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the current status of this NiFi (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2237,13 +2268,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getControllerStatusValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ControllerStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ControllerStatusEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getCurrentUser
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2262,36 +2296,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getCurrentUserValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getCurrentUserCall(progressListener, progressRequestListener);
         return call;
@@ -2300,7 +2334,7 @@ public class FlowApi {
 
     /**
      * Retrieves the user identity of the user making the request
-     * 
+     *
      * @return CurrentUserEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2311,19 +2345,20 @@ public class FlowApi {
 
     /**
      * Retrieves the user identity of the user making the request
-     * 
+     *
      * @return ApiResponse&lt;CurrentUserEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<CurrentUserEntity> getCurrentUserWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getCurrentUserValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<CurrentUserEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<CurrentUserEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the user identity of the user making the request (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2350,16 +2385,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getCurrentUserValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<CurrentUserEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<CurrentUserEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getDetails
-     * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param flowId The flow id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param registryId              The registry client id. (required)
+     * @param bucketId                The bucket id. (required)
+     * @param flowId                  The flow id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2369,9 +2407,9 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/details"
-            .replaceAll("\\{" + "registry-id" + "\\}", apiClient.escapeString(registryId.toString()))
-            .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
-            .replaceAll("\\{" + "flow-id" + "\\}", apiClient.escapeString(flowId.toString()));
+                .replaceAll("\\{" + "registry-id" + "\\}", apiClient.escapeString(registryId.toString()))
+                .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
+                .replaceAll("\\{" + "flow-id" + "\\}", apiClient.escapeString(flowId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2381,51 +2419,51 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getDetailsValidateBeforeCall(String registryId, String bucketId, String flowId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'registryId' is set
         if (registryId == null) {
             throw new ApiException("Missing the required parameter 'registryId' when calling getDetails(Async)");
         }
-        
+
         // verify the required parameter 'bucketId' is set
         if (bucketId == null) {
             throw new ApiException("Missing the required parameter 'bucketId' when calling getDetails(Async)");
         }
-        
+
         // verify the required parameter 'flowId' is set
         if (flowId == null) {
             throw new ApiException("Missing the required parameter 'flowId' when calling getDetails(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getDetailsCall(registryId, bucketId, flowId, progressListener, progressRequestListener);
         return call;
@@ -2434,10 +2472,10 @@ public class FlowApi {
 
     /**
      * Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param flowId The flow id. (required)
+     * @param bucketId   The bucket id. (required)
+     * @param flowId     The flow id. (required)
      * @return VersionedFlowEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2448,26 +2486,27 @@ public class FlowApi {
 
     /**
      * Gets the details of a flow from the specified registry and bucket for the specified flow for the current user
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param flowId The flow id. (required)
+     * @param bucketId   The bucket id. (required)
+     * @param flowId     The flow id. (required)
      * @return ApiResponse&lt;VersionedFlowEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowEntity> getDetailsWithHttpInfo(String registryId, String bucketId, String flowId) throws ApiException {
         com.squareup.okhttp.Call call = getDetailsValidateBeforeCall(registryId, bucketId, flowId, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the details of a flow from the specified registry and bucket for the specified flow for the current user (asynchronously)
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param flowId The flow id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param bucketId   The bucket id. (required)
+     * @param flowId     The flow id. (required)
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -2493,15 +2532,18 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getDetailsValidateBeforeCall(registryId, bucketId, flowId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getFlow
-     * @param id The process group id. (required)
-     * @param uiOnly  (optional, default to false)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param uiOnly                  (optional, default to false)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2511,53 +2553,53 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (uiOnly != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("uiOnly", uiOnly));
+            localVarQueryParams.addAll(apiClient.parameterToPair("uiOnly", uiOnly));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFlowValidateBeforeCall(String id, Boolean uiOnly, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getFlow(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getFlowCall(id, uiOnly, progressListener, progressRequestListener);
         return call;
@@ -2567,8 +2609,9 @@ public class FlowApi {
     /**
      * Gets a process group
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param id The process group id. (required)
-     * @param uiOnly  (optional, default to false)
+     *
+     * @param id     The process group id. (required)
+     * @param uiOnly (optional, default to false)
      * @return ProcessGroupFlowEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2580,22 +2623,25 @@ public class FlowApi {
     /**
      * Gets a process group
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param id The process group id. (required)
-     * @param uiOnly  (optional, default to false)
+     *
+     * @param id     The process group id. (required)
+     * @param uiOnly (optional, default to false)
      * @return ApiResponse&lt;ProcessGroupFlowEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupFlowEntity> getFlowWithHttpInfo(String id, Boolean uiOnly) throws ApiException {
         com.squareup.okhttp.Call call = getFlowValidateBeforeCall(id, uiOnly, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupFlowEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupFlowEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a process group (asynchronously)
      * If the uiOnly query parameter is provided with a value of true, the returned entity may only contain fields that are necessary for rendering the NiFi User Interface. As such, the selected fields may change at any time, even during incremental releases, without warning. As a result, this parameter should not be provided by any client other than the UI.
-     * @param id The process group id. (required)
-     * @param uiOnly  (optional, default to false)
+     *
+     * @param id       The process group id. (required)
+     * @param uiOnly   (optional, default to false)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2622,13 +2668,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getFlowValidateBeforeCall(id, uiOnly, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupFlowEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupFlowEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getFlowConfig
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2647,36 +2696,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFlowConfigValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getFlowConfigCall(progressListener, progressRequestListener);
         return call;
@@ -2685,7 +2734,7 @@ public class FlowApi {
 
     /**
      * Retrieves the configuration for this NiFi flow
-     * 
+     *
      * @return FlowConfigurationEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2696,19 +2745,20 @@ public class FlowApi {
 
     /**
      * Retrieves the configuration for this NiFi flow
-     * 
+     *
      * @return ApiResponse&lt;FlowConfigurationEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowConfigurationEntity> getFlowConfigWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getFlowConfigValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<FlowConfigurationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowConfigurationEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the configuration for this NiFi flow (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2735,18 +2785,21 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getFlowConfigValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowConfigurationEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowConfigurationEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getFlowMetrics
-     * @param producer The producer for flow file metrics. Each producer may have its own output format. (required)
-     * @param includedRegistries Set of included metrics registries (optional)
-     * @param sampleName Regular Expression Pattern to be applied against the sample name field (optional)
-     * @param sampleLabelValue Regular Expression Pattern to be applied against the sample label value field (optional)
-     * @param rootFieldName Name of the first field of JSON object. Applicable for JSON producer only. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param producer                The producer for flow file metrics. Each producer may have its own output format. (required)
+     * @param includedRegistries      Set of included metrics registries (optional)
+     * @param sampleName              Regular Expression Pattern to be applied against the sample name field (optional)
+     * @param sampleLabelValue        Regular Expression Pattern to be applied against the sample label value field (optional)
+     * @param rootFieldName           Name of the first field of JSON object. Applicable for JSON producer only. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2756,59 +2809,59 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/metrics/{producer}"
-            .replaceAll("\\{" + "producer" + "\\}", apiClient.escapeString(producer.toString()));
+                .replaceAll("\\{" + "producer" + "\\}", apiClient.escapeString(producer.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (includedRegistries != null)
-        localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "includedRegistries", includedRegistries));
+            localVarCollectionQueryParams.addAll(apiClient.parameterToPairs("multi", "includedRegistries", includedRegistries));
         if (sampleName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sampleName", sampleName));
+            localVarQueryParams.addAll(apiClient.parameterToPair("sampleName", sampleName));
         if (sampleLabelValue != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sampleLabelValue", sampleLabelValue));
+            localVarQueryParams.addAll(apiClient.parameterToPair("sampleLabelValue", sampleLabelValue));
         if (rootFieldName != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("rootFieldName", rootFieldName));
+            localVarQueryParams.addAll(apiClient.parameterToPair("rootFieldName", rootFieldName));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "*/*"
+                "*/*"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFlowMetricsValidateBeforeCall(String producer, List<String> includedRegistries, String sampleName, String sampleLabelValue, String rootFieldName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'producer' is set
         if (producer == null) {
             throw new ApiException("Missing the required parameter 'producer' when calling getFlowMetrics(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getFlowMetricsCall(producer, includedRegistries, sampleName, sampleLabelValue, rootFieldName, progressListener, progressRequestListener);
         return call;
@@ -2817,12 +2870,12 @@ public class FlowApi {
 
     /**
      * Gets all metrics for the flow from a particular node
-     * 
-     * @param producer The producer for flow file metrics. Each producer may have its own output format. (required)
+     *
+     * @param producer           The producer for flow file metrics. Each producer may have its own output format. (required)
      * @param includedRegistries Set of included metrics registries (optional)
-     * @param sampleName Regular Expression Pattern to be applied against the sample name field (optional)
-     * @param sampleLabelValue Regular Expression Pattern to be applied against the sample label value field (optional)
-     * @param rootFieldName Name of the first field of JSON object. Applicable for JSON producer only. (optional)
+     * @param sampleName         Regular Expression Pattern to be applied against the sample name field (optional)
+     * @param sampleLabelValue   Regular Expression Pattern to be applied against the sample label value field (optional)
+     * @param rootFieldName      Name of the first field of JSON object. Applicable for JSON producer only. (optional)
      * @return StreamingOutput
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2833,30 +2886,31 @@ public class FlowApi {
 
     /**
      * Gets all metrics for the flow from a particular node
-     * 
-     * @param producer The producer for flow file metrics. Each producer may have its own output format. (required)
+     *
+     * @param producer           The producer for flow file metrics. Each producer may have its own output format. (required)
      * @param includedRegistries Set of included metrics registries (optional)
-     * @param sampleName Regular Expression Pattern to be applied against the sample name field (optional)
-     * @param sampleLabelValue Regular Expression Pattern to be applied against the sample label value field (optional)
-     * @param rootFieldName Name of the first field of JSON object. Applicable for JSON producer only. (optional)
+     * @param sampleName         Regular Expression Pattern to be applied against the sample name field (optional)
+     * @param sampleLabelValue   Regular Expression Pattern to be applied against the sample label value field (optional)
+     * @param rootFieldName      Name of the first field of JSON object. Applicable for JSON producer only. (optional)
      * @return ApiResponse&lt;StreamingOutput&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<StreamingOutput> getFlowMetricsWithHttpInfo(String producer, List<String> includedRegistries, String sampleName, String sampleLabelValue, String rootFieldName) throws ApiException {
         com.squareup.okhttp.Call call = getFlowMetricsValidateBeforeCall(producer, includedRegistries, sampleName, sampleLabelValue, rootFieldName, null, null);
-        Type localVarReturnType = new TypeToken<StreamingOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamingOutput>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all metrics for the flow from a particular node (asynchronously)
-     * 
-     * @param producer The producer for flow file metrics. Each producer may have its own output format. (required)
+     *
+     * @param producer           The producer for flow file metrics. Each producer may have its own output format. (required)
      * @param includedRegistries Set of included metrics registries (optional)
-     * @param sampleName Regular Expression Pattern to be applied against the sample name field (optional)
-     * @param sampleLabelValue Regular Expression Pattern to be applied against the sample label value field (optional)
-     * @param rootFieldName Name of the first field of JSON object. Applicable for JSON producer only. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param sampleName         Regular Expression Pattern to be applied against the sample name field (optional)
+     * @param sampleLabelValue   Regular Expression Pattern to be applied against the sample label value field (optional)
+     * @param rootFieldName      Name of the first field of JSON object. Applicable for JSON producer only. (optional)
+     * @param callback           The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -2882,15 +2936,18 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getFlowMetricsValidateBeforeCall(producer, includedRegistries, sampleName, sampleLabelValue, rootFieldName, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StreamingOutput>(){}.getType();
+        Type localVarReturnType = new TypeToken<StreamingOutput>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getFlows
-     * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param registryId              The registry client id. (required)
+     * @param bucketId                The bucket id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2900,8 +2957,8 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/registries/{registry-id}/buckets/{bucket-id}/flows"
-            .replaceAll("\\{" + "registry-id" + "\\}", apiClient.escapeString(registryId.toString()))
-            .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()));
+                .replaceAll("\\{" + "registry-id" + "\\}", apiClient.escapeString(registryId.toString()))
+                .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2911,46 +2968,46 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getFlowsValidateBeforeCall(String registryId, String bucketId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'registryId' is set
         if (registryId == null) {
             throw new ApiException("Missing the required parameter 'registryId' when calling getFlows(Async)");
         }
-        
+
         // verify the required parameter 'bucketId' is set
         if (bucketId == null) {
             throw new ApiException("Missing the required parameter 'bucketId' when calling getFlows(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getFlowsCall(registryId, bucketId, progressListener, progressRequestListener);
         return call;
@@ -2959,9 +3016,9 @@ public class FlowApi {
 
     /**
      * Gets the flows from the specified registry and bucket for the current user
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
+     * @param bucketId   The bucket id. (required)
      * @return VersionedFlowsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -2972,24 +3029,25 @@ public class FlowApi {
 
     /**
      * Gets the flows from the specified registry and bucket for the current user
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
+     * @param bucketId   The bucket id. (required)
      * @return ApiResponse&lt;VersionedFlowsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowsEntity> getFlowsWithHttpInfo(String registryId, String bucketId) throws ApiException {
         com.squareup.okhttp.Call call = getFlowsValidateBeforeCall(registryId, bucketId, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the flows from the specified registry and bucket for the current user (asynchronously)
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param bucketId   The bucket id. (required)
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -3015,16 +3073,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getFlowsValidateBeforeCall(registryId, bucketId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getInputPortStatus
-     * @param id The input port id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
-     * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The input port id. (required)
+     * @param nodewise                Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     * @param clusterNodeId           The id of the node where to get the status. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3034,55 +3095,55 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/input-ports/{id}/status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (nodewise != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
+            localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getInputPortStatusValidateBeforeCall(String id, Boolean nodewise, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getInputPortStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getInputPortStatusCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -3091,9 +3152,9 @@ public class FlowApi {
 
     /**
      * Gets status for an input port
-     * 
-     * @param id The input port id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The input port id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return PortStatusEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3105,26 +3166,27 @@ public class FlowApi {
 
     /**
      * Gets status for an input port
-     * 
-     * @param id The input port id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The input port id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ApiResponse&lt;PortStatusEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PortStatusEntity> getInputPortStatusWithHttpInfo(String id, Boolean nodewise, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getInputPortStatusValidateBeforeCall(id, nodewise, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<PortStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortStatusEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets status for an input port (asynchronously)
-     * 
-     * @param id The input port id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The input port id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -3150,16 +3212,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getInputPortStatusValidateBeforeCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PortStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortStatusEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getOutputPortStatus
-     * @param id The output port id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
-     * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The output port id. (required)
+     * @param nodewise                Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     * @param clusterNodeId           The id of the node where to get the status. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3169,55 +3234,55 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/output-ports/{id}/status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (nodewise != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
+            localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getOutputPortStatusValidateBeforeCall(String id, Boolean nodewise, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getOutputPortStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getOutputPortStatusCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -3226,9 +3291,9 @@ public class FlowApi {
 
     /**
      * Gets status for an output port
-     * 
-     * @param id The output port id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The output port id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return PortStatusEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3240,26 +3305,27 @@ public class FlowApi {
 
     /**
      * Gets status for an output port
-     * 
-     * @param id The output port id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The output port id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ApiResponse&lt;PortStatusEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PortStatusEntity> getOutputPortStatusWithHttpInfo(String id, Boolean nodewise, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getOutputPortStatusValidateBeforeCall(id, nodewise, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<PortStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortStatusEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets status for an output port (asynchronously)
-     * 
-     * @param id The output port id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The output port id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -3285,13 +3351,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getOutputPortStatusValidateBeforeCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PortStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PortStatusEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getParameterContexts
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3310,36 +3379,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParameterContextsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getParameterContextsCall(progressListener, progressRequestListener);
         return call;
@@ -3348,7 +3417,7 @@ public class FlowApi {
 
     /**
      * Gets all Parameter Contexts
-     * 
+     *
      * @return ParameterContextsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3359,19 +3428,20 @@ public class FlowApi {
 
     /**
      * Gets all Parameter Contexts
-     * 
+     *
      * @return ApiResponse&lt;ParameterContextsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextsEntity> getParameterContextsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getParameterContextsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all Parameter Contexts (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3398,16 +3468,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getParameterContextsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getParameterProviderTypes
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
-     * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param bundleGroupFilter       If specified, will only return types that are a member of this bundle group. (optional)
+     * @param bundleArtifactFilter    If specified, will only return types that are a member of this bundle artifact. (optional)
+     * @param type                    If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3421,47 +3494,47 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (bundleGroupFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("bundleGroupFilter", bundleGroupFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("bundleGroupFilter", bundleGroupFilter));
         if (bundleArtifactFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("bundleArtifactFilter", bundleArtifactFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("bundleArtifactFilter", bundleArtifactFilter));
         if (type != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
+            localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParameterProviderTypesValidateBeforeCall(String bundleGroupFilter, String bundleArtifactFilter, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getParameterProviderTypesCall(bundleGroupFilter, bundleArtifactFilter, type, progressListener, progressRequestListener);
         return call;
@@ -3471,9 +3544,10 @@ public class FlowApi {
     /**
      * Retrieves the types of parameter providers that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
      * @return ParameterProviderTypesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3485,25 +3559,28 @@ public class FlowApi {
     /**
      * Retrieves the types of parameter providers that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
      * @return ApiResponse&lt;ParameterProviderTypesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProviderTypesEntity> getParameterProviderTypesWithHttpInfo(String bundleGroupFilter, String bundleArtifactFilter, String type) throws ApiException {
         com.squareup.okhttp.Call call = getParameterProviderTypesValidateBeforeCall(bundleGroupFilter, bundleArtifactFilter, type, null, null);
-        Type localVarReturnType = new TypeToken<ParameterProviderTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderTypesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the types of parameter providers that this NiFi supports (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param callback             The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -3529,13 +3606,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getParameterProviderTypesValidateBeforeCall(bundleGroupFilter, bundleArtifactFilter, type, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProviderTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProviderTypesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getParameterProviders
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3554,36 +3634,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParameterProvidersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getParameterProvidersCall(progressListener, progressRequestListener);
         return call;
@@ -3592,7 +3672,7 @@ public class FlowApi {
 
     /**
      * Gets all parameter providers
-     * 
+     *
      * @return ParameterProvidersEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3603,19 +3683,20 @@ public class FlowApi {
 
     /**
      * Gets all parameter providers
-     * 
+     *
      * @return ApiResponse&lt;ParameterProvidersEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterProvidersEntity> getParameterProvidersWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getParameterProvidersValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ParameterProvidersEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProvidersEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all parameter providers (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3642,13 +3723,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getParameterProvidersValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterProvidersEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterProvidersEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getPrioritizers
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3667,36 +3751,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getPrioritizersValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getPrioritizersCall(progressListener, progressRequestListener);
         return call;
@@ -3706,6 +3790,7 @@ public class FlowApi {
     /**
      * Retrieves the types of prioritizers that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return PrioritizerTypesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -3717,18 +3802,21 @@ public class FlowApi {
     /**
      * Retrieves the types of prioritizers that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;PrioritizerTypesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<PrioritizerTypesEntity> getPrioritizersWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getPrioritizersValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<PrioritizerTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PrioritizerTypesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the types of prioritizers that this NiFi supports (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3755,17 +3843,20 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getPrioritizersValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<PrioritizerTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<PrioritizerTypesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProcessGroupStatus
-     * @param id The process group id. (required)
-     * @param recursive Whether all descendant groups and the status of their content will be included. Optional, defaults to false (optional, default to false)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
-     * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param recursive               Whether all descendant groups and the status of their content will be included. Optional, defaults to false (optional, default to false)
+     * @param nodewise                Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     * @param clusterNodeId           The id of the node where to get the status. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3775,57 +3866,57 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/process-groups/{id}/status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (recursive != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("recursive", recursive));
+            localVarQueryParams.addAll(apiClient.parameterToPair("recursive", recursive));
         if (nodewise != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
+            localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProcessGroupStatusValidateBeforeCall(String id, Boolean recursive, Boolean nodewise, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProcessGroupStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getProcessGroupStatusCall(id, recursive, nodewise, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -3835,9 +3926,10 @@ public class FlowApi {
     /**
      * Gets the status for a process group
      * The status for a process group includes status for all descendent components. When invoked on the root group with recursive set to true, it will return the current status of every component in the flow.
-     * @param id The process group id. (required)
-     * @param recursive Whether all descendant groups and the status of their content will be included. Optional, defaults to false (optional, default to false)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The process group id. (required)
+     * @param recursive     Whether all descendant groups and the status of their content will be included. Optional, defaults to false (optional, default to false)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ProcessGroupStatusEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3850,27 +3942,30 @@ public class FlowApi {
     /**
      * Gets the status for a process group
      * The status for a process group includes status for all descendent components. When invoked on the root group with recursive set to true, it will return the current status of every component in the flow.
-     * @param id The process group id. (required)
-     * @param recursive Whether all descendant groups and the status of their content will be included. Optional, defaults to false (optional, default to false)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The process group id. (required)
+     * @param recursive     Whether all descendant groups and the status of their content will be included. Optional, defaults to false (optional, default to false)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ApiResponse&lt;ProcessGroupStatusEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessGroupStatusEntity> getProcessGroupStatusWithHttpInfo(String id, Boolean recursive, Boolean nodewise, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getProcessGroupStatusValidateBeforeCall(id, recursive, nodewise, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<ProcessGroupStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupStatusEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the status for a process group (asynchronously)
      * The status for a process group includes status for all descendent components. When invoked on the root group with recursive set to true, it will return the current status of every component in the flow.
-     * @param id The process group id. (required)
-     * @param recursive Whether all descendant groups and the status of their content will be included. Optional, defaults to false (optional, default to false)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The process group id. (required)
+     * @param recursive     Whether all descendant groups and the status of their content will be included. Optional, defaults to false (optional, default to false)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -3896,14 +3991,17 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getProcessGroupStatusValidateBeforeCall(id, recursive, nodewise, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessGroupStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessGroupStatusEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProcessGroupStatusHistory
-     * @param id The process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3913,7 +4011,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/process-groups/{id}/status/history"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3923,41 +4021,41 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProcessGroupStatusHistoryValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProcessGroupStatusHistory(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getProcessGroupStatusHistoryCall(id, progressListener, progressRequestListener);
         return call;
@@ -3966,7 +4064,7 @@ public class FlowApi {
 
     /**
      * Gets status history for a remote process group
-     * 
+     *
      * @param id The process group id. (required)
      * @return StatusHistoryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3978,21 +4076,22 @@ public class FlowApi {
 
     /**
      * Gets status history for a remote process group
-     * 
+     *
      * @param id The process group id. (required)
      * @return ApiResponse&lt;StatusHistoryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<StatusHistoryEntity> getProcessGroupStatusHistoryWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getProcessGroupStatusHistoryValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<StatusHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusHistoryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets status history for a remote process group (asynchronously)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id       The process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4019,16 +4118,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getProcessGroupStatusHistoryValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StatusHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusHistoryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProcessorStatus
-     * @param id The processor id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
-     * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The processor id. (required)
+     * @param nodewise                Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     * @param clusterNodeId           The id of the node where to get the status. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4038,55 +4140,55 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/processors/{id}/status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (nodewise != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
+            localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProcessorStatusValidateBeforeCall(String id, Boolean nodewise, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProcessorStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getProcessorStatusCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -4095,9 +4197,9 @@ public class FlowApi {
 
     /**
      * Gets status for a processor
-     * 
-     * @param id The processor id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The processor id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ProcessorStatusEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4109,26 +4211,27 @@ public class FlowApi {
 
     /**
      * Gets status for a processor
-     * 
-     * @param id The processor id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The processor id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ApiResponse&lt;ProcessorStatusEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessorStatusEntity> getProcessorStatusWithHttpInfo(String id, Boolean nodewise, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getProcessorStatusValidateBeforeCall(id, nodewise, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<ProcessorStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorStatusEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets status for a processor (asynchronously)
-     * 
-     * @param id The processor id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The processor id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -4154,14 +4257,17 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getProcessorStatusValidateBeforeCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessorStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorStatusEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProcessorStatusHistory
-     * @param id The processor id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The processor id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4171,7 +4277,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/processors/{id}/status/history"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4181,41 +4287,41 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProcessorStatusHistoryValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getProcessorStatusHistory(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getProcessorStatusHistoryCall(id, progressListener, progressRequestListener);
         return call;
@@ -4224,7 +4330,7 @@ public class FlowApi {
 
     /**
      * Gets status history for a processor
-     * 
+     *
      * @param id The processor id. (required)
      * @return StatusHistoryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4236,21 +4342,22 @@ public class FlowApi {
 
     /**
      * Gets status history for a processor
-     * 
+     *
      * @param id The processor id. (required)
      * @return ApiResponse&lt;StatusHistoryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<StatusHistoryEntity> getProcessorStatusHistoryWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getProcessorStatusHistoryValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<StatusHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusHistoryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets status history for a processor (asynchronously)
-     * 
-     * @param id The processor id. (required)
+     *
+     * @param id       The processor id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4277,16 +4384,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getProcessorStatusHistoryValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StatusHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusHistoryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getProcessorTypes
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
-     * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param bundleGroupFilter       If specified, will only return types that are a member of this bundle group. (optional)
+     * @param bundleArtifactFilter    If specified, will only return types that are a member of this bundle artifact. (optional)
+     * @param type                    If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4300,47 +4410,47 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (bundleGroupFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("bundleGroupFilter", bundleGroupFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("bundleGroupFilter", bundleGroupFilter));
         if (bundleArtifactFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("bundleArtifactFilter", bundleArtifactFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("bundleArtifactFilter", bundleArtifactFilter));
         if (type != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
+            localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getProcessorTypesValidateBeforeCall(String bundleGroupFilter, String bundleArtifactFilter, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getProcessorTypesCall(bundleGroupFilter, bundleArtifactFilter, type, progressListener, progressRequestListener);
         return call;
@@ -4350,9 +4460,10 @@ public class FlowApi {
     /**
      * Retrieves the types of processors that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
      * @return ProcessorTypesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4364,25 +4475,28 @@ public class FlowApi {
     /**
      * Retrieves the types of processors that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
      * @return ApiResponse&lt;ProcessorTypesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ProcessorTypesEntity> getProcessorTypesWithHttpInfo(String bundleGroupFilter, String bundleArtifactFilter, String type) throws ApiException {
         com.squareup.okhttp.Call call = getProcessorTypesValidateBeforeCall(bundleGroupFilter, bundleArtifactFilter, type, null, null);
-        Type localVarReturnType = new TypeToken<ProcessorTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorTypesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the types of processors that this NiFi supports (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param callback             The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -4408,13 +4522,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getProcessorTypesValidateBeforeCall(bundleGroupFilter, bundleArtifactFilter, type, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ProcessorTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ProcessorTypesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getRegistryClients
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4433,36 +4550,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRegistryClientsValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getRegistryClientsCall(progressListener, progressRequestListener);
         return call;
@@ -4471,7 +4588,7 @@ public class FlowApi {
 
     /**
      * Gets the listing of available flow registry clients
-     * 
+     *
      * @return FlowRegistryClientsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4482,19 +4599,20 @@ public class FlowApi {
 
     /**
      * Gets the listing of available flow registry clients
-     * 
+     *
      * @return ApiResponse&lt;FlowRegistryClientsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<FlowRegistryClientsEntity> getRegistryClientsWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getRegistryClientsValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the listing of available flow registry clients (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4521,16 +4639,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getRegistryClientsValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<FlowRegistryClientsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<FlowRegistryClientsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getRemoteProcessGroupStatus
-     * @param id The remote process group id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
-     * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param nodewise                Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     * @param clusterNodeId           The id of the node where to get the status. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4540,55 +4661,55 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/remote-process-groups/{id}/status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (nodewise != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
+            localVarQueryParams.addAll(apiClient.parameterToPair("nodewise", nodewise));
         if (clusterNodeId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clusterNodeId", clusterNodeId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRemoteProcessGroupStatusValidateBeforeCall(String id, Boolean nodewise, String clusterNodeId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getRemoteProcessGroupStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getRemoteProcessGroupStatusCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
         return call;
@@ -4597,9 +4718,9 @@ public class FlowApi {
 
     /**
      * Gets status for a remote process group
-     * 
-     * @param id The remote process group id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The remote process group id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return RemoteProcessGroupStatusEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4611,26 +4732,27 @@ public class FlowApi {
 
     /**
      * Gets status for a remote process group
-     * 
-     * @param id The remote process group id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The remote process group id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
      * @return ApiResponse&lt;RemoteProcessGroupStatusEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupStatusEntity> getRemoteProcessGroupStatusWithHttpInfo(String id, Boolean nodewise, String clusterNodeId) throws ApiException {
         com.squareup.okhttp.Call call = getRemoteProcessGroupStatusValidateBeforeCall(id, nodewise, clusterNodeId, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupStatusEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets status for a remote process group (asynchronously)
-     * 
-     * @param id The remote process group id. (required)
-     * @param nodewise Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
+     *
+     * @param id            The remote process group id. (required)
+     * @param nodewise      Whether or not to include the breakdown per node. Optional, defaults to false (optional, default to false)
      * @param clusterNodeId The id of the node where to get the status. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback      The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -4656,14 +4778,17 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getRemoteProcessGroupStatusValidateBeforeCall(id, nodewise, clusterNodeId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupStatusEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupStatusEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getRemoteProcessGroupStatusHistory
-     * @param id The remote process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4673,7 +4798,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/remote-process-groups/{id}/status/history"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4683,41 +4808,41 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRemoteProcessGroupStatusHistoryValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getRemoteProcessGroupStatusHistory(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getRemoteProcessGroupStatusHistoryCall(id, progressListener, progressRequestListener);
         return call;
@@ -4726,7 +4851,7 @@ public class FlowApi {
 
     /**
      * Gets the status history
-     * 
+     *
      * @param id The remote process group id. (required)
      * @return StatusHistoryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4738,21 +4863,22 @@ public class FlowApi {
 
     /**
      * Gets the status history
-     * 
+     *
      * @param id The remote process group id. (required)
      * @return ApiResponse&lt;StatusHistoryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<StatusHistoryEntity> getRemoteProcessGroupStatusHistoryWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getRemoteProcessGroupStatusHistoryValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<StatusHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusHistoryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the status history (asynchronously)
-     * 
-     * @param id The remote process group id. (required)
+     *
+     * @param id       The remote process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4779,16 +4905,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getRemoteProcessGroupStatusHistoryValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<StatusHistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<StatusHistoryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getReportingTaskTypes
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
-     * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param bundleGroupFilter       If specified, will only return types that are a member of this bundle group. (optional)
+     * @param bundleArtifactFilter    If specified, will only return types that are a member of this bundle artifact. (optional)
+     * @param type                    If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4802,47 +4931,47 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (bundleGroupFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("bundleGroupFilter", bundleGroupFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("bundleGroupFilter", bundleGroupFilter));
         if (bundleArtifactFilter != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("bundleArtifactFilter", bundleArtifactFilter));
+            localVarQueryParams.addAll(apiClient.parameterToPair("bundleArtifactFilter", bundleArtifactFilter));
         if (type != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
+            localVarQueryParams.addAll(apiClient.parameterToPair("type", type));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getReportingTaskTypesValidateBeforeCall(String bundleGroupFilter, String bundleArtifactFilter, String type, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getReportingTaskTypesCall(bundleGroupFilter, bundleArtifactFilter, type, progressListener, progressRequestListener);
         return call;
@@ -4852,9 +4981,10 @@ public class FlowApi {
     /**
      * Retrieves the types of reporting tasks that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
      * @return ReportingTaskTypesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4866,25 +4996,28 @@ public class FlowApi {
     /**
      * Retrieves the types of reporting tasks that this NiFi supports
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
      * @return ApiResponse&lt;ReportingTaskTypesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ReportingTaskTypesEntity> getReportingTaskTypesWithHttpInfo(String bundleGroupFilter, String bundleArtifactFilter, String type) throws ApiException {
         com.squareup.okhttp.Call call = getReportingTaskTypesValidateBeforeCall(bundleGroupFilter, bundleArtifactFilter, type, null, null);
-        Type localVarReturnType = new TypeToken<ReportingTaskTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ReportingTaskTypesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the types of reporting tasks that this NiFi supports (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param bundleGroupFilter If specified, will only return types that are a member of this bundle group. (optional)
+     *
+     * @param bundleGroupFilter    If specified, will only return types that are a member of this bundle group. (optional)
      * @param bundleArtifactFilter If specified, will only return types that are a member of this bundle artifact. (optional)
-     * @param type If specified, will only return types whose fully qualified classname matches. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param type                 If specified, will only return types whose fully qualified classname matches. (optional)
+     * @param callback             The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -4910,13 +5043,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getReportingTaskTypesValidateBeforeCall(bundleGroupFilter, bundleArtifactFilter, type, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ReportingTaskTypesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ReportingTaskTypesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getReportingTasks
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4935,36 +5071,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getReportingTasksValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getReportingTasksCall(progressListener, progressRequestListener);
         return call;
@@ -4973,7 +5109,7 @@ public class FlowApi {
 
     /**
      * Gets all reporting tasks
-     * 
+     *
      * @return ReportingTasksEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -4984,19 +5120,20 @@ public class FlowApi {
 
     /**
      * Gets all reporting tasks
-     * 
+     *
      * @return ApiResponse&lt;ReportingTasksEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ReportingTasksEntity> getReportingTasksWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getReportingTasksValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<ReportingTasksEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ReportingTasksEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all reporting tasks (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5023,13 +5160,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getReportingTasksValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ReportingTasksEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ReportingTasksEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getRuntimeManifest
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5048,36 +5188,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRuntimeManifestValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getRuntimeManifestCall(progressListener, progressRequestListener);
         return call;
@@ -5087,6 +5227,7 @@ public class FlowApi {
     /**
      * Retrieves the runtime manifest for this NiFi instance.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return RuntimeManifestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5098,18 +5239,21 @@ public class FlowApi {
     /**
      * Retrieves the runtime manifest for this NiFi instance.
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @return ApiResponse&lt;RuntimeManifestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RuntimeManifestEntity> getRuntimeManifestWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getRuntimeManifestValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<RuntimeManifestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RuntimeManifestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Retrieves the runtime manifest for this NiFi instance. (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5136,13 +5280,16 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getRuntimeManifestValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RuntimeManifestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RuntimeManifestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getTemplates
-     * @param progressListener Progress listener
+     *
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5161,36 +5308,36 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getTemplatesValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = getTemplatesCall(progressListener, progressRequestListener);
         return call;
@@ -5199,7 +5346,7 @@ public class FlowApi {
 
     /**
      * Gets all templates
-     * 
+     *
      * @return TemplatesEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5210,19 +5357,20 @@ public class FlowApi {
 
     /**
      * Gets all templates
-     * 
+     *
      * @return ApiResponse&lt;TemplatesEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<TemplatesEntity> getTemplatesWithHttpInfo() throws ApiException {
         com.squareup.okhttp.Call call = getTemplatesValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<TemplatesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TemplatesEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets all templates (asynchronously)
-     * 
+     *
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5249,16 +5397,19 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getTemplatesValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<TemplatesEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<TemplatesEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getVersions
-     * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param flowId The flow id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param registryId              The registry client id. (required)
+     * @param bucketId                The bucket id. (required)
+     * @param flowId                  The flow id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5268,9 +5419,9 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/registries/{registry-id}/buckets/{bucket-id}/flows/{flow-id}/versions"
-            .replaceAll("\\{" + "registry-id" + "\\}", apiClient.escapeString(registryId.toString()))
-            .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
-            .replaceAll("\\{" + "flow-id" + "\\}", apiClient.escapeString(flowId.toString()));
+                .replaceAll("\\{" + "registry-id" + "\\}", apiClient.escapeString(registryId.toString()))
+                .replaceAll("\\{" + "bucket-id" + "\\}", apiClient.escapeString(bucketId.toString()))
+                .replaceAll("\\{" + "flow-id" + "\\}", apiClient.escapeString(flowId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5280,51 +5431,51 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getVersionsValidateBeforeCall(String registryId, String bucketId, String flowId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'registryId' is set
         if (registryId == null) {
             throw new ApiException("Missing the required parameter 'registryId' when calling getVersions(Async)");
         }
-        
+
         // verify the required parameter 'bucketId' is set
         if (bucketId == null) {
             throw new ApiException("Missing the required parameter 'bucketId' when calling getVersions(Async)");
         }
-        
+
         // verify the required parameter 'flowId' is set
         if (flowId == null) {
             throw new ApiException("Missing the required parameter 'flowId' when calling getVersions(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getVersionsCall(registryId, bucketId, flowId, progressListener, progressRequestListener);
         return call;
@@ -5333,10 +5484,10 @@ public class FlowApi {
 
     /**
      * Gets the flow versions from the specified registry and bucket for the specified flow for the current user
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param flowId The flow id. (required)
+     * @param bucketId   The bucket id. (required)
+     * @param flowId     The flow id. (required)
      * @return VersionedFlowSnapshotMetadataSetEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5347,26 +5498,27 @@ public class FlowApi {
 
     /**
      * Gets the flow versions from the specified registry and bucket for the specified flow for the current user
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param flowId The flow id. (required)
+     * @param bucketId   The bucket id. (required)
+     * @param flowId     The flow id. (required)
      * @return ApiResponse&lt;VersionedFlowSnapshotMetadataSetEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<VersionedFlowSnapshotMetadataSetEntity> getVersionsWithHttpInfo(String registryId, String bucketId, String flowId) throws ApiException {
         com.squareup.okhttp.Call call = getVersionsValidateBeforeCall(registryId, bucketId, flowId, null, null);
-        Type localVarReturnType = new TypeToken<VersionedFlowSnapshotMetadataSetEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowSnapshotMetadataSetEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the flow versions from the specified registry and bucket for the specified flow for the current user (asynchronously)
-     * 
+     *
      * @param registryId The registry client id. (required)
-     * @param bucketId The bucket id. (required)
-     * @param flowId The flow id. (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param bucketId   The bucket id. (required)
+     * @param flowId     The flow id. (required)
+     * @param callback   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -5392,21 +5544,24 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = getVersionsValidateBeforeCall(registryId, bucketId, flowId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<VersionedFlowSnapshotMetadataSetEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<VersionedFlowSnapshotMetadataSetEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for queryHistory
-     * @param offset The offset into the result set. (required)
-     * @param count The number of actions to return. (required)
-     * @param sortColumn The field to sort on. (optional)
-     * @param sortOrder The direction to sort. (optional)
-     * @param startDate Include actions after this date. (optional)
-     * @param endDate Include actions before this date. (optional)
-     * @param userIdentity Include actions performed by this user. (optional)
-     * @param sourceId Include actions on this component. (optional)
-     * @param progressListener Progress listener
+     *
+     * @param offset                  The offset into the result set. (required)
+     * @param count                   The number of actions to return. (required)
+     * @param sortColumn              The field to sort on. (optional)
+     * @param sortOrder               The direction to sort. (optional)
+     * @param startDate               Include actions after this date. (optional)
+     * @param endDate                 Include actions before this date. (optional)
+     * @param userIdentity            Include actions performed by this user. (optional)
+     * @param sourceId                Include actions on this component. (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5420,67 +5575,67 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (offset != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
+            localVarQueryParams.addAll(apiClient.parameterToPair("offset", offset));
         if (count != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
+            localVarQueryParams.addAll(apiClient.parameterToPair("count", count));
         if (sortColumn != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sortColumn", sortColumn));
+            localVarQueryParams.addAll(apiClient.parameterToPair("sortColumn", sortColumn));
         if (sortOrder != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
+            localVarQueryParams.addAll(apiClient.parameterToPair("sortOrder", sortOrder));
         if (startDate != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
+            localVarQueryParams.addAll(apiClient.parameterToPair("startDate", startDate));
         if (endDate != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
+            localVarQueryParams.addAll(apiClient.parameterToPair("endDate", endDate));
         if (userIdentity != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("userIdentity", userIdentity));
+            localVarQueryParams.addAll(apiClient.parameterToPair("userIdentity", userIdentity));
         if (sourceId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("sourceId", sourceId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("sourceId", sourceId));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call queryHistoryValidateBeforeCall(String offset, String count, String sortColumn, String sortOrder, String startDate, String endDate, String userIdentity, String sourceId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'offset' is set
         if (offset == null) {
             throw new ApiException("Missing the required parameter 'offset' when calling queryHistory(Async)");
         }
-        
+
         // verify the required parameter 'count' is set
         if (count == null) {
             throw new ApiException("Missing the required parameter 'count' when calling queryHistory(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = queryHistoryCall(offset, count, sortColumn, sortOrder, startDate, endDate, userIdentity, sourceId, progressListener, progressRequestListener);
         return call;
@@ -5490,14 +5645,15 @@ public class FlowApi {
     /**
      * Gets configuration history
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param offset The offset into the result set. (required)
-     * @param count The number of actions to return. (required)
-     * @param sortColumn The field to sort on. (optional)
-     * @param sortOrder The direction to sort. (optional)
-     * @param startDate Include actions after this date. (optional)
-     * @param endDate Include actions before this date. (optional)
+     *
+     * @param offset       The offset into the result set. (required)
+     * @param count        The number of actions to return. (required)
+     * @param sortColumn   The field to sort on. (optional)
+     * @param sortOrder    The direction to sort. (optional)
+     * @param startDate    Include actions after this date. (optional)
+     * @param endDate      Include actions before this date. (optional)
      * @param userIdentity Include actions performed by this user. (optional)
-     * @param sourceId Include actions on this component. (optional)
+     * @param sourceId     Include actions on this component. (optional)
      * @return HistoryEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5509,35 +5665,38 @@ public class FlowApi {
     /**
      * Gets configuration history
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param offset The offset into the result set. (required)
-     * @param count The number of actions to return. (required)
-     * @param sortColumn The field to sort on. (optional)
-     * @param sortOrder The direction to sort. (optional)
-     * @param startDate Include actions after this date. (optional)
-     * @param endDate Include actions before this date. (optional)
+     *
+     * @param offset       The offset into the result set. (required)
+     * @param count        The number of actions to return. (required)
+     * @param sortColumn   The field to sort on. (optional)
+     * @param sortOrder    The direction to sort. (optional)
+     * @param startDate    Include actions after this date. (optional)
+     * @param endDate      Include actions before this date. (optional)
      * @param userIdentity Include actions performed by this user. (optional)
-     * @param sourceId Include actions on this component. (optional)
+     * @param sourceId     Include actions on this component. (optional)
      * @return ApiResponse&lt;HistoryEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<HistoryEntity> queryHistoryWithHttpInfo(String offset, String count, String sortColumn, String sortOrder, String startDate, String endDate, String userIdentity, String sourceId) throws ApiException {
         com.squareup.okhttp.Call call = queryHistoryValidateBeforeCall(offset, count, sortColumn, sortOrder, startDate, endDate, userIdentity, sourceId, null, null);
-        Type localVarReturnType = new TypeToken<HistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<HistoryEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets configuration history (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param offset The offset into the result set. (required)
-     * @param count The number of actions to return. (required)
-     * @param sortColumn The field to sort on. (optional)
-     * @param sortOrder The direction to sort. (optional)
-     * @param startDate Include actions after this date. (optional)
-     * @param endDate Include actions before this date. (optional)
+     *
+     * @param offset       The offset into the result set. (required)
+     * @param count        The number of actions to return. (required)
+     * @param sortColumn   The field to sort on. (optional)
+     * @param sortOrder    The direction to sort. (optional)
+     * @param startDate    Include actions after this date. (optional)
+     * @param endDate      Include actions before this date. (optional)
      * @param userIdentity Include actions performed by this user. (optional)
-     * @param sourceId Include actions on this component. (optional)
-     * @param callback The callback to be executed when the API call finishes
+     * @param sourceId     Include actions on this component. (optional)
+     * @param callback     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -5563,15 +5722,18 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = queryHistoryValidateBeforeCall(offset, count, sortColumn, sortOrder, startDate, endDate, userIdentity, sourceId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<HistoryEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<HistoryEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for scheduleComponents
-     * @param id The process group id. (required)
-     * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5581,7 +5743,7 @@ public class FlowApi {
 
         // create path and map variables
         String localVarPath = "/flow/process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5591,46 +5753,46 @@ public class FlowApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call scheduleComponentsValidateBeforeCall(String id, ScheduleComponentsEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling scheduleComponents(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling scheduleComponents(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = scheduleComponentsCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -5639,8 +5801,8 @@ public class FlowApi {
 
     /**
      * Schedule or unschedule components in the specified Process Group.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
      * @return ScheduleComponentsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5652,23 +5814,24 @@ public class FlowApi {
 
     /**
      * Schedule or unschedule components in the specified Process Group.
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
      * @return ApiResponse&lt;ScheduleComponentsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ScheduleComponentsEntity> scheduleComponentsWithHttpInfo(String id, ScheduleComponentsEntity body) throws ApiException {
         com.squareup.okhttp.Call call = scheduleComponentsValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ScheduleComponentsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ScheduleComponentsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Schedule or unschedule components in the specified Process Group. (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The request to schedule or unschedule. If the comopnents in the request are not specified, all authorized components will be considered. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5695,14 +5858,17 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = scheduleComponentsValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ScheduleComponentsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ScheduleComponentsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for searchCluster
-     * @param q Node address to search for. (required)
-     * @param progressListener Progress listener
+     *
+     * @param q                       Node address to search for. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5716,48 +5882,48 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (q != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+            localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call searchClusterValidateBeforeCall(String q, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'q' is set
         if (q == null) {
             throw new ApiException("Missing the required parameter 'q' when calling searchCluster(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = searchClusterCall(q, progressListener, progressRequestListener);
         return call;
@@ -5767,6 +5933,7 @@ public class FlowApi {
     /**
      * Searches the cluster for a node with the specified address
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param q Node address to search for. (required)
      * @return ClusterSearchResultsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5779,20 +5946,23 @@ public class FlowApi {
     /**
      * Searches the cluster for a node with the specified address
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
+     *
      * @param q Node address to search for. (required)
      * @return ApiResponse&lt;ClusterSearchResultsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ClusterSearchResultsEntity> searchClusterWithHttpInfo(String q) throws ApiException {
         com.squareup.okhttp.Call call = searchClusterValidateBeforeCall(q, null, null);
-        Type localVarReturnType = new TypeToken<ClusterSearchResultsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterSearchResultsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Searches the cluster for a node with the specified address (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param q Node address to search for. (required)
+     *
+     * @param q        Node address to search for. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5819,15 +5989,18 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = searchClusterValidateBeforeCall(q, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ClusterSearchResultsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ClusterSearchResultsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for searchFlow
-     * @param q  (optional)
-     * @param a  (optional)
-     * @param progressListener Progress listener
+     *
+     * @param q                       (optional)
+     * @param a                       (optional)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5841,45 +6014,45 @@ public class FlowApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (q != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
+            localVarQueryParams.addAll(apiClient.parameterToPair("q", q));
         if (a != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("a", a));
+            localVarQueryParams.addAll(apiClient.parameterToPair("a", a));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call searchFlowValidateBeforeCall(String q, String a, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
 
         com.squareup.okhttp.Call call = searchFlowCall(q, a, progressListener, progressRequestListener);
         return call;
@@ -5889,8 +6062,9 @@ public class FlowApi {
     /**
      * Performs a search against this NiFi using the specified search term
      * Only search results from authorized components will be returned.
-     * @param q  (optional)
-     * @param a  (optional)
+     *
+     * @param q (optional)
+     * @param a (optional)
      * @return SearchResultsEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -5902,22 +6076,25 @@ public class FlowApi {
     /**
      * Performs a search against this NiFi using the specified search term
      * Only search results from authorized components will be returned.
-     * @param q  (optional)
-     * @param a  (optional)
+     *
+     * @param q (optional)
+     * @param a (optional)
      * @return ApiResponse&lt;SearchResultsEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<SearchResultsEntity> searchFlowWithHttpInfo(String q, String a) throws ApiException {
         com.squareup.okhttp.Call call = searchFlowValidateBeforeCall(q, a, null, null);
-        Type localVarReturnType = new TypeToken<SearchResultsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<SearchResultsEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Performs a search against this NiFi using the specified search term (asynchronously)
      * Only search results from authorized components will be returned.
-     * @param q  (optional)
-     * @param a  (optional)
+     *
+     * @param q        (optional)
+     * @param a        (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5944,7 +6121,8 @@ public class FlowApi {
         }
 
         com.squareup.okhttp.Call call = searchFlowValidateBeforeCall(q, a, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SearchResultsEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<SearchResultsEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

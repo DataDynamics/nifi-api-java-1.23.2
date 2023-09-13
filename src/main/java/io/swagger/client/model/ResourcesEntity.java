@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ResourceDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ResourcesEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ResourcesEntity {
-  @SerializedName("resources")
-  private List<ResourceDTO> resources = null;
+    @SerializedName("resources")
+    private List<ResourceDTO> resources = null;
 
-  public ResourcesEntity resources(List<ResourceDTO> resources) {
-    this.resources = resources;
-    return this;
-  }
-
-  public ResourcesEntity addResourcesItem(ResourceDTO resourcesItem) {
-    if (this.resources == null) {
-      this.resources = new ArrayList<ResourceDTO>();
+    public ResourcesEntity resources(List<ResourceDTO> resources) {
+        this.resources = resources;
+        return this;
     }
-    this.resources.add(resourcesItem);
-    return this;
-  }
 
-   /**
-   * Get resources
-   * @return resources
-  **/
-  @ApiModelProperty(value = "")
-  public List<ResourceDTO> getResources() {
-    return resources;
-  }
-
-  public void setResources(List<ResourceDTO> resources) {
-    this.resources = resources;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ResourcesEntity addResourcesItem(ResourceDTO resourcesItem) {
+        if (this.resources == null) {
+            this.resources = new ArrayList<ResourceDTO>();
+        }
+        this.resources.add(resourcesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get resources
+     *
+     * @return resources
+     **/
+    @ApiModelProperty(value = "")
+    public List<ResourceDTO> getResources() {
+        return resources;
     }
-    ResourcesEntity resourcesEntity = (ResourcesEntity) o;
-    return Objects.equals(this.resources, resourcesEntity.resources);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(resources);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ResourcesEntity {\n");
-    
-    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setResources(List<ResourceDTO> resources) {
+        this.resources = resources;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ResourcesEntity resourcesEntity = (ResourcesEntity) o;
+        return Objects.equals(this.resources, resourcesEntity.resources);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(resources);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ResourcesEntity {\n");
+
+        sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

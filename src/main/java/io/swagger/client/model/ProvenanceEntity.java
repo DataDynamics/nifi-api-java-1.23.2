@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ProvenanceDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ProvenanceEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProvenanceEntity {
-  @SerializedName("provenance")
-  private ProvenanceDTO provenance = null;
+    @SerializedName("provenance")
+    private ProvenanceDTO provenance = null;
 
-  public ProvenanceEntity provenance(ProvenanceDTO provenance) {
-    this.provenance = provenance;
-    return this;
-  }
-
-   /**
-   * Get provenance
-   * @return provenance
-  **/
-  @ApiModelProperty(value = "")
-  public ProvenanceDTO getProvenance() {
-    return provenance;
-  }
-
-  public void setProvenance(ProvenanceDTO provenance) {
-    this.provenance = provenance;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ProvenanceEntity provenance(ProvenanceDTO provenance) {
+        this.provenance = provenance;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get provenance
+     *
+     * @return provenance
+     **/
+    @ApiModelProperty(value = "")
+    public ProvenanceDTO getProvenance() {
+        return provenance;
     }
-    ProvenanceEntity provenanceEntity = (ProvenanceEntity) o;
-    return Objects.equals(this.provenance, provenanceEntity.provenance);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(provenance);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProvenanceEntity {\n");
-    
-    sb.append("    provenance: ").append(toIndentedString(provenance)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setProvenance(ProvenanceDTO provenance) {
+        this.provenance = provenance;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProvenanceEntity provenanceEntity = (ProvenanceEntity) o;
+        return Objects.equals(this.provenance, provenanceEntity.provenance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(provenance);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProvenanceEntity {\n");
+
+        sb.append("    provenance: ").append(toIndentedString(provenance)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

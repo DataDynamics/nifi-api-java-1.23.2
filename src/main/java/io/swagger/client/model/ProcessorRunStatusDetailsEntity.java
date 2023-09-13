@@ -13,131 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.PermissionsDTO;
-import io.swagger.client.model.ProcessorRunStatusDetailsDTO;
-import io.swagger.client.model.RevisionDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ProcessorRunStatusDetailsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProcessorRunStatusDetailsEntity {
-  @SerializedName("revision")
-  private RevisionDTO revision = null;
+    @SerializedName("revision")
+    private RevisionDTO revision = null;
 
-  @SerializedName("permissions")
-  private PermissionsDTO permissions = null;
+    @SerializedName("permissions")
+    private PermissionsDTO permissions = null;
 
-  @SerializedName("runStatusDetails")
-  private ProcessorRunStatusDetailsDTO runStatusDetails = null;
+    @SerializedName("runStatusDetails")
+    private ProcessorRunStatusDetailsDTO runStatusDetails = null;
 
-  public ProcessorRunStatusDetailsEntity revision(RevisionDTO revision) {
-    this.revision = revision;
-    return this;
-  }
-
-   /**
-   * The revision for the Processor.
-   * @return revision
-  **/
-  @ApiModelProperty(value = "The revision for the Processor.")
-  public RevisionDTO getRevision() {
-    return revision;
-  }
-
-  public void setRevision(RevisionDTO revision) {
-    this.revision = revision;
-  }
-
-  public ProcessorRunStatusDetailsEntity permissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * The permissions for the Processor.
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "The permissions for the Processor.")
-  public PermissionsDTO getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-  }
-
-  public ProcessorRunStatusDetailsEntity runStatusDetails(ProcessorRunStatusDetailsDTO runStatusDetails) {
-    this.runStatusDetails = runStatusDetails;
-    return this;
-  }
-
-   /**
-   * The details of a Processor&#39;s run status
-   * @return runStatusDetails
-  **/
-  @ApiModelProperty(value = "The details of a Processor's run status")
-  public ProcessorRunStatusDetailsDTO getRunStatusDetails() {
-    return runStatusDetails;
-  }
-
-  public void setRunStatusDetails(ProcessorRunStatusDetailsDTO runStatusDetails) {
-    this.runStatusDetails = runStatusDetails;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ProcessorRunStatusDetailsEntity revision(RevisionDTO revision) {
+        this.revision = revision;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The revision for the Processor.
+     *
+     * @return revision
+     **/
+    @ApiModelProperty(value = "The revision for the Processor.")
+    public RevisionDTO getRevision() {
+        return revision;
     }
-    ProcessorRunStatusDetailsEntity processorRunStatusDetailsEntity = (ProcessorRunStatusDetailsEntity) o;
-    return Objects.equals(this.revision, processorRunStatusDetailsEntity.revision) &&
-        Objects.equals(this.permissions, processorRunStatusDetailsEntity.permissions) &&
-        Objects.equals(this.runStatusDetails, processorRunStatusDetailsEntity.runStatusDetails);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(revision, permissions, runStatusDetails);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessorRunStatusDetailsEntity {\n");
-    
-    sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    runStatusDetails: ").append(toIndentedString(runStatusDetails)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setRevision(RevisionDTO revision) {
+        this.revision = revision;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public ProcessorRunStatusDetailsEntity permissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * The permissions for the Processor.
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "The permissions for the Processor.")
+    public PermissionsDTO getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+    }
+
+    public ProcessorRunStatusDetailsEntity runStatusDetails(ProcessorRunStatusDetailsDTO runStatusDetails) {
+        this.runStatusDetails = runStatusDetails;
+        return this;
+    }
+
+    /**
+     * The details of a Processor&#39;s run status
+     *
+     * @return runStatusDetails
+     **/
+    @ApiModelProperty(value = "The details of a Processor's run status")
+    public ProcessorRunStatusDetailsDTO getRunStatusDetails() {
+        return runStatusDetails;
+    }
+
+    public void setRunStatusDetails(ProcessorRunStatusDetailsDTO runStatusDetails) {
+        this.runStatusDetails = runStatusDetails;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessorRunStatusDetailsEntity processorRunStatusDetailsEntity = (ProcessorRunStatusDetailsEntity) o;
+        return Objects.equals(this.revision, processorRunStatusDetailsEntity.revision) &&
+                Objects.equals(this.permissions, processorRunStatusDetailsEntity.permissions) &&
+                Objects.equals(this.runStatusDetails, processorRunStatusDetailsEntity.runStatusDetails);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(revision, permissions, runStatusDetails);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessorRunStatusDetailsEntity {\n");
+
+        sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    runStatusDetails: ").append(toIndentedString(runStatusDetails)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

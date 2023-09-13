@@ -13,124 +13,119 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.TenantEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * TenantsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class TenantsEntity {
-  @SerializedName("users")
-  private List<TenantEntity> users = null;
+    @SerializedName("users")
+    private List<TenantEntity> users = null;
 
-  @SerializedName("userGroups")
-  private List<TenantEntity> userGroups = null;
+    @SerializedName("userGroups")
+    private List<TenantEntity> userGroups = null;
 
-  public TenantsEntity users(List<TenantEntity> users) {
-    this.users = users;
-    return this;
-  }
-
-  public TenantsEntity addUsersItem(TenantEntity usersItem) {
-    if (this.users == null) {
-      this.users = new ArrayList<TenantEntity>();
+    public TenantsEntity users(List<TenantEntity> users) {
+        this.users = users;
+        return this;
     }
-    this.users.add(usersItem);
-    return this;
-  }
 
-   /**
-   * Get users
-   * @return users
-  **/
-  @ApiModelProperty(value = "")
-  public List<TenantEntity> getUsers() {
-    return users;
-  }
-
-  public void setUsers(List<TenantEntity> users) {
-    this.users = users;
-  }
-
-  public TenantsEntity userGroups(List<TenantEntity> userGroups) {
-    this.userGroups = userGroups;
-    return this;
-  }
-
-  public TenantsEntity addUserGroupsItem(TenantEntity userGroupsItem) {
-    if (this.userGroups == null) {
-      this.userGroups = new ArrayList<TenantEntity>();
+    public TenantsEntity addUsersItem(TenantEntity usersItem) {
+        if (this.users == null) {
+            this.users = new ArrayList<TenantEntity>();
+        }
+        this.users.add(usersItem);
+        return this;
     }
-    this.userGroups.add(userGroupsItem);
-    return this;
-  }
 
-   /**
-   * Get userGroups
-   * @return userGroups
-  **/
-  @ApiModelProperty(value = "")
-  public List<TenantEntity> getUserGroups() {
-    return userGroups;
-  }
-
-  public void setUserGroups(List<TenantEntity> userGroups) {
-    this.userGroups = userGroups;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Get users
+     *
+     * @return users
+     **/
+    @ApiModelProperty(value = "")
+    public List<TenantEntity> getUsers() {
+        return users;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setUsers(List<TenantEntity> users) {
+        this.users = users;
     }
-    TenantsEntity tenantsEntity = (TenantsEntity) o;
-    return Objects.equals(this.users, tenantsEntity.users) &&
-        Objects.equals(this.userGroups, tenantsEntity.userGroups);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(users, userGroups);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TenantsEntity {\n");
-    
-    sb.append("    users: ").append(toIndentedString(users)).append("\n");
-    sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public TenantsEntity userGroups(List<TenantEntity> userGroups) {
+        this.userGroups = userGroups;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public TenantsEntity addUserGroupsItem(TenantEntity userGroupsItem) {
+        if (this.userGroups == null) {
+            this.userGroups = new ArrayList<TenantEntity>();
+        }
+        this.userGroups.add(userGroupsItem);
+        return this;
+    }
+
+    /**
+     * Get userGroups
+     *
+     * @return userGroups
+     **/
+    @ApiModelProperty(value = "")
+    public List<TenantEntity> getUserGroups() {
+        return userGroups;
+    }
+
+    public void setUserGroups(List<TenantEntity> userGroups) {
+        this.userGroups = userGroups;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        TenantsEntity tenantsEntity = (TenantsEntity) o;
+        return Objects.equals(this.users, tenantsEntity.users) &&
+                Objects.equals(this.userGroups, tenantsEntity.userGroups);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(users, userGroups);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class TenantsEntity {\n");
+
+        sb.append("    users: ").append(toIndentedString(users)).append("\n");
+        sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

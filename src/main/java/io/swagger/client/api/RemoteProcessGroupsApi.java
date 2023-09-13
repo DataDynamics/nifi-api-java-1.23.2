@@ -13,25 +13,14 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.ComponentStateEntity;
 import io.swagger.client.model.RemotePortRunStatusEntity;
 import io.swagger.client.model.RemoteProcessGroupEntity;
 import io.swagger.client.model.RemoteProcessGroupPortEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,8 +48,9 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Build call for getRemoteProcessGroup
-     * @param id The remote process group id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -70,7 +60,7 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -80,41 +70,41 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getRemoteProcessGroupValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getRemoteProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getRemoteProcessGroupCall(id, progressListener, progressRequestListener);
         return call;
@@ -123,7 +113,7 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Gets a remote process group
-     * 
+     *
      * @param id The remote process group id. (required)
      * @return RemoteProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -135,21 +125,22 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Gets a remote process group
-     * 
+     *
      * @param id The remote process group id. (required)
      * @return ApiResponse&lt;RemoteProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupEntity> getRemoteProcessGroupWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getRemoteProcessGroupValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets a remote process group (asynchronously)
-     * 
-     * @param id The remote process group id. (required)
+     *
+     * @param id       The remote process group id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -176,14 +167,17 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getRemoteProcessGroupValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getState
-     * @param id The processor id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The processor id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -193,7 +187,7 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}/state"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -203,41 +197,41 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getStateValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getState(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getStateCall(id, progressListener, progressRequestListener);
         return call;
@@ -246,7 +240,7 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Gets the state for a RemoteProcessGroup
-     * 
+     *
      * @param id The processor id. (required)
      * @return ComponentStateEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -258,21 +252,22 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Gets the state for a RemoteProcessGroup
-     * 
+     *
      * @param id The processor id. (required)
      * @return ApiResponse&lt;ComponentStateEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ComponentStateEntity> getStateWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getStateValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<ComponentStateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentStateEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets the state for a RemoteProcessGroup (asynchronously)
-     * 
-     * @param id The processor id. (required)
+     *
+     * @param id       The processor id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -299,18 +294,21 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = getStateValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ComponentStateEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ComponentStateEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for removeRemoteProcessGroup
-     * @param id The remote process group id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The remote process group id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -319,57 +317,57 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (version != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
+            localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeRemoteProcessGroupValidateBeforeCall(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling removeRemoteProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = removeRemoteProcessGroupCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -378,10 +376,10 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Deletes a remote process group
-     * 
-     * @param id The remote process group id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The remote process group id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return RemoteProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -393,28 +391,29 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Deletes a remote process group
-     * 
-     * @param id The remote process group id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The remote process group id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;RemoteProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupEntity> removeRemoteProcessGroupWithHttpInfo(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = removeRemoteProcessGroupValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes a remote process group (asynchronously)
-     * 
-     * @param id The remote process group id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The remote process group id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -440,15 +439,18 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = removeRemoteProcessGroupValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateRemoteProcessGroup
-     * @param id The remote process group id. (required)
-     * @param body The remote process group. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param body                    The remote process group. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -458,7 +460,7 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -468,46 +470,46 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRemoteProcessGroupValidateBeforeCall(String id, RemoteProcessGroupEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRemoteProcessGroup(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateRemoteProcessGroup(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -516,8 +518,8 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Updates a remote process group
-     * 
-     * @param id The remote process group id. (required)
+     *
+     * @param id   The remote process group id. (required)
      * @param body The remote process group. (required)
      * @return RemoteProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -529,23 +531,24 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Updates a remote process group
-     * 
-     * @param id The remote process group id. (required)
+     *
+     * @param id   The remote process group id. (required)
      * @param body The remote process group. (required)
      * @return ApiResponse&lt;RemoteProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupEntity> updateRemoteProcessGroupWithHttpInfo(String id, RemoteProcessGroupEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateRemoteProcessGroupValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates a remote process group (asynchronously)
-     * 
-     * @param id The remote process group id. (required)
-     * @param body The remote process group. (required)
+     *
+     * @param id       The remote process group id. (required)
+     * @param body     The remote process group. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -572,16 +575,19 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateRemoteProcessGroupInputPort
-     * @param id The remote process group id. (required)
-     * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param portId                  The remote process group port id. (required)
+     * @param body                    The remote process group port. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -591,8 +597,8 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}/input-ports/{port-id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "port-id" + "\\}", apiClient.escapeString(portId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "port-id" + "\\}", apiClient.escapeString(portId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -602,51 +608,51 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRemoteProcessGroupInputPortValidateBeforeCall(String id, String portId, RemoteProcessGroupPortEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRemoteProcessGroupInputPort(Async)");
         }
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling updateRemoteProcessGroupInputPort(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateRemoteProcessGroupInputPort(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupInputPortCall(id, portId, body, progressListener, progressRequestListener);
         return call;
@@ -656,9 +662,10 @@ public class RemoteProcessGroupsApi {
     /**
      * Updates a remote port
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
+     *
+     * @param id     The remote process group id. (required)
      * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     * @param body   The remote process group port. (required)
      * @return RemoteProcessGroupPortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -670,24 +677,27 @@ public class RemoteProcessGroupsApi {
     /**
      * Updates a remote port
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
+     *
+     * @param id     The remote process group id. (required)
      * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     * @param body   The remote process group port. (required)
      * @return ApiResponse&lt;RemoteProcessGroupPortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupPortEntity> updateRemoteProcessGroupInputPortWithHttpInfo(String id, String portId, RemoteProcessGroupPortEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateRemoteProcessGroupInputPortValidateBeforeCall(id, portId, body, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates a remote port (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
-     * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     *
+     * @param id       The remote process group id. (required)
+     * @param portId   The remote process group port id. (required)
+     * @param body     The remote process group port. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -714,16 +724,19 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupInputPortValidateBeforeCall(id, portId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateRemoteProcessGroupInputPortRunStatus
-     * @param id The remote process group id. (required)
-     * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param portId                  The remote process group port id. (required)
+     * @param body                    The remote process group port. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -733,8 +746,8 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}/input-ports/{port-id}/run-status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "port-id" + "\\}", apiClient.escapeString(portId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "port-id" + "\\}", apiClient.escapeString(portId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -744,51 +757,51 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRemoteProcessGroupInputPortRunStatusValidateBeforeCall(String id, String portId, RemotePortRunStatusEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRemoteProcessGroupInputPortRunStatus(Async)");
         }
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling updateRemoteProcessGroupInputPortRunStatus(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateRemoteProcessGroupInputPortRunStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupInputPortRunStatusCall(id, portId, body, progressListener, progressRequestListener);
         return call;
@@ -798,9 +811,10 @@ public class RemoteProcessGroupsApi {
     /**
      * Updates run status of a remote port
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
+     *
+     * @param id     The remote process group id. (required)
      * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     * @param body   The remote process group port. (required)
      * @return RemoteProcessGroupPortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -812,24 +826,27 @@ public class RemoteProcessGroupsApi {
     /**
      * Updates run status of a remote port
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
+     *
+     * @param id     The remote process group id. (required)
      * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     * @param body   The remote process group port. (required)
      * @return ApiResponse&lt;RemoteProcessGroupPortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupPortEntity> updateRemoteProcessGroupInputPortRunStatusWithHttpInfo(String id, String portId, RemotePortRunStatusEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateRemoteProcessGroupInputPortRunStatusValidateBeforeCall(id, portId, body, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates run status of a remote port (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
-     * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     *
+     * @param id       The remote process group id. (required)
+     * @param portId   The remote process group port id. (required)
+     * @param body     The remote process group port. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -856,16 +873,19 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupInputPortRunStatusValidateBeforeCall(id, portId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateRemoteProcessGroupOutputPort
-     * @param id The remote process group id. (required)
-     * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param portId                  The remote process group port id. (required)
+     * @param body                    The remote process group port. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -875,8 +895,8 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}/output-ports/{port-id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "port-id" + "\\}", apiClient.escapeString(portId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "port-id" + "\\}", apiClient.escapeString(portId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -886,51 +906,51 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRemoteProcessGroupOutputPortValidateBeforeCall(String id, String portId, RemoteProcessGroupPortEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRemoteProcessGroupOutputPort(Async)");
         }
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling updateRemoteProcessGroupOutputPort(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateRemoteProcessGroupOutputPort(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupOutputPortCall(id, portId, body, progressListener, progressRequestListener);
         return call;
@@ -940,9 +960,10 @@ public class RemoteProcessGroupsApi {
     /**
      * Updates a remote port
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
+     *
+     * @param id     The remote process group id. (required)
      * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     * @param body   The remote process group port. (required)
      * @return RemoteProcessGroupPortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -954,24 +975,27 @@ public class RemoteProcessGroupsApi {
     /**
      * Updates a remote port
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
+     *
+     * @param id     The remote process group id. (required)
      * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     * @param body   The remote process group port. (required)
      * @return ApiResponse&lt;RemoteProcessGroupPortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupPortEntity> updateRemoteProcessGroupOutputPortWithHttpInfo(String id, String portId, RemoteProcessGroupPortEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateRemoteProcessGroupOutputPortValidateBeforeCall(id, portId, body, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates a remote port (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
-     * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     *
+     * @param id       The remote process group id. (required)
+     * @param portId   The remote process group port id. (required)
+     * @param body     The remote process group port. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -998,16 +1022,19 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupOutputPortValidateBeforeCall(id, portId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateRemoteProcessGroupOutputPortRunStatus
-     * @param id The remote process group id. (required)
-     * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param portId                  The remote process group port id. (required)
+     * @param body                    The remote process group port. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1017,8 +1044,8 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}/output-ports/{port-id}/run-status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{" + "port-id" + "\\}", apiClient.escapeString(portId.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()))
+                .replaceAll("\\{" + "port-id" + "\\}", apiClient.escapeString(portId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1028,51 +1055,51 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRemoteProcessGroupOutputPortRunStatusValidateBeforeCall(String id, String portId, RemotePortRunStatusEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRemoteProcessGroupOutputPortRunStatus(Async)");
         }
-        
+
         // verify the required parameter 'portId' is set
         if (portId == null) {
             throw new ApiException("Missing the required parameter 'portId' when calling updateRemoteProcessGroupOutputPortRunStatus(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateRemoteProcessGroupOutputPortRunStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupOutputPortRunStatusCall(id, portId, body, progressListener, progressRequestListener);
         return call;
@@ -1082,9 +1109,10 @@ public class RemoteProcessGroupsApi {
     /**
      * Updates run status of a remote port
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
+     *
+     * @param id     The remote process group id. (required)
      * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     * @param body   The remote process group port. (required)
      * @return RemoteProcessGroupPortEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1096,24 +1124,27 @@ public class RemoteProcessGroupsApi {
     /**
      * Updates run status of a remote port
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
+     *
+     * @param id     The remote process group id. (required)
      * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     * @param body   The remote process group port. (required)
      * @return ApiResponse&lt;RemoteProcessGroupPortEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupPortEntity> updateRemoteProcessGroupOutputPortRunStatusWithHttpInfo(String id, String portId, RemotePortRunStatusEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateRemoteProcessGroupOutputPortRunStatusValidateBeforeCall(id, portId, body, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates run status of a remote port (asynchronously)
      * Note: This endpoint is subject to change as NiFi and it&#39;s REST API evolve.
-     * @param id The remote process group id. (required)
-     * @param portId The remote process group port id. (required)
-     * @param body The remote process group port. (required)
+     *
+     * @param id       The remote process group id. (required)
+     * @param portId   The remote process group port id. (required)
+     * @param body     The remote process group port. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1140,15 +1171,18 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupOutputPortRunStatusValidateBeforeCall(id, portId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupPortEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateRemoteProcessGroupRunStatus
-     * @param id The remote process group id. (required)
-     * @param body The remote process group run status. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The remote process group id. (required)
+     * @param body                    The remote process group run status. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1158,7 +1192,7 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/{id}/run-status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1168,46 +1202,46 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRemoteProcessGroupRunStatusValidateBeforeCall(String id, RemotePortRunStatusEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRemoteProcessGroupRunStatus(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateRemoteProcessGroupRunStatus(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupRunStatusCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1216,8 +1250,8 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Updates run status of a remote process group
-     * 
-     * @param id The remote process group id. (required)
+     *
+     * @param id   The remote process group id. (required)
      * @param body The remote process group run status. (required)
      * @return RemoteProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1229,23 +1263,24 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Updates run status of a remote process group
-     * 
-     * @param id The remote process group id. (required)
+     *
+     * @param id   The remote process group id. (required)
      * @param body The remote process group run status. (required)
      * @return ApiResponse&lt;RemoteProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupEntity> updateRemoteProcessGroupRunStatusWithHttpInfo(String id, RemotePortRunStatusEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateRemoteProcessGroupRunStatusValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates run status of a remote process group (asynchronously)
-     * 
-     * @param id The remote process group id. (required)
-     * @param body The remote process group run status. (required)
+     *
+     * @param id       The remote process group id. (required)
+     * @param body     The remote process group run status. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1272,15 +1307,18 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupRunStatusValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateRemoteProcessGroupRunStatuses
-     * @param id The process group id. (required)
-     * @param body The remote process groups run status. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The process group id. (required)
+     * @param body                    The remote process groups run status. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1290,7 +1328,7 @@ public class RemoteProcessGroupsApi {
 
         // create path and map variables
         String localVarPath = "/remote-process-groups/process-group/{id}/run-status"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1300,46 +1338,46 @@ public class RemoteProcessGroupsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateRemoteProcessGroupRunStatusesValidateBeforeCall(String id, RemotePortRunStatusEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateRemoteProcessGroupRunStatuses(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateRemoteProcessGroupRunStatuses(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupRunStatusesCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1348,8 +1386,8 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Updates run status of all remote process groups in a process group (recursively)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The remote process groups run status. (required)
      * @return RemoteProcessGroupEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1361,23 +1399,24 @@ public class RemoteProcessGroupsApi {
 
     /**
      * Updates run status of all remote process groups in a process group (recursively)
-     * 
-     * @param id The process group id. (required)
+     *
+     * @param id   The process group id. (required)
      * @param body The remote process groups run status. (required)
      * @return ApiResponse&lt;RemoteProcessGroupEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<RemoteProcessGroupEntity> updateRemoteProcessGroupRunStatusesWithHttpInfo(String id, RemotePortRunStatusEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateRemoteProcessGroupRunStatusesValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates run status of all remote process groups in a process group (recursively) (asynchronously)
-     * 
-     * @param id The process group id. (required)
-     * @param body The remote process groups run status. (required)
+     *
+     * @param id       The process group id. (required)
+     * @param body     The remote process groups run status. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1404,7 +1443,8 @@ public class RemoteProcessGroupsApi {
         }
 
         com.squareup.okhttp.Call call = updateRemoteProcessGroupRunStatusesValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<RemoteProcessGroupEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

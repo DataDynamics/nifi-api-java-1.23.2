@@ -13,128 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * PreviousValueDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class PreviousValueDTO {
-  @SerializedName("previousValue")
-  private String previousValue = null;
+    @SerializedName("previousValue")
+    private String previousValue = null;
 
-  @SerializedName("timestamp")
-  private String timestamp = null;
+    @SerializedName("timestamp")
+    private String timestamp = null;
 
-  @SerializedName("userIdentity")
-  private String userIdentity = null;
+    @SerializedName("userIdentity")
+    private String userIdentity = null;
 
-  public PreviousValueDTO previousValue(String previousValue) {
-    this.previousValue = previousValue;
-    return this;
-  }
-
-   /**
-   * The previous value.
-   * @return previousValue
-  **/
-  @ApiModelProperty(value = "The previous value.")
-  public String getPreviousValue() {
-    return previousValue;
-  }
-
-  public void setPreviousValue(String previousValue) {
-    this.previousValue = previousValue;
-  }
-
-  public PreviousValueDTO timestamp(String timestamp) {
-    this.timestamp = timestamp;
-    return this;
-  }
-
-   /**
-   * The timestamp when the value was modified.
-   * @return timestamp
-  **/
-  @ApiModelProperty(value = "The timestamp when the value was modified.")
-  public String getTimestamp() {
-    return timestamp;
-  }
-
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public PreviousValueDTO userIdentity(String userIdentity) {
-    this.userIdentity = userIdentity;
-    return this;
-  }
-
-   /**
-   * The user who changed the previous value.
-   * @return userIdentity
-  **/
-  @ApiModelProperty(value = "The user who changed the previous value.")
-  public String getUserIdentity() {
-    return userIdentity;
-  }
-
-  public void setUserIdentity(String userIdentity) {
-    this.userIdentity = userIdentity;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public PreviousValueDTO previousValue(String previousValue) {
+        this.previousValue = previousValue;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The previous value.
+     *
+     * @return previousValue
+     **/
+    @ApiModelProperty(value = "The previous value.")
+    public String getPreviousValue() {
+        return previousValue;
     }
-    PreviousValueDTO previousValueDTO = (PreviousValueDTO) o;
-    return Objects.equals(this.previousValue, previousValueDTO.previousValue) &&
-        Objects.equals(this.timestamp, previousValueDTO.timestamp) &&
-        Objects.equals(this.userIdentity, previousValueDTO.userIdentity);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(previousValue, timestamp, userIdentity);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class PreviousValueDTO {\n");
-    
-    sb.append("    previousValue: ").append(toIndentedString(previousValue)).append("\n");
-    sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
-    sb.append("    userIdentity: ").append(toIndentedString(userIdentity)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setPreviousValue(String previousValue) {
+        this.previousValue = previousValue;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public PreviousValueDTO timestamp(String timestamp) {
+        this.timestamp = timestamp;
+        return this;
+    }
+
+    /**
+     * The timestamp when the value was modified.
+     *
+     * @return timestamp
+     **/
+    @ApiModelProperty(value = "The timestamp when the value was modified.")
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public PreviousValueDTO userIdentity(String userIdentity) {
+        this.userIdentity = userIdentity;
+        return this;
+    }
+
+    /**
+     * The user who changed the previous value.
+     *
+     * @return userIdentity
+     **/
+    @ApiModelProperty(value = "The user who changed the previous value.")
+    public String getUserIdentity() {
+        return userIdentity;
+    }
+
+    public void setUserIdentity(String userIdentity) {
+        this.userIdentity = userIdentity;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PreviousValueDTO previousValueDTO = (PreviousValueDTO) o;
+        return Objects.equals(this.previousValue, previousValueDTO.previousValue) &&
+                Objects.equals(this.timestamp, previousValueDTO.timestamp) &&
+                Objects.equals(this.userIdentity, previousValueDTO.userIdentity);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(previousValue, timestamp, userIdentity);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class PreviousValueDTO {\n");
+
+        sb.append("    previousValue: ").append(toIndentedString(previousValue)).append("\n");
+        sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
+        sb.append("    userIdentity: ").append(toIndentedString(userIdentity)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

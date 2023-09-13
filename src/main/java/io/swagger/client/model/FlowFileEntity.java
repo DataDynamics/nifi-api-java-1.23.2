@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FlowFileDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * FlowFileEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowFileEntity {
-  @SerializedName("flowFile")
-  private FlowFileDTO flowFile = null;
+    @SerializedName("flowFile")
+    private FlowFileDTO flowFile = null;
 
-  public FlowFileEntity flowFile(FlowFileDTO flowFile) {
-    this.flowFile = flowFile;
-    return this;
-  }
-
-   /**
-   * Get flowFile
-   * @return flowFile
-  **/
-  @ApiModelProperty(value = "")
-  public FlowFileDTO getFlowFile() {
-    return flowFile;
-  }
-
-  public void setFlowFile(FlowFileDTO flowFile) {
-    this.flowFile = flowFile;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FlowFileEntity flowFile(FlowFileDTO flowFile) {
+        this.flowFile = flowFile;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get flowFile
+     *
+     * @return flowFile
+     **/
+    @ApiModelProperty(value = "")
+    public FlowFileDTO getFlowFile() {
+        return flowFile;
     }
-    FlowFileEntity flowFileEntity = (FlowFileEntity) o;
-    return Objects.equals(this.flowFile, flowFileEntity.flowFile);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(flowFile);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowFileEntity {\n");
-    
-    sb.append("    flowFile: ").append(toIndentedString(flowFile)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setFlowFile(FlowFileDTO flowFile) {
+        this.flowFile = flowFile;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowFileEntity flowFileEntity = (FlowFileEntity) o;
+        return Objects.equals(this.flowFile, flowFileEntity.flowFile);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flowFile);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowFileEntity {\n");
+
+        sb.append("    flowFile: ").append(toIndentedString(flowFile)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

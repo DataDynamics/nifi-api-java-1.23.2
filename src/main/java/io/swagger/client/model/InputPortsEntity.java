@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.PortEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * InputPortsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class InputPortsEntity {
-  @SerializedName("inputPorts")
-  private List<PortEntity> inputPorts = null;
+    @SerializedName("inputPorts")
+    private List<PortEntity> inputPorts = null;
 
-  public InputPortsEntity inputPorts(List<PortEntity> inputPorts) {
-    this.inputPorts = inputPorts;
-    return this;
-  }
-
-  public InputPortsEntity addInputPortsItem(PortEntity inputPortsItem) {
-    if (this.inputPorts == null) {
-      this.inputPorts = new ArrayList<PortEntity>();
+    public InputPortsEntity inputPorts(List<PortEntity> inputPorts) {
+        this.inputPorts = inputPorts;
+        return this;
     }
-    this.inputPorts.add(inputPortsItem);
-    return this;
-  }
 
-   /**
-   * Get inputPorts
-   * @return inputPorts
-  **/
-  @ApiModelProperty(value = "")
-  public List<PortEntity> getInputPorts() {
-    return inputPorts;
-  }
-
-  public void setInputPorts(List<PortEntity> inputPorts) {
-    this.inputPorts = inputPorts;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public InputPortsEntity addInputPortsItem(PortEntity inputPortsItem) {
+        if (this.inputPorts == null) {
+            this.inputPorts = new ArrayList<PortEntity>();
+        }
+        this.inputPorts.add(inputPortsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get inputPorts
+     *
+     * @return inputPorts
+     **/
+    @ApiModelProperty(value = "")
+    public List<PortEntity> getInputPorts() {
+        return inputPorts;
     }
-    InputPortsEntity inputPortsEntity = (InputPortsEntity) o;
-    return Objects.equals(this.inputPorts, inputPortsEntity.inputPorts);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(inputPorts);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class InputPortsEntity {\n");
-    
-    sb.append("    inputPorts: ").append(toIndentedString(inputPorts)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setInputPorts(List<PortEntity> inputPorts) {
+        this.inputPorts = inputPorts;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        InputPortsEntity inputPortsEntity = (InputPortsEntity) o;
+        return Objects.equals(this.inputPorts, inputPortsEntity.inputPorts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(inputPorts);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class InputPortsEntity {\n");
+
+        sb.append("    inputPorts: ").append(toIndentedString(inputPorts)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

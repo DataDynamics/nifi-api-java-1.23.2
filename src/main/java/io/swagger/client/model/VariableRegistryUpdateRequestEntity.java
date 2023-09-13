@@ -13,107 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.RevisionDTO;
-import io.swagger.client.model.VariableRegistryUpdateRequestDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * VariableRegistryUpdateRequestEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VariableRegistryUpdateRequestEntity {
-  @SerializedName("request")
-  private VariableRegistryUpdateRequestDTO request = null;
+    @SerializedName("request")
+    private VariableRegistryUpdateRequestDTO request = null;
 
-  @SerializedName("processGroupRevision")
-  private RevisionDTO processGroupRevision = null;
+    @SerializedName("processGroupRevision")
+    private RevisionDTO processGroupRevision = null;
 
-  public VariableRegistryUpdateRequestEntity request(VariableRegistryUpdateRequestDTO request) {
-    this.request = request;
-    return this;
-  }
-
-   /**
-   * The Variable Registry Update Request
-   * @return request
-  **/
-  @ApiModelProperty(value = "The Variable Registry Update Request")
-  public VariableRegistryUpdateRequestDTO getRequest() {
-    return request;
-  }
-
-  public void setRequest(VariableRegistryUpdateRequestDTO request) {
-    this.request = request;
-  }
-
-  public VariableRegistryUpdateRequestEntity processGroupRevision(RevisionDTO processGroupRevision) {
-    this.processGroupRevision = processGroupRevision;
-    return this;
-  }
-
-   /**
-   * The revision for the Process Group that owns this variable registry.
-   * @return processGroupRevision
-  **/
-  @ApiModelProperty(value = "The revision for the Process Group that owns this variable registry.")
-  public RevisionDTO getProcessGroupRevision() {
-    return processGroupRevision;
-  }
-
-  public void setProcessGroupRevision(RevisionDTO processGroupRevision) {
-    this.processGroupRevision = processGroupRevision;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public VariableRegistryUpdateRequestEntity request(VariableRegistryUpdateRequestDTO request) {
+        this.request = request;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The Variable Registry Update Request
+     *
+     * @return request
+     **/
+    @ApiModelProperty(value = "The Variable Registry Update Request")
+    public VariableRegistryUpdateRequestDTO getRequest() {
+        return request;
     }
-    VariableRegistryUpdateRequestEntity variableRegistryUpdateRequestEntity = (VariableRegistryUpdateRequestEntity) o;
-    return Objects.equals(this.request, variableRegistryUpdateRequestEntity.request) &&
-        Objects.equals(this.processGroupRevision, variableRegistryUpdateRequestEntity.processGroupRevision);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(request, processGroupRevision);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VariableRegistryUpdateRequestEntity {\n");
-    
-    sb.append("    request: ").append(toIndentedString(request)).append("\n");
-    sb.append("    processGroupRevision: ").append(toIndentedString(processGroupRevision)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setRequest(VariableRegistryUpdateRequestDTO request) {
+        this.request = request;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public VariableRegistryUpdateRequestEntity processGroupRevision(RevisionDTO processGroupRevision) {
+        this.processGroupRevision = processGroupRevision;
+        return this;
+    }
+
+    /**
+     * The revision for the Process Group that owns this variable registry.
+     *
+     * @return processGroupRevision
+     **/
+    @ApiModelProperty(value = "The revision for the Process Group that owns this variable registry.")
+    public RevisionDTO getProcessGroupRevision() {
+        return processGroupRevision;
+    }
+
+    public void setProcessGroupRevision(RevisionDTO processGroupRevision) {
+        this.processGroupRevision = processGroupRevision;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VariableRegistryUpdateRequestEntity variableRegistryUpdateRequestEntity = (VariableRegistryUpdateRequestEntity) o;
+        return Objects.equals(this.request, variableRegistryUpdateRequestEntity.request) &&
+                Objects.equals(this.processGroupRevision, variableRegistryUpdateRequestEntity.processGroupRevision);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(request, processGroupRevision);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VariableRegistryUpdateRequestEntity {\n");
+
+        sb.append("    request: ").append(toIndentedString(request)).append("\n");
+        sb.append("    processGroupRevision: ").append(toIndentedString(processGroupRevision)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

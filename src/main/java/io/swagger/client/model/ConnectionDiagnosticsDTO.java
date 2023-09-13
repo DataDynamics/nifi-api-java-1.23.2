@@ -13,140 +13,135 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ConnectionDTO;
-import io.swagger.client.model.ConnectionDiagnosticsSnapshotDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ConnectionDiagnosticsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ConnectionDiagnosticsDTO {
-  @SerializedName("connection")
-  private ConnectionDTO connection = null;
+    @SerializedName("connection")
+    private ConnectionDTO connection = null;
 
-  @SerializedName("aggregateSnapshot")
-  private ConnectionDiagnosticsSnapshotDTO aggregateSnapshot = null;
+    @SerializedName("aggregateSnapshot")
+    private ConnectionDiagnosticsSnapshotDTO aggregateSnapshot = null;
 
-  @SerializedName("nodeSnapshots")
-  private List<ConnectionDiagnosticsSnapshotDTO> nodeSnapshots = null;
+    @SerializedName("nodeSnapshots")
+    private List<ConnectionDiagnosticsSnapshotDTO> nodeSnapshots = null;
 
-  public ConnectionDiagnosticsDTO connection(ConnectionDTO connection) {
-    this.connection = connection;
-    return this;
-  }
-
-   /**
-   * Details about the connection
-   * @return connection
-  **/
-  @ApiModelProperty(value = "Details about the connection")
-  public ConnectionDTO getConnection() {
-    return connection;
-  }
-
-  public void setConnection(ConnectionDTO connection) {
-    this.connection = connection;
-  }
-
-  public ConnectionDiagnosticsDTO aggregateSnapshot(ConnectionDiagnosticsSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-    return this;
-  }
-
-   /**
-   * Aggregate values for all nodes in the cluster, or for this instance if not clustered
-   * @return aggregateSnapshot
-  **/
-  @ApiModelProperty(value = "Aggregate values for all nodes in the cluster, or for this instance if not clustered")
-  public ConnectionDiagnosticsSnapshotDTO getAggregateSnapshot() {
-    return aggregateSnapshot;
-  }
-
-  public void setAggregateSnapshot(ConnectionDiagnosticsSnapshotDTO aggregateSnapshot) {
-    this.aggregateSnapshot = aggregateSnapshot;
-  }
-
-  public ConnectionDiagnosticsDTO nodeSnapshots(List<ConnectionDiagnosticsSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-    return this;
-  }
-
-  public ConnectionDiagnosticsDTO addNodeSnapshotsItem(ConnectionDiagnosticsSnapshotDTO nodeSnapshotsItem) {
-    if (this.nodeSnapshots == null) {
-      this.nodeSnapshots = new ArrayList<ConnectionDiagnosticsSnapshotDTO>();
+    public ConnectionDiagnosticsDTO connection(ConnectionDTO connection) {
+        this.connection = connection;
+        return this;
     }
-    this.nodeSnapshots.add(nodeSnapshotsItem);
-    return this;
-  }
 
-   /**
-   * A list of values for each node in the cluster, if clustered.
-   * @return nodeSnapshots
-  **/
-  @ApiModelProperty(value = "A list of values for each node in the cluster, if clustered.")
-  public List<ConnectionDiagnosticsSnapshotDTO> getNodeSnapshots() {
-    return nodeSnapshots;
-  }
-
-  public void setNodeSnapshots(List<ConnectionDiagnosticsSnapshotDTO> nodeSnapshots) {
-    this.nodeSnapshots = nodeSnapshots;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * Details about the connection
+     *
+     * @return connection
+     **/
+    @ApiModelProperty(value = "Details about the connection")
+    public ConnectionDTO getConnection() {
+        return connection;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setConnection(ConnectionDTO connection) {
+        this.connection = connection;
     }
-    ConnectionDiagnosticsDTO connectionDiagnosticsDTO = (ConnectionDiagnosticsDTO) o;
-    return Objects.equals(this.connection, connectionDiagnosticsDTO.connection) &&
-        Objects.equals(this.aggregateSnapshot, connectionDiagnosticsDTO.aggregateSnapshot) &&
-        Objects.equals(this.nodeSnapshots, connectionDiagnosticsDTO.nodeSnapshots);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(connection, aggregateSnapshot, nodeSnapshots);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ConnectionDiagnosticsDTO {\n");
-    
-    sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
-    sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
-    sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public ConnectionDiagnosticsDTO aggregateSnapshot(ConnectionDiagnosticsSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * Aggregate values for all nodes in the cluster, or for this instance if not clustered
+     *
+     * @return aggregateSnapshot
+     **/
+    @ApiModelProperty(value = "Aggregate values for all nodes in the cluster, or for this instance if not clustered")
+    public ConnectionDiagnosticsSnapshotDTO getAggregateSnapshot() {
+        return aggregateSnapshot;
+    }
+
+    public void setAggregateSnapshot(ConnectionDiagnosticsSnapshotDTO aggregateSnapshot) {
+        this.aggregateSnapshot = aggregateSnapshot;
+    }
+
+    public ConnectionDiagnosticsDTO nodeSnapshots(List<ConnectionDiagnosticsSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+        return this;
+    }
+
+    public ConnectionDiagnosticsDTO addNodeSnapshotsItem(ConnectionDiagnosticsSnapshotDTO nodeSnapshotsItem) {
+        if (this.nodeSnapshots == null) {
+            this.nodeSnapshots = new ArrayList<ConnectionDiagnosticsSnapshotDTO>();
+        }
+        this.nodeSnapshots.add(nodeSnapshotsItem);
+        return this;
+    }
+
+    /**
+     * A list of values for each node in the cluster, if clustered.
+     *
+     * @return nodeSnapshots
+     **/
+    @ApiModelProperty(value = "A list of values for each node in the cluster, if clustered.")
+    public List<ConnectionDiagnosticsSnapshotDTO> getNodeSnapshots() {
+        return nodeSnapshots;
+    }
+
+    public void setNodeSnapshots(List<ConnectionDiagnosticsSnapshotDTO> nodeSnapshots) {
+        this.nodeSnapshots = nodeSnapshots;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ConnectionDiagnosticsDTO connectionDiagnosticsDTO = (ConnectionDiagnosticsDTO) o;
+        return Objects.equals(this.connection, connectionDiagnosticsDTO.connection) &&
+                Objects.equals(this.aggregateSnapshot, connectionDiagnosticsDTO.aggregateSnapshot) &&
+                Objects.equals(this.nodeSnapshots, connectionDiagnosticsDTO.nodeSnapshots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(connection, aggregateSnapshot, nodeSnapshots);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ConnectionDiagnosticsDTO {\n");
+
+        sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
+        sb.append("    aggregateSnapshot: ").append(toIndentedString(aggregateSnapshot)).append("\n");
+        sb.append("    nodeSnapshots: ").append(toIndentedString(nodeSnapshots)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

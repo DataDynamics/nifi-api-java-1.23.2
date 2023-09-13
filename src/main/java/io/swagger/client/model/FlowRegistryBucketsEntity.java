@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FlowRegistryBucketEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * FlowRegistryBucketsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowRegistryBucketsEntity {
-  @SerializedName("buckets")
-  private List<FlowRegistryBucketEntity> buckets = null;
+    @SerializedName("buckets")
+    private List<FlowRegistryBucketEntity> buckets = null;
 
-  public FlowRegistryBucketsEntity buckets(List<FlowRegistryBucketEntity> buckets) {
-    this.buckets = buckets;
-    return this;
-  }
-
-  public FlowRegistryBucketsEntity addBucketsItem(FlowRegistryBucketEntity bucketsItem) {
-    if (this.buckets == null) {
-      this.buckets = new ArrayList<FlowRegistryBucketEntity>();
+    public FlowRegistryBucketsEntity buckets(List<FlowRegistryBucketEntity> buckets) {
+        this.buckets = buckets;
+        return this;
     }
-    this.buckets.add(bucketsItem);
-    return this;
-  }
 
-   /**
-   * Get buckets
-   * @return buckets
-  **/
-  @ApiModelProperty(value = "")
-  public List<FlowRegistryBucketEntity> getBuckets() {
-    return buckets;
-  }
-
-  public void setBuckets(List<FlowRegistryBucketEntity> buckets) {
-    this.buckets = buckets;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FlowRegistryBucketsEntity addBucketsItem(FlowRegistryBucketEntity bucketsItem) {
+        if (this.buckets == null) {
+            this.buckets = new ArrayList<FlowRegistryBucketEntity>();
+        }
+        this.buckets.add(bucketsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get buckets
+     *
+     * @return buckets
+     **/
+    @ApiModelProperty(value = "")
+    public List<FlowRegistryBucketEntity> getBuckets() {
+        return buckets;
     }
-    FlowRegistryBucketsEntity flowRegistryBucketsEntity = (FlowRegistryBucketsEntity) o;
-    return Objects.equals(this.buckets, flowRegistryBucketsEntity.buckets);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(buckets);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowRegistryBucketsEntity {\n");
-    
-    sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setBuckets(List<FlowRegistryBucketEntity> buckets) {
+        this.buckets = buckets;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowRegistryBucketsEntity flowRegistryBucketsEntity = (FlowRegistryBucketsEntity) o;
+        return Objects.equals(this.buckets, flowRegistryBucketsEntity.buckets);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(buckets);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowRegistryBucketsEntity {\n");
+
+        sb.append("    buckets: ").append(toIndentedString(buckets)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

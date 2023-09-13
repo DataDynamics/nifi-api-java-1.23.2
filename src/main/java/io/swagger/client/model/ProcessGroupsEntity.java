@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ProcessGroupEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ProcessGroupsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ProcessGroupsEntity {
-  @SerializedName("processGroups")
-  private List<ProcessGroupEntity> processGroups = null;
+    @SerializedName("processGroups")
+    private List<ProcessGroupEntity> processGroups = null;
 
-  public ProcessGroupsEntity processGroups(List<ProcessGroupEntity> processGroups) {
-    this.processGroups = processGroups;
-    return this;
-  }
-
-  public ProcessGroupsEntity addProcessGroupsItem(ProcessGroupEntity processGroupsItem) {
-    if (this.processGroups == null) {
-      this.processGroups = new ArrayList<ProcessGroupEntity>();
+    public ProcessGroupsEntity processGroups(List<ProcessGroupEntity> processGroups) {
+        this.processGroups = processGroups;
+        return this;
     }
-    this.processGroups.add(processGroupsItem);
-    return this;
-  }
 
-   /**
-   * Get processGroups
-   * @return processGroups
-  **/
-  @ApiModelProperty(value = "")
-  public List<ProcessGroupEntity> getProcessGroups() {
-    return processGroups;
-  }
-
-  public void setProcessGroups(List<ProcessGroupEntity> processGroups) {
-    this.processGroups = processGroups;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ProcessGroupsEntity addProcessGroupsItem(ProcessGroupEntity processGroupsItem) {
+        if (this.processGroups == null) {
+            this.processGroups = new ArrayList<ProcessGroupEntity>();
+        }
+        this.processGroups.add(processGroupsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get processGroups
+     *
+     * @return processGroups
+     **/
+    @ApiModelProperty(value = "")
+    public List<ProcessGroupEntity> getProcessGroups() {
+        return processGroups;
     }
-    ProcessGroupsEntity processGroupsEntity = (ProcessGroupsEntity) o;
-    return Objects.equals(this.processGroups, processGroupsEntity.processGroups);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(processGroups);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ProcessGroupsEntity {\n");
-    
-    sb.append("    processGroups: ").append(toIndentedString(processGroups)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setProcessGroups(List<ProcessGroupEntity> processGroups) {
+        this.processGroups = processGroups;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProcessGroupsEntity processGroupsEntity = (ProcessGroupsEntity) o;
+        return Objects.equals(this.processGroups, processGroupsEntity.processGroups);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processGroups);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ProcessGroupsEntity {\n");
+
+        sb.append("    processGroups: ").append(toIndentedString(processGroups)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

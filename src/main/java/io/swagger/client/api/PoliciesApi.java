@@ -13,22 +13,11 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.AccessPolicyEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,8 +45,9 @@ public class PoliciesApi {
 
     /**
      * Build call for createAccessPolicy
-     * @param body The access policy configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The access policy configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -76,41 +66,41 @@ public class PoliciesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createAccessPolicyValidateBeforeCall(AccessPolicyEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createAccessPolicy(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createAccessPolicyCall(body, progressListener, progressRequestListener);
         return call;
@@ -119,7 +109,7 @@ public class PoliciesApi {
 
     /**
      * Creates an access policy
-     * 
+     *
      * @param body The access policy configuration details. (required)
      * @return AccessPolicyEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -131,21 +121,22 @@ public class PoliciesApi {
 
     /**
      * Creates an access policy
-     * 
+     *
      * @param body The access policy configuration details. (required)
      * @return ApiResponse&lt;AccessPolicyEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AccessPolicyEntity> createAccessPolicyWithHttpInfo(AccessPolicyEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createAccessPolicyValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Creates an access policy (asynchronously)
-     * 
-     * @param body The access policy configuration details. (required)
+     *
+     * @param body     The access policy configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -172,14 +163,17 @@ public class PoliciesApi {
         }
 
         com.squareup.okhttp.Call call = createAccessPolicyValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getAccessPolicy
-     * @param id The access policy id. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The access policy id. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -189,7 +183,7 @@ public class PoliciesApi {
 
         // create path and map variables
         String localVarPath = "/policies/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -199,41 +193,41 @@ public class PoliciesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAccessPolicyValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getAccessPolicy(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getAccessPolicyCall(id, progressListener, progressRequestListener);
         return call;
@@ -242,7 +236,7 @@ public class PoliciesApi {
 
     /**
      * Gets an access policy
-     * 
+     *
      * @param id The access policy id. (required)
      * @return AccessPolicyEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -254,21 +248,22 @@ public class PoliciesApi {
 
     /**
      * Gets an access policy
-     * 
+     *
      * @param id The access policy id. (required)
      * @return ApiResponse&lt;AccessPolicyEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AccessPolicyEntity> getAccessPolicyWithHttpInfo(String id) throws ApiException {
         com.squareup.okhttp.Call call = getAccessPolicyValidateBeforeCall(id, null, null);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets an access policy (asynchronously)
-     * 
-     * @param id The access policy id. (required)
+     *
+     * @param id       The access policy id. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -295,15 +290,18 @@ public class PoliciesApi {
         }
 
         com.squareup.okhttp.Call call = getAccessPolicyValidateBeforeCall(id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getAccessPolicyForResource
-     * @param action The request action. (required)
-     * @param resource The resource of the policy. (required)
-     * @param progressListener Progress listener
+     *
+     * @param action                  The request action. (required)
+     * @param resource                The resource of the policy. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -313,8 +311,8 @@ public class PoliciesApi {
 
         // create path and map variables
         String localVarPath = "/policies/{action}/{resource}"
-            .replaceAll("\\{" + "action" + "\\}", apiClient.escapeString(action.toString()))
-            .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
+                .replaceAll("\\{" + "action" + "\\}", apiClient.escapeString(action.toString()))
+                .replaceAll("\\{" + "resource" + "\\}", apiClient.escapeString(resource.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -324,46 +322,46 @@ public class PoliciesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getAccessPolicyForResourceValidateBeforeCall(String action, String resource, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'action' is set
         if (action == null) {
             throw new ApiException("Missing the required parameter 'action' when calling getAccessPolicyForResource(Async)");
         }
-        
+
         // verify the required parameter 'resource' is set
         if (resource == null) {
             throw new ApiException("Missing the required parameter 'resource' when calling getAccessPolicyForResource(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getAccessPolicyForResourceCall(action, resource, progressListener, progressRequestListener);
         return call;
@@ -373,7 +371,8 @@ public class PoliciesApi {
     /**
      * Gets an access policy for the specified action and resource
      * Will return the effective policy if no component specific policy exists for the specified action and resource. Must have Read permissions to the policy with the desired action and resource. Permissions for the policy that is returned will be indicated in the response. This means the client could be authorized to get the policy for a given component but the effective policy may be inherited from an ancestor Process Group. If the client does not have permissions to that policy, the response will not include the policy and the permissions in the response will be marked accordingly. If the client does not have permissions to the policy of the desired action and resource a 403 response will be returned.
-     * @param action The request action. (required)
+     *
+     * @param action   The request action. (required)
      * @param resource The resource of the policy. (required)
      * @return AccessPolicyEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -386,21 +385,24 @@ public class PoliciesApi {
     /**
      * Gets an access policy for the specified action and resource
      * Will return the effective policy if no component specific policy exists for the specified action and resource. Must have Read permissions to the policy with the desired action and resource. Permissions for the policy that is returned will be indicated in the response. This means the client could be authorized to get the policy for a given component but the effective policy may be inherited from an ancestor Process Group. If the client does not have permissions to that policy, the response will not include the policy and the permissions in the response will be marked accordingly. If the client does not have permissions to the policy of the desired action and resource a 403 response will be returned.
-     * @param action The request action. (required)
+     *
+     * @param action   The request action. (required)
      * @param resource The resource of the policy. (required)
      * @return ApiResponse&lt;AccessPolicyEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AccessPolicyEntity> getAccessPolicyForResourceWithHttpInfo(String action, String resource) throws ApiException {
         com.squareup.okhttp.Call call = getAccessPolicyForResourceValidateBeforeCall(action, resource, null, null);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Gets an access policy for the specified action and resource (asynchronously)
      * Will return the effective policy if no component specific policy exists for the specified action and resource. Must have Read permissions to the policy with the desired action and resource. Permissions for the policy that is returned will be indicated in the response. This means the client could be authorized to get the policy for a given component but the effective policy may be inherited from an ancestor Process Group. If the client does not have permissions to that policy, the response will not include the policy and the permissions in the response will be marked accordingly. If the client does not have permissions to the policy of the desired action and resource a 403 response will be returned.
-     * @param action The request action. (required)
+     *
+     * @param action   The request action. (required)
      * @param resource The resource of the policy. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
@@ -428,18 +430,21 @@ public class PoliciesApi {
         }
 
         com.squareup.okhttp.Call call = getAccessPolicyForResourceValidateBeforeCall(action, resource, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for removeAccessPolicy
-     * @param id The access policy id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The access policy id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -448,57 +453,57 @@ public class PoliciesApi {
 
         // create path and map variables
         String localVarPath = "/policies/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (version != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
+            localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call removeAccessPolicyValidateBeforeCall(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling removeAccessPolicy(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = removeAccessPolicyCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -507,10 +512,10 @@ public class PoliciesApi {
 
     /**
      * Deletes an access policy
-     * 
-     * @param id The access policy id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The access policy id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return AccessPolicyEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -522,28 +527,29 @@ public class PoliciesApi {
 
     /**
      * Deletes an access policy
-     * 
-     * @param id The access policy id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The access policy id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;AccessPolicyEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AccessPolicyEntity> removeAccessPolicyWithHttpInfo(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = removeAccessPolicyValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes an access policy (asynchronously)
-     * 
-     * @param id The access policy id. (required)
-     * @param version The revision is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The access policy id. (required)
+     * @param version                      The revision is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -569,15 +575,18 @@ public class PoliciesApi {
         }
 
         com.squareup.okhttp.Call call = removeAccessPolicyValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateAccessPolicy
-     * @param id The access policy id. (required)
-     * @param body The access policy configuration details. (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      The access policy id. (required)
+     * @param body                    The access policy configuration details. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -587,7 +596,7 @@ public class PoliciesApi {
 
         // create path and map variables
         String localVarPath = "/policies/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -597,46 +606,46 @@ public class PoliciesApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateAccessPolicyValidateBeforeCall(String id, AccessPolicyEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateAccessPolicy(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateAccessPolicy(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateAccessPolicyCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -645,8 +654,8 @@ public class PoliciesApi {
 
     /**
      * Updates a access policy
-     * 
-     * @param id The access policy id. (required)
+     *
+     * @param id   The access policy id. (required)
      * @param body The access policy configuration details. (required)
      * @return AccessPolicyEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -658,23 +667,24 @@ public class PoliciesApi {
 
     /**
      * Updates a access policy
-     * 
-     * @param id The access policy id. (required)
+     *
+     * @param id   The access policy id. (required)
      * @param body The access policy configuration details. (required)
      * @return ApiResponse&lt;AccessPolicyEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<AccessPolicyEntity> updateAccessPolicyWithHttpInfo(String id, AccessPolicyEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateAccessPolicyValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Updates a access policy (asynchronously)
-     * 
-     * @param id The access policy id. (required)
-     * @param body The access policy configuration details. (required)
+     *
+     * @param id       The access policy id. (required)
+     * @param body     The access policy configuration details. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -701,7 +711,8 @@ public class PoliciesApi {
         }
 
         com.squareup.okhttp.Call call = updateAccessPolicyValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<AccessPolicyEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<AccessPolicyEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

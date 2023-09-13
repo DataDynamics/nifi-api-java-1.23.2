@@ -13,469 +13,479 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.PortDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ControllerDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerDTO {
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("comments")
-  private String comments = null;
+    @SerializedName("comments")
+    private String comments = null;
 
-  @SerializedName("runningCount")
-  private Integer runningCount = null;
+    @SerializedName("runningCount")
+    private Integer runningCount = null;
 
-  @SerializedName("stoppedCount")
-  private Integer stoppedCount = null;
+    @SerializedName("stoppedCount")
+    private Integer stoppedCount = null;
 
-  @SerializedName("invalidCount")
-  private Integer invalidCount = null;
+    @SerializedName("invalidCount")
+    private Integer invalidCount = null;
 
-  @SerializedName("disabledCount")
-  private Integer disabledCount = null;
+    @SerializedName("disabledCount")
+    private Integer disabledCount = null;
 
-  @SerializedName("activeRemotePortCount")
-  private Integer activeRemotePortCount = null;
+    @SerializedName("activeRemotePortCount")
+    private Integer activeRemotePortCount = null;
 
-  @SerializedName("inactiveRemotePortCount")
-  private Integer inactiveRemotePortCount = null;
+    @SerializedName("inactiveRemotePortCount")
+    private Integer inactiveRemotePortCount = null;
 
-  @SerializedName("inputPortCount")
-  private Integer inputPortCount = null;
+    @SerializedName("inputPortCount")
+    private Integer inputPortCount = null;
 
-  @SerializedName("outputPortCount")
-  private Integer outputPortCount = null;
+    @SerializedName("outputPortCount")
+    private Integer outputPortCount = null;
 
-  @SerializedName("remoteSiteListeningPort")
-  private Integer remoteSiteListeningPort = null;
+    @SerializedName("remoteSiteListeningPort")
+    private Integer remoteSiteListeningPort = null;
 
-  @SerializedName("remoteSiteHttpListeningPort")
-  private Integer remoteSiteHttpListeningPort = null;
+    @SerializedName("remoteSiteHttpListeningPort")
+    private Integer remoteSiteHttpListeningPort = null;
 
-  @SerializedName("siteToSiteSecure")
-  private Boolean siteToSiteSecure = null;
+    @SerializedName("siteToSiteSecure")
+    private Boolean siteToSiteSecure = null;
 
-  @SerializedName("instanceId")
-  private String instanceId = null;
+    @SerializedName("instanceId")
+    private String instanceId = null;
 
-  @SerializedName("inputPorts")
-  private List<PortDTO> inputPorts = null;
+    @SerializedName("inputPorts")
+    private List<PortDTO> inputPorts = null;
 
-  @SerializedName("outputPorts")
-  private List<PortDTO> outputPorts = null;
+    @SerializedName("outputPorts")
+    private List<PortDTO> outputPorts = null;
 
-  public ControllerDTO id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The id of the NiFi.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The id of the NiFi.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ControllerDTO name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The name of the NiFi.
-   * @return name
-  **/
-  @ApiModelProperty(value = "The name of the NiFi.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public ControllerDTO comments(String comments) {
-    this.comments = comments;
-    return this;
-  }
-
-   /**
-   * The comments for the NiFi.
-   * @return comments
-  **/
-  @ApiModelProperty(value = "The comments for the NiFi.")
-  public String getComments() {
-    return comments;
-  }
-
-  public void setComments(String comments) {
-    this.comments = comments;
-  }
-
-  public ControllerDTO runningCount(Integer runningCount) {
-    this.runningCount = runningCount;
-    return this;
-  }
-
-   /**
-   * The number of running components in the NiFi.
-   * @return runningCount
-  **/
-  @ApiModelProperty(value = "The number of running components in the NiFi.")
-  public Integer getRunningCount() {
-    return runningCount;
-  }
-
-  public void setRunningCount(Integer runningCount) {
-    this.runningCount = runningCount;
-  }
-
-  public ControllerDTO stoppedCount(Integer stoppedCount) {
-    this.stoppedCount = stoppedCount;
-    return this;
-  }
-
-   /**
-   * The number of stopped components in the NiFi.
-   * @return stoppedCount
-  **/
-  @ApiModelProperty(value = "The number of stopped components in the NiFi.")
-  public Integer getStoppedCount() {
-    return stoppedCount;
-  }
-
-  public void setStoppedCount(Integer stoppedCount) {
-    this.stoppedCount = stoppedCount;
-  }
-
-  public ControllerDTO invalidCount(Integer invalidCount) {
-    this.invalidCount = invalidCount;
-    return this;
-  }
-
-   /**
-   * The number of invalid components in the NiFi.
-   * @return invalidCount
-  **/
-  @ApiModelProperty(value = "The number of invalid components in the NiFi.")
-  public Integer getInvalidCount() {
-    return invalidCount;
-  }
-
-  public void setInvalidCount(Integer invalidCount) {
-    this.invalidCount = invalidCount;
-  }
-
-  public ControllerDTO disabledCount(Integer disabledCount) {
-    this.disabledCount = disabledCount;
-    return this;
-  }
-
-   /**
-   * The number of disabled components in the NiFi.
-   * @return disabledCount
-  **/
-  @ApiModelProperty(value = "The number of disabled components in the NiFi.")
-  public Integer getDisabledCount() {
-    return disabledCount;
-  }
-
-  public void setDisabledCount(Integer disabledCount) {
-    this.disabledCount = disabledCount;
-  }
-
-  public ControllerDTO activeRemotePortCount(Integer activeRemotePortCount) {
-    this.activeRemotePortCount = activeRemotePortCount;
-    return this;
-  }
-
-   /**
-   * The number of active remote ports contained in the NiFi.
-   * @return activeRemotePortCount
-  **/
-  @ApiModelProperty(value = "The number of active remote ports contained in the NiFi.")
-  public Integer getActiveRemotePortCount() {
-    return activeRemotePortCount;
-  }
-
-  public void setActiveRemotePortCount(Integer activeRemotePortCount) {
-    this.activeRemotePortCount = activeRemotePortCount;
-  }
-
-  public ControllerDTO inactiveRemotePortCount(Integer inactiveRemotePortCount) {
-    this.inactiveRemotePortCount = inactiveRemotePortCount;
-    return this;
-  }
-
-   /**
-   * The number of inactive remote ports contained in the NiFi.
-   * @return inactiveRemotePortCount
-  **/
-  @ApiModelProperty(value = "The number of inactive remote ports contained in the NiFi.")
-  public Integer getInactiveRemotePortCount() {
-    return inactiveRemotePortCount;
-  }
-
-  public void setInactiveRemotePortCount(Integer inactiveRemotePortCount) {
-    this.inactiveRemotePortCount = inactiveRemotePortCount;
-  }
-
-  public ControllerDTO inputPortCount(Integer inputPortCount) {
-    this.inputPortCount = inputPortCount;
-    return this;
-  }
-
-   /**
-   * The number of input ports contained in the NiFi.
-   * @return inputPortCount
-  **/
-  @ApiModelProperty(value = "The number of input ports contained in the NiFi.")
-  public Integer getInputPortCount() {
-    return inputPortCount;
-  }
-
-  public void setInputPortCount(Integer inputPortCount) {
-    this.inputPortCount = inputPortCount;
-  }
-
-  public ControllerDTO outputPortCount(Integer outputPortCount) {
-    this.outputPortCount = outputPortCount;
-    return this;
-  }
-
-   /**
-   * The number of output ports in the NiFi.
-   * @return outputPortCount
-  **/
-  @ApiModelProperty(value = "The number of output ports in the NiFi.")
-  public Integer getOutputPortCount() {
-    return outputPortCount;
-  }
-
-  public void setOutputPortCount(Integer outputPortCount) {
-    this.outputPortCount = outputPortCount;
-  }
-
-  public ControllerDTO remoteSiteListeningPort(Integer remoteSiteListeningPort) {
-    this.remoteSiteListeningPort = remoteSiteListeningPort;
-    return this;
-  }
-
-   /**
-   * The Socket Port on which this instance is listening for Remote Transfers of Flow Files. If this instance is not configured to receive Flow Files from remote instances, this will be null.
-   * @return remoteSiteListeningPort
-  **/
-  @ApiModelProperty(value = "The Socket Port on which this instance is listening for Remote Transfers of Flow Files. If this instance is not configured to receive Flow Files from remote instances, this will be null.")
-  public Integer getRemoteSiteListeningPort() {
-    return remoteSiteListeningPort;
-  }
-
-  public void setRemoteSiteListeningPort(Integer remoteSiteListeningPort) {
-    this.remoteSiteListeningPort = remoteSiteListeningPort;
-  }
-
-  public ControllerDTO remoteSiteHttpListeningPort(Integer remoteSiteHttpListeningPort) {
-    this.remoteSiteHttpListeningPort = remoteSiteHttpListeningPort;
-    return this;
-  }
-
-   /**
-   * The HTTP(S) Port on which this instance is listening for Remote Transfers of Flow Files. If this instance is not configured to receive Flow Files from remote instances, this will be null.
-   * @return remoteSiteHttpListeningPort
-  **/
-  @ApiModelProperty(value = "The HTTP(S) Port on which this instance is listening for Remote Transfers of Flow Files. If this instance is not configured to receive Flow Files from remote instances, this will be null.")
-  public Integer getRemoteSiteHttpListeningPort() {
-    return remoteSiteHttpListeningPort;
-  }
-
-  public void setRemoteSiteHttpListeningPort(Integer remoteSiteHttpListeningPort) {
-    this.remoteSiteHttpListeningPort = remoteSiteHttpListeningPort;
-  }
-
-  public ControllerDTO siteToSiteSecure(Boolean siteToSiteSecure) {
-    this.siteToSiteSecure = siteToSiteSecure;
-    return this;
-  }
-
-   /**
-   * Indicates whether or not Site-to-Site communications with this instance is secure (2-way authentication).
-   * @return siteToSiteSecure
-  **/
-  @ApiModelProperty(value = "Indicates whether or not Site-to-Site communications with this instance is secure (2-way authentication).")
-  public Boolean isSiteToSiteSecure() {
-    return siteToSiteSecure;
-  }
-
-  public void setSiteToSiteSecure(Boolean siteToSiteSecure) {
-    this.siteToSiteSecure = siteToSiteSecure;
-  }
-
-  public ControllerDTO instanceId(String instanceId) {
-    this.instanceId = instanceId;
-    return this;
-  }
-
-   /**
-   * If clustered, the id of the Cluster Manager, otherwise the id of the NiFi.
-   * @return instanceId
-  **/
-  @ApiModelProperty(value = "If clustered, the id of the Cluster Manager, otherwise the id of the NiFi.")
-  public String getInstanceId() {
-    return instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public ControllerDTO inputPorts(List<PortDTO> inputPorts) {
-    this.inputPorts = inputPorts;
-    return this;
-  }
-
-  public ControllerDTO addInputPortsItem(PortDTO inputPortsItem) {
-    if (this.inputPorts == null) {
-      this.inputPorts = new ArrayList<PortDTO>();
+    public ControllerDTO id(String id) {
+        this.id = id;
+        return this;
     }
-    this.inputPorts.add(inputPortsItem);
-    return this;
-  }
 
-   /**
-   * The input ports available to send data to for the NiFi.
-   * @return inputPorts
-  **/
-  @ApiModelProperty(value = "The input ports available to send data to for the NiFi.")
-  public List<PortDTO> getInputPorts() {
-    return inputPorts;
-  }
-
-  public void setInputPorts(List<PortDTO> inputPorts) {
-    this.inputPorts = inputPorts;
-  }
-
-  public ControllerDTO outputPorts(List<PortDTO> outputPorts) {
-    this.outputPorts = outputPorts;
-    return this;
-  }
-
-  public ControllerDTO addOutputPortsItem(PortDTO outputPortsItem) {
-    if (this.outputPorts == null) {
-      this.outputPorts = new ArrayList<PortDTO>();
+    /**
+     * The id of the NiFi.
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The id of the NiFi.")
+    public String getId() {
+        return id;
     }
-    this.outputPorts.add(outputPortsItem);
-    return this;
-  }
 
-   /**
-   * The output ports available to received data from the NiFi.
-   * @return outputPorts
-  **/
-  @ApiModelProperty(value = "The output ports available to received data from the NiFi.")
-  public List<PortDTO> getOutputPorts() {
-    return outputPorts;
-  }
-
-  public void setOutputPorts(List<PortDTO> outputPorts) {
-    this.outputPorts = outputPorts;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public void setId(String id) {
+        this.id = id;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public ControllerDTO name(String name) {
+        this.name = name;
+        return this;
     }
-    ControllerDTO controllerDTO = (ControllerDTO) o;
-    return Objects.equals(this.id, controllerDTO.id) &&
-        Objects.equals(this.name, controllerDTO.name) &&
-        Objects.equals(this.comments, controllerDTO.comments) &&
-        Objects.equals(this.runningCount, controllerDTO.runningCount) &&
-        Objects.equals(this.stoppedCount, controllerDTO.stoppedCount) &&
-        Objects.equals(this.invalidCount, controllerDTO.invalidCount) &&
-        Objects.equals(this.disabledCount, controllerDTO.disabledCount) &&
-        Objects.equals(this.activeRemotePortCount, controllerDTO.activeRemotePortCount) &&
-        Objects.equals(this.inactiveRemotePortCount, controllerDTO.inactiveRemotePortCount) &&
-        Objects.equals(this.inputPortCount, controllerDTO.inputPortCount) &&
-        Objects.equals(this.outputPortCount, controllerDTO.outputPortCount) &&
-        Objects.equals(this.remoteSiteListeningPort, controllerDTO.remoteSiteListeningPort) &&
-        Objects.equals(this.remoteSiteHttpListeningPort, controllerDTO.remoteSiteHttpListeningPort) &&
-        Objects.equals(this.siteToSiteSecure, controllerDTO.siteToSiteSecure) &&
-        Objects.equals(this.instanceId, controllerDTO.instanceId) &&
-        Objects.equals(this.inputPorts, controllerDTO.inputPorts) &&
-        Objects.equals(this.outputPorts, controllerDTO.outputPorts);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name, comments, runningCount, stoppedCount, invalidCount, disabledCount, activeRemotePortCount, inactiveRemotePortCount, inputPortCount, outputPortCount, remoteSiteListeningPort, remoteSiteHttpListeningPort, siteToSiteSecure, instanceId, inputPorts, outputPorts);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerDTO {\n");
-    
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
-    sb.append("    runningCount: ").append(toIndentedString(runningCount)).append("\n");
-    sb.append("    stoppedCount: ").append(toIndentedString(stoppedCount)).append("\n");
-    sb.append("    invalidCount: ").append(toIndentedString(invalidCount)).append("\n");
-    sb.append("    disabledCount: ").append(toIndentedString(disabledCount)).append("\n");
-    sb.append("    activeRemotePortCount: ").append(toIndentedString(activeRemotePortCount)).append("\n");
-    sb.append("    inactiveRemotePortCount: ").append(toIndentedString(inactiveRemotePortCount)).append("\n");
-    sb.append("    inputPortCount: ").append(toIndentedString(inputPortCount)).append("\n");
-    sb.append("    outputPortCount: ").append(toIndentedString(outputPortCount)).append("\n");
-    sb.append("    remoteSiteListeningPort: ").append(toIndentedString(remoteSiteListeningPort)).append("\n");
-    sb.append("    remoteSiteHttpListeningPort: ").append(toIndentedString(remoteSiteHttpListeningPort)).append("\n");
-    sb.append("    siteToSiteSecure: ").append(toIndentedString(siteToSiteSecure)).append("\n");
-    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
-    sb.append("    inputPorts: ").append(toIndentedString(inputPorts)).append("\n");
-    sb.append("    outputPorts: ").append(toIndentedString(outputPorts)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    /**
+     * The name of the NiFi.
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "The name of the NiFi.")
+    public String getName() {
+        return name;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ControllerDTO comments(String comments) {
+        this.comments = comments;
+        return this;
+    }
+
+    /**
+     * The comments for the NiFi.
+     *
+     * @return comments
+     **/
+    @ApiModelProperty(value = "The comments for the NiFi.")
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public ControllerDTO runningCount(Integer runningCount) {
+        this.runningCount = runningCount;
+        return this;
+    }
+
+    /**
+     * The number of running components in the NiFi.
+     *
+     * @return runningCount
+     **/
+    @ApiModelProperty(value = "The number of running components in the NiFi.")
+    public Integer getRunningCount() {
+        return runningCount;
+    }
+
+    public void setRunningCount(Integer runningCount) {
+        this.runningCount = runningCount;
+    }
+
+    public ControllerDTO stoppedCount(Integer stoppedCount) {
+        this.stoppedCount = stoppedCount;
+        return this;
+    }
+
+    /**
+     * The number of stopped components in the NiFi.
+     *
+     * @return stoppedCount
+     **/
+    @ApiModelProperty(value = "The number of stopped components in the NiFi.")
+    public Integer getStoppedCount() {
+        return stoppedCount;
+    }
+
+    public void setStoppedCount(Integer stoppedCount) {
+        this.stoppedCount = stoppedCount;
+    }
+
+    public ControllerDTO invalidCount(Integer invalidCount) {
+        this.invalidCount = invalidCount;
+        return this;
+    }
+
+    /**
+     * The number of invalid components in the NiFi.
+     *
+     * @return invalidCount
+     **/
+    @ApiModelProperty(value = "The number of invalid components in the NiFi.")
+    public Integer getInvalidCount() {
+        return invalidCount;
+    }
+
+    public void setInvalidCount(Integer invalidCount) {
+        this.invalidCount = invalidCount;
+    }
+
+    public ControllerDTO disabledCount(Integer disabledCount) {
+        this.disabledCount = disabledCount;
+        return this;
+    }
+
+    /**
+     * The number of disabled components in the NiFi.
+     *
+     * @return disabledCount
+     **/
+    @ApiModelProperty(value = "The number of disabled components in the NiFi.")
+    public Integer getDisabledCount() {
+        return disabledCount;
+    }
+
+    public void setDisabledCount(Integer disabledCount) {
+        this.disabledCount = disabledCount;
+    }
+
+    public ControllerDTO activeRemotePortCount(Integer activeRemotePortCount) {
+        this.activeRemotePortCount = activeRemotePortCount;
+        return this;
+    }
+
+    /**
+     * The number of active remote ports contained in the NiFi.
+     *
+     * @return activeRemotePortCount
+     **/
+    @ApiModelProperty(value = "The number of active remote ports contained in the NiFi.")
+    public Integer getActiveRemotePortCount() {
+        return activeRemotePortCount;
+    }
+
+    public void setActiveRemotePortCount(Integer activeRemotePortCount) {
+        this.activeRemotePortCount = activeRemotePortCount;
+    }
+
+    public ControllerDTO inactiveRemotePortCount(Integer inactiveRemotePortCount) {
+        this.inactiveRemotePortCount = inactiveRemotePortCount;
+        return this;
+    }
+
+    /**
+     * The number of inactive remote ports contained in the NiFi.
+     *
+     * @return inactiveRemotePortCount
+     **/
+    @ApiModelProperty(value = "The number of inactive remote ports contained in the NiFi.")
+    public Integer getInactiveRemotePortCount() {
+        return inactiveRemotePortCount;
+    }
+
+    public void setInactiveRemotePortCount(Integer inactiveRemotePortCount) {
+        this.inactiveRemotePortCount = inactiveRemotePortCount;
+    }
+
+    public ControllerDTO inputPortCount(Integer inputPortCount) {
+        this.inputPortCount = inputPortCount;
+        return this;
+    }
+
+    /**
+     * The number of input ports contained in the NiFi.
+     *
+     * @return inputPortCount
+     **/
+    @ApiModelProperty(value = "The number of input ports contained in the NiFi.")
+    public Integer getInputPortCount() {
+        return inputPortCount;
+    }
+
+    public void setInputPortCount(Integer inputPortCount) {
+        this.inputPortCount = inputPortCount;
+    }
+
+    public ControllerDTO outputPortCount(Integer outputPortCount) {
+        this.outputPortCount = outputPortCount;
+        return this;
+    }
+
+    /**
+     * The number of output ports in the NiFi.
+     *
+     * @return outputPortCount
+     **/
+    @ApiModelProperty(value = "The number of output ports in the NiFi.")
+    public Integer getOutputPortCount() {
+        return outputPortCount;
+    }
+
+    public void setOutputPortCount(Integer outputPortCount) {
+        this.outputPortCount = outputPortCount;
+    }
+
+    public ControllerDTO remoteSiteListeningPort(Integer remoteSiteListeningPort) {
+        this.remoteSiteListeningPort = remoteSiteListeningPort;
+        return this;
+    }
+
+    /**
+     * The Socket Port on which this instance is listening for Remote Transfers of Flow Files. If this instance is not configured to receive Flow Files from remote instances, this will be null.
+     *
+     * @return remoteSiteListeningPort
+     **/
+    @ApiModelProperty(value = "The Socket Port on which this instance is listening for Remote Transfers of Flow Files. If this instance is not configured to receive Flow Files from remote instances, this will be null.")
+    public Integer getRemoteSiteListeningPort() {
+        return remoteSiteListeningPort;
+    }
+
+    public void setRemoteSiteListeningPort(Integer remoteSiteListeningPort) {
+        this.remoteSiteListeningPort = remoteSiteListeningPort;
+    }
+
+    public ControllerDTO remoteSiteHttpListeningPort(Integer remoteSiteHttpListeningPort) {
+        this.remoteSiteHttpListeningPort = remoteSiteHttpListeningPort;
+        return this;
+    }
+
+    /**
+     * The HTTP(S) Port on which this instance is listening for Remote Transfers of Flow Files. If this instance is not configured to receive Flow Files from remote instances, this will be null.
+     *
+     * @return remoteSiteHttpListeningPort
+     **/
+    @ApiModelProperty(value = "The HTTP(S) Port on which this instance is listening for Remote Transfers of Flow Files. If this instance is not configured to receive Flow Files from remote instances, this will be null.")
+    public Integer getRemoteSiteHttpListeningPort() {
+        return remoteSiteHttpListeningPort;
+    }
+
+    public void setRemoteSiteHttpListeningPort(Integer remoteSiteHttpListeningPort) {
+        this.remoteSiteHttpListeningPort = remoteSiteHttpListeningPort;
+    }
+
+    public ControllerDTO siteToSiteSecure(Boolean siteToSiteSecure) {
+        this.siteToSiteSecure = siteToSiteSecure;
+        return this;
+    }
+
+    /**
+     * Indicates whether or not Site-to-Site communications with this instance is secure (2-way authentication).
+     *
+     * @return siteToSiteSecure
+     **/
+    @ApiModelProperty(value = "Indicates whether or not Site-to-Site communications with this instance is secure (2-way authentication).")
+    public Boolean isSiteToSiteSecure() {
+        return siteToSiteSecure;
+    }
+
+    public void setSiteToSiteSecure(Boolean siteToSiteSecure) {
+        this.siteToSiteSecure = siteToSiteSecure;
+    }
+
+    public ControllerDTO instanceId(String instanceId) {
+        this.instanceId = instanceId;
+        return this;
+    }
+
+    /**
+     * If clustered, the id of the Cluster Manager, otherwise the id of the NiFi.
+     *
+     * @return instanceId
+     **/
+    @ApiModelProperty(value = "If clustered, the id of the Cluster Manager, otherwise the id of the NiFi.")
+    public String getInstanceId() {
+        return instanceId;
+    }
+
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
+    }
+
+    public ControllerDTO inputPorts(List<PortDTO> inputPorts) {
+        this.inputPorts = inputPorts;
+        return this;
+    }
+
+    public ControllerDTO addInputPortsItem(PortDTO inputPortsItem) {
+        if (this.inputPorts == null) {
+            this.inputPorts = new ArrayList<PortDTO>();
+        }
+        this.inputPorts.add(inputPortsItem);
+        return this;
+    }
+
+    /**
+     * The input ports available to send data to for the NiFi.
+     *
+     * @return inputPorts
+     **/
+    @ApiModelProperty(value = "The input ports available to send data to for the NiFi.")
+    public List<PortDTO> getInputPorts() {
+        return inputPorts;
+    }
+
+    public void setInputPorts(List<PortDTO> inputPorts) {
+        this.inputPorts = inputPorts;
+    }
+
+    public ControllerDTO outputPorts(List<PortDTO> outputPorts) {
+        this.outputPorts = outputPorts;
+        return this;
+    }
+
+    public ControllerDTO addOutputPortsItem(PortDTO outputPortsItem) {
+        if (this.outputPorts == null) {
+            this.outputPorts = new ArrayList<PortDTO>();
+        }
+        this.outputPorts.add(outputPortsItem);
+        return this;
+    }
+
+    /**
+     * The output ports available to received data from the NiFi.
+     *
+     * @return outputPorts
+     **/
+    @ApiModelProperty(value = "The output ports available to received data from the NiFi.")
+    public List<PortDTO> getOutputPorts() {
+        return outputPorts;
+    }
+
+    public void setOutputPorts(List<PortDTO> outputPorts) {
+        this.outputPorts = outputPorts;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerDTO controllerDTO = (ControllerDTO) o;
+        return Objects.equals(this.id, controllerDTO.id) &&
+                Objects.equals(this.name, controllerDTO.name) &&
+                Objects.equals(this.comments, controllerDTO.comments) &&
+                Objects.equals(this.runningCount, controllerDTO.runningCount) &&
+                Objects.equals(this.stoppedCount, controllerDTO.stoppedCount) &&
+                Objects.equals(this.invalidCount, controllerDTO.invalidCount) &&
+                Objects.equals(this.disabledCount, controllerDTO.disabledCount) &&
+                Objects.equals(this.activeRemotePortCount, controllerDTO.activeRemotePortCount) &&
+                Objects.equals(this.inactiveRemotePortCount, controllerDTO.inactiveRemotePortCount) &&
+                Objects.equals(this.inputPortCount, controllerDTO.inputPortCount) &&
+                Objects.equals(this.outputPortCount, controllerDTO.outputPortCount) &&
+                Objects.equals(this.remoteSiteListeningPort, controllerDTO.remoteSiteListeningPort) &&
+                Objects.equals(this.remoteSiteHttpListeningPort, controllerDTO.remoteSiteHttpListeningPort) &&
+                Objects.equals(this.siteToSiteSecure, controllerDTO.siteToSiteSecure) &&
+                Objects.equals(this.instanceId, controllerDTO.instanceId) &&
+                Objects.equals(this.inputPorts, controllerDTO.inputPorts) &&
+                Objects.equals(this.outputPorts, controllerDTO.outputPorts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, comments, runningCount, stoppedCount, invalidCount, disabledCount, activeRemotePortCount, inactiveRemotePortCount, inputPortCount, outputPortCount, remoteSiteListeningPort, remoteSiteHttpListeningPort, siteToSiteSecure, instanceId, inputPorts, outputPorts);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerDTO {\n");
+
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+        sb.append("    runningCount: ").append(toIndentedString(runningCount)).append("\n");
+        sb.append("    stoppedCount: ").append(toIndentedString(stoppedCount)).append("\n");
+        sb.append("    invalidCount: ").append(toIndentedString(invalidCount)).append("\n");
+        sb.append("    disabledCount: ").append(toIndentedString(disabledCount)).append("\n");
+        sb.append("    activeRemotePortCount: ").append(toIndentedString(activeRemotePortCount)).append("\n");
+        sb.append("    inactiveRemotePortCount: ").append(toIndentedString(inactiveRemotePortCount)).append("\n");
+        sb.append("    inputPortCount: ").append(toIndentedString(inputPortCount)).append("\n");
+        sb.append("    outputPortCount: ").append(toIndentedString(outputPortCount)).append("\n");
+        sb.append("    remoteSiteListeningPort: ").append(toIndentedString(remoteSiteListeningPort)).append("\n");
+        sb.append("    remoteSiteHttpListeningPort: ").append(toIndentedString(remoteSiteHttpListeningPort)).append("\n");
+        sb.append("    siteToSiteSecure: ").append(toIndentedString(siteToSiteSecure)).append("\n");
+        sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
+        sb.append("    inputPorts: ").append(toIndentedString(inputPorts)).append("\n");
+        sb.append("    outputPorts: ").append(toIndentedString(outputPorts)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

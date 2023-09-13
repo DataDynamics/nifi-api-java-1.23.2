@@ -13,290 +13,294 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 import org.threeten.bp.OffsetDateTime;
+
+import java.util.Objects;
 
 /**
  * VersionInfoDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VersionInfoDTO {
-  @SerializedName("niFiVersion")
-  private String niFiVersion = null;
+    @SerializedName("niFiVersion")
+    private String niFiVersion = null;
 
-  @SerializedName("javaVendor")
-  private String javaVendor = null;
+    @SerializedName("javaVendor")
+    private String javaVendor = null;
 
-  @SerializedName("javaVersion")
-  private String javaVersion = null;
+    @SerializedName("javaVersion")
+    private String javaVersion = null;
 
-  @SerializedName("osName")
-  private String osName = null;
+    @SerializedName("osName")
+    private String osName = null;
 
-  @SerializedName("osVersion")
-  private String osVersion = null;
+    @SerializedName("osVersion")
+    private String osVersion = null;
 
-  @SerializedName("osArchitecture")
-  private String osArchitecture = null;
+    @SerializedName("osArchitecture")
+    private String osArchitecture = null;
 
-  @SerializedName("buildTag")
-  private String buildTag = null;
+    @SerializedName("buildTag")
+    private String buildTag = null;
 
-  @SerializedName("buildRevision")
-  private String buildRevision = null;
+    @SerializedName("buildRevision")
+    private String buildRevision = null;
 
-  @SerializedName("buildBranch")
-  private String buildBranch = null;
+    @SerializedName("buildBranch")
+    private String buildBranch = null;
 
-  @SerializedName("buildTimestamp")
-  private OffsetDateTime buildTimestamp = null;
+    @SerializedName("buildTimestamp")
+    private OffsetDateTime buildTimestamp = null;
 
-  public VersionInfoDTO niFiVersion(String niFiVersion) {
-    this.niFiVersion = niFiVersion;
-    return this;
-  }
-
-   /**
-   * The version of this NiFi.
-   * @return niFiVersion
-  **/
-  @ApiModelProperty(value = "The version of this NiFi.")
-  public String getNiFiVersion() {
-    return niFiVersion;
-  }
-
-  public void setNiFiVersion(String niFiVersion) {
-    this.niFiVersion = niFiVersion;
-  }
-
-  public VersionInfoDTO javaVendor(String javaVendor) {
-    this.javaVendor = javaVendor;
-    return this;
-  }
-
-   /**
-   * Java JVM vendor
-   * @return javaVendor
-  **/
-  @ApiModelProperty(value = "Java JVM vendor")
-  public String getJavaVendor() {
-    return javaVendor;
-  }
-
-  public void setJavaVendor(String javaVendor) {
-    this.javaVendor = javaVendor;
-  }
-
-  public VersionInfoDTO javaVersion(String javaVersion) {
-    this.javaVersion = javaVersion;
-    return this;
-  }
-
-   /**
-   * Java version
-   * @return javaVersion
-  **/
-  @ApiModelProperty(value = "Java version")
-  public String getJavaVersion() {
-    return javaVersion;
-  }
-
-  public void setJavaVersion(String javaVersion) {
-    this.javaVersion = javaVersion;
-  }
-
-  public VersionInfoDTO osName(String osName) {
-    this.osName = osName;
-    return this;
-  }
-
-   /**
-   * Host operating system name
-   * @return osName
-  **/
-  @ApiModelProperty(value = "Host operating system name")
-  public String getOsName() {
-    return osName;
-  }
-
-  public void setOsName(String osName) {
-    this.osName = osName;
-  }
-
-  public VersionInfoDTO osVersion(String osVersion) {
-    this.osVersion = osVersion;
-    return this;
-  }
-
-   /**
-   * Host operating system version
-   * @return osVersion
-  **/
-  @ApiModelProperty(value = "Host operating system version")
-  public String getOsVersion() {
-    return osVersion;
-  }
-
-  public void setOsVersion(String osVersion) {
-    this.osVersion = osVersion;
-  }
-
-  public VersionInfoDTO osArchitecture(String osArchitecture) {
-    this.osArchitecture = osArchitecture;
-    return this;
-  }
-
-   /**
-   * Host operating system architecture
-   * @return osArchitecture
-  **/
-  @ApiModelProperty(value = "Host operating system architecture")
-  public String getOsArchitecture() {
-    return osArchitecture;
-  }
-
-  public void setOsArchitecture(String osArchitecture) {
-    this.osArchitecture = osArchitecture;
-  }
-
-  public VersionInfoDTO buildTag(String buildTag) {
-    this.buildTag = buildTag;
-    return this;
-  }
-
-   /**
-   * Build tag
-   * @return buildTag
-  **/
-  @ApiModelProperty(value = "Build tag")
-  public String getBuildTag() {
-    return buildTag;
-  }
-
-  public void setBuildTag(String buildTag) {
-    this.buildTag = buildTag;
-  }
-
-  public VersionInfoDTO buildRevision(String buildRevision) {
-    this.buildRevision = buildRevision;
-    return this;
-  }
-
-   /**
-   * Build revision or commit hash
-   * @return buildRevision
-  **/
-  @ApiModelProperty(value = "Build revision or commit hash")
-  public String getBuildRevision() {
-    return buildRevision;
-  }
-
-  public void setBuildRevision(String buildRevision) {
-    this.buildRevision = buildRevision;
-  }
-
-  public VersionInfoDTO buildBranch(String buildBranch) {
-    this.buildBranch = buildBranch;
-    return this;
-  }
-
-   /**
-   * Build branch
-   * @return buildBranch
-  **/
-  @ApiModelProperty(value = "Build branch")
-  public String getBuildBranch() {
-    return buildBranch;
-  }
-
-  public void setBuildBranch(String buildBranch) {
-    this.buildBranch = buildBranch;
-  }
-
-  public VersionInfoDTO buildTimestamp(OffsetDateTime buildTimestamp) {
-    this.buildTimestamp = buildTimestamp;
-    return this;
-  }
-
-   /**
-   * Build timestamp
-   * @return buildTimestamp
-  **/
-  @ApiModelProperty(value = "Build timestamp")
-  public OffsetDateTime getBuildTimestamp() {
-    return buildTimestamp;
-  }
-
-  public void setBuildTimestamp(OffsetDateTime buildTimestamp) {
-    this.buildTimestamp = buildTimestamp;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public VersionInfoDTO niFiVersion(String niFiVersion) {
+        this.niFiVersion = niFiVersion;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The version of this NiFi.
+     *
+     * @return niFiVersion
+     **/
+    @ApiModelProperty(value = "The version of this NiFi.")
+    public String getNiFiVersion() {
+        return niFiVersion;
     }
-    VersionInfoDTO versionInfoDTO = (VersionInfoDTO) o;
-    return Objects.equals(this.niFiVersion, versionInfoDTO.niFiVersion) &&
-        Objects.equals(this.javaVendor, versionInfoDTO.javaVendor) &&
-        Objects.equals(this.javaVersion, versionInfoDTO.javaVersion) &&
-        Objects.equals(this.osName, versionInfoDTO.osName) &&
-        Objects.equals(this.osVersion, versionInfoDTO.osVersion) &&
-        Objects.equals(this.osArchitecture, versionInfoDTO.osArchitecture) &&
-        Objects.equals(this.buildTag, versionInfoDTO.buildTag) &&
-        Objects.equals(this.buildRevision, versionInfoDTO.buildRevision) &&
-        Objects.equals(this.buildBranch, versionInfoDTO.buildBranch) &&
-        Objects.equals(this.buildTimestamp, versionInfoDTO.buildTimestamp);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(niFiVersion, javaVendor, javaVersion, osName, osVersion, osArchitecture, buildTag, buildRevision, buildBranch, buildTimestamp);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VersionInfoDTO {\n");
-    
-    sb.append("    niFiVersion: ").append(toIndentedString(niFiVersion)).append("\n");
-    sb.append("    javaVendor: ").append(toIndentedString(javaVendor)).append("\n");
-    sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
-    sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
-    sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
-    sb.append("    osArchitecture: ").append(toIndentedString(osArchitecture)).append("\n");
-    sb.append("    buildTag: ").append(toIndentedString(buildTag)).append("\n");
-    sb.append("    buildRevision: ").append(toIndentedString(buildRevision)).append("\n");
-    sb.append("    buildBranch: ").append(toIndentedString(buildBranch)).append("\n");
-    sb.append("    buildTimestamp: ").append(toIndentedString(buildTimestamp)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setNiFiVersion(String niFiVersion) {
+        this.niFiVersion = niFiVersion;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public VersionInfoDTO javaVendor(String javaVendor) {
+        this.javaVendor = javaVendor;
+        return this;
+    }
+
+    /**
+     * Java JVM vendor
+     *
+     * @return javaVendor
+     **/
+    @ApiModelProperty(value = "Java JVM vendor")
+    public String getJavaVendor() {
+        return javaVendor;
+    }
+
+    public void setJavaVendor(String javaVendor) {
+        this.javaVendor = javaVendor;
+    }
+
+    public VersionInfoDTO javaVersion(String javaVersion) {
+        this.javaVersion = javaVersion;
+        return this;
+    }
+
+    /**
+     * Java version
+     *
+     * @return javaVersion
+     **/
+    @ApiModelProperty(value = "Java version")
+    public String getJavaVersion() {
+        return javaVersion;
+    }
+
+    public void setJavaVersion(String javaVersion) {
+        this.javaVersion = javaVersion;
+    }
+
+    public VersionInfoDTO osName(String osName) {
+        this.osName = osName;
+        return this;
+    }
+
+    /**
+     * Host operating system name
+     *
+     * @return osName
+     **/
+    @ApiModelProperty(value = "Host operating system name")
+    public String getOsName() {
+        return osName;
+    }
+
+    public void setOsName(String osName) {
+        this.osName = osName;
+    }
+
+    public VersionInfoDTO osVersion(String osVersion) {
+        this.osVersion = osVersion;
+        return this;
+    }
+
+    /**
+     * Host operating system version
+     *
+     * @return osVersion
+     **/
+    @ApiModelProperty(value = "Host operating system version")
+    public String getOsVersion() {
+        return osVersion;
+    }
+
+    public void setOsVersion(String osVersion) {
+        this.osVersion = osVersion;
+    }
+
+    public VersionInfoDTO osArchitecture(String osArchitecture) {
+        this.osArchitecture = osArchitecture;
+        return this;
+    }
+
+    /**
+     * Host operating system architecture
+     *
+     * @return osArchitecture
+     **/
+    @ApiModelProperty(value = "Host operating system architecture")
+    public String getOsArchitecture() {
+        return osArchitecture;
+    }
+
+    public void setOsArchitecture(String osArchitecture) {
+        this.osArchitecture = osArchitecture;
+    }
+
+    public VersionInfoDTO buildTag(String buildTag) {
+        this.buildTag = buildTag;
+        return this;
+    }
+
+    /**
+     * Build tag
+     *
+     * @return buildTag
+     **/
+    @ApiModelProperty(value = "Build tag")
+    public String getBuildTag() {
+        return buildTag;
+    }
+
+    public void setBuildTag(String buildTag) {
+        this.buildTag = buildTag;
+    }
+
+    public VersionInfoDTO buildRevision(String buildRevision) {
+        this.buildRevision = buildRevision;
+        return this;
+    }
+
+    /**
+     * Build revision or commit hash
+     *
+     * @return buildRevision
+     **/
+    @ApiModelProperty(value = "Build revision or commit hash")
+    public String getBuildRevision() {
+        return buildRevision;
+    }
+
+    public void setBuildRevision(String buildRevision) {
+        this.buildRevision = buildRevision;
+    }
+
+    public VersionInfoDTO buildBranch(String buildBranch) {
+        this.buildBranch = buildBranch;
+        return this;
+    }
+
+    /**
+     * Build branch
+     *
+     * @return buildBranch
+     **/
+    @ApiModelProperty(value = "Build branch")
+    public String getBuildBranch() {
+        return buildBranch;
+    }
+
+    public void setBuildBranch(String buildBranch) {
+        this.buildBranch = buildBranch;
+    }
+
+    public VersionInfoDTO buildTimestamp(OffsetDateTime buildTimestamp) {
+        this.buildTimestamp = buildTimestamp;
+        return this;
+    }
+
+    /**
+     * Build timestamp
+     *
+     * @return buildTimestamp
+     **/
+    @ApiModelProperty(value = "Build timestamp")
+    public OffsetDateTime getBuildTimestamp() {
+        return buildTimestamp;
+    }
+
+    public void setBuildTimestamp(OffsetDateTime buildTimestamp) {
+        this.buildTimestamp = buildTimestamp;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VersionInfoDTO versionInfoDTO = (VersionInfoDTO) o;
+        return Objects.equals(this.niFiVersion, versionInfoDTO.niFiVersion) &&
+                Objects.equals(this.javaVendor, versionInfoDTO.javaVendor) &&
+                Objects.equals(this.javaVersion, versionInfoDTO.javaVersion) &&
+                Objects.equals(this.osName, versionInfoDTO.osName) &&
+                Objects.equals(this.osVersion, versionInfoDTO.osVersion) &&
+                Objects.equals(this.osArchitecture, versionInfoDTO.osArchitecture) &&
+                Objects.equals(this.buildTag, versionInfoDTO.buildTag) &&
+                Objects.equals(this.buildRevision, versionInfoDTO.buildRevision) &&
+                Objects.equals(this.buildBranch, versionInfoDTO.buildBranch) &&
+                Objects.equals(this.buildTimestamp, versionInfoDTO.buildTimestamp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(niFiVersion, javaVendor, javaVersion, osName, osVersion, osArchitecture, buildTag, buildRevision, buildBranch, buildTimestamp);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VersionInfoDTO {\n");
+
+        sb.append("    niFiVersion: ").append(toIndentedString(niFiVersion)).append("\n");
+        sb.append("    javaVendor: ").append(toIndentedString(javaVendor)).append("\n");
+        sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
+        sb.append("    osName: ").append(toIndentedString(osName)).append("\n");
+        sb.append("    osVersion: ").append(toIndentedString(osVersion)).append("\n");
+        sb.append("    osArchitecture: ").append(toIndentedString(osArchitecture)).append("\n");
+        sb.append("    buildTag: ").append(toIndentedString(buildTag)).append("\n");
+        sb.append("    buildRevision: ").append(toIndentedString(buildRevision)).append("\n");
+        sb.append("    buildBranch: ").append(toIndentedString(buildBranch)).append("\n");
+        sb.append("    buildTimestamp: ").append(toIndentedString(buildTimestamp)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

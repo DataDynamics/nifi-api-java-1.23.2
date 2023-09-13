@@ -13,328 +13,327 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.BulletinEntity;
-import io.swagger.client.model.ControllerServiceDTO;
-import io.swagger.client.model.ControllerServiceStatusDTO;
-import io.swagger.client.model.PermissionsDTO;
-import io.swagger.client.model.PositionDTO;
-import io.swagger.client.model.RevisionDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ControllerServiceEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerServiceEntity {
-  @SerializedName("revision")
-  private RevisionDTO revision = null;
+    @SerializedName("revision")
+    private RevisionDTO revision = null;
 
-  @SerializedName("id")
-  private String id = null;
+    @SerializedName("id")
+    private String id = null;
 
-  @SerializedName("uri")
-  private String uri = null;
+    @SerializedName("uri")
+    private String uri = null;
 
-  @SerializedName("position")
-  private PositionDTO position = null;
+    @SerializedName("position")
+    private PositionDTO position = null;
 
-  @SerializedName("permissions")
-  private PermissionsDTO permissions = null;
+    @SerializedName("permissions")
+    private PermissionsDTO permissions = null;
 
-  @SerializedName("bulletins")
-  private List<BulletinEntity> bulletins = null;
+    @SerializedName("bulletins")
+    private List<BulletinEntity> bulletins = null;
 
-  @SerializedName("disconnectedNodeAcknowledged")
-  private Boolean disconnectedNodeAcknowledged = null;
+    @SerializedName("disconnectedNodeAcknowledged")
+    private Boolean disconnectedNodeAcknowledged = null;
 
-  @SerializedName("parentGroupId")
-  private String parentGroupId = null;
+    @SerializedName("parentGroupId")
+    private String parentGroupId = null;
 
-  @SerializedName("component")
-  private ControllerServiceDTO component = null;
+    @SerializedName("component")
+    private ControllerServiceDTO component = null;
 
-  @SerializedName("operatePermissions")
-  private PermissionsDTO operatePermissions = null;
+    @SerializedName("operatePermissions")
+    private PermissionsDTO operatePermissions = null;
 
-  @SerializedName("status")
-  private ControllerServiceStatusDTO status = null;
+    @SerializedName("status")
+    private ControllerServiceStatusDTO status = null;
 
-  public ControllerServiceEntity revision(RevisionDTO revision) {
-    this.revision = revision;
-    return this;
-  }
-
-   /**
-   * The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.
-   * @return revision
-  **/
-  @ApiModelProperty(value = "The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.")
-  public RevisionDTO getRevision() {
-    return revision;
-  }
-
-  public void setRevision(RevisionDTO revision) {
-    this.revision = revision;
-  }
-
-  public ControllerServiceEntity id(String id) {
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * The id of the component.
-   * @return id
-  **/
-  @ApiModelProperty(value = "The id of the component.")
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public ControllerServiceEntity uri(String uri) {
-    this.uri = uri;
-    return this;
-  }
-
-   /**
-   * The URI for futures requests to the component.
-   * @return uri
-  **/
-  @ApiModelProperty(value = "The URI for futures requests to the component.")
-  public String getUri() {
-    return uri;
-  }
-
-  public void setUri(String uri) {
-    this.uri = uri;
-  }
-
-  public ControllerServiceEntity position(PositionDTO position) {
-    this.position = position;
-    return this;
-  }
-
-   /**
-   * The position of this component in the UI if applicable.
-   * @return position
-  **/
-  @ApiModelProperty(value = "The position of this component in the UI if applicable.")
-  public PositionDTO getPosition() {
-    return position;
-  }
-
-  public void setPosition(PositionDTO position) {
-    this.position = position;
-  }
-
-  public ControllerServiceEntity permissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * The permissions for this component.
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "The permissions for this component.")
-  public PermissionsDTO getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(PermissionsDTO permissions) {
-    this.permissions = permissions;
-  }
-
-  public ControllerServiceEntity bulletins(List<BulletinEntity> bulletins) {
-    this.bulletins = bulletins;
-    return this;
-  }
-
-  public ControllerServiceEntity addBulletinsItem(BulletinEntity bulletinsItem) {
-    if (this.bulletins == null) {
-      this.bulletins = new ArrayList<BulletinEntity>();
+    public ControllerServiceEntity revision(RevisionDTO revision) {
+        this.revision = revision;
+        return this;
     }
-    this.bulletins.add(bulletinsItem);
-    return this;
-  }
 
-   /**
-   * The bulletins for this component.
-   * @return bulletins
-  **/
-  @ApiModelProperty(value = "The bulletins for this component.")
-  public List<BulletinEntity> getBulletins() {
-    return bulletins;
-  }
-
-  public void setBulletins(List<BulletinEntity> bulletins) {
-    this.bulletins = bulletins;
-  }
-
-  public ControllerServiceEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-    return this;
-  }
-
-   /**
-   * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
-   * @return disconnectedNodeAcknowledged
-  **/
-  @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
-  public Boolean isDisconnectedNodeAcknowledged() {
-    return disconnectedNodeAcknowledged;
-  }
-
-  public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
-    this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
-  }
-
-  public ControllerServiceEntity parentGroupId(String parentGroupId) {
-    this.parentGroupId = parentGroupId;
-    return this;
-  }
-
-   /**
-   * The id of parent process group of this ControllerService.
-   * @return parentGroupId
-  **/
-  @ApiModelProperty(value = "The id of parent process group of this ControllerService.")
-  public String getParentGroupId() {
-    return parentGroupId;
-  }
-
-  public void setParentGroupId(String parentGroupId) {
-    this.parentGroupId = parentGroupId;
-  }
-
-  public ControllerServiceEntity component(ControllerServiceDTO component) {
-    this.component = component;
-    return this;
-  }
-
-   /**
-   * Get component
-   * @return component
-  **/
-  @ApiModelProperty(value = "")
-  public ControllerServiceDTO getComponent() {
-    return component;
-  }
-
-  public void setComponent(ControllerServiceDTO component) {
-    this.component = component;
-  }
-
-  public ControllerServiceEntity operatePermissions(PermissionsDTO operatePermissions) {
-    this.operatePermissions = operatePermissions;
-    return this;
-  }
-
-   /**
-   * The permissions for this component operations.
-   * @return operatePermissions
-  **/
-  @ApiModelProperty(value = "The permissions for this component operations.")
-  public PermissionsDTO getOperatePermissions() {
-    return operatePermissions;
-  }
-
-  public void setOperatePermissions(PermissionsDTO operatePermissions) {
-    this.operatePermissions = operatePermissions;
-  }
-
-  public ControllerServiceEntity status(ControllerServiceStatusDTO status) {
-    this.status = status;
-    return this;
-  }
-
-   /**
-   * The status for this ControllerService.
-   * @return status
-  **/
-  @ApiModelProperty(value = "The status for this ControllerService.")
-  public ControllerServiceStatusDTO getStatus() {
-    return status;
-  }
-
-  public void setStatus(ControllerServiceStatusDTO status) {
-    this.status = status;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.
+     *
+     * @return revision
+     **/
+    @ApiModelProperty(value = "The revision for this request/response. The revision is required for any mutable flow requests and is included in all responses.")
+    public RevisionDTO getRevision() {
+        return revision;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setRevision(RevisionDTO revision) {
+        this.revision = revision;
     }
-    ControllerServiceEntity controllerServiceEntity = (ControllerServiceEntity) o;
-    return Objects.equals(this.revision, controllerServiceEntity.revision) &&
-        Objects.equals(this.id, controllerServiceEntity.id) &&
-        Objects.equals(this.uri, controllerServiceEntity.uri) &&
-        Objects.equals(this.position, controllerServiceEntity.position) &&
-        Objects.equals(this.permissions, controllerServiceEntity.permissions) &&
-        Objects.equals(this.bulletins, controllerServiceEntity.bulletins) &&
-        Objects.equals(this.disconnectedNodeAcknowledged, controllerServiceEntity.disconnectedNodeAcknowledged) &&
-        Objects.equals(this.parentGroupId, controllerServiceEntity.parentGroupId) &&
-        Objects.equals(this.component, controllerServiceEntity.component) &&
-        Objects.equals(this.operatePermissions, controllerServiceEntity.operatePermissions) &&
-        Objects.equals(this.status, controllerServiceEntity.status);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(revision, id, uri, position, permissions, bulletins, disconnectedNodeAcknowledged, parentGroupId, component, operatePermissions, status);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerServiceEntity {\n");
-    
-    sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
-    sb.append("    position: ").append(toIndentedString(position)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    bulletins: ").append(toIndentedString(bulletins)).append("\n");
-    sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
-    sb.append("    parentGroupId: ").append(toIndentedString(parentGroupId)).append("\n");
-    sb.append("    component: ").append(toIndentedString(component)).append("\n");
-    sb.append("    operatePermissions: ").append(toIndentedString(operatePermissions)).append("\n");
-    sb.append("    status: ").append(toIndentedString(status)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public ControllerServiceEntity id(String id) {
+        this.id = id;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The id of the component.
+     *
+     * @return id
+     **/
+    @ApiModelProperty(value = "The id of the component.")
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public ControllerServiceEntity uri(String uri) {
+        this.uri = uri;
+        return this;
+    }
+
+    /**
+     * The URI for futures requests to the component.
+     *
+     * @return uri
+     **/
+    @ApiModelProperty(value = "The URI for futures requests to the component.")
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    public ControllerServiceEntity position(PositionDTO position) {
+        this.position = position;
+        return this;
+    }
+
+    /**
+     * The position of this component in the UI if applicable.
+     *
+     * @return position
+     **/
+    @ApiModelProperty(value = "The position of this component in the UI if applicable.")
+    public PositionDTO getPosition() {
+        return position;
+    }
+
+    public void setPosition(PositionDTO position) {
+        this.position = position;
+    }
+
+    public ControllerServiceEntity permissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * The permissions for this component.
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "The permissions for this component.")
+    public PermissionsDTO getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(PermissionsDTO permissions) {
+        this.permissions = permissions;
+    }
+
+    public ControllerServiceEntity bulletins(List<BulletinEntity> bulletins) {
+        this.bulletins = bulletins;
+        return this;
+    }
+
+    public ControllerServiceEntity addBulletinsItem(BulletinEntity bulletinsItem) {
+        if (this.bulletins == null) {
+            this.bulletins = new ArrayList<BulletinEntity>();
+        }
+        this.bulletins.add(bulletinsItem);
+        return this;
+    }
+
+    /**
+     * The bulletins for this component.
+     *
+     * @return bulletins
+     **/
+    @ApiModelProperty(value = "The bulletins for this component.")
+    public List<BulletinEntity> getBulletins() {
+        return bulletins;
+    }
+
+    public void setBulletins(List<BulletinEntity> bulletins) {
+        this.bulletins = bulletins;
+    }
+
+    public ControllerServiceEntity disconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+        return this;
+    }
+
+    /**
+     * Acknowledges that this node is disconnected to allow for mutable requests to proceed.
+     *
+     * @return disconnectedNodeAcknowledged
+     **/
+    @ApiModelProperty(value = "Acknowledges that this node is disconnected to allow for mutable requests to proceed.")
+    public Boolean isDisconnectedNodeAcknowledged() {
+        return disconnectedNodeAcknowledged;
+    }
+
+    public void setDisconnectedNodeAcknowledged(Boolean disconnectedNodeAcknowledged) {
+        this.disconnectedNodeAcknowledged = disconnectedNodeAcknowledged;
+    }
+
+    public ControllerServiceEntity parentGroupId(String parentGroupId) {
+        this.parentGroupId = parentGroupId;
+        return this;
+    }
+
+    /**
+     * The id of parent process group of this ControllerService.
+     *
+     * @return parentGroupId
+     **/
+    @ApiModelProperty(value = "The id of parent process group of this ControllerService.")
+    public String getParentGroupId() {
+        return parentGroupId;
+    }
+
+    public void setParentGroupId(String parentGroupId) {
+        this.parentGroupId = parentGroupId;
+    }
+
+    public ControllerServiceEntity component(ControllerServiceDTO component) {
+        this.component = component;
+        return this;
+    }
+
+    /**
+     * Get component
+     *
+     * @return component
+     **/
+    @ApiModelProperty(value = "")
+    public ControllerServiceDTO getComponent() {
+        return component;
+    }
+
+    public void setComponent(ControllerServiceDTO component) {
+        this.component = component;
+    }
+
+    public ControllerServiceEntity operatePermissions(PermissionsDTO operatePermissions) {
+        this.operatePermissions = operatePermissions;
+        return this;
+    }
+
+    /**
+     * The permissions for this component operations.
+     *
+     * @return operatePermissions
+     **/
+    @ApiModelProperty(value = "The permissions for this component operations.")
+    public PermissionsDTO getOperatePermissions() {
+        return operatePermissions;
+    }
+
+    public void setOperatePermissions(PermissionsDTO operatePermissions) {
+        this.operatePermissions = operatePermissions;
+    }
+
+    public ControllerServiceEntity status(ControllerServiceStatusDTO status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * The status for this ControllerService.
+     *
+     * @return status
+     **/
+    @ApiModelProperty(value = "The status for this ControllerService.")
+    public ControllerServiceStatusDTO getStatus() {
+        return status;
+    }
+
+    public void setStatus(ControllerServiceStatusDTO status) {
+        this.status = status;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerServiceEntity controllerServiceEntity = (ControllerServiceEntity) o;
+        return Objects.equals(this.revision, controllerServiceEntity.revision) &&
+                Objects.equals(this.id, controllerServiceEntity.id) &&
+                Objects.equals(this.uri, controllerServiceEntity.uri) &&
+                Objects.equals(this.position, controllerServiceEntity.position) &&
+                Objects.equals(this.permissions, controllerServiceEntity.permissions) &&
+                Objects.equals(this.bulletins, controllerServiceEntity.bulletins) &&
+                Objects.equals(this.disconnectedNodeAcknowledged, controllerServiceEntity.disconnectedNodeAcknowledged) &&
+                Objects.equals(this.parentGroupId, controllerServiceEntity.parentGroupId) &&
+                Objects.equals(this.component, controllerServiceEntity.component) &&
+                Objects.equals(this.operatePermissions, controllerServiceEntity.operatePermissions) &&
+                Objects.equals(this.status, controllerServiceEntity.status);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(revision, id, uri, position, permissions, bulletins, disconnectedNodeAcknowledged, parentGroupId, component, operatePermissions, status);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerServiceEntity {\n");
+
+        sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
+        sb.append("    position: ").append(toIndentedString(position)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    bulletins: ").append(toIndentedString(bulletins)).append("\n");
+        sb.append("    disconnectedNodeAcknowledged: ").append(toIndentedString(disconnectedNodeAcknowledged)).append("\n");
+        sb.append("    parentGroupId: ").append(toIndentedString(parentGroupId)).append("\n");
+        sb.append("    component: ").append(toIndentedString(component)).append("\n");
+        sb.append("    operatePermissions: ").append(toIndentedString(operatePermissions)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

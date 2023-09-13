@@ -13,105 +13,101 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * DimensionsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class DimensionsDTO {
-  @SerializedName("width")
-  private Double width = null;
+    @SerializedName("width")
+    private Double width = null;
 
-  @SerializedName("height")
-  private Double height = null;
+    @SerializedName("height")
+    private Double height = null;
 
-  public DimensionsDTO width(Double width) {
-    this.width = width;
-    return this;
-  }
-
-   /**
-   * The width of the label in pixels when at a 1:1 scale.
-   * @return width
-  **/
-  @ApiModelProperty(value = "The width of the label in pixels when at a 1:1 scale.")
-  public Double getWidth() {
-    return width;
-  }
-
-  public void setWidth(Double width) {
-    this.width = width;
-  }
-
-  public DimensionsDTO height(Double height) {
-    this.height = height;
-    return this;
-  }
-
-   /**
-   * The height of the label in pixels when at a 1:1 scale.
-   * @return height
-  **/
-  @ApiModelProperty(value = "The height of the label in pixels when at a 1:1 scale.")
-  public Double getHeight() {
-    return height;
-  }
-
-  public void setHeight(Double height) {
-    this.height = height;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public DimensionsDTO width(Double width) {
+        this.width = width;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The width of the label in pixels when at a 1:1 scale.
+     *
+     * @return width
+     **/
+    @ApiModelProperty(value = "The width of the label in pixels when at a 1:1 scale.")
+    public Double getWidth() {
+        return width;
     }
-    DimensionsDTO dimensionsDTO = (DimensionsDTO) o;
-    return Objects.equals(this.width, dimensionsDTO.width) &&
-        Objects.equals(this.height, dimensionsDTO.height);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(width, height);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class DimensionsDTO {\n");
-    
-    sb.append("    width: ").append(toIndentedString(width)).append("\n");
-    sb.append("    height: ").append(toIndentedString(height)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setWidth(Double width) {
+        this.width = width;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public DimensionsDTO height(Double height) {
+        this.height = height;
+        return this;
+    }
+
+    /**
+     * The height of the label in pixels when at a 1:1 scale.
+     *
+     * @return height
+     **/
+    @ApiModelProperty(value = "The height of the label in pixels when at a 1:1 scale.")
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        DimensionsDTO dimensionsDTO = (DimensionsDTO) o;
+        return Objects.equals(this.width, dimensionsDTO.width) &&
+                Objects.equals(this.height, dimensionsDTO.height);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(width, height);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class DimensionsDTO {\n");
+
+        sb.append("    width: ").append(toIndentedString(width)).append("\n");
+        sb.append("    height: ").append(toIndentedString(height)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

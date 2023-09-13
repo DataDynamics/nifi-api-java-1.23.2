@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FlowDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * FlowEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class FlowEntity {
-  @SerializedName("flow")
-  private FlowDTO flow = null;
+    @SerializedName("flow")
+    private FlowDTO flow = null;
 
-  public FlowEntity flow(FlowDTO flow) {
-    this.flow = flow;
-    return this;
-  }
-
-   /**
-   * Get flow
-   * @return flow
-  **/
-  @ApiModelProperty(value = "")
-  public FlowDTO getFlow() {
-    return flow;
-  }
-
-  public void setFlow(FlowDTO flow) {
-    this.flow = flow;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public FlowEntity flow(FlowDTO flow) {
+        this.flow = flow;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get flow
+     *
+     * @return flow
+     **/
+    @ApiModelProperty(value = "")
+    public FlowDTO getFlow() {
+        return flow;
     }
-    FlowEntity flowEntity = (FlowEntity) o;
-    return Objects.equals(this.flow, flowEntity.flow);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(flow);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class FlowEntity {\n");
-    
-    sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setFlow(FlowDTO flow) {
+        this.flow = flow;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        FlowEntity flowEntity = (FlowEntity) o;
+        return Objects.equals(this.flow, flowEntity.flow);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flow);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class FlowEntity {\n");
+
+        sb.append("    flow: ").append(toIndentedString(flow)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

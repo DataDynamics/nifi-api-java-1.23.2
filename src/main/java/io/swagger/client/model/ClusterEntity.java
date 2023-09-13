@@ -13,83 +13,77 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ClusterDTO;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * ClusterEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ClusterEntity {
-  @SerializedName("cluster")
-  private ClusterDTO cluster = null;
+    @SerializedName("cluster")
+    private ClusterDTO cluster = null;
 
-  public ClusterEntity cluster(ClusterDTO cluster) {
-    this.cluster = cluster;
-    return this;
-  }
-
-   /**
-   * Get cluster
-   * @return cluster
-  **/
-  @ApiModelProperty(value = "")
-  public ClusterDTO getCluster() {
-    return cluster;
-  }
-
-  public void setCluster(ClusterDTO cluster) {
-    this.cluster = cluster;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ClusterEntity cluster(ClusterDTO cluster) {
+        this.cluster = cluster;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get cluster
+     *
+     * @return cluster
+     **/
+    @ApiModelProperty(value = "")
+    public ClusterDTO getCluster() {
+        return cluster;
     }
-    ClusterEntity clusterEntity = (ClusterEntity) o;
-    return Objects.equals(this.cluster, clusterEntity.cluster);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(cluster);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ClusterEntity {\n");
-    
-    sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setCluster(ClusterDTO cluster) {
+        this.cluster = cluster;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ClusterEntity clusterEntity = (ClusterEntity) o;
+        return Objects.equals(this.cluster, clusterEntity.cluster);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cluster);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ClusterEntity {\n");
+
+        sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,162 +13,159 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.StatusSnapshotDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * NodeStatusSnapshotsDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class NodeStatusSnapshotsDTO {
-  @SerializedName("nodeId")
-  private String nodeId = null;
+    @SerializedName("nodeId")
+    private String nodeId = null;
 
-  @SerializedName("address")
-  private String address = null;
+    @SerializedName("address")
+    private String address = null;
 
-  @SerializedName("apiPort")
-  private Integer apiPort = null;
+    @SerializedName("apiPort")
+    private Integer apiPort = null;
 
-  @SerializedName("statusSnapshots")
-  private List<StatusSnapshotDTO> statusSnapshots = null;
+    @SerializedName("statusSnapshots")
+    private List<StatusSnapshotDTO> statusSnapshots = null;
 
-  public NodeStatusSnapshotsDTO nodeId(String nodeId) {
-    this.nodeId = nodeId;
-    return this;
-  }
-
-   /**
-   * The id of the node.
-   * @return nodeId
-  **/
-  @ApiModelProperty(value = "The id of the node.")
-  public String getNodeId() {
-    return nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
-  public NodeStatusSnapshotsDTO address(String address) {
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * The node&#39;s host/ip address.
-   * @return address
-  **/
-  @ApiModelProperty(value = "The node's host/ip address.")
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public NodeStatusSnapshotsDTO apiPort(Integer apiPort) {
-    this.apiPort = apiPort;
-    return this;
-  }
-
-   /**
-   * The port the node is listening for API requests.
-   * @return apiPort
-  **/
-  @ApiModelProperty(value = "The port the node is listening for API requests.")
-  public Integer getApiPort() {
-    return apiPort;
-  }
-
-  public void setApiPort(Integer apiPort) {
-    this.apiPort = apiPort;
-  }
-
-  public NodeStatusSnapshotsDTO statusSnapshots(List<StatusSnapshotDTO> statusSnapshots) {
-    this.statusSnapshots = statusSnapshots;
-    return this;
-  }
-
-  public NodeStatusSnapshotsDTO addStatusSnapshotsItem(StatusSnapshotDTO statusSnapshotsItem) {
-    if (this.statusSnapshots == null) {
-      this.statusSnapshots = new ArrayList<StatusSnapshotDTO>();
+    public NodeStatusSnapshotsDTO nodeId(String nodeId) {
+        this.nodeId = nodeId;
+        return this;
     }
-    this.statusSnapshots.add(statusSnapshotsItem);
-    return this;
-  }
 
-   /**
-   * A list of StatusSnapshotDTO objects that provide the actual metric values for the component for this node.
-   * @return statusSnapshots
-  **/
-  @ApiModelProperty(value = "A list of StatusSnapshotDTO objects that provide the actual metric values for the component for this node.")
-  public List<StatusSnapshotDTO> getStatusSnapshots() {
-    return statusSnapshots;
-  }
-
-  public void setStatusSnapshots(List<StatusSnapshotDTO> statusSnapshots) {
-    this.statusSnapshots = statusSnapshots;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * The id of the node.
+     *
+     * @return nodeId
+     **/
+    @ApiModelProperty(value = "The id of the node.")
+    public String getNodeId() {
+        return nodeId;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
     }
-    NodeStatusSnapshotsDTO nodeStatusSnapshotsDTO = (NodeStatusSnapshotsDTO) o;
-    return Objects.equals(this.nodeId, nodeStatusSnapshotsDTO.nodeId) &&
-        Objects.equals(this.address, nodeStatusSnapshotsDTO.address) &&
-        Objects.equals(this.apiPort, nodeStatusSnapshotsDTO.apiPort) &&
-        Objects.equals(this.statusSnapshots, nodeStatusSnapshotsDTO.statusSnapshots);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(nodeId, address, apiPort, statusSnapshots);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class NodeStatusSnapshotsDTO {\n");
-    
-    sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    apiPort: ").append(toIndentedString(apiPort)).append("\n");
-    sb.append("    statusSnapshots: ").append(toIndentedString(statusSnapshots)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public NodeStatusSnapshotsDTO address(String address) {
+        this.address = address;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    /**
+     * The node&#39;s host/ip address.
+     *
+     * @return address
+     **/
+    @ApiModelProperty(value = "The node's host/ip address.")
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public NodeStatusSnapshotsDTO apiPort(Integer apiPort) {
+        this.apiPort = apiPort;
+        return this;
+    }
+
+    /**
+     * The port the node is listening for API requests.
+     *
+     * @return apiPort
+     **/
+    @ApiModelProperty(value = "The port the node is listening for API requests.")
+    public Integer getApiPort() {
+        return apiPort;
+    }
+
+    public void setApiPort(Integer apiPort) {
+        this.apiPort = apiPort;
+    }
+
+    public NodeStatusSnapshotsDTO statusSnapshots(List<StatusSnapshotDTO> statusSnapshots) {
+        this.statusSnapshots = statusSnapshots;
+        return this;
+    }
+
+    public NodeStatusSnapshotsDTO addStatusSnapshotsItem(StatusSnapshotDTO statusSnapshotsItem) {
+        if (this.statusSnapshots == null) {
+            this.statusSnapshots = new ArrayList<StatusSnapshotDTO>();
+        }
+        this.statusSnapshots.add(statusSnapshotsItem);
+        return this;
+    }
+
+    /**
+     * A list of StatusSnapshotDTO objects that provide the actual metric values for the component for this node.
+     *
+     * @return statusSnapshots
+     **/
+    @ApiModelProperty(value = "A list of StatusSnapshotDTO objects that provide the actual metric values for the component for this node.")
+    public List<StatusSnapshotDTO> getStatusSnapshots() {
+        return statusSnapshots;
+    }
+
+    public void setStatusSnapshots(List<StatusSnapshotDTO> statusSnapshots) {
+        this.statusSnapshots = statusSnapshots;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        NodeStatusSnapshotsDTO nodeStatusSnapshotsDTO = (NodeStatusSnapshotsDTO) o;
+        return Objects.equals(this.nodeId, nodeStatusSnapshotsDTO.nodeId) &&
+                Objects.equals(this.address, nodeStatusSnapshotsDTO.address) &&
+                Objects.equals(this.apiPort, nodeStatusSnapshotsDTO.apiPort) &&
+                Objects.equals(this.statusSnapshots, nodeStatusSnapshotsDTO.statusSnapshots);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nodeId, address, apiPort, statusSnapshots);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class NodeStatusSnapshotsDTO {\n");
+
+        sb.append("    nodeId: ").append(toIndentedString(nodeId)).append("\n");
+        sb.append("    address: ").append(toIndentedString(address)).append("\n");
+        sb.append("    apiPort: ").append(toIndentedString(apiPort)).append("\n");
+        sb.append("    statusSnapshots: ").append(toIndentedString(statusSnapshots)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

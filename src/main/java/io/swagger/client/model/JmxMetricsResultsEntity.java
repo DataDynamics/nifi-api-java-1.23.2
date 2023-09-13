@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.JmxMetricsResultDTO;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * JmxMetricsResultsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class JmxMetricsResultsEntity {
-  @SerializedName("jmxMetricsResults")
-  private List<JmxMetricsResultDTO> jmxMetricsResults = null;
+    @SerializedName("jmxMetricsResults")
+    private List<JmxMetricsResultDTO> jmxMetricsResults = null;
 
-  public JmxMetricsResultsEntity jmxMetricsResults(List<JmxMetricsResultDTO> jmxMetricsResults) {
-    this.jmxMetricsResults = jmxMetricsResults;
-    return this;
-  }
-
-  public JmxMetricsResultsEntity addJmxMetricsResultsItem(JmxMetricsResultDTO jmxMetricsResultsItem) {
-    if (this.jmxMetricsResults == null) {
-      this.jmxMetricsResults = new ArrayList<JmxMetricsResultDTO>();
+    public JmxMetricsResultsEntity jmxMetricsResults(List<JmxMetricsResultDTO> jmxMetricsResults) {
+        this.jmxMetricsResults = jmxMetricsResults;
+        return this;
     }
-    this.jmxMetricsResults.add(jmxMetricsResultsItem);
-    return this;
-  }
 
-   /**
-   * Get jmxMetricsResults
-   * @return jmxMetricsResults
-  **/
-  @ApiModelProperty(value = "")
-  public List<JmxMetricsResultDTO> getJmxMetricsResults() {
-    return jmxMetricsResults;
-  }
-
-  public void setJmxMetricsResults(List<JmxMetricsResultDTO> jmxMetricsResults) {
-    this.jmxMetricsResults = jmxMetricsResults;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public JmxMetricsResultsEntity addJmxMetricsResultsItem(JmxMetricsResultDTO jmxMetricsResultsItem) {
+        if (this.jmxMetricsResults == null) {
+            this.jmxMetricsResults = new ArrayList<JmxMetricsResultDTO>();
+        }
+        this.jmxMetricsResults.add(jmxMetricsResultsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get jmxMetricsResults
+     *
+     * @return jmxMetricsResults
+     **/
+    @ApiModelProperty(value = "")
+    public List<JmxMetricsResultDTO> getJmxMetricsResults() {
+        return jmxMetricsResults;
     }
-    JmxMetricsResultsEntity jmxMetricsResultsEntity = (JmxMetricsResultsEntity) o;
-    return Objects.equals(this.jmxMetricsResults, jmxMetricsResultsEntity.jmxMetricsResults);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(jmxMetricsResults);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class JmxMetricsResultsEntity {\n");
-    
-    sb.append("    jmxMetricsResults: ").append(toIndentedString(jmxMetricsResults)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setJmxMetricsResults(List<JmxMetricsResultDTO> jmxMetricsResults) {
+        this.jmxMetricsResults = jmxMetricsResults;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        JmxMetricsResultsEntity jmxMetricsResultsEntity = (JmxMetricsResultsEntity) o;
+        return Objects.equals(this.jmxMetricsResults, jmxMetricsResultsEntity.jmxMetricsResults);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(jmxMetricsResults);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class JmxMetricsResultsEntity {\n");
+
+        sb.append("    jmxMetricsResults: ").append(toIndentedString(jmxMetricsResults)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

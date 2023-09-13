@@ -13,116 +13,111 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.UserEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * UsersEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class UsersEntity {
-  @SerializedName("generated")
-  private String generated = null;
+    @SerializedName("generated")
+    private String generated = null;
 
-  @SerializedName("users")
-  private List<UserEntity> users = null;
+    @SerializedName("users")
+    private List<UserEntity> users = null;
 
-  public UsersEntity generated(String generated) {
-    this.generated = generated;
-    return this;
-  }
-
-   /**
-   * When this content was generated.
-   * @return generated
-  **/
-  @ApiModelProperty(value = "When this content was generated.")
-  public String getGenerated() {
-    return generated;
-  }
-
-  public void setGenerated(String generated) {
-    this.generated = generated;
-  }
-
-  public UsersEntity users(List<UserEntity> users) {
-    this.users = users;
-    return this;
-  }
-
-  public UsersEntity addUsersItem(UserEntity usersItem) {
-    if (this.users == null) {
-      this.users = new ArrayList<UserEntity>();
+    public UsersEntity generated(String generated) {
+        this.generated = generated;
+        return this;
     }
-    this.users.add(usersItem);
-    return this;
-  }
 
-   /**
-   * Get users
-   * @return users
-  **/
-  @ApiModelProperty(value = "")
-  public List<UserEntity> getUsers() {
-    return users;
-  }
-
-  public void setUsers(List<UserEntity> users) {
-    this.users = users;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    /**
+     * When this content was generated.
+     *
+     * @return generated
+     **/
+    @ApiModelProperty(value = "When this content was generated.")
+    public String getGenerated() {
+        return generated;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    public void setGenerated(String generated) {
+        this.generated = generated;
     }
-    UsersEntity usersEntity = (UsersEntity) o;
-    return Objects.equals(this.generated, usersEntity.generated) &&
-        Objects.equals(this.users, usersEntity.users);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(generated, users);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class UsersEntity {\n");
-    
-    sb.append("    generated: ").append(toIndentedString(generated)).append("\n");
-    sb.append("    users: ").append(toIndentedString(users)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public UsersEntity users(List<UserEntity> users) {
+        this.users = users;
+        return this;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public UsersEntity addUsersItem(UserEntity usersItem) {
+        if (this.users == null) {
+            this.users = new ArrayList<UserEntity>();
+        }
+        this.users.add(usersItem);
+        return this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return users
+     **/
+    @ApiModelProperty(value = "")
+    public List<UserEntity> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<UserEntity> users) {
+        this.users = users;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        UsersEntity usersEntity = (UsersEntity) o;
+        return Objects.equals(this.generated, usersEntity.generated) &&
+                Objects.equals(this.users, usersEntity.users);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(generated, users);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class UsersEntity {\n");
+
+        sb.append("    generated: ").append(toIndentedString(generated)).append("\n");
+        sb.append("    users: ").append(toIndentedString(users)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

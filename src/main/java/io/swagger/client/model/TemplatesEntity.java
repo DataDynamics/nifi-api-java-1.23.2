@@ -13,116 +13,111 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.TemplateEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * TemplatesEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class TemplatesEntity {
-  @SerializedName("templates")
-  private List<TemplateEntity> templates = null;
+    @SerializedName("templates")
+    private List<TemplateEntity> templates = null;
 
-  @SerializedName("generated")
-  private String generated = null;
+    @SerializedName("generated")
+    private String generated = null;
 
-  public TemplatesEntity templates(List<TemplateEntity> templates) {
-    this.templates = templates;
-    return this;
-  }
-
-  public TemplatesEntity addTemplatesItem(TemplateEntity templatesItem) {
-    if (this.templates == null) {
-      this.templates = new ArrayList<TemplateEntity>();
+    public TemplatesEntity templates(List<TemplateEntity> templates) {
+        this.templates = templates;
+        return this;
     }
-    this.templates.add(templatesItem);
-    return this;
-  }
 
-   /**
-   * Get templates
-   * @return templates
-  **/
-  @ApiModelProperty(value = "")
-  public List<TemplateEntity> getTemplates() {
-    return templates;
-  }
-
-  public void setTemplates(List<TemplateEntity> templates) {
-    this.templates = templates;
-  }
-
-  public TemplatesEntity generated(String generated) {
-    this.generated = generated;
-    return this;
-  }
-
-   /**
-   * When this content was generated.
-   * @return generated
-  **/
-  @ApiModelProperty(value = "When this content was generated.")
-  public String getGenerated() {
-    return generated;
-  }
-
-  public void setGenerated(String generated) {
-    this.generated = generated;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public TemplatesEntity addTemplatesItem(TemplateEntity templatesItem) {
+        if (this.templates == null) {
+            this.templates = new ArrayList<TemplateEntity>();
+        }
+        this.templates.add(templatesItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get templates
+     *
+     * @return templates
+     **/
+    @ApiModelProperty(value = "")
+    public List<TemplateEntity> getTemplates() {
+        return templates;
     }
-    TemplatesEntity templatesEntity = (TemplatesEntity) o;
-    return Objects.equals(this.templates, templatesEntity.templates) &&
-        Objects.equals(this.generated, templatesEntity.generated);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(templates, generated);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class TemplatesEntity {\n");
-    
-    sb.append("    templates: ").append(toIndentedString(templates)).append("\n");
-    sb.append("    generated: ").append(toIndentedString(generated)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setTemplates(List<TemplateEntity> templates) {
+        this.templates = templates;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public TemplatesEntity generated(String generated) {
+        this.generated = generated;
+        return this;
+    }
+
+    /**
+     * When this content was generated.
+     *
+     * @return generated
+     **/
+    @ApiModelProperty(value = "When this content was generated.")
+    public String getGenerated() {
+        return generated;
+    }
+
+    public void setGenerated(String generated) {
+        this.generated = generated;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        TemplatesEntity templatesEntity = (TemplatesEntity) o;
+        return Objects.equals(this.templates, templatesEntity.templates) &&
+                Objects.equals(this.generated, templatesEntity.generated);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(templates, generated);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class TemplatesEntity {\n");
+
+        sb.append("    templates: ").append(toIndentedString(templates)).append("\n");
+        sb.append("    generated: ").append(toIndentedString(generated)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,291 +13,293 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.FlowRegistryPermissions;
-import io.swagger.client.model.RegisteredFlowVersionInfo;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * RegisteredFlow
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class RegisteredFlow {
-  @SerializedName("identifier")
-  private String identifier = null;
+    @SerializedName("identifier")
+    private String identifier = null;
 
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("description")
-  private String description = null;
+    @SerializedName("description")
+    private String description = null;
 
-  @SerializedName("bucketIdentifier")
-  private String bucketIdentifier = null;
+    @SerializedName("bucketIdentifier")
+    private String bucketIdentifier = null;
 
-  @SerializedName("bucketName")
-  private String bucketName = null;
+    @SerializedName("bucketName")
+    private String bucketName = null;
 
-  @SerializedName("createdTimestamp")
-  private Long createdTimestamp = null;
+    @SerializedName("createdTimestamp")
+    private Long createdTimestamp = null;
 
-  @SerializedName("lastModifiedTimestamp")
-  private Long lastModifiedTimestamp = null;
+    @SerializedName("lastModifiedTimestamp")
+    private Long lastModifiedTimestamp = null;
 
-  @SerializedName("permissions")
-  private FlowRegistryPermissions permissions = null;
+    @SerializedName("permissions")
+    private FlowRegistryPermissions permissions = null;
 
-  @SerializedName("versionCount")
-  private Long versionCount = null;
+    @SerializedName("versionCount")
+    private Long versionCount = null;
 
-  @SerializedName("versionInfo")
-  private RegisteredFlowVersionInfo versionInfo = null;
+    @SerializedName("versionInfo")
+    private RegisteredFlowVersionInfo versionInfo = null;
 
-  public RegisteredFlow identifier(String identifier) {
-    this.identifier = identifier;
-    return this;
-  }
-
-   /**
-   * Get identifier
-   * @return identifier
-  **/
-  @ApiModelProperty(value = "")
-  public String getIdentifier() {
-    return identifier;
-  }
-
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
-
-  public RegisteredFlow name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * Get name
-   * @return name
-  **/
-  @ApiModelProperty(value = "")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public RegisteredFlow description(String description) {
-    this.description = description;
-    return this;
-  }
-
-   /**
-   * Get description
-   * @return description
-  **/
-  @ApiModelProperty(value = "")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public RegisteredFlow bucketIdentifier(String bucketIdentifier) {
-    this.bucketIdentifier = bucketIdentifier;
-    return this;
-  }
-
-   /**
-   * Get bucketIdentifier
-   * @return bucketIdentifier
-  **/
-  @ApiModelProperty(value = "")
-  public String getBucketIdentifier() {
-    return bucketIdentifier;
-  }
-
-  public void setBucketIdentifier(String bucketIdentifier) {
-    this.bucketIdentifier = bucketIdentifier;
-  }
-
-  public RegisteredFlow bucketName(String bucketName) {
-    this.bucketName = bucketName;
-    return this;
-  }
-
-   /**
-   * Get bucketName
-   * @return bucketName
-  **/
-  @ApiModelProperty(value = "")
-  public String getBucketName() {
-    return bucketName;
-  }
-
-  public void setBucketName(String bucketName) {
-    this.bucketName = bucketName;
-  }
-
-  public RegisteredFlow createdTimestamp(Long createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
-    return this;
-  }
-
-   /**
-   * Get createdTimestamp
-   * @return createdTimestamp
-  **/
-  @ApiModelProperty(value = "")
-  public Long getCreatedTimestamp() {
-    return createdTimestamp;
-  }
-
-  public void setCreatedTimestamp(Long createdTimestamp) {
-    this.createdTimestamp = createdTimestamp;
-  }
-
-  public RegisteredFlow lastModifiedTimestamp(Long lastModifiedTimestamp) {
-    this.lastModifiedTimestamp = lastModifiedTimestamp;
-    return this;
-  }
-
-   /**
-   * Get lastModifiedTimestamp
-   * @return lastModifiedTimestamp
-  **/
-  @ApiModelProperty(value = "")
-  public Long getLastModifiedTimestamp() {
-    return lastModifiedTimestamp;
-  }
-
-  public void setLastModifiedTimestamp(Long lastModifiedTimestamp) {
-    this.lastModifiedTimestamp = lastModifiedTimestamp;
-  }
-
-  public RegisteredFlow permissions(FlowRegistryPermissions permissions) {
-    this.permissions = permissions;
-    return this;
-  }
-
-   /**
-   * Get permissions
-   * @return permissions
-  **/
-  @ApiModelProperty(value = "")
-  public FlowRegistryPermissions getPermissions() {
-    return permissions;
-  }
-
-  public void setPermissions(FlowRegistryPermissions permissions) {
-    this.permissions = permissions;
-  }
-
-  public RegisteredFlow versionCount(Long versionCount) {
-    this.versionCount = versionCount;
-    return this;
-  }
-
-   /**
-   * Get versionCount
-   * @return versionCount
-  **/
-  @ApiModelProperty(value = "")
-  public Long getVersionCount() {
-    return versionCount;
-  }
-
-  public void setVersionCount(Long versionCount) {
-    this.versionCount = versionCount;
-  }
-
-  public RegisteredFlow versionInfo(RegisteredFlowVersionInfo versionInfo) {
-    this.versionInfo = versionInfo;
-    return this;
-  }
-
-   /**
-   * Get versionInfo
-   * @return versionInfo
-  **/
-  @ApiModelProperty(value = "")
-  public RegisteredFlowVersionInfo getVersionInfo() {
-    return versionInfo;
-  }
-
-  public void setVersionInfo(RegisteredFlowVersionInfo versionInfo) {
-    this.versionInfo = versionInfo;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public RegisteredFlow identifier(String identifier) {
+        this.identifier = identifier;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get identifier
+     *
+     * @return identifier
+     **/
+    @ApiModelProperty(value = "")
+    public String getIdentifier() {
+        return identifier;
     }
-    RegisteredFlow registeredFlow = (RegisteredFlow) o;
-    return Objects.equals(this.identifier, registeredFlow.identifier) &&
-        Objects.equals(this.name, registeredFlow.name) &&
-        Objects.equals(this.description, registeredFlow.description) &&
-        Objects.equals(this.bucketIdentifier, registeredFlow.bucketIdentifier) &&
-        Objects.equals(this.bucketName, registeredFlow.bucketName) &&
-        Objects.equals(this.createdTimestamp, registeredFlow.createdTimestamp) &&
-        Objects.equals(this.lastModifiedTimestamp, registeredFlow.lastModifiedTimestamp) &&
-        Objects.equals(this.permissions, registeredFlow.permissions) &&
-        Objects.equals(this.versionCount, registeredFlow.versionCount) &&
-        Objects.equals(this.versionInfo, registeredFlow.versionInfo);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(identifier, name, description, bucketIdentifier, bucketName, createdTimestamp, lastModifiedTimestamp, permissions, versionCount, versionInfo);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class RegisteredFlow {\n");
-    
-    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    bucketIdentifier: ").append(toIndentedString(bucketIdentifier)).append("\n");
-    sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
-    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
-    sb.append("    lastModifiedTimestamp: ").append(toIndentedString(lastModifiedTimestamp)).append("\n");
-    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
-    sb.append("    versionCount: ").append(toIndentedString(versionCount)).append("\n");
-    sb.append("    versionInfo: ").append(toIndentedString(versionInfo)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public RegisteredFlow name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public RegisteredFlow description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return description
+     **/
+    @ApiModelProperty(value = "")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public RegisteredFlow bucketIdentifier(String bucketIdentifier) {
+        this.bucketIdentifier = bucketIdentifier;
+        return this;
+    }
+
+    /**
+     * Get bucketIdentifier
+     *
+     * @return bucketIdentifier
+     **/
+    @ApiModelProperty(value = "")
+    public String getBucketIdentifier() {
+        return bucketIdentifier;
+    }
+
+    public void setBucketIdentifier(String bucketIdentifier) {
+        this.bucketIdentifier = bucketIdentifier;
+    }
+
+    public RegisteredFlow bucketName(String bucketName) {
+        this.bucketName = bucketName;
+        return this;
+    }
+
+    /**
+     * Get bucketName
+     *
+     * @return bucketName
+     **/
+    @ApiModelProperty(value = "")
+    public String getBucketName() {
+        return bucketName;
+    }
+
+    public void setBucketName(String bucketName) {
+        this.bucketName = bucketName;
+    }
+
+    public RegisteredFlow createdTimestamp(Long createdTimestamp) {
+        this.createdTimestamp = createdTimestamp;
+        return this;
+    }
+
+    /**
+     * Get createdTimestamp
+     *
+     * @return createdTimestamp
+     **/
+    @ApiModelProperty(value = "")
+    public Long getCreatedTimestamp() {
+        return createdTimestamp;
+    }
+
+    public void setCreatedTimestamp(Long createdTimestamp) {
+        this.createdTimestamp = createdTimestamp;
+    }
+
+    public RegisteredFlow lastModifiedTimestamp(Long lastModifiedTimestamp) {
+        this.lastModifiedTimestamp = lastModifiedTimestamp;
+        return this;
+    }
+
+    /**
+     * Get lastModifiedTimestamp
+     *
+     * @return lastModifiedTimestamp
+     **/
+    @ApiModelProperty(value = "")
+    public Long getLastModifiedTimestamp() {
+        return lastModifiedTimestamp;
+    }
+
+    public void setLastModifiedTimestamp(Long lastModifiedTimestamp) {
+        this.lastModifiedTimestamp = lastModifiedTimestamp;
+    }
+
+    public RegisteredFlow permissions(FlowRegistryPermissions permissions) {
+        this.permissions = permissions;
+        return this;
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return permissions
+     **/
+    @ApiModelProperty(value = "")
+    public FlowRegistryPermissions getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(FlowRegistryPermissions permissions) {
+        this.permissions = permissions;
+    }
+
+    public RegisteredFlow versionCount(Long versionCount) {
+        this.versionCount = versionCount;
+        return this;
+    }
+
+    /**
+     * Get versionCount
+     *
+     * @return versionCount
+     **/
+    @ApiModelProperty(value = "")
+    public Long getVersionCount() {
+        return versionCount;
+    }
+
+    public void setVersionCount(Long versionCount) {
+        this.versionCount = versionCount;
+    }
+
+    public RegisteredFlow versionInfo(RegisteredFlowVersionInfo versionInfo) {
+        this.versionInfo = versionInfo;
+        return this;
+    }
+
+    /**
+     * Get versionInfo
+     *
+     * @return versionInfo
+     **/
+    @ApiModelProperty(value = "")
+    public RegisteredFlowVersionInfo getVersionInfo() {
+        return versionInfo;
+    }
+
+    public void setVersionInfo(RegisteredFlowVersionInfo versionInfo) {
+        this.versionInfo = versionInfo;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        RegisteredFlow registeredFlow = (RegisteredFlow) o;
+        return Objects.equals(this.identifier, registeredFlow.identifier) &&
+                Objects.equals(this.name, registeredFlow.name) &&
+                Objects.equals(this.description, registeredFlow.description) &&
+                Objects.equals(this.bucketIdentifier, registeredFlow.bucketIdentifier) &&
+                Objects.equals(this.bucketName, registeredFlow.bucketName) &&
+                Objects.equals(this.createdTimestamp, registeredFlow.createdTimestamp) &&
+                Objects.equals(this.lastModifiedTimestamp, registeredFlow.lastModifiedTimestamp) &&
+                Objects.equals(this.permissions, registeredFlow.permissions) &&
+                Objects.equals(this.versionCount, registeredFlow.versionCount) &&
+                Objects.equals(this.versionInfo, registeredFlow.versionInfo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(identifier, name, description, bucketIdentifier, bucketName, createdTimestamp, lastModifiedTimestamp, permissions, versionCount, versionInfo);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class RegisteredFlow {\n");
+
+        sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    bucketIdentifier: ").append(toIndentedString(bucketIdentifier)).append("\n");
+        sb.append("    bucketName: ").append(toIndentedString(bucketName)).append("\n");
+        sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
+        sb.append("    lastModifiedTimestamp: ").append(toIndentedString(lastModifiedTimestamp)).append("\n");
+        sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
+        sb.append("    versionCount: ").append(toIndentedString(versionCount)).append("\n");
+        sb.append("    versionInfo: ").append(toIndentedString(versionInfo)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

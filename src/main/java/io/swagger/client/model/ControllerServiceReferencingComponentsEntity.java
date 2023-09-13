@@ -13,93 +13,87 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.client.model.ControllerServiceReferencingComponentEntity;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * ControllerServiceReferencingComponentsEntity
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class ControllerServiceReferencingComponentsEntity {
-  @SerializedName("controllerServiceReferencingComponents")
-  private List<ControllerServiceReferencingComponentEntity> controllerServiceReferencingComponents = null;
+    @SerializedName("controllerServiceReferencingComponents")
+    private List<ControllerServiceReferencingComponentEntity> controllerServiceReferencingComponents = null;
 
-  public ControllerServiceReferencingComponentsEntity controllerServiceReferencingComponents(List<ControllerServiceReferencingComponentEntity> controllerServiceReferencingComponents) {
-    this.controllerServiceReferencingComponents = controllerServiceReferencingComponents;
-    return this;
-  }
-
-  public ControllerServiceReferencingComponentsEntity addControllerServiceReferencingComponentsItem(ControllerServiceReferencingComponentEntity controllerServiceReferencingComponentsItem) {
-    if (this.controllerServiceReferencingComponents == null) {
-      this.controllerServiceReferencingComponents = new ArrayList<ControllerServiceReferencingComponentEntity>();
+    public ControllerServiceReferencingComponentsEntity controllerServiceReferencingComponents(List<ControllerServiceReferencingComponentEntity> controllerServiceReferencingComponents) {
+        this.controllerServiceReferencingComponents = controllerServiceReferencingComponents;
+        return this;
     }
-    this.controllerServiceReferencingComponents.add(controllerServiceReferencingComponentsItem);
-    return this;
-  }
 
-   /**
-   * Get controllerServiceReferencingComponents
-   * @return controllerServiceReferencingComponents
-  **/
-  @ApiModelProperty(value = "")
-  public List<ControllerServiceReferencingComponentEntity> getControllerServiceReferencingComponents() {
-    return controllerServiceReferencingComponents;
-  }
-
-  public void setControllerServiceReferencingComponents(List<ControllerServiceReferencingComponentEntity> controllerServiceReferencingComponents) {
-    this.controllerServiceReferencingComponents = controllerServiceReferencingComponents;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public ControllerServiceReferencingComponentsEntity addControllerServiceReferencingComponentsItem(ControllerServiceReferencingComponentEntity controllerServiceReferencingComponentsItem) {
+        if (this.controllerServiceReferencingComponents == null) {
+            this.controllerServiceReferencingComponents = new ArrayList<ControllerServiceReferencingComponentEntity>();
+        }
+        this.controllerServiceReferencingComponents.add(controllerServiceReferencingComponentsItem);
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * Get controllerServiceReferencingComponents
+     *
+     * @return controllerServiceReferencingComponents
+     **/
+    @ApiModelProperty(value = "")
+    public List<ControllerServiceReferencingComponentEntity> getControllerServiceReferencingComponents() {
+        return controllerServiceReferencingComponents;
     }
-    ControllerServiceReferencingComponentsEntity controllerServiceReferencingComponentsEntity = (ControllerServiceReferencingComponentsEntity) o;
-    return Objects.equals(this.controllerServiceReferencingComponents, controllerServiceReferencingComponentsEntity.controllerServiceReferencingComponents);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(controllerServiceReferencingComponents);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class ControllerServiceReferencingComponentsEntity {\n");
-    
-    sb.append("    controllerServiceReferencingComponents: ").append(toIndentedString(controllerServiceReferencingComponents)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setControllerServiceReferencingComponents(List<ControllerServiceReferencingComponentEntity> controllerServiceReferencingComponents) {
+        this.controllerServiceReferencingComponents = controllerServiceReferencingComponents;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ControllerServiceReferencingComponentsEntity controllerServiceReferencingComponentsEntity = (ControllerServiceReferencingComponentsEntity) o;
+        return Objects.equals(this.controllerServiceReferencingComponents, controllerServiceReferencingComponentsEntity.controllerServiceReferencingComponents);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(controllerServiceReferencingComponents);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class ControllerServiceReferencingComponentsEntity {\n");
+
+        sb.append("    controllerServiceReferencingComponents: ").append(toIndentedString(controllerServiceReferencingComponents)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

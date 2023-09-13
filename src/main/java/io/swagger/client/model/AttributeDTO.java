@@ -13,128 +13,125 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
+import java.util.Objects;
 
 /**
  * AttributeDTO
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class AttributeDTO {
-  @SerializedName("name")
-  private String name = null;
+    @SerializedName("name")
+    private String name = null;
 
-  @SerializedName("value")
-  private String value = null;
+    @SerializedName("value")
+    private String value = null;
 
-  @SerializedName("previousValue")
-  private String previousValue = null;
+    @SerializedName("previousValue")
+    private String previousValue = null;
 
-  public AttributeDTO name(String name) {
-    this.name = name;
-    return this;
-  }
-
-   /**
-   * The attribute name.
-   * @return name
-  **/
-  @ApiModelProperty(value = "The attribute name.")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public AttributeDTO value(String value) {
-    this.value = value;
-    return this;
-  }
-
-   /**
-   * The attribute value.
-   * @return value
-  **/
-  @ApiModelProperty(value = "The attribute value.")
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public AttributeDTO previousValue(String previousValue) {
-    this.previousValue = previousValue;
-    return this;
-  }
-
-   /**
-   * The value of the attribute before the event took place.
-   * @return previousValue
-  **/
-  @ApiModelProperty(value = "The value of the attribute before the event took place.")
-  public String getPreviousValue() {
-    return previousValue;
-  }
-
-  public void setPreviousValue(String previousValue) {
-    this.previousValue = previousValue;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
+    public AttributeDTO name(String name) {
+        this.name = name;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * The attribute name.
+     *
+     * @return name
+     **/
+    @ApiModelProperty(value = "The attribute name.")
+    public String getName() {
+        return name;
     }
-    AttributeDTO attributeDTO = (AttributeDTO) o;
-    return Objects.equals(this.name, attributeDTO.name) &&
-        Objects.equals(this.value, attributeDTO.value) &&
-        Objects.equals(this.previousValue, attributeDTO.previousValue);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(name, value, previousValue);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class AttributeDTO {\n");
-    
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    value: ").append(toIndentedString(value)).append("\n");
-    sb.append("    previousValue: ").append(toIndentedString(previousValue)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
+    public void setName(String name) {
+        this.name = name;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public AttributeDTO value(String value) {
+        this.value = value;
+        return this;
+    }
+
+    /**
+     * The attribute value.
+     *
+     * @return value
+     **/
+    @ApiModelProperty(value = "The attribute value.")
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public AttributeDTO previousValue(String previousValue) {
+        this.previousValue = previousValue;
+        return this;
+    }
+
+    /**
+     * The value of the attribute before the event took place.
+     *
+     * @return previousValue
+     **/
+    @ApiModelProperty(value = "The value of the attribute before the event took place.")
+    public String getPreviousValue() {
+        return previousValue;
+    }
+
+    public void setPreviousValue(String previousValue) {
+        this.previousValue = previousValue;
+    }
+
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        AttributeDTO attributeDTO = (AttributeDTO) o;
+        return Objects.equals(this.name, attributeDTO.name) &&
+                Objects.equals(this.value, attributeDTO.value) &&
+                Objects.equals(this.previousValue, attributeDTO.previousValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, value, previousValue);
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class AttributeDTO {\n");
+
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    value: ").append(toIndentedString(value)).append("\n");
+        sb.append("    previousValue: ").append(toIndentedString(previousValue)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 
 }
 

@@ -13,24 +13,13 @@
 
 package io.swagger.client.api;
 
-import io.swagger.client.ApiCallback;
-import io.swagger.client.ApiClient;
-import io.swagger.client.ApiException;
-import io.swagger.client.ApiResponse;
-import io.swagger.client.Configuration;
-import io.swagger.client.Pair;
-import io.swagger.client.ProgressRequestBody;
-import io.swagger.client.ProgressResponseBody;
-
 import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
+import io.swagger.client.*;
 import io.swagger.client.model.ParameterContextEntity;
 import io.swagger.client.model.ParameterContextUpdateRequestEntity;
 import io.swagger.client.model.ParameterContextValidationRequestEntity;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,8 +47,9 @@ public class ParameterContextsApi {
 
     /**
      * Build call for createParameterContext
-     * @param body The Parameter Context. (required)
-     * @param progressListener Progress listener
+     *
+     * @param body                    The Parameter Context. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -78,41 +68,41 @@ public class ParameterContextsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call createParameterContextValidateBeforeCall(ParameterContextEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createParameterContext(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = createParameterContextCall(body, progressListener, progressRequestListener);
         return call;
@@ -121,7 +111,7 @@ public class ParameterContextsApi {
 
     /**
      * Create a Parameter Context
-     * 
+     *
      * @param body The Parameter Context. (required)
      * @return ParameterContextEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -133,21 +123,22 @@ public class ParameterContextsApi {
 
     /**
      * Create a Parameter Context
-     * 
+     *
      * @param body The Parameter Context. (required)
      * @return ApiResponse&lt;ParameterContextEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextEntity> createParameterContextWithHttpInfo(ParameterContextEntity body) throws ApiException {
         com.squareup.okhttp.Call call = createParameterContextValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Create a Parameter Context (asynchronously)
-     * 
-     * @param body The Parameter Context. (required)
+     *
+     * @param body     The Parameter Context. (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -174,18 +165,21 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = createParameterContextValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteParameterContext
-     * @param id The Parameter Context ID. (required)
-     * @param version The version is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The Parameter Context ID. (required)
+     * @param version                      The version is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -194,57 +188,57 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (version != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
+            localVarQueryParams.addAll(apiClient.parameterToPair("version", version));
         if (clientId != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
+            localVarQueryParams.addAll(apiClient.parameterToPair("clientId", clientId));
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteParameterContextValidateBeforeCall(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteParameterContext(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteParameterContextCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -254,9 +248,10 @@ public class ParameterContextsApi {
     /**
      * Deletes the Parameter Context with the given ID
      * Deletes the Parameter Context with the given ID.
-     * @param id The Parameter Context ID. (required)
-     * @param version The version is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The Parameter Context ID. (required)
+     * @param version                      The version is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ParameterContextEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -269,27 +264,30 @@ public class ParameterContextsApi {
     /**
      * Deletes the Parameter Context with the given ID
      * Deletes the Parameter Context with the given ID.
-     * @param id The Parameter Context ID. (required)
-     * @param version The version is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The Parameter Context ID. (required)
+     * @param version                      The version is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;ParameterContextEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextEntity> deleteParameterContextWithHttpInfo(String id, String version, String clientId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteParameterContextValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the Parameter Context with the given ID (asynchronously)
      * Deletes the Parameter Context with the given ID.
-     * @param id The Parameter Context ID. (required)
-     * @param version The version is used to verify the client is working with the latest version of the flow. (optional)
-     * @param clientId If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
+     *
+     * @param id                           The Parameter Context ID. (required)
+     * @param version                      The version is used to verify the client is working with the latest version of the flow. (optional)
+     * @param clientId                     If the client id is not specified, a new one will be generated. This value (whether specified or generated) is included in the response. (optional)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -315,17 +313,20 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = deleteParameterContextValidateBeforeCall(id, version, clientId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteUpdateRequest
-     * @param contextId The ID of the ParameterContext (required)
-     * @param requestId The ID of the Update Request (required)
+     *
+     * @param contextId                    The ID of the ParameterContext (required)
+     * @param requestId                    The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -334,59 +335,59 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{contextId}/update-requests/{requestId}"
-            .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()))
-            .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
+                .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()))
+                .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteUpdateRequestValidateBeforeCall(String contextId, String requestId, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'contextId' is set
         if (contextId == null) {
             throw new ApiException("Missing the required parameter 'contextId' when calling deleteUpdateRequest(Async)");
         }
-        
+
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling deleteUpdateRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteUpdateRequestCall(contextId, requestId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -396,8 +397,9 @@ public class ParameterContextsApi {
     /**
      * Deletes the Update Request with the given ID
      * Deletes the Update Request with the given ID. After a request is created via a POST to /nifi-api/parameter-contexts/update-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Update process has completed. If the request is deleted before the request completes, then the Update request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param contextId The ID of the ParameterContext (required)
-     * @param requestId The ID of the Update Request (required)
+     *
+     * @param contextId                    The ID of the ParameterContext (required)
+     * @param requestId                    The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ParameterContextUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -410,25 +412,28 @@ public class ParameterContextsApi {
     /**
      * Deletes the Update Request with the given ID
      * Deletes the Update Request with the given ID. After a request is created via a POST to /nifi-api/parameter-contexts/update-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Update process has completed. If the request is deleted before the request completes, then the Update request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param contextId The ID of the ParameterContext (required)
-     * @param requestId The ID of the Update Request (required)
+     *
+     * @param contextId                    The ID of the ParameterContext (required)
+     * @param requestId                    The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;ParameterContextUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextUpdateRequestEntity> deleteUpdateRequestWithHttpInfo(String contextId, String requestId, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteUpdateRequestValidateBeforeCall(contextId, requestId, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the Update Request with the given ID (asynchronously)
      * Deletes the Update Request with the given ID. After a request is created via a POST to /nifi-api/parameter-contexts/update-requests, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the Update process has completed. If the request is deleted before the request completes, then the Update request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param contextId The ID of the ParameterContext (required)
-     * @param requestId The ID of the Update Request (required)
+     *
+     * @param contextId                    The ID of the ParameterContext (required)
+     * @param requestId                    The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -454,17 +459,20 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = deleteUpdateRequestValidateBeforeCall(contextId, requestId, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for deleteValidationRequest
-     * @param contextId The ID of the Parameter Context (required)
-     * @param id The ID of the Update Request (required)
+     *
+     * @param contextId                    The ID of the Parameter Context (required)
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener             Progress listener
+     * @param progressRequestListener      Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -473,59 +481,59 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{contextId}/validation-requests/{id}"
-            .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()))
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()))
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (disconnectedNodeAcknowledged != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
+            localVarQueryParams.addAll(apiClient.parameterToPair("disconnectedNodeAcknowledged", disconnectedNodeAcknowledged));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call deleteValidationRequestValidateBeforeCall(String contextId, String id, Boolean disconnectedNodeAcknowledged, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'contextId' is set
         if (contextId == null) {
             throw new ApiException("Missing the required parameter 'contextId' when calling deleteValidationRequest(Async)");
         }
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling deleteValidationRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = deleteValidationRequestCall(contextId, id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
         return call;
@@ -535,8 +543,9 @@ public class ParameterContextsApi {
     /**
      * Deletes the Validation Request with the given ID
      * Deletes the Validation Request with the given ID. After a request is created via a POST to /nifi-api/validation-contexts, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the validation process has completed. If the request is deleted before the request completes, then the Validation request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param contextId The ID of the Parameter Context (required)
-     * @param id The ID of the Update Request (required)
+     *
+     * @param contextId                    The ID of the Parameter Context (required)
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ParameterContextValidationRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -549,25 +558,28 @@ public class ParameterContextsApi {
     /**
      * Deletes the Validation Request with the given ID
      * Deletes the Validation Request with the given ID. After a request is created via a POST to /nifi-api/validation-contexts, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the validation process has completed. If the request is deleted before the request completes, then the Validation request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param contextId The ID of the Parameter Context (required)
-     * @param id The ID of the Update Request (required)
+     *
+     * @param contextId                    The ID of the Parameter Context (required)
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
      * @return ApiResponse&lt;ParameterContextValidationRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextValidationRequestEntity> deleteValidationRequestWithHttpInfo(String contextId, String id, Boolean disconnectedNodeAcknowledged) throws ApiException {
         com.squareup.okhttp.Call call = deleteValidationRequestValidateBeforeCall(contextId, id, disconnectedNodeAcknowledged, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Deletes the Validation Request with the given ID (asynchronously)
      * Deletes the Validation Request with the given ID. After a request is created via a POST to /nifi-api/validation-contexts, it is expected that the client will properly clean up the request by DELETE&#39;ing it, once the validation process has completed. If the request is deleted before the request completes, then the Validation request will finish the step that it is currently performing and then will cancel any subsequent steps.
-     * @param contextId The ID of the Parameter Context (required)
-     * @param id The ID of the Update Request (required)
+     *
+     * @param contextId                    The ID of the Parameter Context (required)
+     * @param id                           The ID of the Update Request (required)
      * @param disconnectedNodeAcknowledged Acknowledges that this node is disconnected to allow for mutable requests to proceed. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                     The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -593,16 +605,19 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = deleteValidationRequestValidateBeforeCall(contextId, id, disconnectedNodeAcknowledged, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getParameterContext
-     * @param id The ID of the Parameter Context (required)
+     *
+     * @param id                         The ID of the Parameter Context (required)
      * @param includeInheritedParameters Whether or not to include inherited parameters from other parameter contexts, and therefore also overridden values.  If true, the result will be the &#39;effective&#39; parameter context. (optional, default to false)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
+     * @param progressListener           Progress listener
+     * @param progressRequestListener    Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
@@ -611,53 +626,53 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (includeInheritedParameters != null)
-        localVarQueryParams.addAll(apiClient.parameterToPair("includeInheritedParameters", includeInheritedParameters));
+            localVarQueryParams.addAll(apiClient.parameterToPair("includeInheritedParameters", includeInheritedParameters));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParameterContextValidateBeforeCall(String id, Boolean includeInheritedParameters, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getParameterContext(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getParameterContextCall(id, includeInheritedParameters, progressListener, progressRequestListener);
         return call;
@@ -667,7 +682,8 @@ public class ParameterContextsApi {
     /**
      * Returns the Parameter Context with the given ID
      * Returns the Parameter Context with the given ID.
-     * @param id The ID of the Parameter Context (required)
+     *
+     * @param id                         The ID of the Parameter Context (required)
      * @param includeInheritedParameters Whether or not to include inherited parameters from other parameter contexts, and therefore also overridden values.  If true, the result will be the &#39;effective&#39; parameter context. (optional, default to false)
      * @return ParameterContextEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -680,23 +696,26 @@ public class ParameterContextsApi {
     /**
      * Returns the Parameter Context with the given ID
      * Returns the Parameter Context with the given ID.
-     * @param id The ID of the Parameter Context (required)
+     *
+     * @param id                         The ID of the Parameter Context (required)
      * @param includeInheritedParameters Whether or not to include inherited parameters from other parameter contexts, and therefore also overridden values.  If true, the result will be the &#39;effective&#39; parameter context. (optional, default to false)
      * @return ApiResponse&lt;ParameterContextEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextEntity> getParameterContextWithHttpInfo(String id, Boolean includeInheritedParameters) throws ApiException {
         com.squareup.okhttp.Call call = getParameterContextValidateBeforeCall(id, includeInheritedParameters, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Returns the Parameter Context with the given ID (asynchronously)
      * Returns the Parameter Context with the given ID.
-     * @param id The ID of the Parameter Context (required)
+     *
+     * @param id                         The ID of the Parameter Context (required)
      * @param includeInheritedParameters Whether or not to include inherited parameters from other parameter contexts, and therefore also overridden values.  If true, the result will be the &#39;effective&#39; parameter context. (optional, default to false)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback                   The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -722,15 +741,18 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = getParameterContextValidateBeforeCall(id, includeInheritedParameters, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getParameterContextUpdate
-     * @param contextId The ID of the Parameter Context (required)
-     * @param requestId The ID of the Update Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param contextId               The ID of the Parameter Context (required)
+     * @param requestId               The ID of the Update Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -740,8 +762,8 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{contextId}/update-requests/{requestId}"
-            .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()))
-            .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
+                .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()))
+                .replaceAll("\\{" + "requestId" + "\\}", apiClient.escapeString(requestId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -751,46 +773,46 @@ public class ParameterContextsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getParameterContextUpdateValidateBeforeCall(String contextId, String requestId, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'contextId' is set
         if (contextId == null) {
             throw new ApiException("Missing the required parameter 'contextId' when calling getParameterContextUpdate(Async)");
         }
-        
+
         // verify the required parameter 'requestId' is set
         if (requestId == null) {
             throw new ApiException("Missing the required parameter 'requestId' when calling getParameterContextUpdate(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getParameterContextUpdateCall(contextId, requestId, progressListener, progressRequestListener);
         return call;
@@ -799,7 +821,8 @@ public class ParameterContextsApi {
 
     /**
      * Returns the Update Request with the given ID
-     * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /nifi-api/parameter-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /nifi-api/parameter-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param contextId The ID of the Parameter Context (required)
      * @param requestId The ID of the Update Request (required)
      * @return ParameterContextUpdateRequestEntity
@@ -812,7 +835,8 @@ public class ParameterContextsApi {
 
     /**
      * Returns the Update Request with the given ID
-     * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /nifi-api/parameter-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /nifi-api/parameter-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param contextId The ID of the Parameter Context (required)
      * @param requestId The ID of the Update Request (required)
      * @return ApiResponse&lt;ParameterContextUpdateRequestEntity&gt;
@@ -820,16 +844,18 @@ public class ParameterContextsApi {
      */
     public ApiResponse<ParameterContextUpdateRequestEntity> getParameterContextUpdateWithHttpInfo(String contextId, String requestId) throws ApiException {
         com.squareup.okhttp.Call call = getParameterContextUpdateValidateBeforeCall(contextId, requestId, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Returns the Update Request with the given ID (asynchronously)
-     * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /nifi-api/parameter-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Update Request with the given ID. Once an Update Request has been created by performing a POST to /nifi-api/parameter-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param contextId The ID of the Parameter Context (required)
      * @param requestId The ID of the Update Request (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -855,15 +881,18 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = getParameterContextUpdateValidateBeforeCall(contextId, requestId, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for getValidationRequest
-     * @param contextId The ID of the Parameter Context (required)
-     * @param id The ID of the Validation Request (required)
-     * @param progressListener Progress listener
+     *
+     * @param contextId               The ID of the Parameter Context (required)
+     * @param id                      The ID of the Validation Request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -873,8 +902,8 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{contextId}/validation-requests/{id}"
-            .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()))
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()))
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -884,46 +913,46 @@ public class ParameterContextsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "*/*"
+                "*/*"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call getValidationRequestValidateBeforeCall(String contextId, String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'contextId' is set
         if (contextId == null) {
             throw new ApiException("Missing the required parameter 'contextId' when calling getValidationRequest(Async)");
         }
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getValidationRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = getValidationRequestCall(contextId, id, progressListener, progressRequestListener);
         return call;
@@ -932,9 +961,10 @@ public class ParameterContextsApi {
 
     /**
      * Returns the Validation Request with the given ID
-     * Returns the Validation Request with the given ID. Once a Validation Request has been created by performing a POST to /nifi-api/validation-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Validation Request with the given ID. Once a Validation Request has been created by performing a POST to /nifi-api/validation-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param contextId The ID of the Parameter Context (required)
-     * @param id The ID of the Validation Request (required)
+     * @param id        The ID of the Validation Request (required)
      * @return ParameterContextValidationRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -945,24 +975,27 @@ public class ParameterContextsApi {
 
     /**
      * Returns the Validation Request with the given ID
-     * Returns the Validation Request with the given ID. Once a Validation Request has been created by performing a POST to /nifi-api/validation-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Validation Request with the given ID. Once a Validation Request has been created by performing a POST to /nifi-api/validation-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param contextId The ID of the Parameter Context (required)
-     * @param id The ID of the Validation Request (required)
+     * @param id        The ID of the Validation Request (required)
      * @return ApiResponse&lt;ParameterContextValidationRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextValidationRequestEntity> getValidationRequestWithHttpInfo(String contextId, String id) throws ApiException {
         com.squareup.okhttp.Call call = getValidationRequestValidateBeforeCall(contextId, id, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Returns the Validation Request with the given ID (asynchronously)
-     * Returns the Validation Request with the given ID. Once a Validation Request has been created by performing a POST to /nifi-api/validation-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures. 
+     * Returns the Validation Request with the given ID. Once a Validation Request has been created by performing a POST to /nifi-api/validation-contexts, that request can subsequently be retrieved via this endpoint, and the request that is fetched will contain the updated state, such as percent complete, the current state of the request, and any failures.
+     *
      * @param contextId The ID of the Parameter Context (required)
-     * @param id The ID of the Validation Request (required)
-     * @param callback The callback to be executed when the API call finishes
+     * @param id        The ID of the Validation Request (required)
+     * @param callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -988,15 +1021,18 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = getValidationRequestValidateBeforeCall(contextId, id, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for submitParameterContextUpdate
-     * @param contextId  (required)
-     * @param body The updated version of the parameter context. (required)
-     * @param progressListener Progress listener
+     *
+     * @param contextId               (required)
+     * @param body                    The updated version of the parameter context. (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1006,7 +1042,7 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{contextId}/update-requests"
-            .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()));
+                .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1016,46 +1052,46 @@ public class ParameterContextsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call submitParameterContextUpdateValidateBeforeCall(String contextId, ParameterContextEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'contextId' is set
         if (contextId == null) {
             throw new ApiException("Missing the required parameter 'contextId' when calling submitParameterContextUpdate(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling submitParameterContextUpdate(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = submitParameterContextUpdateCall(contextId, body, progressListener, progressRequestListener);
         return call;
@@ -1065,8 +1101,9 @@ public class ParameterContextsApi {
     /**
      * Initiate the Update Request of a Parameter Context
      * This will initiate the process of updating a Parameter Context. Changing the value of a Parameter may require that one or more components be stopped and restarted, so this action may take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextUpdateRequestEntity, and the process of updating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/update-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/update-requests/{requestId}.
-     * @param contextId  (required)
-     * @param body The updated version of the parameter context. (required)
+     *
+     * @param contextId (required)
+     * @param body      The updated version of the parameter context. (required)
      * @return ParameterContextUpdateRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1078,23 +1115,26 @@ public class ParameterContextsApi {
     /**
      * Initiate the Update Request of a Parameter Context
      * This will initiate the process of updating a Parameter Context. Changing the value of a Parameter may require that one or more components be stopped and restarted, so this action may take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextUpdateRequestEntity, and the process of updating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/update-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/update-requests/{requestId}.
-     * @param contextId  (required)
-     * @param body The updated version of the parameter context. (required)
+     *
+     * @param contextId (required)
+     * @param body      The updated version of the parameter context. (required)
      * @return ApiResponse&lt;ParameterContextUpdateRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextUpdateRequestEntity> submitParameterContextUpdateWithHttpInfo(String contextId, ParameterContextEntity body) throws ApiException {
         com.squareup.okhttp.Call call = submitParameterContextUpdateValidateBeforeCall(contextId, body, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Initiate the Update Request of a Parameter Context (asynchronously)
      * This will initiate the process of updating a Parameter Context. Changing the value of a Parameter may require that one or more components be stopped and restarted, so this action may take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextUpdateRequestEntity, and the process of updating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/update-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/update-requests/{requestId}.
-     * @param contextId  (required)
-     * @param body The updated version of the parameter context. (required)
-     * @param callback The callback to be executed when the API call finishes
+     *
+     * @param contextId (required)
+     * @param body      The updated version of the parameter context. (required)
+     * @param callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1120,15 +1160,18 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = submitParameterContextUpdateValidateBeforeCall(contextId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextUpdateRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for submitValidationRequest
-     * @param contextId  (required)
-     * @param body The validation request (required)
-     * @param progressListener Progress listener
+     *
+     * @param contextId               (required)
+     * @param body                    The validation request (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1138,7 +1181,7 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{contextId}/validation-requests"
-            .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()));
+                .replaceAll("\\{" + "contextId" + "\\}", apiClient.escapeString(contextId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1148,46 +1191,46 @@ public class ParameterContextsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call submitValidationRequestValidateBeforeCall(String contextId, ParameterContextValidationRequestEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'contextId' is set
         if (contextId == null) {
             throw new ApiException("Missing the required parameter 'contextId' when calling submitValidationRequest(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling submitValidationRequest(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = submitValidationRequestCall(contextId, body, progressListener, progressRequestListener);
         return call;
@@ -1197,8 +1240,9 @@ public class ParameterContextsApi {
     /**
      * Initiate a Validation Request to determine how the validity of components will change if a Parameter Context were to be updated
      * This will initiate the process of validating all components whose Process Group is bound to the specified Parameter Context. Performing validation against an arbitrary number of components may be expect and take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextValidationRequestEntity, and the process of validating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/validation-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/validation-requests/{requestId}.
-     * @param contextId  (required)
-     * @param body The validation request (required)
+     *
+     * @param contextId (required)
+     * @param body      The validation request (required)
      * @return ParameterContextValidationRequestEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
@@ -1210,23 +1254,26 @@ public class ParameterContextsApi {
     /**
      * Initiate a Validation Request to determine how the validity of components will change if a Parameter Context were to be updated
      * This will initiate the process of validating all components whose Process Group is bound to the specified Parameter Context. Performing validation against an arbitrary number of components may be expect and take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextValidationRequestEntity, and the process of validating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/validation-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/validation-requests/{requestId}.
-     * @param contextId  (required)
-     * @param body The validation request (required)
+     *
+     * @param contextId (required)
+     * @param body      The validation request (required)
      * @return ApiResponse&lt;ParameterContextValidationRequestEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextValidationRequestEntity> submitValidationRequestWithHttpInfo(String contextId, ParameterContextValidationRequestEntity body) throws ApiException {
         com.squareup.okhttp.Call call = submitValidationRequestValidateBeforeCall(contextId, body, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Initiate a Validation Request to determine how the validity of components will change if a Parameter Context were to be updated (asynchronously)
      * This will initiate the process of validating all components whose Process Group is bound to the specified Parameter Context. Performing validation against an arbitrary number of components may be expect and take significantly more time than many other REST API actions. As a result, this endpoint will immediately return a ParameterContextValidationRequestEntity, and the process of validating the necessary components will occur asynchronously in the background. The client may then periodically poll the status of the request by issuing a GET request to /parameter-contexts/validation-requests/{requestId}. Once the request is completed, the client is expected to issue a DELETE request to /parameter-contexts/validation-requests/{requestId}.
-     * @param contextId  (required)
-     * @param body The validation request (required)
-     * @param callback The callback to be executed when the API call finishes
+     *
+     * @param contextId (required)
+     * @param body      The validation request (required)
+     * @param callback  The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
@@ -1252,15 +1299,18 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = submitValidationRequestValidateBeforeCall(contextId, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextValidationRequestEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
+
     /**
      * Build call for updateParameterContext
-     * @param id  (required)
-     * @param body The updated Parameter Context (required)
-     * @param progressListener Progress listener
+     *
+     * @param id                      (required)
+     * @param body                    The updated Parameter Context (required)
+     * @param progressListener        Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1270,7 +1320,7 @@ public class ParameterContextsApi {
 
         // create path and map variables
         String localVarPath = "/parameter-contexts/{id}"
-            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+                .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1280,46 +1330,46 @@ public class ParameterContextsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
-        if(progressListener != null) {
+        if (progressListener != null) {
             apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
                 @Override
                 public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
                     com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
                 }
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
+        String[] localVarAuthNames = new String[]{};
         return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
 
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call updateParameterContextValidateBeforeCall(String id, ParameterContextEntity body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
+
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling updateParameterContext(Async)");
         }
-        
+
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling updateParameterContext(Async)");
         }
-        
+
 
         com.squareup.okhttp.Call call = updateParameterContextCall(id, body, progressListener, progressRequestListener);
         return call;
@@ -1329,7 +1379,8 @@ public class ParameterContextsApi {
     /**
      * Modifies a Parameter Context
      * This endpoint will update a Parameter Context to match the provided entity. However, this request will fail if any component is running and is referencing a Parameter in the Parameter Context. Generally, this endpoint is not called directly. Instead, an update request should be submitted by making a POST to the /parameter-contexts/update-requests endpoint. That endpoint will, in turn, call this endpoint.
-     * @param id  (required)
+     *
+     * @param id   (required)
      * @param body The updated Parameter Context (required)
      * @return ParameterContextEntity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1342,22 +1393,25 @@ public class ParameterContextsApi {
     /**
      * Modifies a Parameter Context
      * This endpoint will update a Parameter Context to match the provided entity. However, this request will fail if any component is running and is referencing a Parameter in the Parameter Context. Generally, this endpoint is not called directly. Instead, an update request should be submitted by making a POST to the /parameter-contexts/update-requests endpoint. That endpoint will, in turn, call this endpoint.
-     * @param id  (required)
+     *
+     * @param id   (required)
      * @param body The updated Parameter Context (required)
      * @return ApiResponse&lt;ParameterContextEntity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<ParameterContextEntity> updateParameterContextWithHttpInfo(String id, ParameterContextEntity body) throws ApiException {
         com.squareup.okhttp.Call call = updateParameterContextValidateBeforeCall(id, body, null, null);
-        Type localVarReturnType = new TypeToken<ParameterContextEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextEntity>() {
+        }.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
     /**
      * Modifies a Parameter Context (asynchronously)
      * This endpoint will update a Parameter Context to match the provided entity. However, this request will fail if any component is running and is referencing a Parameter in the Parameter Context. Generally, this endpoint is not called directly. Instead, an update request should be submitted by making a POST to the /parameter-contexts/update-requests endpoint. That endpoint will, in turn, call this endpoint.
-     * @param id  (required)
-     * @param body The updated Parameter Context (required)
+     *
+     * @param id       (required)
+     * @param body     The updated Parameter Context (required)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1384,7 +1438,8 @@ public class ParameterContextsApi {
         }
 
         com.squareup.okhttp.Call call = updateParameterContextValidateBeforeCall(id, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<ParameterContextEntity>(){}.getType();
+        Type localVarReturnType = new TypeToken<ParameterContextEntity>() {
+        }.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

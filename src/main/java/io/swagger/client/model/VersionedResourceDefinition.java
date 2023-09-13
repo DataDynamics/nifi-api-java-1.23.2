@@ -13,213 +13,212 @@
 
 package io.swagger.client.model;
 
-import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * VersionedResourceDefinition
  */
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class VersionedResourceDefinition {
-  /**
-   * The cardinality of the resource
-   */
-  @JsonAdapter(CardinalityEnum.Adapter.class)
-  public enum CardinalityEnum {
-    SINGLE("SINGLE"),
-    
-    MULTIPLE("MULTIPLE");
+    @SerializedName("cardinality")
+    private CardinalityEnum cardinality = null;
+    @SerializedName("resourceTypes")
+    private List<ResourceTypesEnum> resourceTypes = null;
 
-    private String value;
-
-    CardinalityEnum(String value) {
-      this.value = value;
+    public VersionedResourceDefinition cardinality(CardinalityEnum cardinality) {
+        this.cardinality = cardinality;
+        return this;
     }
 
-    public String getValue() {
-      return value;
+    /**
+     * The cardinality of the resource
+     *
+     * @return cardinality
+     **/
+    @ApiModelProperty(value = "The cardinality of the resource")
+    public CardinalityEnum getCardinality() {
+        return cardinality;
+    }
+
+    public void setCardinality(CardinalityEnum cardinality) {
+        this.cardinality = cardinality;
+    }
+
+    public VersionedResourceDefinition resourceTypes(List<ResourceTypesEnum> resourceTypes) {
+        this.resourceTypes = resourceTypes;
+        return this;
+    }
+
+    public VersionedResourceDefinition addResourceTypesItem(ResourceTypesEnum resourceTypesItem) {
+        if (this.resourceTypes == null) {
+            this.resourceTypes = new ArrayList<ResourceTypesEnum>();
+        }
+        this.resourceTypes.add(resourceTypesItem);
+        return this;
+    }
+
+    /**
+     * The types of resource that the Property Descriptor is allowed to reference
+     *
+     * @return resourceTypes
+     **/
+    @ApiModelProperty(value = "The types of resource that the Property Descriptor is allowed to reference")
+    public List<ResourceTypesEnum> getResourceTypes() {
+        return resourceTypes;
+    }
+
+    public void setResourceTypes(List<ResourceTypesEnum> resourceTypes) {
+        this.resourceTypes = resourceTypes;
+    }
+
+    @Override
+    public boolean equals(java.lang.Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        VersionedResourceDefinition versionedResourceDefinition = (VersionedResourceDefinition) o;
+        return Objects.equals(this.cardinality, versionedResourceDefinition.cardinality) &&
+                Objects.equals(this.resourceTypes, versionedResourceDefinition.resourceTypes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cardinality, resourceTypes);
     }
 
     @Override
     public String toString() {
-      return String.valueOf(value);
+        StringBuilder sb = new StringBuilder();
+        sb.append("class VersionedResourceDefinition {\n");
+
+        sb.append("    cardinality: ").append(toIndentedString(cardinality)).append("\n");
+        sb.append("    resourceTypes: ").append(toIndentedString(resourceTypes)).append("\n");
+        sb.append("}");
+        return sb.toString();
     }
 
-    public static CardinalityEnum fromValue(String text) {
-      for (CardinalityEnum b : CardinalityEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(java.lang.Object o) {
+        if (o == null) {
+            return "null";
         }
-      }
-      return null;
+        return o.toString().replace("\n", "\n    ");
     }
 
-    public static class Adapter extends TypeAdapter<CardinalityEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final CardinalityEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
 
-      @Override
-      public CardinalityEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return CardinalityEnum.fromValue(String.valueOf(value));
-      }
-    }
-  }
+    /**
+     * The cardinality of the resource
+     */
+    @JsonAdapter(CardinalityEnum.Adapter.class)
+    public enum CardinalityEnum {
+        SINGLE("SINGLE"),
 
-  @SerializedName("cardinality")
-  private CardinalityEnum cardinality = null;
+        MULTIPLE("MULTIPLE");
 
-  /**
-   * Gets or Sets resourceTypes
-   */
-  @JsonAdapter(ResourceTypesEnum.Adapter.class)
-  public enum ResourceTypesEnum {
-    FILE("FILE"),
-    
-    DIRECTORY("DIRECTORY"),
-    
-    TEXT("TEXT"),
-    
-    URL("URL");
+        private String value;
 
-    private String value;
-
-    ResourceTypesEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static ResourceTypesEnum fromValue(String text) {
-      for (ResourceTypesEnum b : ResourceTypesEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
+        CardinalityEnum(String value) {
+            this.value = value;
         }
-      }
-      return null;
+
+        public static CardinalityEnum fromValue(String text) {
+            for (CardinalityEnum b : CardinalityEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<CardinalityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CardinalityEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CardinalityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CardinalityEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
 
-    public static class Adapter extends TypeAdapter<ResourceTypesEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final ResourceTypesEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
+    /**
+     * Gets or Sets resourceTypes
+     */
+    @JsonAdapter(ResourceTypesEnum.Adapter.class)
+    public enum ResourceTypesEnum {
+        FILE("FILE"),
 
-      @Override
-      public ResourceTypesEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
-        return ResourceTypesEnum.fromValue(String.valueOf(value));
-      }
+        DIRECTORY("DIRECTORY"),
+
+        TEXT("TEXT"),
+
+        URL("URL");
+
+        private String value;
+
+        ResourceTypesEnum(String value) {
+            this.value = value;
+        }
+
+        public static ResourceTypesEnum fromValue(String text) {
+            for (ResourceTypesEnum b : ResourceTypesEnum.values()) {
+                if (String.valueOf(b.value).equals(text)) {
+                    return b;
+                }
+            }
+            return null;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static class Adapter extends TypeAdapter<ResourceTypesEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ResourceTypesEnum enumeration) throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ResourceTypesEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ResourceTypesEnum.fromValue(String.valueOf(value));
+            }
+        }
     }
-  }
-
-  @SerializedName("resourceTypes")
-  private List<ResourceTypesEnum> resourceTypes = null;
-
-  public VersionedResourceDefinition cardinality(CardinalityEnum cardinality) {
-    this.cardinality = cardinality;
-    return this;
-  }
-
-   /**
-   * The cardinality of the resource
-   * @return cardinality
-  **/
-  @ApiModelProperty(value = "The cardinality of the resource")
-  public CardinalityEnum getCardinality() {
-    return cardinality;
-  }
-
-  public void setCardinality(CardinalityEnum cardinality) {
-    this.cardinality = cardinality;
-  }
-
-  public VersionedResourceDefinition resourceTypes(List<ResourceTypesEnum> resourceTypes) {
-    this.resourceTypes = resourceTypes;
-    return this;
-  }
-
-  public VersionedResourceDefinition addResourceTypesItem(ResourceTypesEnum resourceTypesItem) {
-    if (this.resourceTypes == null) {
-      this.resourceTypes = new ArrayList<ResourceTypesEnum>();
-    }
-    this.resourceTypes.add(resourceTypesItem);
-    return this;
-  }
-
-   /**
-   * The types of resource that the Property Descriptor is allowed to reference
-   * @return resourceTypes
-  **/
-  @ApiModelProperty(value = "The types of resource that the Property Descriptor is allowed to reference")
-  public List<ResourceTypesEnum> getResourceTypes() {
-    return resourceTypes;
-  }
-
-  public void setResourceTypes(List<ResourceTypesEnum> resourceTypes) {
-    this.resourceTypes = resourceTypes;
-  }
-
-
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    VersionedResourceDefinition versionedResourceDefinition = (VersionedResourceDefinition) o;
-    return Objects.equals(this.cardinality, versionedResourceDefinition.cardinality) &&
-        Objects.equals(this.resourceTypes, versionedResourceDefinition.resourceTypes);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(cardinality, resourceTypes);
-  }
-
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class VersionedResourceDefinition {\n");
-    
-    sb.append("    cardinality: ").append(toIndentedString(cardinality)).append("\n");
-    sb.append("    resourceTypes: ").append(toIndentedString(resourceTypes)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
 
 }
 
