@@ -37,14 +37,17 @@ import io.datadynamics.nifi.api.api.AccessApi;
 public class AccessApiExample {
 
     public static void main(String[] args) {
+        String username = "admin";
+        String password = "admin";
+              
         AccessApi accessApi = new AccessApi();
         ApiClient client = new ApiClient(true);
         client.setDebugging(true);
-        client.addDefaultHeader("Authorization", getBasicAuthenticationHeader("admin", "adminadminadmin"));
+        client.addDefaultHeader("Authorization", Credentials.basic(username, password));
         client.setBasePath("https://localhost:8443/nifi-api");
 
         accessApi.setApiClient(client);
-        String accessToken = accessApi.createAccessToken("admin", "adminadminadmin");
+        String accessToken = accessApi.createAccessToken(username, password);
     }
 }
 
