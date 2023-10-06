@@ -28,10 +28,6 @@ public class Configuration {
         return defaultApiClient;
     }
 
-    public static ApiClient getDefaultApiSslClient() {
-        return defaultApiSslClient;
-    }
-
     /**
      * Set the default API client, which would be used when creating API
      * instances without providing an API client.
@@ -42,6 +38,22 @@ public class Configuration {
         defaultApiClient = apiClient;
     }
 
+    /**
+     * Get the default API SSL client, which would be used when creating API
+     * instances without providing an API client.
+     *
+     * @return Default API client
+     */
+    public static ApiClient getDefaultApiSslClient() {
+        return defaultApiSslClient;
+    }
+
+    /**
+     * Set the default API SSL client, which would be used when creating API
+     * instances without providing an API client.
+     *
+     * @param apiClient API client
+     */
     public static void setDefaultApiSslClient(ApiClient apiClient) {
         defaultApiSslClient = apiClient;
     }
