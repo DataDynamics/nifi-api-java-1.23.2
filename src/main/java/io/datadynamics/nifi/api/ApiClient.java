@@ -17,11 +17,11 @@ import com.squareup.okhttp.*;
 import com.squareup.okhttp.internal.http.HttpMethod;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor.Level;
-import io.datadynamics.nifi.util.OkHttpUtil;
 import io.datadynamics.nifi.api.auth.ApiKeyAuth;
 import io.datadynamics.nifi.api.auth.Authentication;
 import io.datadynamics.nifi.api.auth.HttpBasicAuth;
 import io.datadynamics.nifi.api.auth.OAuth;
+import io.datadynamics.nifi.util.OkHttpUtil;
 import okio.BufferedSink;
 import okio.Okio;
 import org.threeten.bp.LocalDate;
@@ -78,8 +78,12 @@ public class ApiClient {
     /*
      * Constructor for ApiClient
      */
-    public ApiClient() {
-        httpClient = OkHttpUtil.getUnsafeOkHttpClient();
+    public ApiClient(boolean applySsl) {
+        if (applySsl) {
+            httpClient = OkHttpUtil.getUnsafeOkHttpClient();
+        } else {
+            httpClient = new OkHttpClient();
+        }
 
         verifyingSsl = false;
 

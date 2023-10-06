@@ -15,7 +15,8 @@ package io.datadynamics.nifi.api;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2023-09-13T23:19:14.614+09:00")
 public class Configuration {
-    private static ApiClient defaultApiClient = new ApiClient();
+    private static ApiClient defaultApiClient = new ApiClient(false);
+    private static ApiClient defaultApiSslClient = new ApiClient(true);
 
     /**
      * Get the default API client, which would be used when creating API
@@ -27,6 +28,10 @@ public class Configuration {
         return defaultApiClient;
     }
 
+    public static ApiClient getDefaultApiSslClient() {
+        return defaultApiSslClient;
+    }
+
     /**
      * Set the default API client, which would be used when creating API
      * instances without providing an API client.
@@ -35,5 +40,9 @@ public class Configuration {
      */
     public static void setDefaultApiClient(ApiClient apiClient) {
         defaultApiClient = apiClient;
+    }
+
+    public static void setDefaultApiSslClient(ApiClient apiClient) {
+        defaultApiSslClient = apiClient;
     }
 }
