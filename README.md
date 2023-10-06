@@ -1,12 +1,5 @@
 # Apache NiFi 1.23.2 버전을 위한 Java API Client
 
-## 작성 개요
-
-* NiFi 소스코드를 다운로드하여 swagger.json 파일을 확인
-* Swagger Codegen으로 swagger.json 파일을 로딩하여 Java로 변환
-* 변환된 코드에서 NiFi 상위버전 부터 SSL 필수이므로 SSL 인증서 처리 및 OAuth 인증 처리 부분 수정
-  * OkHTTP를 사용하므로 SSL을 무시하도록 하고 Basic Auth, OAuth2를 추가하도록 함 
-
 ## Swagger Codegen
 
 ```
@@ -19,6 +12,7 @@
 ## Requirements
 
 * Apache Maven
+* JDK 1.8 이상
 
 ## Installation
 
