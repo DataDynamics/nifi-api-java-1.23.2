@@ -33,6 +33,7 @@ API 호출을 위해서 Basic Auth로 Access Token을 얻습니다.
 ```java
 import io.datadynamics.nifi.api.ApiClient;
 import io.datadynamics.nifi.api.api.AccessApi;
+import com.squareup.okhttp.Credentials;
 
 public class AccessApiExample {
 
